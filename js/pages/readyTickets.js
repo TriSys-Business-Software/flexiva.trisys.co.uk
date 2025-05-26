@@ -1,0 +1,1 @@
+var ReadyTickets=(function(){return{'init':function(){var activeTab=$('[href=\x22'+location['hash']+'\x22]');activeTab&&activeTab['tab']('show');}};}());

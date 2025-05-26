@@ -1,0 +1,128 @@
+﻿<div class="content-header">
+	<div class="header-section">
+		<h1>
+			<i class="gi gi-server"></i>Data Import
+                <br>
+            <small>
+				Upload your data from another system as a Microsoft Excel file and migrate it into TriSys to create
+                multiple database records of any type.
+                <br />
+                Self-service data import of your own data is at your own risk. If in doubt, please speak with your TriSys Account Manager. Once you have imported data, this data cannot be deleted in bulk.
+			</small>
+		</h1>
+	</div>
+</div>
+<div class="block">
+	<div class="block-title">
+		<h2>Step 1 of 4: Download Template File</h2>
+	</div>
+	<p>
+		In order to ensure an accurate and efficient data migration process, we have defined a number of Microsoft Excel 
+        formated template files which must be downloaded onto your computer, and populated with your data, retaining the same
+        layout including column names.
+	</p>
+	<p>
+        <div class="btn-group">
+            <a href="javascript:void(0)" data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle" aria-expanded="false"
+                id="data-import-download-excel">
+                <i class="gi gi-cloud-download"></i> &nbsp; Download Excel Template <span class="caret"></span></a>
+            <ul class="dropdown-menu text-left">
+                <li>
+                    <a href="https://apex.trisys.co.uk/assets/TriSys-Apex-Customer-Data-Import-Template.xls" target="_blank">
+                        a. Contact and Company Template <span class="text-primary">(Recommended)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://apex.trisys.co.uk/assets/TriSys-Apex-LinkedIn-Profiles-Data-Import-Template.xlsx" target="_blank">
+                        b. LinkedIn People Profiles Template
+                    </a>
+                </li>
+                <li>
+                    <a href="https://apex.trisys.co.uk/assets/TriSys-Apex-LinkedIn-Sales-Navigator-Data-Import-Template.xlsx" target="_blank">
+                        c. LinkedIn Sales Navigator Profiles Template
+                    </a>
+                </li>
+                <li>
+                    <a href="https://apex.trisys.co.uk/assets/TriSys-Apex-LinkedIn-Deep-Profile-Data-Import-Template.xlsx" target="_blank">
+                        d. LinkedIn Deep Profile Template (education/work histories)
+                    </a>
+                </li>
+                <li>
+                    <a href="https://apex.trisys.co.uk/assets/TriSys-Apex-LinkedIn-Companies-Data-Import-Template.xlsx" target="_blank">
+                        e. LinkedIn Companies Template
+                    </a>
+                </li>
+            </ul>
+        </div>
+	</p>
+
+</div>
+
+<div class="block">
+	<div class="block-title">
+		<h2>Step 2 of 4: Upload File</h2>
+	</div>
+	<p>
+		After copying your data into this Microsoft Excel file, please ensure that data is stored in the correct columns exactly as laid out in the above template file.
+		Once you have added your data and saved your file, please upload it using the button below:
+	</p>
+	<p>
+		<a href="javascript:void(0)" onclick="DataImport.UploadFile()" class="btn btn-sm btn-default enable-tooltip" 
+				title="Upload your Microsoft Excel data import file containing your data" id="data-import-upload-excel">
+			<i class="gi gi-cloud-upload"></i> &nbsp; Upload Excel Data File
+		</a>
+	</p>
+    <p>
+        Please note that you may upload only a single file at a time, but can repeat this process numerous times in order to gradually import all of your data.
+        <br />
+        You will be prompted to confirm the number of records, and commence the import (Step 3 of 4).
+        <br />
+        After import, you will be prompted to view and verify the imported data (Step 4 of 4).
+    </p>
+
+</div>
+
+
+<div class="block" id="data-import-step-3" style="display: none;">
+	<div class="block-title">
+		<h2>Step 3 of 4: Import Data from File</h2>
+	</div>
+	<p id="data-import-step-3-p1" style="display: none;">
+		Uploaded File: <b><span id="data-import-step-3-filepath" style="font-size: 14px;"></span></b>
+	</p>
+	<p id="data-import-step-3-p2">
+		Please wait whilst your uploaded data is validated.
+	</p>
+	<p id="data-import-step-3-p3" style="display: none;">
+		<i class="gi gi-ok_2" style="vertical-align: top; padding-top: 5px;"></i> &nbsp;
+		Your uploaded data comprising <span id="data-import-step-3-validated-record-count"></span> records was successfully validated.
+	</p>
+	<p id="data-import-step-3-p4" style="display: none;">
+		Please wait whilst your uploaded data is imported, or cancel the import at any time using the button below.
+	</p>
+	<div class="progress progress-striped active" id="data-import-step-3-progress-div" style="display: none;">
+		<div class="progress-bar progress-bar-success" id="data-import-step-3-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
+	</div>
+	<p id="data-import-step-3-cancel-button" style="display: none;">
+		<a href="javascript:void(0)" onclick="DataImport.CancelImport()" class="btn btn-sm btn-default enable-tooltip" title="Cancel the import of your data">
+			<i class="gi gi-remove"></i> &nbsp; Cancel Import
+		</a>
+	</p>
+</div>
+
+<div class="block" id="data-import-step-4" style="display: none;">
+	<div class="block-title">
+		<h2>Step 4 of 4: View Imported Data</h2>
+	</div>
+	
+	<div class="row">
+        <div class="col-md-12">
+            <!-- The records grid populated by JS -->
+            <div id="data-import-record-grid" style="border-width: 1px; width: 100%;">
+            </div>
+        </div>
+	</div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/DataImport.js"></script>

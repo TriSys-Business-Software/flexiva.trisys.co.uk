@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>TriSys Apex Web Browser Extension</title>
+
+    <meta name="description" content="TriSys Apex is a web browser and mobile app recruiting CRM system for recruitment agencies.">
+    <meta name="author" content="TriSys Business Software">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://apex.trisys.co.uk/*">-->
+
+
+    <!-- Stylesheets -->
+    <!-- jQuery style for Tooltips -->
+    <link href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="css/plugins.css">
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="css/themes.css">
+    <!-- END Stylesheets -->
+
+    <style>
+        .trisys-extension-brand {
+            margin: 0;
+            font-weight: 300;
+            font-size: 18px;
+            display: block;
+            color: #ffffff;
+        }
+
+        a.trisys-extension-brand
+        {
+            color: white; text-decoration: none;
+        }
+
+        .trisys-extension-text
+        {
+            font-weight: 300;
+            font-size: 12px;
+            /*display: block;*/
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        a.trisys-extension-text
+        {
+            color: white; 
+            text-decoration: none;
+        }
+
+        .trisys-user-avatar img {
+            /*width: 64px;
+            height: 64px;*/
+            border-radius: 25px;
+            width: 52px;
+            height: 52px;
+            float: left;
+            padding: 2px;
+            /*margin-left: -78px;*/
+            border-radius: 34px;
+            background: url('../img/template/ie8_opacity_light_75.png') repeat;
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .trisys-vertical-column-separator
+        {
+            border-left: 1px solid #9197a9; 
+            width: 15px;
+        }
+
+        /* Colour overrides */
+        .text-primary, .text-primary:hover, a, a:hover, a:focus, a.text-primary, a.text-primary:hover, a.text-primary:focus {
+            color: white;
+        }
+
+        span.skype_c2c_container * {
+            color: rgb(0, 175, 253);
+        }
+    </style>
+</head>
+<body style="margin: 0px; padding: 0px; width: 102%">
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+		<!--class="page-loading">-->
+		<!-- Preloader -->
+		<!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
+		<!-- Used only if page preloader is enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
+		<!--<div class="preloader themed-background">
+			<h3 class="push-top-bottom text-light text-center"><strong>TriSys</strong> Loading...</h3>
+			<div class="inner">
+				<div class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10"></div>
+			</div>
+		</div>-->
+		<!-- END Preloader -->
+		<!-- Page Container -->
+
+		<table style="table-layout: fixed; width: 100%; height: 70px; background-color: #4c5572; padding: 10px; line-height: 1.95;">
+
+			<!-- Row #1 -->
+			<tr style="vertical-align: middle;">
+
+				<!-- TriSys Logo -->
+
+				<td style="width: 80px; padding-left: 0px; text-align: center; background-color: #394263;">
+					<a href="http://trisys.co.uk" target="_blank" class="trisys-extension-brand" onmouseover="" style="cursor: pointer;">
+						<img src="images/t-logo.png" alt="TriSys" style="width:20px" />
+						<br />
+						<span class="sidebar-nav-mini-hide"><strong>TriSys</strong></span>
+					</a>
+				</td>
+
+				<!-- Column Separator -->
+				<td class="trisys-vertical-column-separator">
+					&nbsp;
+				</td>
+
+				<!-- Visible only when not a TriSys customer or not connected -->
+				<td class="trisys-extension-text" style="display: none;" id="trisys-top-region-notconnected-panel">
+					This is the TriSys Recruitment CRM extension for this web browser.
+					<br />
+					If you are logged into <a href="http://recruitment.trisys.co.uk/startup.aspx" target="_blank">TriSys Apex</a>
+					on another browser tab, matching contact details will be shown here.
+					<br />
+					To learn more about TriSys Business Software and our products and services, please <a href="http://recruitment.trisys.co.uk" target="_blank">click here</a>.
+				</td>
+
+				<!-- User Photo -->
+
+				<td class="trisys-user-avatar" style="width: 70px;" id="trisys-top-region-useravatar-panel">
+					<img id="contact-photo" src="https://apex.trisys.co.uk/images/profile-grey.png" alt="&nbsp;" />
+				</td>
+
+				<td class="trisys-extension-text" style="width: 200px;" id="trisys-top-region-contactname-panel">
+					<a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenContactForm()">
+						<span id="contact-name"></span>
+					</a>
+					<br />
+					<i><span id="contact-jobtitle"></span></i>
+					<br />
+					<a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenCompanyForm()">
+						<span id="company-name"></span>
+					</a>
+				</td>
+
+				<!-- Column Separator -->
+				<td class="trisys-vertical-column-separator" id="trisys-top-region-separator1-panel">
+					&nbsp;
+				</td>
+
+				<!-- Work E-Mail -->
+				<td class="trisys-extension-text" style="width: 230px;" id="trisys-top-region-contactwork-panel">
+					<i class="fa fa-envelope" title="Work/Business e-mail address"></i> &nbsp;
+					<a href="javascript:void(0)" class="trisys-extension-text" id="contact-work-email-hyperlink">
+						<span id="contact-work-email"></span>
+					</a>
+					<br />
+					<i class="fa fa-envelope-o" title="Home/Personal e-mail address"></i> &nbsp;
+					<a href="javascript:void(0)" class="trisys-extension-text" id="contact-personal-email-hyperlink">
+						<span id="contact-personal-email"></span>
+					</a>
+					<br />
+					<i class="fa fa-phone" title="Work/Business landline telephone number"></i> &nbsp; <span id="contact-work-telno"></span>
+				</td>
+
+				<!-- Column Separator -->
+				<td class="trisys-vertical-column-separator" id="trisys-top-region-separator2-panel">
+					&nbsp;
+				</td>
+
+				<!-- Location -->
+				<td class="trisys-extension-text" style="width: 230px;" id="trisys-top-region-contactlocation-panel">
+					<i class="gi gi-iphone" title="Personal mobile telephone number"></i> &nbsp; <span id="contact-personal-mobile-telno"></span>
+					<br />
+					<i class="gi gi-google_maps" title="Location"></i> &nbsp; <span id="contact-address-summary"></span>
+					<br />
+					<i class="gi gi-phone_alt" title="Home telephone number"></i> &nbsp; <span id="contact-home-telno"></span>
+				</td>
+
+				<!-- Column Separator -->
+				<td class="trisys-vertical-column-separator" id="trisys-top-region-separator3-panel">
+					&nbsp;
+				</td>
+
+				<!-- Social -->
+				<td class="trisys-extension-text" style="width: 270px; overflow: hidden;" id="trisys-top-region-contactsocial-panel">
+					<a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the LinkedIn social network profile" id="contact-linkedin-profile-hyperlink" target="_blank">
+						<i class="fa fa-linkedin-square" title="LinkedIn profile"></i> &nbsp; <span id="contact-linkedin-profile-url"></span>
+					</a>
+					<br />
+					<a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the Facebook social network profile" id="contact-facebook-hyperlink" target="_blank">
+						<i class="fa fa-facebook-square" title="Facebook page"></i> &nbsp; <span id="contact-facebook-url"></span>
+					</a>
+					<br />
+					<a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the Twitter social network profile" id="contact-twitter-hyperlink" target="_blank">
+						<i class="fa fa-twitter" title="Twitter feed"></i> &nbsp; <span id="contact-twitter-handle"></span>
+					</a>
+				</td>
+
+				<!-- Column Separator -->
+				<td class="trisys-vertical-column-separator" id="trisys-top-region-separator4-panel">
+					&nbsp;
+				</td>
+
+				<!-- Last Contacted -->
+				<td class="trisys-extension-text" style="width: 200px;" id="trisys-top-region-contactdates-panel">
+					<i class="gi gi-clock" title="Last date contacted"></i> &nbsp; <span id="contact-last-contacted-date"></span>
+					<br />
+					<i class="gi gi-clock" title="Next contact date"></i> &nbsp; <span id="contact-next-contact-date"></span>
+					<br />
+					&nbsp;
+				</td>
+
+
+				<!-- Not found in database -->
+				<td class="trisys-extension-text" id="trisys-top-region-contactnotfound-panel" style="display: none;">
+					This contact is <u><b>not</b></u> found in your TriSys Recruitment CRM database.
+					<br />
+					Please use the 't' button on your web browser toolbar to open the popup window and use the '+' menu to select the 'Add New Contact' item.
+					<br />
+					You will then be able to create this new contact in your database and associate this web page with their profile.
+				</td>
+
+				<!-- DEBUG Only -->
+				<td class="trisys-extension-text" id="trisys-top-region-debug-panel" style="display: none;">
+					<span id="trisys-message"></span>
+					<br />
+					<span id="linkedin-memberid"></span>
+					<br />
+					&nbsp;
+					<!-- TESTING -->
+					<a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.iFrameCommunication.SendTestMessageToPopup()">
+						Send to popup window
+					</a>
+				</td>
+
+			</tr>
+		</table>
+
+
+		<!-- END Page Container -->
+	</div>
+	<!-- END Page Wrapper -->
+	<!-- Remember to include excanvas for IE8 chart support -->
+	<!--[if IE 8]><script src="js/helpers/excanvas.min.js"></script><![endif]-->
+	<!-- Local JQuery to be compatible with KendoUI and ProUI -->
+	<script src="kendoui/js/jquery.min.js"></script>
+	<!--This should be version 1.11.2 -->
+	<!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/app.js"></script>
+
+	<!-- Google Maps API + Gmaps Plugin, must be loaded in the page you would like to use maps -->
+	<script src="//maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="js/helpers/gmaps.min.js"></script>
+
+	<!-- Moment (date formatter) -->
+	<script type="text/javascript" src="javascript/moment.js"></script>
+
+	<!-- Load and execute javascript code used only in this page -->
+	<script src="js/pages/extension.js"></script>
+
+	<!-- Mulitple modal dialogues will be generated on startup to provide us with enough stackable modals at run-time -->
+	<div id="divModalStackArray">
+		<div id="trisys-modal-regular" class="modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none; z-index: 99998;">
+			<div class="modal-dialog" id="trisys-modal-dialogue">
+				<div class="modal-content">
+					<div class="modal-header" id="trisys-modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="trisys-modal-close-button">&times;</button>
+						<h3 class="modal-title" id="trisys-modal-title"> Modal Title</h3>
+					</div>
+					<div class="modal-body" id="trisys-modal-dynamic-content">
+						Modal Content..
+					</div>
+					<div class="modal-footer">
+						<!-- data-dismiss="modal" -->
+						<button type="button" class="btn btn-sm btn-default" id="trisys-modal-default">Default</button>
+						<button type="button" class="btn btn-sm btn-info" id="trisys-modal-info">Info</button>
+						<button type="button" class="btn btn-sm btn-success" id="trisys-modal-success">Success</button>
+						<button type="button" class="btn btn-sm btn-warning" id="trisys-modal-warning">Warning</button>
+						<button type="button" class="btn btn-sm btn-danger" id="trisys-modal-danger">Danger</button>
+						<button type="button" class="btn btn-sm btn-primary" id="trisys-modal-primary">Primary</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- TriSys Apex Libraries -->
+	<script src="javascript/TriSysLoad.js?datetime=20160930103100"></script>
+
+	<!-- TriSysApex.UI.ShowWait() -->
+	<div class="modal" id="pleaseWaitDiv" tabindex="-1" role="dialog" aria-hidden="true" style="z-index:99999;">
+
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header trisys-modal-question-style">
+					<h5 class="modal-title" id="trisys-wait-modal-message"> Processing Data...</h5>
+				</div>
+				<div class="modal-body" style="width: 100%;">
+					<div class="header-section" style="padding: 0;">
+						<h1 style="text-align: center; padding-top: 15px;">
+							<i class="fa fa-sun-o fa-spin" style="float: none; line-height: 10px;" id="waiting-spinner-image"></i> &nbsp;
+						</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		/* 2015 */
+		.trisys-modal-question-style {
+			background-color: #F9FAFC;
+		}
+	</style>
+
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+
+	<!-- Index-Background.html dynamically loaded into here -->
+	<div id="Index-Background"></div>
+
+</body>
+</html>

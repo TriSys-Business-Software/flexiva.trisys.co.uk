@@ -1,0 +1,110 @@
+﻿<table style="width: 100%; margin-bottom: 10px;" >
+
+  <tr>
+    <td style="margin-left:5px; margin-right: 5px; text-align: right;">
+      
+    </td>
+    <td style="padding-left:10px;">
+      <b>Candidate Source</b>
+    </td>
+    <td style="padding-left:10px; text-align: right;">
+      <b>Total<br />Candidates</b>
+    </td>
+    <td style="text-align: right;">
+      <b>##PlacementType##<br />Placements</b>
+    </td>
+    <td style="text-align: right; padding-right:5px;">
+      <b>Total Profit</b>
+    </td>
+    <td style="text-align: right;">
+      <b>Average<br />##PlacementType##<br />Placement Profit</b>
+      <br />&nbsp;
+    </td>
+  </tr>
+  
+	<% for(var i=0; i < CandidateSourceProfits.length; i++) {%>
+
+	<tr>
+      
+		<td style="margin-left:5px; margin-right: 5px; text-align: right;">
+		  <span style="font-weight:bold; font-size: 12px;">
+			<%= CandidateSourceProfits[i].Position  %>
+      </span>
+		</td>
+
+		<td>
+      
+			<div style="margin-left:10px;">
+
+				<p style="font-size: 12px; margin-bottom: 0px;">
+
+					<%= CandidateSourceProfits[i].CandidateSource  %>
+
+          </p>
+
+			</div>
+
+		</td>
+
+    <td>
+
+      <div style="margin-left:10px;">
+
+        <p style="font-size: 12px; margin-bottom: 0px; text-align: right;">
+
+          <%= CandidateSourceProfits[i].NumberOfCandidates  %>
+
+          </p>
+
+      </div>
+
+    </td>
+
+    <td>
+
+      <div style="margin-left:10px;">
+
+        <p style="font-size: 12px; margin-bottom: 0px; text-align: right;">
+
+          <%= CandidateSourceProfits[i].NumberOfPlacements  %>
+
+        </p>
+
+      </div>
+
+    </td>
+
+    <td>
+      
+			<div style="margin-left:10px; margin-right: 5px;">
+
+				<p style="font-size: 12px; margin-bottom: 0px; text-align: right;">
+
+					<%= CandidateSourceProfits[i].ProfitWithCurrency  %>
+
+          </p>
+
+			</div>
+
+		</td>
+
+		<td>
+      
+			<div style="margin-left:10px;">
+
+				<p style="font-size: 12px; margin-bottom: 0px; text-align: right;">
+
+					<%= CandidateSourceProfits[i].AverageWithCurrency  %>
+
+          </p>
+
+			</div>
+
+		</td>
+          
+	</tr>
+        
+	<% } %>
+	                    
+</table>
+            

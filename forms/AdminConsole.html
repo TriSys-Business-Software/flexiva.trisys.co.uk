@@ -1,0 +1,841 @@
+﻿<style scoped>
+
+    .block-title > i {
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+
+	.block-options input {
+		border: 1px solid #dadada;
+		border-radius: 4px;
+		background-image: url(images/icon_search.png);
+		background-repeat: no-repeat;
+		background-position: right 10px center;
+	}
+
+	.dropdown-menu.dropdown-custom > li {
+		padding: 2px;
+	}
+
+    /* This attempt in Oct 2024 to fix the wrapping buttons fucked up the security permissions property */
+    /* This is for when the buttons previously wrapped, causing the content to be shrunk */
+    /*.block-options {
+        position: relative;*/ /* Ensure relative positioning for the dropdown */
+    /*}
+
+    .dropdown-menu {
+        position: absolute;*/ /* Absolute positioning for dropdown */
+        /*z-index: 1050;*/ /* Dropdown should appear above other elements */
+        /*top: 100%;*/ /* Place dropdown below the button */
+        /*left: 0;
+        visibility: visible;*/ /* Ensure visibility */
+    /*}*/
+
+    /*.block-title {    This conflicts with .block-title > i above 
+        padding-top: 10px;
+        padding-left: 15px;
+        overflow: visible;*/ /* Ensure the title does not clip the dropdown */
+    /*}*/
+
+</style>
+
+<div class="block">
+	<div class="block-title">
+		<i class="gi gi-settings fa-2x pull-left themed-color"></i>
+
+		<h2>Administrator Console</h2>
+	</div>
+
+	<!-- START TABS -->
+	<div class="block full" id="admin-console-tab-panel-buttons">
+		<div class="block-title">
+            <ul class="nav nav-tabs" data-toggle="tabs" id="admin-console-tab-nav-horizontal">
+                <li id="admin-console-tab-users">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-users', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-lock"></i>&nbsp; User Maintenance
+                    </a>
+                </li>
+                <li id="admin-console-tab-groups">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-groups', AdminConsole.TabClickEvent);">
+                        <i class="fa fa-users"></i>&nbsp; User Groups
+                    </a>
+                </li>
+                <li id="admin-console-tab-performance-targets">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-performance-targets', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-money"></i>&nbsp; Performance Targets
+                    </a>
+                </li>
+                <li id="admin-console-tab-attributes">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-attributes', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-list"></i>&nbsp; Attributes/Lookups
+                    </a>
+                </li>
+                <li id="admin-console-tab-system-settings">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-system-settings', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-settings"></i> &nbsp; System Settings
+                    </a>
+                </li>
+                <li id="admin-console-tab-user-settings" style="display: none;">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-user-settings', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-user"></i>&nbsp; User Settings
+                    </a>
+                </li>
+                <li id="admin-console-tab-field-descriptions">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-field-descriptions', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-wrench"></i>&nbsp; Field Descriptions
+                    </a>
+                </li>
+                <li id="admin-console-tab-document-manager">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-document-manager', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-folder_open"></i>&nbsp; Document Manager
+                    </a>
+                </li>
+                <li id="admin-console-tab-invalid-cvpaths" style="display: none;">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-invalid-cvpaths', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-file_export"></i>&nbsp; Invalid CV Paths
+                    </a>
+                </li>
+                <li id="admin-console-tab-sql-manager" style="display: none;">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-sql-manager', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-server"></i>&nbsp; SQL Manager
+                    </a>
+                </li>
+                <li id="admin-console-tab-style-manager" style="display: none;">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-style-manager', AdminConsole.TabClickEvent);">
+                        <i class="fa fa-code"></i>&nbsp; Style Manager
+                    </a>
+                </li>
+                <li id="admin-console-tab-security">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-security', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-unlock"></i>&nbsp; Security
+                    </a>
+                </li>
+                <li id="admin-console-tab-audit-trail" style="display: none;">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'system-admin-panel-audit-trail', AdminConsole.TabClickEvent);">
+                        <i class="gi gi-history"></i>&nbsp; Audit Trail
+                    </a>
+                </li>
+            </ul>
+		</div>
+        <div class="tab-content">
+            <div class="tab-pane" id="system-admin-panel-users">
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-lock fa-2x pull-left themed-color"></i>
+
+                        <h2>User Maintenance</h2>
+
+                        <div class="block-options pull-right">
+
+                            <span class="label label-danger"><span id="system-admin-users-deactivated-count">0</span> Inactive</span>
+                            <span>&nbsp;</span>
+                            <span class="label label-warning"><span id="system-admin-users-expiring-count">0</span> Expiring Soon</span>
+                            <span>&nbsp;</span>
+                            <span class="label label-success"><span id="system-admin-users-activated-count">0</span> Active</span>
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.EditUser()" class=" btn btn-sm btn-default enable-tooltip" title="Open User">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open User &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.CloneUser()" class=" btn btn-sm btn-default enable-tooltip" title="Add User">
+                                <i class="gi gi-plus"></i> &nbsp; Add User &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.ActivateUser()" class=" btn btn-sm btn-default enable-tooltip" title="Activate User">
+                                <i class="gi gi-ok"></i> &nbsp; Activate User &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.DeleteUser()" class=" btn btn-sm btn-default enable-tooltip" title="Deactivate User">
+                                <i class="gi gi-remove"></i> &nbsp; Deactivate User &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <div id="adminConsoleForm-User-ActionsMenu"></div>
+
+                            <span>&nbsp;</span>
+
+                            <div id="adminConsoleForm-User-GridMenu"></div>
+
+                        </div>
+                    </div>
+
+                    <div id="adminConsoleForm-UserGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-groups">
+                <div class="block">
+                    <div class="block-title">
+                        <i class="fa fa-users fa-2x pull-left themed-color"></i>
+
+                        <h2>User Groups</h2>
+
+                        <div class="block-options pull-right">
+                            <a style="cursor: pointer;" onclick="AdminConsole.EditGroup()" class=" btn btn-sm btn-default enable-tooltip" title="Edit group name and description">
+                                <i class="gi gi-folder_open"></i> &nbsp; Edit Group &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.AddUserGroup()" class=" btn btn-sm btn-default enable-tooltip" title="Add a user group">
+                                <i class="gi gi-circle_plus"></i> &nbsp; Add Group &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.RemoveUserGroup()" class=" btn btn-sm btn-default enable-tooltip" title="Remove selected user group">
+                                <i class="gi gi-remove"></i> &nbsp; Remove Group &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.AddUserToGroup()" class=" btn btn-sm btn-default enable-tooltip" title="Add user to one or more selected groups">
+                                <i class="gi gi-user_add"></i> &nbsp; Add User &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.RemoveUserFromGroup()" class=" btn btn-sm btn-default enable-tooltip" title="Remove one or more users from one or more groups">
+                                <i class="gi gi-user_remove"></i> &nbsp; Remove User(s) &nbsp;
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div id="adminConsoleForm-GroupTree" style="border-width: 1px; width: 100%; margin-bottom: 20px;">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-performance-targets">
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-money fa-2x pull-left themed-color"></i>
+
+                        <h2>Performance Targets</h2>
+
+                        <div class="block-options pull-right">
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.AddTargetMetric()" class=" btn btn-sm btn-default enable-tooltip" title="Add Target Metric">
+                                <i class="gi gi-plus"></i> &nbsp; Add Target Metric &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.DeleteTargetMetric()" class=" btn btn-sm btn-default enable-tooltip" title="Delete Target Metric">
+                                <i class="gi gi-minus"></i> &nbsp; Delete Target Metric &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.EditTarget()" class=" btn btn-sm btn-default enable-tooltip" title="Open Target">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open Target &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.AddTarget()" class=" btn btn-sm btn-default enable-tooltip" title="Add Target">
+                                <i class="gi gi-plus"></i> &nbsp; Add Target &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.DeleteTarget()" class=" btn btn-sm btn-default enable-tooltip" title="Delete Target">
+                                <i class="gi gi-remove"></i> &nbsp; Delete Target &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <div id="adminConsoleForm-PerformanceTargets-GridMenu"></div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <div id="adminConsoleForm-PerformanceTargetCombo-ByTarget">
+                                <label class="col-md-1 control-label" style="text-align: left;">Target</label>
+                                <div class="col-md-6">
+                                    <input id="adminConsoleForm-PerformanceTargetCombo" style="width:100%" />
+                                </div>
+                            </div>
+                            <div id="adminConsoleForm-PerformanceTargetCombo-ByUser" style="display: none;">
+                                <label class="col-md-1 control-label" style="text-align: left;">User</label>
+                                <div class="col-md-6">
+                                    <input id="adminConsoleForm-PerformanceTargetCombo-Users" style="width:100%" />
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" id="adminConsoleForm-PerformanceTargetByUser" value="0" unchecked>
+                                    <span></span>
+                                </label>
+                                &nbsp; by User
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="adminConsoleForm-PerformanceTargetsGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-attributes">
+
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-list fa-2x pull-left themed-color"></i>
+                        <h2>Attributes/Lookups</h2>
+
+                        <div class="block-options pull-right">
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.AddSkillCategory()" class=" btn btn-sm btn-default enable-tooltip" title="Add a skill category">
+                                <i class="gi gi-circle_plus"></i> &nbsp; Add Category
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.EditSkillCategory()" class=" btn btn-sm btn-default enable-tooltip" title="Edit selected skill category">
+                                <i class="gi gi-folder_open"></i> &nbsp; Edit Category
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.RemoveSkillCategory()" class=" btn btn-sm btn-default enable-tooltip" title="Remove selected skill category">
+                                <i class="gi gi-circle_minus"></i> &nbsp; Remove Category
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.AddSkill()" class=" btn btn-sm btn-default enable-tooltip" title="Add a new attribute to the selected category">
+                                <i class="gi gi-user_add"></i> &nbsp; Add Attribute
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.EditSkill()" class=" btn btn-sm btn-default enable-tooltip" title="Edit selected attribute">
+                                <i class="gi gi-folder_open"></i> &nbsp; Edit Attribute
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.ReAssignSkillLinks()" class=" btn btn-sm btn-default enable-tooltip" title="Re-assign selected attribute links to another">
+                                <i class="gi gi-transfer"></i> &nbsp; Re-Assign Attribute Links
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.MoveSkill()" class=" btn btn-sm btn-default enable-tooltip" title="Move selected attribute to another category">
+                                <i class="gi gi-share"></i> &nbsp; Move Attribute
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.RemoveSkill()" class=" btn btn-sm btn-default enable-tooltip" title="Remove selected attribute">
+                                <i class="gi gi-user_remove"></i> &nbsp; Remove Attribute
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-left: 10px; margin-top: -20px;">
+                        <div class="col-md-6" style="padding-left: 0px">
+                            <h5 class="sub-header"><strong>Categories</strong></h5>
+                            <div id="adminConsoleForm-SkillCategoryGrid" style="border-width: 1px; width: 100%; ">
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding-left: 0px">
+                            <h5 class="sub-header">Attributes/Lookups: &nbsp; <strong><span id="adminConsoleForm-SelectedCategory"></span></strong></h5>
+                            <div id="adminConsoleForm-SkillGrid" style="border-width: 1px; width: 100%; ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="system-admin-panel-system-settings">
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-settings fa-2x pull-left themed-color"></i>
+                        <h2>System Settings</h2>
+
+                        <div class="block-options pull-right">
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.AddSystemSetting()" class=" btn btn-sm btn-default enable-tooltip" title="Add a system setting">
+                                <i class="gi gi-circle_plus"></i> &nbsp; Add &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.EditSystemSetting()" class=" btn btn-sm btn-default enable-tooltip" title="Edit selected system setting">
+                                <i class="gi gi-folder_open"></i> &nbsp; Edit &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.RemoveSystemSetting()" class=" btn btn-sm btn-default enable-tooltip" title="Remove selected system setting">
+                                <i class="gi gi-circle_minus"></i> &nbsp; Remove &nbsp;
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div id="adminConsoleForm-SystemSettingsGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-field-descriptions">
+
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-wrench fa-2x pull-left themed-color"></i>
+                        <h2>
+                            Field Descriptions
+                        </h2>
+
+                        <div class="block-options pull-right">
+
+                            <div class="btn-group btn-group-sm show-on-hover">
+                                <a style="cursor: pointer;" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="New Menu">
+                                    <i class="gi gi-plus"></i> &nbsp; New &nbsp;<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                                    <li>
+                                        <a style="cursor: pointer;" onclick="AdminConsole.FieldDescriptions.Open(0)">
+                                            <i class="gi gi-wrench pull-left"></i>  &nbsp; Add Field
+                                        </a>
+                                    </li>
+                                    <li style="display: none;">     <!-- 26 Jan 2023: Hidden -->
+                                        <a style="cursor: pointer;" onclick="AdminConsole.FieldDescriptions.EntityBuilder()">
+                                            <i class="gi gi-magic pull-left"></i>  &nbsp; Entity Builder
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <span>&nbsp;</span>
+                            <a style="cursor: pointer;" onclick="AdminConsole.FieldDescriptions.Open()" class=" btn btn-sm btn-default enable-tooltip" title="Open selected field description">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.FieldDescriptions.Delete()" class=" btn btn-sm btn-default enable-tooltip" title="Delete selected field description">
+                                <i class="gi gi-remove"></i> &nbsp; Delete &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.FieldDescriptions.CustomEntityFields()" class=" btn btn-sm btn-default enable-tooltip" title="Edit the entity form Custom tab">
+                                <i class="gi gi-cargo"></i> &nbsp; Custom &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <div id="adminConsoleForm-FieldDescription-GridMenu"></div>
+                        </div>
+                    </div>
+
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 80px;">
+                                Entity
+                            </td>
+                            <td style="width: 280px;">
+                                <select id="adminConsoleForm-Entity" style="width:100%;"></select>
+                            </td>
+                            <td style="padding-left: 10px;">
+                                <span id="adminConsoleForm-EntityDescription"></span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div style="height: 10px"></div>
+
+                    <div id="adminConsoleForm-FieldDescriptionsGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-document-manager">
+
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-folder_open fa-2x pull-left themed-color"></i>
+                        <h2>Document Manager</h2>
+
+                        <div class="block-options pull-right">
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.DocumentManager.Add()" class=" btn btn-sm btn-default enable-tooltip" title="Add a document">
+                                <i class="gi gi-folder_plus"></i> &nbsp; Add Document &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.DocumentManager.Remove()" class=" btn btn-sm btn-default enable-tooltip" title="Remove one or more selected documents">
+                                <i class="gi gi-folder_minus"></i> &nbsp; Remove Document(s) &nbsp;
+                            </a>
+
+                            <span>&nbsp;</span>
+
+                            <div id="adminConsoleForm-DocumentGridMenu">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-left: 10px; margin-top: -20px;">
+                        <div class="col-md-4" style="padding-left: 0px">
+                            <h5 class="sub-header"><strong>Folders</strong></h5>
+                            <div id="adminConsoleForm-FolderGrid" style="border-width: 1px; width: 100%; ">
+                            </div>
+                        </div>
+                        <div class="col-md-8" style="padding-left: 0px">
+                            <h5 class="sub-header">Documents: &nbsp; <strong><span id="adminConsoleForm-SelectedFolder"></span></strong></h5>
+                            <div id="adminConsoleForm-DocumentGrid" style="border-width: 1px; width: 100%; ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-invalid-cvpaths">
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-file_export fa-2x pull-left themed-color"></i>
+                        <h2>Invalid CV Paths</h2>
+
+                        <div class="block-options pull-right">
+
+                        </div>
+                    </div>
+
+                    <div id="adminConsoleForm-InvalidCVPathGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-sql-manager">
+
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-server fa-2x pull-left themed-color"></i>
+                        <h2>SQL Manager</h2>
+
+                        <div class="block-options pull-right">
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.RunSQLQuery()" class=" btn btn-sm btn-default enable-tooltip" title="Run the SQL query">
+                                <i class="gi gi-play"></i> &nbsp; Run &nbsp;
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12" style="padding-left: 0px">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <table class="table table-borderless table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <textarea class="k-textbox" id="admin-console-sql-query" rows="5" style="width:100%; resize: vertical;"></textarea>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="padding-left: 0px">
+                            <div id="adminConsoleForm-SQLManagerGrid" style="border-width: 1px; width: 100%; ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-style-manager">
+
+                <div class="block">
+                    <div class="block-title">
+                        <i class="fa fa-code fa-2x pull-left themed-color"></i>
+                        <h2>Style Manager</h2>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12" style="padding-left: 0px">
+                            <dl class="dl-horizontal">
+                                <dt style="text-align: left; width: 26px;"><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+                                <dd style="margin-left: 35px; line-height: 1.9;">
+                                    We are currently developing a range of new themes, and our graphics designers can upload their themes here.
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6" style="padding-left: 0px">
+
+                            <div style="margin-top: 10px; margin-left: 10px;">
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your crimson.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-crimson" style="width:500px;"></div>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your lightning.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-lightning" style="width:500px; display: none;"></div>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your thunder.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-thunder" style="width:500px; display: none;"></div>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your jasper.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-jasper" style="width:500px; display: none;"></div>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your whistler.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-whistler" style="width:500px; display: none;"></div>
+                                    </dd>
+                                </dl>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6" style="padding-left: 0px">
+
+                            <div style="margin-top: 10px; margin-left: 10px;">
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your stratus.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-stratus" style="width:500px;"></div>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your cumulus.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-cumulus" style="width:500px;"></div>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your nimbus.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-nimbus" style="width:500px;"></div>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your cirrus.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-cirrus" style="width:500px;"></div>
+                                    </dd>
+                                </dl>
+
+                                <dl class="dl-horizontal" style="margin-bottom: 30px; display: none;">
+                                    <dd style="margin-left: 35px; line-height: 1.9;">
+                                        Please upload your northernlights.css file here:
+                                        <br /><br />
+                                        <div id="admin-console-css-file-northernlights" style="width:500px;"></div>
+                                    </dd>
+                                </dl>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="system-admin-panel-security">
+
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-unlock fa-2x pull-left themed-color"></i>
+                        <h2>Security</h2>
+
+                        <div class="block-options pull-right" style="padding-right: 15px;">
+
+                            Assign system permissions to one or more users, or copy and paste permissions.
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <div class="block">
+                                <div class="block-title">
+                                    <h2>Users</h2>
+
+                                    <div class="block-options pull-right">
+                                        <a style="cursor: pointer;" onclick="AdminConsole.Security.CopyUserPermissions()" class=" btn btn-sm btn-default enable-tooltip" title="Copy user permissions">
+                                            <i class="fa fa-clipboard"></i> &nbsp; Copy &nbsp;
+                                        </a>
+
+                                        <span>&nbsp;</span>
+
+                                        <a style="cursor: pointer;" onclick="AdminConsole.Security.PasteUserPermissions()" class=" btn btn-sm btn-default enable-tooltip" title="Paste copied user permissions">
+                                            <i class="gi gi-check"></i> &nbsp; Paste &nbsp;
+                                        </a>
+
+                                        <span>&nbsp;</span>
+
+                                        <a style="cursor: pointer;" onclick="AdminConsole.Security.ResetUserPermissions()" class=" btn btn-sm btn-default enable-tooltip" title="Reset user permissions to defaults">
+                                            <i class="gi gi-restart"></i> &nbsp; Reset &nbsp;
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div id="admin-console-security-UserGrid" style="border-width: 1px; width: 100%; margin-bottom: 20px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" style="padding-left: 0px">
+
+                            <div id="admin-console-security-PropertySheet"></div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tab-pane" id="system-admin-panel-user-settings">
+
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-user fa-2x pull-left themed-color"></i>
+                        <h2>User Settings</h2>
+
+                        <div class="block-options pull-right" style="padding-right: 15px;">
+
+                            <a style="cursor: pointer;" onclick="AdminConsole.UserSettings.NewSetting()" class=" btn btn-sm btn-default enable-tooltip" title="New setting">
+                                <i class="gi gi-plus"></i> &nbsp; New &nbsp;
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <div class="block">
+                                <div class="block-title">
+                                    <h2>Users</h2>
+
+                                    <!--<div class="block-options pull-right">
+
+                                <a href="javascript:void(0)" onclick="AdminConsole.UserSettings.AssignUserSettings()" class=" btn btn-sm btn-default enable-tooltip" title="Assign user settings">
+                                    <i class="fa fa-clipboard"></i> &nbsp; Assign &nbsp;
+                                </a>
+
+                            </div>-->
+                                </div>
+
+                                <div id="admin-console-user-settings-UserGrid" style="border-width: 1px; width: 100%; margin-bottom: 20px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" style="padding-left: 0px">
+
+                            <div id="admin-console-user-settings-PropertySheet"></div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tab-pane" id="system-admin-panel-audit-trail">
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-history fa-2x pull-left themed-color"></i>
+                        <h2>Audit Trail</h2>
+
+                        <div class="block-options pull-right">
+
+                            <div id="adminConsoleForm-AuditTrailGrid-GridMenu"></div>
+
+                        </div>
+                    </div>
+
+                    <div id="adminConsoleForm-AuditTrailGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+	</div>
+	<!-- END TABS -->
+
+</div>
+
+<!-- 05 March 2021 - user actions -->
+<script type="text/template" id="ctrlAdminConsoleUserGridActionsMenu-html">
+    <div class="btn-group btn-group-sm show-on-hover">
+        <a style="cursor: pointer;" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Actions"><i class="gi gi-magic">
+            </i> &nbsp; Actions &nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-custom dropdown-menu-right" style="width: 230px;">
+            <li>
+                <a style="cursor: pointer;" id="admin-console-usergrid-broadcastmessage"><i class="gi gi-chat pull-right"></i>Broadcast Message</a>
+                <a style="cursor: pointer;" id="admin-console-usergrid-logout"><i class="gi gi-exit pull-right"></i>Logout</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a style="cursor: pointer;" id="admin-console-usergrid-removecachedlogin"><i class="gi gi-database_minus pull-right"></i>Remove Cached Login</a>
+                <a style="cursor: pointer;" id="admin-console-usergrid-resetgrids"><i class="gi gi-database_lock pull-right"></i>Reset Grids</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a style="cursor: pointer;" id="admin-console-usergrid-setfont"><i class="gi gi-font pull-right"></i>Set Font</a>
+                <a style="cursor: pointer;" id="admin-console-usergrid-settheme"><i class="gi gi-blacksmith pull-right"></i>Set Theme</a>
+            </li>
+        </ul>
+    </div>
+</script>
+
+
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/adminconsole.js"></script>
+
+

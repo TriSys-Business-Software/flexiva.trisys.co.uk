@@ -1,0 +1,20 @@
+﻿
+
+<% for(var i=0; i < data.length; i++) {%>
+
+	<span style="font-weight:bold; font-size: 18px;">
+		<%= data[i].Position  %>
+	</span>
+
+	&nbsp;
+
+	<span style="font-weight:bold;">
+
+		<a href="<%=data[i].Link%>" target="_blank"><%=data[i].Title%></a>
+
+	</span>
+
+	
+	&nbsp; &nbsp; | &nbsp; &nbsp;
+        
+<% } %>

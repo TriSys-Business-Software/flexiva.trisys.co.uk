@@ -1,0 +1,71 @@
+﻿{
+    "File": "chart-api.json",
+    "Description": "Used by ctrlChartOptions and dashboard.js to allow customers to choose which Web API to use.",
+    "Created": "January 2018",
+    "API": [
+        {
+            "Function": "DashboardMetric/PieChartDefault",
+            "Description": "Default Pie chart with no data"
+        },
+        {
+            "Function": "DashboardMetric/ChartJobTitles",
+            "Description": "Pie chart of top 5 job titles"
+        },
+        {
+            "Function": "DashboardMetric/ChartContactStatus",
+            "Description": "Pie chart of top 5 contact statuses"
+        },
+        {
+            "Function": "DashboardMetric/ChartContactType",
+            "Description": "Pie chart of top 5 contact types"
+        },
+        {
+            "Function": "DashboardMetric/ChartCompanyIndustry",
+            "Description": "Pie chart of top 5 company industries"
+        },
+        {
+            "Function": "DashboardMetric/ChartRequirementsByCompany",
+            "Description": "Pie chart of top 5 requirements by company"
+        },
+        {
+            "Function": "DashboardMetric/ChartRequirementsByUser",
+            "Description": "Pie chart of top 5 requirements by user"
+        },
+        {
+            "Function": "DashboardMetric/ChartActiveRequirementTypes",
+            "Description": "Pie chart of top 5 active requirement types"
+        },
+        {
+            "Function": "DashboardMetric/ChartActiveRequirementCities",
+            "Description": "Pie chart of top 5 active requirement cities"
+        },
+        {
+            "Function": "DashboardMetric/ChartPlacementCompanies",
+            "Description": "Pie chart of top 5 placements by company"
+        },
+        {
+            "Function": "DashboardMetric/ChartPlacementTypes",
+            "Description": "Pie chart of top 5 placements by type"
+        },
+        {
+            "Function": "DashboardMetric/ChartPlacementUsers",
+            "Description": "Pie chart of top 5 placements by user"
+        },
+        {
+            "Function": "DashboardMetric/ChartPlacementJobTitles",
+            "Description": "Pie chart of top 5 placements by job title"
+        },
+        {
+            "Function": "DashboardMetric/ChartPlacementStatus",
+            "Description": "Pie chart of top 5 placements by status"
+        },
+        {
+            "Function": "DashboardMetric/ChartTaskTypes",
+            "Description": "Pie chart of top 5 tasks by type"
+        },
+        {
+            "Function": "DashboardMetric/ChartTaskUsers",
+            "Description": "Pie chart of top 5 tasks by user"
+        }
+    ]
+}

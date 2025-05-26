@@ -1,0 +1,206 @@
+﻿<style scoped>
+
+    .trisys-consultant-12-month-activity
+    {
+        margin-top: -10px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    .trisys-consultant-12-month-activity tr
+    {
+        vertical-align: bottom;
+        height: 40px;
+        line-height: 30px;
+        border-bottom: 1px solid #f2ebed;
+    }
+
+    .trisys-consultant-12-month-activity td:first-child     /* What Metric      */
+    {
+	    width: 50%; /*210px;*/
+    }
+    
+    .trisys-consultant-12-month-activity td:nth-child(2)    /* The sparkline    */
+    {
+	   /* width: 120px; */
+       width: 30%;
+    }
+
+    .trisys-consultant-12-month-activity td:nth-child(3)    /* The total value  */
+    {
+	    text-align: right;
+        width: 20%; /* 60px */
+        font-weight: 600;
+    }
+
+</style>
+
+<table class="trisys-consultant-12-month-activity">
+
+    <tr>
+        <td><span id="NumTasks-Label">Tasks</span></td>
+        <td><span id="NumTasks-Chart"></span></td>
+        <td><span id="NumTasks-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="NumRequirements-Label">Requirements</span></td>
+        <td><span id="NumRequirements-Chart"></span></td>
+        <td><span id="NumRequirements-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="NumPlacements-Label">Placements</span></td>
+        <td><span id="NumPlacements-Chart"></span></td>
+        <td><span id="NumPlacements-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="CandidateCount-Label">Candidates</span></td>
+        <td><span id="CandidateCount-Chart"></span></td>
+        <td><span id="CandidateCount-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="ClientSalesCalls-Label">Client Sales Calls</span></td>
+        <td><span id="ClientSalesCalls-Chart"></span></td>
+        <td><span id="ClientSalesCalls-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="ClientServiceCalls-Label">Client Service Calls</span></td>
+        <td><span id="ClientServiceCalls-Chart"></span></td>
+        <td><span id="ClientServiceCalls-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="CandidateNetworkCalls-Label">Candidate Network Calls</span></td>
+        <td><span id="CandidateNetworkCalls-Chart"></span></td>
+        <td><span id="CandidateNetworkCalls-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="CandidateUpdateCalls-Label">Candidate Update Calls</span></td>
+        <td><span id="CandidateUpdateCalls-Chart"></span></td>
+        <td><span id="CandidateUpdateCalls-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="CandidateVacancyCalls-Label">Candidate Vacancy Calls</span></td>
+        <td><span id="CandidateVacancyCalls-Chart"></span></td>
+        <td><span id="CandidateVacancyCalls-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="HeadhuntCalls-Label">Headhunt Calls</span></td>
+        <td><span id="HeadhuntCalls-Chart"></span></td>
+        <td><span id="HeadhuntCalls-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="MiscellaneousCalls-Label">Miscellaneous Calls</span></td>
+        <td><span id="MiscellaneousCalls-Chart"></span></td>
+        <td><span id="MiscellaneousCalls-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="CVsSent-Label">CV's Sent</span></td>
+        <td><span id="CVsSent-Chart"></span></td>
+        <td><span id="CVsSent-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="FaceToFaceInterviews-Label">Face To Face Interviews</span></td>
+        <td><span id="FaceToFaceInterviews-Chart"></span></td>
+        <td><span id="FaceToFaceInterviews-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="PermPlacementBackOuts-Label">Perm Placement Back Outs</span></td>
+        <td><span id="PermPlacementBackOuts-Chart"></span></td>
+        <td><span id="PermPlacementBackOuts-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="ContractPlacementBackOuts-Label">Contract Placement Back Outs</span></td>
+        <td><span id="ContractPlacementBackOuts-Chart"></span></td>
+        <td><span id="ContractPlacementBackOuts-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="ClientMeetings-Label">Client Meetings</span></td>
+        <td><span id="ClientMeetings-Chart"></span></td>
+        <td><span id="ClientMeetings-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="UserActivities-Label">User Activities</span></td>
+        <td><span id="UserActivities-Chart"></span></td>
+        <td><span id="UserActivities-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="TargetPermPlacementFees-Label">Perm Placement Targets</span></td>
+        <td><span id="TargetPermPlacementFees-Chart"></span></td>
+        <td><span id="TargetPermPlacementFees-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="TargetContractPlacementMargin-Label">Contract Placement Targets</span></td>
+        <td><span id="TargetContractPlacementMargin-Chart"></span></td>
+        <td><span id="TargetContractPlacementMargin-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="TotalPermanentFees-Label">Perm Placement Fees</span></td>
+        <td><span id="TotalPermanentFees-Chart"></span></td>
+        <td><span id="TotalPermanentFees-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="TotalContractMargin-Label">Contract/Temp Placement Margin</span></td>
+        <td><span id="TotalContractMargin-Chart"></span></td>
+        <td><span id="TotalContractMargin-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="TotalProfit-Label">Total Placement Profit</span></td>
+        <td><span id="TotalProfit-Chart"></span></td>
+        <td><span id="TotalProfit-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="NumberOfPlacements-Label">Number of Placements</span></td>
+        <td><span id="NumberOfPlacements-Chart"></span></td>
+        <td><span id="NumberOfPlacements-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="AveragePlacementValue-Label">Average Placement Value</span></td>
+        <td><span id="AveragePlacementValue-Chart"></span></td>
+        <td><span id="AveragePlacementValue-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="TimeToPlacementPerm-Label">Time to Permanent Placement</span></td>
+        <td><span id="TimeToPlacementPerm-Chart"></span></td>
+        <td><span id="TimeToPlacementPerm-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="TimeToPlacementContract-Label">Time to Temporary Placement</span></td>
+        <td><span id="TimeToPlacementContract-Chart"></span></td>
+        <td><span id="TimeToPlacementContract-Total"></span></td>
+    </tr>
+
+    <tr>
+        <td><span id="TimeToPlacementTemp-Label">Time to Contract Placement</span></td>
+        <td><span id="TimeToPlacementTemp-Chart"></span></td>
+        <td><span id="TimeToPlacementTemp-Total"></span></td>
+    </tr>
+
+</table>
+
+
+<!-- This javascript is in the tiles folder for ease of maintenance -->
+<script src="usercontrols/dashboard/tiles/ctrlConsultant12MonthActivity.js"></script>

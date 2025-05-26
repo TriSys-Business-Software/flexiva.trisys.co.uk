@@ -1,0 +1,1 @@
+var TriSysLinkedIn={'Load':function(){var sLinkedInURL='//www.linkedin.com';}};$(document)['ready'](function(){TriSysLinkedIn['Load']();});

@@ -1,0 +1,21 @@
+﻿<ol>
+    
+    <% for(var i=0; i < TopJobsData.length; i++) {%>
+
+    <li>
+      
+      &nbsp; &nbsp;
+      
+        <%= TopJobsData[i].JobTitle  %>
+
+		  : &nbsp;
+
+          <b>
+          (<%= TopJobsData[i].Counter  %>)
+          </b>
+          
+        </li>
+        
+    <% } %>
+
+</ol>

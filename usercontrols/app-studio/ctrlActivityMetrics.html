@@ -1,0 +1,268 @@
+﻿<!-- App Studio App Tool Bar Control  -->
+<!-- Created 15 May 2025              -->
+<style scoped>
+
+    #ctrlActivityMetrics-Instructions {
+        margin-top: 0px;
+        margin-left: 10px;
+        padding-top: 10px;
+    }
+
+        #ctrlActivityMetrics-Instructions > dl > dt {
+            text-align: left;
+            width: 26px;
+        }
+
+        #ctrlActivityMetrics-Instructions > dl > dd {
+            margin-left: 35px;
+            line-height: 1.9;
+            padding-right: 10px;
+            margin-bottom: -10px;
+        }
+
+    #ctrlActivityMetrics-TreeView {
+        margin: 10px;
+    }
+
+    /* Hide the default Kendo image */
+    /*.k-treeview .k-image {
+        display: none;
+    }*/
+
+    .tree-icon {
+        width: 30px; /* Adjust the size of the image */
+        height: 30px;
+        margin-right: 5px; /* Space between image and text */
+        vertical-align: middle;
+        border-radius: 6px;
+    }
+
+    /* Add padding after the text in the TreeView node */
+    .k-treeview .k-in::after {
+        content: "";
+        display: inline-block;
+        width: 5px; /* This creates 5px of space after the text */
+    }
+
+    #ctrlActivityMetrics-Properties-Table > tbody > tr > td:first-child {
+        width: 160px;
+    }
+
+    .colour-read {
+        color: #42AAF8
+    }
+    
+</style>
+
+<div class="block">
+
+    <div class="block-title" style="margin-bottom: 10px;">
+
+        <div id="ctrlActivityMetrics-Instructions">
+            <dl class="dl-horizontal">
+                <dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+                <dd>
+
+                    Edit, create and delete activity metric items by dragging and dropping them into place.
+                    <a onclick="TriSysSDK.Controls.FileManager.OpenDocumentViewer('Activity Metrics', 'images/help/activity-metrics.png')"
+                       title="Open an image showing where activity metrics appear in the app">
+                        <strong>Click here</strong>
+                    </a> for a visual guide of where activity metrics appear in the app.
+                    <br />
+                    Apply to refresh the toolbar, or Apply &amp; Close to refresh the activity metrics and close this configurator.
+                    Both of these options update the activity metrics for all users.
+
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-5" style="padding-bottom: 10px;">
+
+            <div class="block">
+                <div class="block-title">
+                    <h2>Activity Metrics</h2>
+
+                    <div class="block-options pull-right">
+                        <a style="cursor: pointer;" onclick="AppStudioActivityMetrics.AddItem()" class=" btn btn-sm btn-default enable-tooltip" title="Add a new activity metric">
+                            <i class="gi gi-plus"></i> &nbsp; Add Metric &nbsp;
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="ctrlActivityMetrics-TreeView" style="overflow-y: scroll;"></div>
+
+            </div>
+        </div>
+        <div class="col-md-7" style="padding-left: 0px">
+
+            <div class="block">
+                <div class="block-title">
+                    <h2>Metric Properties</h2>
+
+                    <div class="block-options pull-right">
+                        <a style="cursor: pointer;" onclick="AppStudioActivityMetrics.Delete()" class=" btn btn-sm btn-default enable-tooltip" title="Delete group/item">
+                            <i class="gi gi-circle_remove"></i> &nbsp; Delete &nbsp;
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="row" id="ctrlActivityMetrics-Properties">
+                    <div class="col-md-12" style="padding-left: 0px">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <table class="table table-borderless table-striped" id="ctrlActivityMetrics-Properties-Table" style="display: none;">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <strong>ID</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-ID" type="textbox" readonly="true"></trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Name</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Name" type="textbox" readonly="true"></trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Description</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Description" type="textbox"></trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr id="ctrlActivityMetrics-Properties-DataSource-Row">
+                                            <td>
+                                                <strong class="colour-read">Data Source Request</strong>
+                                                <i class="fa fa-info-circle themed-color"
+                                                   title="The data source request which will populate the metric number shown to end-users."></i>
+                                            </td>
+                                            <td>
+                                                <table style="width: 100%;" cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <span id="ctrlActivityMetrics-Properties-DataSource-Read">
+                                                                    No Read data source configured
+                                                                </span>
+                                                            </td>
+                                                            <td style="width: 40px; padding-left: 5px;">
+                                                                <button type="submit" class="btn btn-sm btn-default"
+                                                                        onclick="AppStudioActivityMetrics.DataSource.Edit('Read')"
+                                                                        title="Configure read data source"
+                                                                        style="right: 0px; ">
+                                                                    <i class="fa fa-database colour-read"></i>
+                                                                </button>
+                                                            </td>
+                                                            <td style="width: 40px; padding-left: 5px;">
+                                                                <button type="submit" class="btn btn-sm btn-default"
+                                                                        onclick="AppStudioActivityMetrics.DataSource.RemoveDataSource('Read')"
+                                                                        title="Remove read data source"
+                                                                        style="right: 0px; ">
+                                                                    <i class="gi gi-remove_2 colour-read"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Drill Down Form</strong>
+                                                <i class="fa fa-info-circle themed-color"
+                                                   title="When the user clicks on the metric, this is the form which will be opened."></i>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Form" type="singleselectcombo"
+                                                              datafunction="AppStudioActivityMetrics.FormList">
+
+                                                </trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Frequency</strong>
+                                                <i class="fa fa-info-circle themed-color"
+                                                   title="How often the data from each metric is refreshed from the ReST API data source request."></i>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Frequency" type="singleselectcombo"
+                                                              datafunction="AppStudioActivityMetrics.FrequencyList">
+
+                                                </trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Locked</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Locked" type="yesno" readonly="true"></trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Caption</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Caption" type="textbox"></trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Tooltip</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Tooltip" type="textbox"></trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Icon</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Icon" type="icon"></trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Style</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Style" type="singleselectcombo"
+                                                              datafunction="AppStudioActivityMetrics.StyleList">
+
+                                                </trisys-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Visible</strong>
+                                            </td>
+                                            <td>
+                                                <trisys-field id="ctrlActivityMetrics-Properties-Visible" type="yesno"></trisys-field>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

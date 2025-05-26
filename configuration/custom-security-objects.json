@@ -1,0 +1,19 @@
+{
+	"FileName": "custom-security-objects.json",
+	"Description": "These are customer-specific additional security objects appended to the list in security-objects.json.",
+	"Location": "e:\\inetpub\\api.trisys.co.uk\\Apex\\custom\\{CustomerID}",
+	"Created": "05 March 2021",
+
+	"SecurityItems": [
+		{
+			"Name": "Aardvark Top of List",
+			"Description": [
+				"A simple example to demonstrate how to add a custom security object"
+			],
+			"Category": "Custom",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false"
+		}
+	]
+}

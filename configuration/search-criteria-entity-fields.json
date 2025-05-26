@@ -1,0 +1,125 @@
+﻿{
+	"FileName": "search-criteria-entity-fields.json",
+    "Description": "See ctrlSearchCriteria.AllowedTableFieldNamesForEntity()",
+    "Summary1": "A list of field description table field names by entity which are searchable.",
+    "Summary2": "Allowed fields are those we allow to be searched.",
+    "Summary3": "Ignored fields are those exceptions such as field lookups/skills which we do not allow.",
+    "Data": [
+        {
+            "EntityName": "Contact",
+			"AllowedTableFieldNames": [
+				"Forenames",
+				"Surname",
+				"AvailabilityDate",
+				"Comments",
+				"CurrentRemuneration",
+				"RequiredRemunerationContract",
+				"RequiredRemunerationPermanent",
+				"CurrentEmployer",
+				"CVLastUpdated",
+				"DateFirstRegistered",
+				"DateLastUpdated",
+				"DateOfNextContact",
+				"DateLastContacted",
+				"DateOfBirth",
+				"TriSysMailshot",
+				"ASPAccountActive",
+				"ASPAccountMaintenance",
+				"CSAccountMaintenance",
+				"Department",
+				"PlacementStartDate",
+				"VisaExpiry",
+				"Expiry",
+                "DepartmentCostCode",
+                "SyncWithOutlook"
+			],
+            "IgnoredLookupTableFieldNames": [
+                "Users"
+            ]
+        },
+        {
+            "EntityName": "Company",
+            "AllowedTableFieldNames": [
+                "Comments",
+                "AccountingID",
+                "Name",
+                "Turnover",
+                "WebPage",
+                "The first 3 are for Success Recruit added 29 Oct 2016, other 2 added 05 Jun 2019",
+                "LastMeetingDate",
+                "PermTermsSigned",
+                "TempTermsSigned",
+				"Success Recruit 17 Oct 2022",
+				"TermsAgreed",
+				"PermanentPlacementFees",
+				"TimesheetProfit",
+				"Premier Resourcing 25 Apr 2019",
+				"OwnerUser"
+            ],
+            "IgnoredLookupTableFieldNames": [
+                "CreditCheckStatus",
+                "CompanyType"
+            ]
+        },
+        {
+            "EntityName": "Requirement",
+			"AllowedTableFieldNames": [
+				"DateInitiated",
+				"EarliestStartDate",
+				"Bonus",
+				"Comments",
+                "DisplayOnWeb",
+				"DurationInWeeks",
+				"Fee",
+				"FeePercentage",
+				"FixedTerm",
+				"FixedTermDurationWeeks",
+				"MaximumSalary",
+				"NumberRequired",
+				"ProbabilityToFill",
+				"RequirementProfit",
+				"RequirementValue",
+				"TotalPackageValue",
+				"WebText",
+				"AWRInScope"
+			],
+            "IgnoredLookupTableFieldNames": [
+                "PermanentType",
+                "TemplateDeliveryMechanism",
+                "InterviewLocation",
+                "InterviewStage",
+                "FollowUpTime"
+            ]
+        },
+        {
+            "EntityName": "Placement",
+			"AllowedTableFieldNames": [
+				"DateInitiated",
+				"StartDate",
+				"EndDate",
+				"ExtensionNumber",
+				"Fee",
+				"FeePercentage",
+				"FixedTerm",
+				"FixedTermDurationWeeks",
+				"FlatFee",
+				"OriginalStartDate",
+				"OriginalEndDate",
+				"PermStartDate - No! as it has the Start Date Label!",
+				"PlacementPONumber",
+				"Salary",
+				"Terminated",
+				"TotalPackageValue",
+				"AWRInScope",
+				"AWRPlacement"
+			],
+            "IgnoredLookupTableFieldNames": [
+                "PermanentType",
+                "TemplateDeliveryMechanism",
+                "InterviewLocation",
+                "InterviewStage",
+                "FollowUpTime"
+            ]
+        }
+    ]
+}

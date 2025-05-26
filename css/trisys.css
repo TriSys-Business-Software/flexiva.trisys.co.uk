@@ -1,0 +1,19 @@
+﻿/*
+ *  Document   : trisys.css
+ *  Author     : TriSys Business Software
+ *  Description: TriSys Specific Styles
+ */
+:root {
+    --trisys-green: #c1d82f; /* Use as var(--trisys-green) */
+    --trisys-blue: #264fa2;
+    --trisys-light-blue: #5c99cf;
+    --trisys-light-grey: #c0d1e5;
+    --trisys-light-green: #d5de98;
+
+    /* Set when theme changes as we cannot use ProUI themed-color in our CSS */
+    --trisys-theme: red;
+    --trisys-thin-grey-line: red;
+
+    /* Simply hard coded */
+    --trisys-code-editor-outline: #dcdcdb;
+}

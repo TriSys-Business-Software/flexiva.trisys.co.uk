@@ -1,0 +1,64 @@
+{
+	"File": "action-cvsend.json",
+	"Description": [
+		"Custom settings for CV Send action to handle complex scenarios where single or multiple candidates.",
+		"When user or action changes the template name, this file is read to overwrite the "
+	],
+	"Created": "Jan 2019",
+	"Templates": [
+		{
+			"Name": "CV Send Multiple Simple",
+			"Subject": "{{CVSend_CandidateCount}} Candidate CV's for Vacancy {{Requirement_JobTitle}} (Ref: {{Requirement_Reference}}) ",
+			"Notes": [
+				"Sent {{CVSend_CandidateCount}} Candidate CV's to {{ClientContact_FullName}} in relation to",
+				" {{Requirement_Reference}}: {{Requirement_JobTitle}} at {{ClientContact_CompanyName}}."
+			]
+		},
+		{
+			"Name": "CV Send Multiple with Coversheet Only",
+			"Subject": "{{CVSend_CandidateCount}} Candidate CV's for Vacancy {{Requirement_JobTitle}} (Ref: {{Requirement_Reference}}) ",
+			"Notes": [
+				"Sent {{CVSend_CandidateCount}} Candidate CV's to {{ClientContact_FullName}} in relation to",
+				" {{Requirement_Reference}}: {{Requirement_JobTitle}} at {{ClientContact_CompanyName}}."
+			]
+		},
+		{
+			"Name": "CV Send Multiple with CV",
+			"Subject": "{{CVSend_CandidateCount}} Candidate CV's for Vacancy {{Requirement_JobTitle}} (Ref: {{Requirement_Reference}}) ",
+			"Notes": [
+				"Sent {{CVSend_CandidateCount}} Candidate CV's to {{ClientContact_FullName}} in relation to",
+				" {{Requirement_Reference}}: {{Requirement_JobTitle}} at {{ClientContact_CompanyName}}."
+			]
+		},
+		{
+			"Name": "CV Send Multiple",
+			"Subject": "{{CVSend_CandidateCount}} Candidate CV's for Vacancy {{Requirement_JobTitle}} (Ref: {{Requirement_Reference}}) ",
+			"Notes": [
+				"Sent {{CVSend_CandidateCount}} Candidate CV's to {{ClientContact_FullName}} in relation to",
+				" {{Requirement_Reference}}: {{Requirement_JobTitle}} at {{ClientContact_CompanyName}}."
+			]
+		},
+		{
+			"Name": "CV Send",
+			"Subject": "Candidate CV of {{CandidateContact_FullName}} for Vacancy {{Requirement_JobTitle}} (Ref: {{Requirement_Reference}}) ",
+			"Notes": [
+				"Sent CV of {{CandidateContact_FullName}} to {{ClientContact_FullName}} in relation to",
+				" {{Requirement_Reference}}: {{Requirement_JobTitle}} at {{ClientContact_CompanyName}}."
+			]
+		},
+		{
+			"Name": "Speculative CV Send",
+			"Subject": "{{CVSend_CandidateCount}} Candidate CV's which may be of interest?",
+			"Notes": [
+				"Sent {{CVSend_CandidateCount}} Candidate CV's to {{ClientContact_FullName}} speculatively."
+			]
+		},
+		{
+			"Name": "Speculative CV Send Multiple",
+			"Subject": "{{CVSend_CandidateCount}} Candidate CV's which may be of interest?",
+			"Notes": [
+				"Sent {{CVSend_CandidateCount}} Candidate CV's to {{ClientContact_FullName}} speculatively."
+			]
+		}
+	]
+}

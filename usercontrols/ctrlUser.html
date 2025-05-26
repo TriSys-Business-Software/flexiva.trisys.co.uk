@@ -1,0 +1,157 @@
+﻿<style scoped>
+    .td-label {
+        width: 120px;
+        vertical-align: top;
+    }
+</style>
+
+<div class="block">
+    <table class="table table-borderless">
+		<tbody>
+
+			<tr>
+				<td colspan="2">
+
+					<table style="width: 100%;">
+						<tr id="user-form-userid-tr">
+							<td class="td-label">
+								<strong>User Id</strong>
+							</td>
+							<td style="vertical-align: top; height: 22px;">
+								<input type="text" class="k-textbox" id="user-form-userid" style="width:96px;" readonly="readonly" />
+							</td>
+							<td rowspan="3" style="width: 120px; text-align: right; vertical-align: top;">
+								<img id="user-form-photo" style="height: 96px; border-radius: 5px; display: none;">
+							</td>
+						</tr>
+						<tr style="height: 15px;">
+							<td colspan="2"></td>
+						</tr>
+						<tr>
+							<td class="td-label">
+								<strong>Login Name</strong>
+							</td>
+							<td style="vertical-align: top;">
+								<input type="text" class="k-textbox" id="user-form-loginname" style="width:250px;" readonly="readonly" />
+							</td>
+						</tr>
+					</table>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td class="td-label">
+					<strong>Full Name</strong>
+				</td>
+				<td>
+					<input type="text" class="k-textbox" id="user-form-name" required="required" style="width:100%" maxlength="60" />
+				</td>
+			</tr>
+			<tr>
+				<td class="td-label">
+					<strong>Tel. No.</strong>
+				</td>
+				<td>
+					<input type="text" class="k-textbox" id="user-form-telno" required="required" style="width:100%" maxlength="20" />
+				</td>
+			</tr>
+			<tr id="user-form-contact-tr">
+				<td class="td-label">
+					<div class="btn-group btn-group-sm show-on-hover">
+						<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Contact" id="user-form-contact-menu">
+							<i class="fa fa-parents"></i> &nbsp; Contact &nbsp;<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+							<li>
+								<a href="javascript:void(0)" onclick="ctrlUser.ViewContactRecord();">
+									<i class="gi gi-folder_open pull-right"></i>
+									View Contact Record
+								</a>
+								<a href="javascript:void(0)" onclick="ctrlUser.ViewCompanyRecord();">
+									<i class="gi gi-building pull-right"></i>
+									View Company Record
+								</a>
+							</li>
+						</ul>
+					</div>
+				</td>
+				<td>
+					<textarea class="k-textbox" rows="5" cols="30" id="user-form-contact" style="width:100%; resize: none" readonly="readonly"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="td-label">
+					<strong>E-Mail/Login</strong>
+				</td>
+				<td>
+					<input type="email" class="k-textbox" id="user-form-email" required="required" style="width:100%" readonly="readonly" maxlength="80" />
+				</td>
+			</tr>
+			<tr id="user-form-password-tr" style="display: none;">
+				<td class="td-label">
+					<strong>Password</strong>
+				</td>
+				<td>
+					<input type="password" class="k-textbox" id="user-form-password" required="required" style="width:100%" maxlength="128" />
+				</td>
+			</tr>
+			<tr id="user-form-password-confirmation-tr" style="display: none;">
+				<td class="td-label">
+					<strong>Confirm Password</strong>
+				</td>
+				<td>
+					<input type="password" class="k-textbox" id="user-form-password-confirmation" required="required" style="width:100%" maxlength="128" />
+				</td>
+			</tr>
+			<tr id="user-form-loggedin-locked-tr">
+				<td class="td-label">
+					&nbsp;
+				</td>
+				<td>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 50%;">
+								<strong>Logged In</strong> &nbsp;
+								<label class="switch switch-primary">
+									<input type="checkbox" id="user-form-loggedin" value="0" unchecked>
+									<span></span>
+								</label>
+							</td>
+							<td style="width: 50%; text-align: right;">
+								<strong>Locked</strong> &nbsp;
+								<label class="switch switch-primary">
+									<input type="checkbox" id="user-form-locked" value="0" unchecked>
+									<span></span>
+								</label>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr id="user-form-last-login-tr">
+				<td class="td-label">
+					<strong>Last Login</strong>
+				</td>
+				<td>
+					<span id="user-form-last-login"></span>
+				</td>
+			</tr>
+			<tr id="user-form-add-account-help-tr" style="display: none;">
+				<td class="td-label">
+					<strong>Note:</strong>
+				</td>
+				<td>
+					You will be asked to make a payment for each new user account you add to the system.
+					<br />
+					Only users who have been paid for will be permitted to login.
+				</td>
+			</tr>
+		</tbody>
+    </table>
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlUser.js"></script>
+

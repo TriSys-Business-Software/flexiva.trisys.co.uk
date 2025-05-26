@@ -1,0 +1,49 @@
+﻿<style scoped>
+    .k-link {
+        padding-top: 0.35em;
+    }
+
+    .k-button {
+        height: 29px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .k-image {
+        height: 16px;
+        margin-left: 0px;
+    }
+
+    .file-button {
+        /* Additional stuff here */
+        width: 25px;
+        margin-right: 3px;
+    }
+</style>
+
+<div style="width: 100%; float:left; clear:left;">
+    <div style="width:120px; float:right;">
+        
+        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Find a document"
+           id="FileReference_FindButton">
+            <i class="fa fa-search"></i>
+        </a>
+        <span>&nbsp;</span>
+        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open this document"
+           id="FileReference_OpenButton">
+            <i class="fa fa-folder-open"></i>
+        </a>
+        <span>&nbsp;</span>
+        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete this document"
+           id="FileReference_DeleteButton">
+            <i class="fa fa-remove"></i>
+        </a>
+
+    </div>
+    <div style="margin-right:120px;">
+        <input id="FileReference_FileName" readonly="readonly" class="k-textbox" style="width:99%" />
+    </div>
+
+    <div id="FileReference_FilePath" style="display:none"></div>   <!-- Full path stored in control -->
+
+</div>

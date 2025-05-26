@@ -1,0 +1,261 @@
+﻿<!-- 17 Oct 2024                        -->
+<!-- Copy of ctrlformTabLayout        -->
+<!-- Used by ctrlFormDesigner2024.js    -->
+<style scoped>
+
+    #ctrlFormTabLayout-Root {
+        margin-bottom: 0px;
+    }
+    
+    #ctrlFormTabLayout-Root > div > div {
+        margin-top: 0px;
+        margin-left: 10px;
+        padding-top: 10px;
+    }
+
+    #ctrlFormTabLayout-Root > div > div > dl > dt {
+        text-align: left;
+        width: 26px;
+    }
+
+    #ctrlFormTabLayout-Root > div > div > dl > dd {
+        margin-left: 35px;
+        line-height: 1.9;
+        padding-right: 10px;
+        margin-bottom: -10px;
+    }
+   
+    table#form-tab-layout-table {
+        width: 100%;
+        border: 1px dotted black;
+    }
+
+        table#form-tab-layout-table tr {
+            height: 36px;
+        }
+
+        table#form-tab-layout-table td {
+            border: 1px dashed #F8F8F8;
+            padding: 1px;
+        }
+
+
+    table#form-tab-layout-table-dynamicLayout {
+        width: 100%;
+        /*background-color: #F8F8F8;*/
+        border: 1px solid lightgray;
+    }
+
+        table#form-tab-layout-table-dynamicLayout tr {
+            height: 29px;
+        }
+
+        table#form-tab-layout-table-dynamicLayout td {
+            border: 1px dashed #F8F8F8;
+            padding: 4px;
+            width: 100%;
+        }
+
+
+    table#form-tab-layout-table-small-panel {
+        width: 90%;
+        text-align: center;
+        border: 1px dotted lightgray;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #F8F8F8;
+    }
+
+        table#form-tab-layout-table-small-panel tr {
+            height: 18px;
+        }
+
+        table#form-tab-layout-table-small-panel td {
+            border: 1px dashed lightgray;
+            padding: 4px;
+            width: 100%;
+        }
+
+    /* Prevent too many rows causing overflow */
+    #ctrlFormTabLayout-Root {
+        overflow-y: auto;
+        max-height: 490px;  /* Enough for 8 rows before scrolling kicks in */
+        width: 1020px;
+    }
+
+    .column-widths-td table td {
+        padding-right: 4px;
+    }
+
+    .column-width-tr-error {
+        border: solid 1px red;
+    }
+
+</style>
+<div class="block" id="ctrlFormTabLayout-Root">
+    <div class="block-title">
+
+        <div>
+            <dl class="dl-horizontal">
+                <dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+                <dd>
+
+                    Specify the number of rows, number of columns in each row, and the width of each column in your form.
+
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+    <table class="table table-borderless table-striped">
+        <tbody id="ctrlFormTabLayout-table-tbody">
+            <tr>
+                <td class="td-label" style="width: 70px;">
+                    <strong>Rows</strong>
+                </td>
+                <td style="width: 175px;">
+                    <trisys-field id="formTabLayout-Rows" type="numeric"
+                                  minimum="1" maximum="32" increment="1"
+                                  integer="true" value="1" style="height: 28px;">
+                    </trisys-field>
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td style="padding-top: 5px;">
+                    Change the number of rows and specify the number of
+                    <a href="https://getbootstrap.com/docs/5.0/layout/columns/" target="_blank" title="Bootstrap Columns">columns</a>
+                    and the width of each column in each row.
+                    The maximum number of columns per row is 12, and the maximum width per column is 12.
+                </td>
+            </tr>
+            <tr id="form-tab-layout-table-row-1">
+                <td class="td-label" style="width: 70px;">
+                    <div class="btn-group dropup">
+
+                        <a style="cursor: pointer;" data-toggle="dropdown"
+                           class="btn btn-sm btn-default dropdown-toggle" aria-expanded="true">
+                            <span id="form-tab-layout-table-row-number-1"><strong>Row 1</strong></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu text-left">
+                            <li>
+                                <a style="cursor: pointer;" onclick="ctrlFormDesigner2024.TabLayout.MoveRowUp(event)">
+                                    <i class="gi gi-up_arrow"></i>
+                                    &nbsp; Move Up
+                                </a>
+                            </li>
+                            <li>
+                                <a style="cursor: pointer;" onclick="ctrlFormDesigner2024.TabLayout.MoveRowDown(event)">
+                                    <i class="gi gi-down_arrow"></i>
+                                    &nbsp; Move Down
+                                </a>
+                            </li>
+                            <li>
+                                <a style="cursor: pointer;" onclick="ctrlFormDesigner2024.TabLayout.DeleteRow(event)">
+                                    <i class="gi gi-remove_2"></i>
+                                    &nbsp; Delete
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td style="width: 175px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width: 70px; position: relative; top: 1px;">
+                                <strong>Columns</strong>
+                            </td>
+                            <td id="form-tab-layout-table-row-1-column-counter-td">
+                                <trisys-field id="formTabLayout-row-1-column-counter" type="numeric"
+                                              minimum="1" maximum="12" increment="1"
+                                              integer="true" value="1" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                    </table>
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td class="column-widths-td">
+                    <table style="width:100%;">
+                        <tr id="form-tab-layout-table-row-1-columns-combos-tr">
+                            <td>
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-1" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="12" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-2" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-3" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-4" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-5" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-6" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-7" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-8" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-9" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-10" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-11" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                            <td style="display: none;">
+                                <trisys-field id="form-tab-layout-table-row-1-column-width-12" type="combo"
+                                              onchange="ctrlFormDesigner2024.TabLayout.RowColumnWidthChange"
+                                              lookups="1,2,3,4,5,6,7,8,9,10,11,12" value="6" style="height: 28px;">
+                                </trisys-field>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

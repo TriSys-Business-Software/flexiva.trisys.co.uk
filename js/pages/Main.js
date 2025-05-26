@@ -1,0 +1,1 @@
+var TriSysMain={'Load':function(){}};$(document)['ready'](function(){TriSysMain['Load']();});

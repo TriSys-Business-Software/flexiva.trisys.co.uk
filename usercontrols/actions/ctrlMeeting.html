@@ -1,0 +1,178 @@
+﻿<style scoped>
+    .td-label-meeting {
+        width: 120px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Contact(s)</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlMeeting-Contact" style="width:100%"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Task Type &nbsp; </strong>
+                            <img id="ctrlMeeting-Selected-TaskType-Image" style="width: 24px; height: 24px; border: 0" />
+                        </td>
+                        <td>
+                            <input id="ctrlMeeting-TaskType" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Attributes</strong>
+                        </td>
+                        <td>
+                            <input type="text" id="ctrlMeeting-Attributes" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr id="ctrlMeeting-Location-tr">
+                        <td class="td-label-meeting">
+                            <strong>Location</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="max-width: 100%;">
+                                        <input id="ctrlMeeting-Location" style="max-width: 100%; width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Specify a new location for the meeting" id="ctrlMeeting-NewLocation">
+                                            <i class="gi gi-google_maps"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Date/Time</strong>
+                        </td>
+                        <td>
+                            <input id="ctrlMeeting-StartDateTime" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Duration</strong>
+                        </td>
+                        <td>
+                            <div id="ctrlMeeting-Duration" style="width:300px;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Set Alarm</strong>
+                        </td>
+                        <td>
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlMeeting-Set-Alarm" value="1" checked>
+                                <span></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr id="ctrlMeeting-LeadTime-tr">
+                        <td class="td-label-meeting">
+                            <strong>Lead Time</strong>
+                        </td>
+                        <td>
+                            <div id="ctrlMeeting-LeadTime" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Notes</strong>
+                        </td>
+                        <td>
+                            <textarea class="k-textbox" id="ctrlMeeting-Notes" rows="3" maxlength="1024" style="width:100%; resize: none;"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6">
+        <div id="ctrlMeeting-FollowUp">
+        </div>
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Template</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlMeeting-Template" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlMeeting-EditTemplate">
+                                            <i class="gi gi-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Subject</strong>
+                        </td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlMeeting-Subject" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-meeting">
+                            <strong>Attachment(s)</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input type="text" id="ctrlMeeting-Attachments" style="width:100%" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="ctrlMeeting-ManageAttachmentLibrary">
+                                            <i class="gi gi-paperclip"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-meeting">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlMeeting-BlindCopy" value="0" unchecked>
+                                <span></span>
+                            </label>
+                            &nbsp; Send to all recipients as blind copy (bcc)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlMeeting.js"></script>
+

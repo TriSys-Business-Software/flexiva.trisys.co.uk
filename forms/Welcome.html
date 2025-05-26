@@ -1,0 +1,299 @@
+﻿<div class="content-header">
+	<div class="header-section" id="welcome-header">
+		<h1>
+			<i class="gi gi-home"></i>Welcome Page
+			<br />
+			<small>
+				Thank you for subscribing to TriSys. Here are some links to get you started quickly.
+			</small>
+		</h1>
+	</div>
+</div>
+<ul class="breadcrumb breadcrumb-top">
+    <li><strong>Help Links</strong></li>
+    <li><a href="javascript:void(0)" class="label label-success" onclick="TriSysApex.FormsManager.OpenForm('QuickStart')">Quick Start</a></li>
+    <li><a href="javascript:void(0)" class="label label-warning" onclick="TriSysApex.FormsManager.OpenForm('UserGuide')">User Guide</a></li>
+    <li><a href="javascript:void(0)" class="label label-info" onclick="TriSysApex.FormsManager.OpenForm('Training')">Training Courses</a></li>
+    <li><a href="javascript:void(0)" class="label label-danger" onclick="TriSysApex.FormsManager.OpenForm('PlugIns')">App Store</a></li>
+    <li><a href="javascript:void(0)" class="label label-danger" style="background-color: purple;" onclick="TriSysApex.FormsManager.OpenForm('ContactUs')">Contact Us</a></li>
+    <li><a href="javascript:void(0)" class="label label-danger" style="background-color: darkolivegreen;" onclick="TriSysApex.FormsManager.OpenForm('SupportPortal')">Support Portal</a></li>
+    <li><a href="javascript:void(0)" class="label label-danger" style="background-color: hotpink;" onclick="TriSysSDK.Browser.OpenURL('https://www.trisys.co.uk')">trisys.co.uk</a></li>
+</ul>
+
+<!-- Customer Content -->
+<div class="row">
+	<div class="col-lg-4">
+
+		<!-- Quick Stats Block -->
+		<div class="block">
+			<!-- Quick Stats Title -->
+			<div class="block-title">
+				<h2><i class=""></i> <strong>What Would You Like to do Next?</strong></h2>
+			</div>
+			<a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('DataImport', true)">
+				<div class="widget-simple">
+					<div class="widget-icon pull-right themed-background">
+						<i class="fa fa-database"></i>
+					</div>
+					<h4 class="text-left">
+						<strong>Import Data from Microsoft Excel</strong><br>
+						<small>Import all your clients, candidates and companies in seconds.</small>
+						<br />
+						<small>Download our data template, prepare and import your data in seconds.</small>
+					</h4>
+				</div>
+			</a>
+			<a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('CVAutoRecognition', true)">
+				<div class="widget-simple">
+					<div class="widget-icon pull-right themed-background">
+						<i class="fa fa-files-o"></i>
+					</div>
+					<h4 class="text-left">
+						<strong>Import Single/Multiple CV Files</strong><br>
+						<small>Import all your CV's using our automated parsing solution.</small>
+						<br />
+						<small>No more manual CV parsing. Multiple CV file formats supported.</small>
+					</h4>
+				</div>
+			</a>
+			<a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenClientContact()">
+				<div class="widget-simple">
+					<div class="widget-icon pull-right themed-background">
+						<i class="fa fa-plus"></i>
+					</div>
+					<h4 class="text-left">
+						<strong>Add New Client Contact</strong><br><small></small>
+						<small>Click to add a new client contact.</small>
+						<br />
+						<small>You may also use the "Add" button at the top.</small>
+					</h4>
+				</div>
+			</a>
+			<a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('Company', false)">
+				<div class="widget-simple">
+					<div class="widget-icon pull-right themed-background">
+						<i class="fa fa-building-o"></i>
+					</div>
+					<h4 class="text-left">
+						<strong>Add New Company</strong><br><small></small>
+						<small>Click to add a new company.</small>
+						<br />
+						<small>You may also use the "Add" button at the top.</small>
+					</h4>
+				</div>
+			</a>
+			<a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenCandidateContact()">
+				<div class="widget-simple">
+					<div class="widget-icon pull-right themed-background">
+						<i class="fa fa-users"></i>
+					</div>
+					<h4 class="text-left">
+						<strong>Add New Candidate Contact</strong><br><small></small>
+						<small>Click to add a new candidate contact.</small>
+						<br />
+						<small>You may also use the "Add" button at the top.</small>
+					</h4>
+				</div>
+			</a>
+			<!-- END Quick Stats Content -->
+		</div>
+		<!-- END Quick Stats Block -->
+		<!-- END Quick Stats Block -->
+	</div>
+
+	<!-- START Welcome Block Column 2 -->
+
+	<div class="col-lg-4" id="welcome-company-configuration-block">
+		<!-- Quick Stats Block -->
+        <div class="block">
+
+            <!-- Quick Stats Title -->
+            <div class="block-title">
+                <h2><i class=""></i> <strong>Company Configuration (Administrators Only)</strong></h2>
+            </div>
+            <!-- END Quick Stats Title -->
+            <!-- Quick Stats Content -->
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('AdminConsole', 'admin-console-tab-users')">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>Manage User Accounts</strong><br>
+                        <small>Manage your user subscriptions and renewals, using instant payment.</small>
+                        <br />
+                        <small>Easily activate/deactivate user accounts.</small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('AdminConsole', 'admin-console-tab-security')">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>Manage Security Permissions</strong><br>
+                        <small>Configure user security permissions.</small>
+                        <br />
+                        <small>Hide sensitive buttons and restrict CRM views.</small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('UserOptions')" style="display: none;">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-mobile"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>SMS / Text Messaging Settings</strong><br><small></small>
+                        <small>
+                            Send &amp; receive SMS text messages.
+                            <br />
+                            24x.com account is required.
+                        </small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('AdminConsole', 'admin-console-tab-attributes')">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="gi gi-list"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>Attributes/Lookup Fields</strong><br><small></small>
+                        <small>
+                            Manage all database attributes and lookup lists.
+                        </small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('AdminConsole', 'admin-console-tab-document-manager')">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>Company E-Mail Signature</strong><br>
+                        <small>Edit &amp; test your company-wide HTML e-mail signature.</small>
+                        <br />
+                        <small>Copy &amp; past an existing signature or create a new signature.</small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('UserOptions', 'useroptions-form-tab-e-mail')">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>E-Mail Relay Configuration</strong><br>
+                        <small>Your e-mail server &amp; DNS must allow TriSys CRM to send e-mails.</small>
+                        <br />
+                        <small>Please allow SMTP relay from our IP 176.34.182.64</small>
+                    </h4>
+                </div>
+            </a>
+            <!-- END Quick Stats Content -->
+        </div>
+		<!-- END Quick Stats Block -->
+	</div>
+
+	<!-- END Welcome Block Column 2 -->
+	<!-- START Welcome Block Column 3 -->
+
+	<div class="col-lg-4">
+		<!-- Quick Stats Block -->
+        <div class="block">
+            <!-- Quick Stats Title -->
+            <div class="block-title">
+                <h2><i class=""></i> <strong>User Configuration</strong></h2>
+            </div>
+            <!-- END Quick Stats Title -->
+            <!-- Quick Stats Content -->
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="TriSysApex.UserOptions.OpenLoggedInUserContactRecord()">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="gi gi-user"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>Your Contact Record</strong><br>
+                        <small>Configure your CRM contact record &amp; contact details.</small>
+                        <br />
+                        <small>This information will be used on your CRM e-mail signature.</small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('UserOptions', 'useroptions-form-tab-e-mail')">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>E-Mail Send Configuration</strong><br>
+                        <small>Configure your individual user e-mail sending settings.</small>
+                        <br />
+                        <small>This is required in order to send e-mails directly through TriSys.</small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light"
+               onclick="TriSysApex.UserOptions.SynchroniseOptions()" style="display: none;">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>E-Mail &amp; Diary Synchronisation</strong><br><small></small>
+                        <small>Synchronise your emails and diary appointments.</small>
+                        <br />
+                        <small>All your e-mails and diary appointments, fully synchronised with TriSys.</small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('UserOptions', 'useroptions-form-tab-job-posting')">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-tasks"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>Job Board Posting Configuration</strong><br><small></small>
+                        <small>Configure your job posting username/password.</small>
+                        <br />
+                        <small>Broadbean.com or Logicmelon.com account is required.</small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light" onclick="Welcome.OpenForm('UserOptions', 'useroptions-form-tab-forms-behaviour')">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>Your User Options</strong><br><small></small>
+                        <small>Colour Themes, Login Preferences &amp; More.</small>
+                    </h4>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="widget widget-hover-effect4 themed-background-muted-light"
+                                                            onclick="TriSysApex.FormsManager.OpenForm('Training', 0, true)">
+                <div class="widget-simple">
+                    <div class="widget-icon pull-right themed-background">
+                        <i class="gi gi-facetime_video"></i>
+                    </div>
+                    <h4 class="text-left">
+                        <strong>Video Training</strong><br><small></small>
+                        <small>Learn how to use TriSys.</small>
+                        <br />
+                        <small>Our engaging multi-media training will teach you all you need to know.</small>
+                    </h4>
+                </div>
+            </a>
+        </div>
+		<!-- END Quick Stats Block -->
+	</div>
+	<!-- END Welcome Block Column 3 -->
+</div>
+<!-- END Customer Content -->
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/welcome.js"></script>

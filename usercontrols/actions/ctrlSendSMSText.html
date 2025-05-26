@@ -1,0 +1,43 @@
+﻿<style scoped>
+    .td-label-send-sms {
+        width: 120px;
+    }
+</style>
+
+<div class="block">
+    <table class="table table-borderless">
+		<tbody>
+			<tr>
+				<td class="td-label-send-sms">
+					<strong>From</strong>
+				</td>
+				<td>
+					<input id="ctrlSendSMSText-FromField" style="width:100%" />
+				</td>
+			</tr>
+			<tr>
+				<td class="td-label-send-sms">
+					<strong>Phone Field</strong>
+				</td>
+				<td>
+					<input id="ctrlSendSMSText-MobileField" style="width:100%" />
+				</td>
+			</tr>
+			<tr>
+				<td class="td-label-send-sms">
+					<strong>Message</strong>
+				</td>
+				<td>
+					<textarea class="k-textbox" id="ctrlSendSMSText-Message" rows="4" maxlength="140" style="width:100%; resize: none;"></textarea>
+				</td>
+			</tr>
+		</tbody>
+    </table>
+
+</div>
+
+<div id="ctrlSendSMSText-FollowUp">
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlSendSMSText.js"></script>

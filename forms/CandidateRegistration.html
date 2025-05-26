@@ -1,0 +1,269 @@
+﻿<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <i class="gi gi-pen" ></i>Candidate Registration
+            <br><small>By registering as a candidate, you may apply for any of the jobs advertised on this web site. 
+            You will also be able to track all of your applications and organise your interview preferences as well as setup job alerts.</small>
+        </h1>
+    </div>
+</div>
+<div class="block full">
+
+    <div class="row" id="CandidateRegistration-SocialNetworks-Row">
+        <div class="col-md-6">
+
+            <div class="block">
+                <div class="block-title">
+                    <h2><strong>Social Network</strong> Login</h2>
+                </div>
+                <div class="form-horizontal form-bordered">
+                    <div class="form-group">
+                        <div class="col-md-12" id="CandidateRegistration-SocialNetworkButtons">
+
+                        </div>
+                    </div>                
+                </div>
+            </div>
+
+        </div>  
+        <div class="col-md-6">
+
+            <div class="block">
+                <div class="block-title">
+                    <h2><strong>Social Network</strong> Details</h2>
+                    <div class="block-options pull-right">
+
+                        <a href="javascript:void(0)" class="btn btn-sm btn-default" id="trisys-social-network-social-button" style="display: none;">
+                            <i id="trisys-social-network-logo"></i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="form-horizontal form-bordered">
+                    <div class="form-group">
+                        
+                        <table style="width: 100%; padding-left: 10px;">
+                            <tr>
+                                <td style="width: 115px; vertical-align: top; padding-left: 15px;">
+                                    <img id="trisys-social-network-photo" width="80" style="border-radius: 10px;">
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <b><span id="trisys-social-network-name"></span></b>
+                                    <br />
+                                    <span id="trisys-social-network-fullname"></span>
+                                    <br />
+                                    <span id="trisys-social-network-profile"></span>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>        
+    </div>
+
+    <div class="row">
+		<div class="col-md-6">
+
+			<div class="block">
+				<div class="block-title">
+					<h2><strong>Personal Details</strong> Form</h2>
+				</div>
+				<div class="form-horizontal form-bordered">
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtCandidateRegistrationTitle">Title</label>
+						<div class="col-md-9">
+							<input id="txtCandidateRegistrationTitle" style="width:100%" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtCandidateRegistrationForenames">Forenames</label>
+						<div class="col-md-9">
+							<input type="text" id="txtCandidateRegistrationForenames" name="txtCandidateRegistrationForenames" class="form-control" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtCandidateRegistrationSurname">Surname</label>
+						<div class="col-md-9">
+							<input type="text" id="txtCandidateRegistrationSurname" name="txtCandidateRegistrationSurname" class="form-control" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtCandidateRegistrationJobTitle">Job Title</label>
+						<div class="col-md-9">
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<input type="text" id="txtCandidateRegistrationJobTitle" name="txtCandidateRegistrationJobTitle" class="form-control" maxlength="50">
+									</td>
+									<td style="width: 40px; padding-left: 5px; display: none;" id="tr-CandidateRegistrationJobTitle">
+										<button type="submit" class="btn btn-sm btn-default" onclick="CandidateRegistration.JobTitleLookup()" title="Lookup Job Title" style="right:0px;">
+											<i class="gi gi-search"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtCandidateRegistrationMobileTelNo">Mobile Tel.</label>
+						<div class="col-md-9">
+							<input type="text" id="txtCandidateRegistrationMobileTelNo" name="txtCandidateRegistrationMobileTelNo" class="form-control" maxlength="30">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="block-title">
+					<h2><strong>CV/Photo</strong> Form</h2>
+				</div>
+				<div class="form-horizontal form-bordered">
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtCandidateRegistrationCVFileRef">CV/Resume</label>
+						<div class="col-md-9">
+							<div id="txtCandidateRegistrationCVFileRef" style="width:100%; margin-right:110px;"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="imgCandidateRegistrationEditor">Photo</label>
+						<div class="col-md-9">
+							<div id="CandidateRegistrationContactPhoto" style="width:100%;"></div>
+							<br />
+							<img id="imgCandidateRegistrationEditor" height="64" width="64" style="display:none; border-radius: 5px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block" style="display: none;" id="candidateRegistration-PrinciplesOfEngagement-block">
+				<div class="block-title">
+					<h2><strong>Principles of Engagement</strong> Form</h2>
+				</div>
+				<div class="form-horizontal form-bordered">
+					<div class="form-group">
+						<label class="col-md-3 control-label">&nbsp;</label>
+						<div class="col-md-9">
+							<!-- The Document URL: Where the fuck does this go? -->
+							<a href="https://trisys.soprasteriarecruitment.co.uk/api/documents/SSR_PrinciplesofEngagement_March2019.pdf" target="_blank">Principles of Engagement Document</a>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="candidateRegistration-PrinciplesOfEngagement-Agree">&nbsp;</label>
+						<div class="col-md-9">
+							<label class="switch switch-primary">
+								<input type="checkbox" id="candidateRegistration-PrinciplesOfEngagement-Agree" value="0" unchecked>
+								<span></span>
+							</label>
+							<span class="help-block">Agree to Principles of Engagement</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+        <div class="col-md-6">
+            <div class="block">
+                <div class="block-title">
+                    <h2><strong>Login Credentials</strong> Form</h2>
+                </div>
+                <div class="form-horizontal form-bordered">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationEMail">E-Mail</label>
+                        <div class="col-md-9">
+                            <input type="email" id="txtCandidateRegistrationEMail" name="txtCandidateRegistrationEMail" class="form-control" placeholder="Enter E-Mail.." maxlength="100">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationPassword">Password</label>
+                        <div class="col-md-9">
+                            <input type="password" id="txtCandidateRegistrationPassword" name="txtCandidateRegistrationPassword" class="form-control" placeholder="Enter Password.." maxlength="20">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationPasswordConfirmation">Confirm Password</label>
+                        <div class="col-md-9">
+                            <input type="password" id="txtCandidateRegistrationPasswordConfirmation" name="txtCandidateRegistrationPasswordConfirmation" class="form-control" placeholder="Enter Password Confirmation.." maxlength="20">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block">
+                <!-- Horizontal Form Title -->
+                <div class="block-title">
+                    <h2><strong>Home Address</strong> Form</h2>
+                </div>
+                <!-- END Horizontal Form Title -->
+                <!-- Horizontal Form Content -->
+                <div class="form-horizontal form-bordered">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationStreet">Street</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" name="txtCandidateRegistrationStreet" id="txtCandidateRegistrationStreet" rows="3" style="resize: none"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationCity">Town/City</label>
+                        <div class="col-md-9">
+                            <input type="text" id="txtCandidateRegistrationCity" name="txtCandidateRegistrationCity" class="form-control" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationCounty">County/State</label>
+                        <div class="col-md-9">
+                            <input type="text" id="txtCandidateRegistrationCounty" name="txtCandidateRegistrationCounty" class="form-control" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationPostCode">Post Code / ZIP</label>
+                        <div class="col-md-9">
+                            <div class="input-group" style="width: 200px;">
+                                <input type="text" class="form-control" name="txtCandidateRegistrationPostCode" id="txtCandidateRegistrationPostCode" maxlength="10" style="width: 120px; text-transform: uppercase">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-sm btn-default" type="button" id="btnCandidateRegistrationPostCodeLookup" onclick="CandidateRegistration.PostCodelookup()">
+                                        Lookup
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationCountry">Country</label>
+                        <div class="col-md-9">
+                            <input id="txtCandidateRegistrationCountry" style="width:100%" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtCandidateRegistrationHomeTelNo">Home Tel.</label>
+                        <div class="col-md-9">
+                            <input type="text" id="txtCandidateRegistrationHomeTelNo" name="txtCandidateRegistrationHomeTelNo" class="form-control" maxlength="50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="block">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-group form-actions">
+                        <div class="col-md-6 col-md-offset-6">
+                            <button type="submit" class="btn btn-sm btn-primary" onclick="CandidateRegistration.SubmitButtonClick()"><i class="gi gi-pen"></i> Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/candidateregistration.js"></script>

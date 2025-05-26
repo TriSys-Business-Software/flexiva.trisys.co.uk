@@ -1,0 +1,1 @@
+$(document)['ready'](function(){TriSysApex['ModalDialogue']['Selection']['AfterLoad']();});

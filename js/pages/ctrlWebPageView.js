@@ -1,0 +1,1 @@
+var ctrlWebPageView={'Load':function(){var lHeight=$(window)['height'](),lWidth=$('#trisys-modal-dynamic-content')['width']()-0x28,iFrameHeight=lHeight-0x12c;$('#ctrlWebPageView-content')['load'](TriSysApex['ModalDialogue']['WebPageView']['URL']);}};$(document)['ready'](function(){ctrlWebPageView['Load']();});

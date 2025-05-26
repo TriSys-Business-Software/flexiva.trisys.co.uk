@@ -1,0 +1,240 @@
+﻿<style scoped>
+    .td-label {
+        width: 110px;
+    }
+</style>
+
+<div class="block" style="margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-md-12" style="padding-left: 0px">
+            <table class="table table-borderless" id="contractRate-CompanyJobTitleAndAddressTable" style="display: none;">
+                <tbody>
+
+                    <tr>
+                        <td class="td-label">
+                            <strong>Job Title</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <input class="k-textbox" id="contractRate-JobTitle" style="width:100%" />
+                                    </td>
+                                    <td style="width: 40px; padding-left: 5px;">
+                                        <button type="submit" class="btn btn-sm btn-default" onclick="ctrlContractRate.JobTitleLookup()"
+                                                title="Lookup Job Title" style="right:0px;" id="contractRate-JobTitle-Lookup">
+                                            <i class="gi gi-search"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Company Address</strong></td>
+                        <td>
+                            <input type="text" id="contractRate-CompanyAddress" style="width:100%" />
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7" style="padding-left: 0px">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <h5 class="sub-header" style="margin-bottom: 0px; margin-top: -25px;" >Rate Type</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Type</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-Type" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Notes</strong>
+                        </td>
+                        <td>
+                            <textarea class="k-textbox" id="contractRate-Notes" rows="2" style="width:100%; resize: none"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h5 class="sub-header" style="margin-bottom: 0px;">Rates</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Pay Rate</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-PayRate" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Charge Rate</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-ChargeRate" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            &nbsp;
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="contractRate-MarginMarkupCalculation" value="1" checked>
+                                <span></span>
+                            </label>
+                            &nbsp; &nbsp; &nbsp; Margin/Markup Calculation
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>PAYE</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-PAYE" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr id="contractRate-Multiplier-Row">
+                        <td class="td-label">
+                            <strong>Multiplier</strong>
+                        </td>
+                        <td>
+                            <input type="number" id="contractRate-Multiplier" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr id="contractRate-StandardPayRate-Row">
+                        <td class="td-label">
+                            <strong>Standard Pay Rate</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-StandardPayRate" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr id="contractRate-StandardChargeRate-Row">
+                        <td class="td-label">
+                            <strong>Standard Charge Rate</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-StandardChargeRate" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-5" style="padding-left: 0px">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <h5 class="sub-header" style="margin-bottom: 0px; margin-top: -25px;">Percentages</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Margin %</strong>
+                        </td>
+                        <td>
+                            <input type="number" id="contractRate-MarginPercentage" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Markup %</strong>
+                        </td>
+                        <td>
+                            <input type="number" id="contractRate-MarkupPercentage" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="vertical-align: middle; text-align: right;">
+                            Update Charge Rate Calculation &nbsp; &nbsp; &nbsp;
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="contractRate-UpdateChargeRateCalculation" value="1" checked>
+                                <span></span>
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-borderless" id="contractRate-PlacementValuesTable" style="display: none;">
+                <tbody>
+
+                    <tr>
+                        <td colspan="2">
+                            <h5 class="sub-header" style="margin-bottom: 0px;">Placement Values</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Days per Week</strong>
+                        </td>
+                        <td>
+                            <input type="number" id="contractRate-DaysPerWeek" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Hours per Day</strong>
+                        </td>
+                        <td>
+                            <input type="number" id="contractRate-HoursPerDay" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Duration (Weeks)</strong>
+                        </td>
+                        <td>
+                            <input type="number" id="contractRate-DurationInWeeks" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Value</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-Value" style="width:100%;" ></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Total Profit</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-Profit" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">
+                            <strong>Profit per Unit</strong>
+                        </td>
+                        <td>
+                            <div id="contractRate-ValuePerUnit" style="width:100%;" ></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlContractRate.js"></script>
+

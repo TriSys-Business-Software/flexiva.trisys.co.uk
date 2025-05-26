@@ -1,0 +1,196 @@
+﻿<style scoped>
+    .td-label {
+        width: 150px;
+    }
+    .k-grid-content {
+        overflow-y: auto    
+    }
+
+    /* The grid header goes crazy for seemingly no reason */
+    .k-grid-header th.k-header > .k-link {
+        font-weight: bold;
+        font-size: 12px;
+        margin: auto;
+    }
+
+</style>
+
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td class="td-label"><strong>Table Name</strong></td>
+                        <td>
+                            <span id="ctrlFieldDescription-TableName"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Field Name</strong></td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlFieldDescription-TableFieldName" maxlength="50" required="required" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Description</strong></td>
+                        <td>
+                            <textarea class="k-textbox" id="ctrlFieldDescription-Description" rows="3" style="width:100%; resize: none"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Field Type</strong></td>
+                        <td>
+                            <input type="text" id="ctrlFieldDescription-FieldType" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr id="ctrlFieldDescription-SkillComboCategory-tr" style="display: none;">
+                        <td class="td-label"><strong>Category</strong></td>
+                        <td>
+                            <input type="text" id="ctrlFieldDescription-SkillComboCategory" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Default Value</strong></td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlFieldDescription-DefaultValue" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Field Length</strong></td>
+                        <td>
+                            <input type="number" id="ctrlFieldDescription-FieldLength" style="width:100px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Multi-Line</strong></td>
+                        <td>
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlFieldDescription-MultiLine" value="0" unchecked>
+                                <span></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Minimum Value</strong></td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlFieldDescription-MinValue" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Maximum Value</strong></td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlFieldDescription-MaxValue" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label"><strong>Field Label</strong></td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlFieldDescription-FieldLabel" style="width:100%" />
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6">
+        <div class="block" id="ctrlFieldDescription-Lookup-Block">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlFieldDescription-Lookup" value="0" unchecked>
+                                <span></span>
+                            </label> &nbsp; Lookup
+                        </td>
+                    </tr>
+                    <tr id="ctrlFieldDescription-lookupList" style="display: none;">
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <div id="ctrlFieldDescription-LookupGrid" style="border-width: 1px; width: 95%; ">
+                                        </div>
+                                    </td>
+                                    <td style="width: 100px; vertical-align: top; padding-left: 25px; line-height: 3;">
+
+                                        <p>
+                                            <span style="color: red;">Note:</span>
+                                            <br />
+
+                                            Field lookups must be edited from the Attributes/Lookups tab in Administrator Console.
+                                            This is because field description lookups are a subset of all of the
+                                            attributes, skills and lookups in your database, and having a centralised management
+                                            applet for all of these is more intuitive.
+                                        </p>
+
+                                    </td>
+                                    <td style="width: 100px; vertical-align: top; padding-left: 25px; line-height: 3; display: none;">
+
+                                        <a href="javascript:void(0)" onclick="ctrlFieldDescription.AddLookup()" class=" btn btn-sm btn-default enable-tooltip" title="Add lookup" style="width: 90px;">
+                                            <i class="gi gi-plus"></i> &nbsp; Add &nbsp;
+                                        </a>
+
+                                        <br />
+
+                                        <a href="javascript:void(0)" onclick="ctrlFieldDescription.EditLookup()" class=" btn btn-sm btn-default enable-tooltip" title="Edit lookup" style="width: 90px;">
+                                            <i class="gi gi-pen"></i> &nbsp; Edit &nbsp;
+                                        </a>
+
+                                        <br />
+
+                                        <a href="javascript:void(0)" onclick="ctrlFieldDescription.RemoveLookup()" class=" btn btn-sm btn-default enable-tooltip" title="Remove lookup" style="width: 90px;">
+                                            <i class="gi gi-minus"></i> &nbsp; Remove &nbsp;
+                                        </a>
+
+                                        <br />
+
+                                        <a href="javascript:void(0)" onclick="ctrlFieldDescription.MoveUp()" class=" btn btn-sm btn-default enable-tooltip" title="Move lookup up" style="width: 90px;">
+                                            <i class="fa fa-arrow-up"></i> &nbsp; Up &nbsp;
+                                        </a>
+
+                                        <br />
+
+                                        <a href="javascript:void(0)" onclick="ctrlFieldDescription.MoveDown()" class=" btn btn-sm btn-default enable-tooltip" title="Move lookup down" style="width: 90px;">
+                                            <i class="fa fa-arrow-down"></i> &nbsp; Down &nbsp;
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="ctrlFieldDescription-lookupSort" style="display: none;">
+                        <td>
+                            <!--<label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlFieldDescription-SortAlphabetically" value="0" unchecked>
+                                <span></span>
+                            </label> &nbsp; Sort lookups alphabetically at run-time-->
+                            <trisys-field id="ctrlFieldDescription-SortAlphabetically" type="yesno"
+                                          value="false"
+                                          title="Sort the lookups in alphabetical order"
+                                          onchange="ctrlFieldDescription.SortAlphabeticallyChecked(this)">
+                            </trisys-field>
+                        </td>
+                    </tr>
+                    <tr id="ctrlFieldDescription-lookupSortOrder" style="display: none;">
+                        <td>
+                            <a href="javascript:void(0)" onclick="ctrlFieldDescription.LookupSortOrder()" class=" btn btn-sm btn-default enable-tooltip" 
+                                title="Sort lookup order" style="width: 90px;" id="ctrlFieldDescription-lookupSortOrderButton">
+                                <i class="gi gi-sorting"></i> &nbsp; Ordering &nbsp;
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlFieldDescription.js"></script>
+

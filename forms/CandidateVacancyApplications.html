@@ -1,0 +1,74 @@
+﻿<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <i class="gi gi-ok_2"></i>Vacancy Applications
+            <br>
+            <small>
+                The grid below shows all of the vacancies to which you have applied.
+                You may open each vacancy to see the progress of your respective application, 
+                including helping schedule an interview, or accepting or rejecting a job offer, 
+                or withdrawing your application.
+            </small>
+        </h1>
+    </div>
+</div>
+
+<div class="block full">
+
+    <div class="block-title">
+        <div class="block-options pull-right">
+
+            <a href="javascript:void(0)" onclick="CandidateVacancyApplications.WithdrawApplication()" class=" btn btn-sm btn-default enable-tooltip" title="Withdraw application to selected vacancy"
+               id="CandidateVacancyApplications-Menu-WithdrawApplication">
+                <i class="gi gi-remove_2"></i> &nbsp; Withdraw Application &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <a href="javascript:void(0)" onclick="CandidateVacancyApplications.SendToFriend()" class=" btn btn-sm btn-default enable-tooltip" title="Send to a friend"
+               id="CandidateVacancyApplications-Menu-SendToFriend">
+                <i class="gi gi-envelope"></i> &nbsp; Send to Friend &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <a href="javascript:void(0)" onclick="CandidateVacancyApplications.ShowOnMap()" class=" btn btn-sm btn-default enable-tooltip" title="Show vacancies on a map"
+               id="CandidateVacancyApplications-Menu-ShowOnMap">
+                <i class="gi gi-google_maps"></i> &nbsp; Show on Map &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <a href="javascript:void(0)" onclick="CandidateVacancyApplications.ShowInGrid()" class=" btn btn-sm btn-default enable-tooltip" title="Show vacancies in a grid"
+               style="display: none;" id="CandidateVacancyApplications-Menu-ShowInGrid">
+                <i class="gi gi-table"></i> &nbsp; Show in Grid &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <div id="CandidateVacancyApplications-Menu-Grid">
+            </div>
+        </div>
+        <h2>Vacancy <strong>Applications</strong> </h2>
+    </div>
+
+    <!--TRISYS VACANCIES START-->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- The grid populated by JS -->
+            <div id="divCandidateVacancyApplicationsGrid" style="border-width: 1px; width: 100%; ">
+            </div>
+            <!-- The google map populated by JS -->
+            <div id="divCandidateVacancyApplicationsMap" style="border-width: 1px; width: 100%; height:600px; display:none ">
+            </div>
+            <div style="height: 10px"></div>
+
+        </div>
+    </div>
+    <!--TRISYS VACANCIES END-->
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/CandidateVacancyApplications.js"></script>

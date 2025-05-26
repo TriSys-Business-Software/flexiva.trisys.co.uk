@@ -1,0 +1,137 @@
+﻿<style scoped>
+    .td-label-OfferAccepted {
+        width: 140px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td class="td-label-OfferAccepted">
+                            <strong>Client</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlOfferAccepted-Client" style="width:100%"></span>
+                        </td>
+                    </tr>
+                    <tr id="ctrlOfferAccepted-Requirement-tr">
+                        <td class="td-label-OfferAccepted">
+                            <strong>Requirement</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlOfferAccepted-Requirement" style="width:100%"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-OfferAccepted">
+                            <strong>Candidate(s)</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlOfferAccepted-Candidate" style="width:100%"></span>
+                        </td>
+                    </tr>
+                    <tr id="ctrlOfferAccepted-Salary-tr">
+                        <td class="td-label-OfferAccepted">
+                            <strong>Salary</strong>
+                        </td>
+                        <td>
+                            <div id="ctrlOfferAccepted-Salary" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-OfferAccepted">
+                            <strong>Start Date</strong>
+                        </td>
+                        <td>
+                            <input id="ctrlOfferAccepted-StartDate" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr id="ctrlOfferAccepted-EndDate-tr">
+                        <td class="td-label-OfferAccepted">
+                            <strong>End Date</strong>
+                        </td>
+                        <td>
+                            <input id="ctrlOfferAccepted-EndDate" style="width:100%" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+
+                    <tr>
+                        <td class="td-label-OfferAccepted">
+                            <strong>Client Template</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlOfferAccepted-ClientTemplate" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlOfferAccepted-EditClientTemplate">
+                                            <i class="gi gi-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-OfferAccepted">
+                            <strong>Client Subject</strong>
+                        </td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlOfferAccepted-ClientSubject" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-OfferAccepted">
+                            <strong>Candidate Template</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlOfferAccepted-CandidateTemplate" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlOfferAccepted-EditCandidateTemplate">
+                                            <i class="gi gi-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-OfferAccepted">
+                            <strong>Candidate Subject</strong>
+                        </td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlOfferAccepted-CandidateSubject" style="width:100%" />
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6">
+
+        <div id="ctrlOfferAccepted-NoteHistory">
+        </div>
+
+        <div id="ctrlOfferAccepted-FollowUp">
+        </div>
+    </div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlOfferAccepted.js"></script>

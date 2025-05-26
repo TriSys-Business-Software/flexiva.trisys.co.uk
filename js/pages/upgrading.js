@@ -1,0 +1,1 @@
+$(document)['ready'](function(){TriSysLoad['ApexFramework']['LoadDynamically'](function(){var d=new Date(),iYear=d['getFullYear']();$('#trisys-upgrading-year')['html'](iYear);do{if(typeof TriSysApex!='undefined'){TriSysApex['Upgrade']['Initialise']();return;}}while(!![]);});});

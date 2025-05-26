@@ -1,0 +1,63 @@
+﻿<div class="content-header" id="ClientVacanciesPageHeader">
+    <div class="header-section">
+        <h1>
+            <i class="gi gi-search"></i>Vacancies
+            <br><small>
+                Filter and sort your vacancies based on type, job title location, salary/rates.
+                Drill down on each vacancy to view your shortlist.
+            </small>
+        </h1>
+    </div>
+</div>
+
+<div class="block full">
+
+    <div class="block-title">
+        <div class="block-options pull-right">
+
+            <a href="javascript:void(0)" onclick="ClientVacancies.ShowOnMap()" class=" btn btn-sm btn-default enable-tooltip" title="Show vacancies on a map"
+               id="ClientVacancies-Menu-ShowOnMap">
+                <i class="gi gi-google_maps"></i> &nbsp; Show on Map &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <a href="javascript:void(0)" onclick="ClientVacancies.ShowInGrid()" class=" btn btn-sm btn-default enable-tooltip" title="Show vacancies in a grid"
+               style="display: none;" id="ClientVacancies-Menu-ShowInGrid">
+                <i class="gi gi-table"></i> &nbsp; Show in Grid &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <div id="ClientVacancies-Menu-Grid">
+            </div>
+        </div>
+        <h2>
+            <strong>Client</strong> Vacancies
+            <span id="ClientVacancies-MapKey" style="display: none;">
+                &nbsp; &nbsp; &nbsp;
+                <img src="/images/trisys/maps/key.png" style="height: 20px;">
+            </span>
+        </h2>
+    </div>
+
+    <!--TRISYS GRID VACANCIES START-->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- The grid populated by JS -->
+            <div id="divClientVacanciesGrid" style="border-width: 1px; width: 100%; ">
+            </div>
+            <!-- The google map populated by JS -->
+            <div id="divClientVacanciesMap" style="border-width: 1px; width: 100%; height:600px; display:none ">
+            </div>
+            <div style="height: 10px"></div>
+
+        </div>
+    </div>
+    <!--TRISYS GRID VACANCIES END-->
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ClientVacancies.js"></script>

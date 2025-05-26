@@ -1,0 +1,662 @@
+﻿<style scoped>
+    .block-title > i {
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+</style>
+
+<!-- Form Caption -->
+<div class="block full" style="padding-bottom: 0px;">
+
+	<!-- Block Caption Title -->
+	<div class="block-title">
+		<i class="gi gi-user_add fa-2x pull-left themed-color"></i>
+		<h2 id="requirementForm-caption">Requirement Form</h2>
+        <div class="block-options pull-right">
+            <a href="javascript:void(0)" onclick="TriSysApex.Pages.RequirementForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the requirement record" id="requirementForm-save-button">
+                <i class="gi gi-floppy_save"></i> &nbsp; Save
+            </a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)" onclick="ctrlRequirementForm.FileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete the requirement record" id="requirementForm-delete-button">
+                <i class="fa fa-remove"></i> &nbsp; Delete
+            </a>
+            <div id="requirementForm-FileMenu" style="display: none;">
+            </div>
+
+            <!-- 31 May 2023 -->
+            <!-- Custom Daxtra Menu: Start-->
+            <span>&nbsp;</span>
+            <div class="btn-group btn-group-sm show-on-hover" id="requirementForm-DaxtraMenu">
+                <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Daxtra" style="color: rgb(255, 107, 107); background-color: white;">
+                    <img src="https://api.trisys.co.uk/apex/custom/daxtra/images/daxtra-logo-rounded-2.png" width="64"> &nbsp; <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                    <li id="daxtra-menu-li-Requirement">
+                        <a href="javascript:void(0)" onclick="TriSysApex.Forms.Daxtra.RequirementMatchCandidates();"
+                           id="requirementForm-DaxtraMenu-MatchCandidates"><i class="gi gi-parents pull-right"></i>Match Candidates</a>
+                        <a href="javascript:void(0)" onclick="TriSysApex.Forms.Daxtra.Search();"
+                           id="requirementForm-DaxtraMenu-Search"><i class="gi gi-search pull-right"></i>Search</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Custom Daxtra Menu: End -->
+
+            <span>&nbsp;</span>
+            <div id="requirementForm-ActionsMenu">
+            </div>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the job on your web site as it appears to candidates"
+               id="requirementForm-ViewJobOnTriSysWeb" onclick="TriSysApex.Pages.RequirementForm.ViewJobOnTriSysWeb();">
+                <i class="fa fa-globe"></i> &nbsp; View on Web &nbsp;
+            </a>
+        </div>
+	</div>
+	<!-- END Block Caption Title -->
+	<!-- Master Record Fields -->
+	<div class="row">
+		<div class="col-md-9" style="padding-left: 0px">
+			<div class="form-group">
+				<div class="col-md-4">
+					<table class="table table-borderless table-striped">
+						<tbody>
+							<tr>
+								<td style="width: 120px;"><strong>Reference</strong></td>
+								<td>
+									<input type="text" class="k-textbox" id="RequirementConfigFields_RequirementReference" required="required" readonly="readonly" style="width:100%" />
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Type</strong></td>
+								<td>
+									<input id="Requirement_Type" style="width:100%" />
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Client Contact</strong></td>
+								<td>
+									<table style="width: 100%;">
+										<tr>
+											<td>
+												<input class="k-textbox" id="Requirement_ContactId" style="width:100%" readonly="readonly" />
+											</td>
+											<td style="width: 4px;"></td>
+											<td style="width: 28px;">
+												<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.RequirementForm.OpenContactLink()" title="Open Contact">
+													<i class="gi gi-parents"></i>
+												</button>
+											</td>
+											<td style="width: 4px; display: none;" id="requirememt-form-find-contact-button-gap-td"></td>
+											<td style="width: 28px; display: none;" id="requirememt-form-find-contact-button-td">
+												<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.RequirementForm.AssignContactLink()" title="Assign Contact">
+													<i class="gi gi-search"></i>
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Company</strong></td>
+								<td>
+									<table style="width: 100%;">
+										<tr>
+											<td>
+												<input class="k-textbox" id="Requirement_CompanyId" style="width:100%" readonly="readonly" />
+											</td>
+											<td style="width: 4px;"></td>
+											<td style="width: 28px;">
+												<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.RequirementForm.OpenCompanyLink()" title="Open Company">
+													<i class="gi gi-building"></i>
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Address</strong></td>
+								<td>
+									<textarea class="k-textbox" rows="4" cols="3" id="Requirement_AddressId" style="width:100%; resize: none" readonly="readonly"></textarea>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-4">
+
+					<table class="table table-borderless table-striped">
+						<tbody>
+							<tr>
+								<td style="width: 120px;"><strong>Status</strong></td>
+								<td>
+									<input type="text" id="RequirementConfigFields_RequirementStatus" style="width:100%" />
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Earliest Start</strong></td>
+								<td>
+									<input type="text" id="RequirementConfigFields_EarliestStartDate" style="width:100%" />
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Job Title</strong></td>
+								<td>
+									<table style="width: 100%;" cellpadding="0" cellspacing="0">
+										<tr>
+											<td>
+												<input id="RequirementConfigFields_JobTitle" style="width:100%" />
+											</td>
+											<td style="width: 40px; padding-left: 5px; display: none;" id="tr-RequirementConfigFields_JobTitle">
+												<button type="submit" class="btn btn-sm btn-default" onclick="ctrlRequirementForm.JobTitleLookup()" title="Lookup Job Title" style="right:0px;">
+													<i class="gi gi-search"></i>
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Initiated</strong></td>
+								<td>
+									<input id="RequirementConfigFields_DateInitiated" style="width:100%" readonly="readonly" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Choose a company address where the candidate will work"
+									   id="requirementForm-SiteSelection" onclick="TriSysApex.Pages.RequirementForm.ChooseSiteAddress();">
+										<i class="gi gi-factory"></i> &nbsp; Site Address &nbsp;
+									</a>
+								</td>
+								<td>
+									<textarea class="k-textbox" id="RequirementConfigFields_SiteAddress" rows="4" style="width:100%; resize: none" readonly="readonly"></textarea>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-4">
+
+					<table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td style="width: 120px;">
+                                    <strong>User</strong>
+                                </td>
+                                <td>
+                                    <table style="width: 100%;" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td>
+                                                <input id="Requirement_UserId" style="width:100%" readonly="readonly" />
+                                            </td>
+                                            <td style="width: 40px; padding-left: 5px;">
+                                                <button type="submit" class="btn btn-sm btn-default" onclick="ctrlRequirementForm.ReAssignUser()" title="Re-assign user" style="right:0px;">
+                                                    <i class="gi gi-user"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Job Description</strong></td>
+                                <td>
+                                    <div id="RequirementConfigFields_JobDescription" style="width:100%"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>No. Required</strong></td>
+                                <td>
+                                    <input id="RequirementConfigFields_NumberRequired" style="width:100%" title="Number of candidates required" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="switch switch-primary">
+                                        <input type="checkbox" id="RequirementConfigFields_DisplayOnWeb" value="0" unchecked>
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <strong>Display job/vacancy on web site</strong>
+                                </td>
+                            </tr>
+                            <tr style="display: none;">
+                                <td>
+                                    <label class="switch switch-primary">
+                                        <input type="checkbox" id="RequirementConfigFields_ActiveSearchingEnabled" value="0" unchecked>
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <strong>Active Searching Enabled</strong>
+                                </td>
+                            </tr>
+                            <tr style="display: none;">
+                                <td><strong>Last Active Search</strong></td>
+                                <td>
+                                    <input id="RequirementConfigFields_ActiveSearchingLastRun" style="width:100%" readonly="readonly" />
+                                </td>
+                            </tr>
+                        </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3" style="vertical-align: top">
+			<table class="table table-borderless table-striped">
+				<tbody>
+					<tr>
+						<td>
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<strong>Internal Comments</strong>
+									</td>
+									<td style="width: 40px; padding-left: 5px;">
+										<button type="submit" class="btn btn-sm btn-default" onclick="ctrlRequirementForm.EditInternalComments()" title="Edit internal comments" style="right:0px;">
+											<i class="gi gi-pen"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<textarea class="k-textbox" id="RequirementConfigFields_Comments" rows="4" style="width:100%; resize: vertical;"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<strong>External/Web Site Job Details</strong>
+									</td>
+									<td style="width: 40px; padding-left: 5px;">
+										<button type="submit" class="btn btn-sm btn-default" onclick="ctrlRequirementForm.EditWebSiteJobDetails()" title="Edit HTML job details for web site" style="right:0px;">
+											<i class="gi gi-pen"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<textarea class="k-textbox" id="RequirementConfigFields_WebText" rows="4" style="width:100%; resize: vertical;"></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- END Master Record Fields -->
+	<!-- START FORM TABS -->
+	<div class="block full" id="requirement-tab-panel-buttons">
+		<div class="block-title">
+            <ul class="nav nav-tabs" data-toggle="tabs" id="requirement-form-tab-nav-horizontal">
+                <li id="requirement-form-tab-contract-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-contract', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-gbp"></i>&nbsp; Contract/Temp
+                    </a>
+                </li>
+                <li id="requirement-form-tab-permanent-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-permanent', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-gbp"></i>&nbsp; Permanent
+                    </a>
+                </li>
+                <li id="requirement-form-tab-search-criteria-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-search', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-search"></i>&nbsp; Search
+                    </a>
+                </li>
+                <li id="requirement-form-tab-search-results-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-search-results', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="fa fa-database"></i>&nbsp; Search Results
+                    </a>
+                </li>
+                <li id="requirement-form-tab-longlist-li" style="display: none;">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-longlist', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-playing_dices"></i>&nbsp; Longlist
+                    </a>
+                </li>
+                <li id="requirement-form-tab-shortlist-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-shortlist', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-plus"></i>&nbsp; Shortlist
+                    </a>
+                </li>
+                <li id="requirement-form-tab-rejected-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-rejected', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-minus"></i>&nbsp; Rejected
+                    </a>
+                </li>
+                <li id="requirement-form-tab-attributes-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-attributes', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-settings"></i>&nbsp; Attributes
+                    </a>
+                </li>
+                <li id="requirement-form-tab-placements-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-placements', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-gbp"></i>&nbsp; Placements
+                    </a>
+                </li>
+                <li id="requirement-form-tab-documentlibrary-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-documentlibrary', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="fa fa-folder-o"></i>&nbsp; Documents
+                    </a>
+                </li>
+                <li id="requirement-form-tab-noteshistory-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-noteshistory', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-notes"></i>&nbsp; Notes
+                    </a>
+                </li>
+                <li id="requirement-form-tab-scheduledtasks-li">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-scheduledtasks', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-alarm"></i>&nbsp; Tasks
+                    </a>
+                </li>
+                <li id="requirement-form-tab-custom" style="display: none;">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'requirement-form-panel-custom', ctrlRequirementForm.TabButtonCallback);">
+                        <i class="gi gi-cargo"></i>&nbsp;  <span id="requirement-form-tab-custom-caption">Custom</span>
+                    </a>
+                </li>
+            </ul>
+		</div>
+        <div class="tab-content">
+            <div class="tab-pane" id="requirement-form-panel-contract">
+                <div id="requirement-form-contract-rates"></div>
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-permanent">
+                <div id="requirement-form-permanent-salary"></div>
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-search">
+                <div id="requirement-candidate-search-criteria"></div>
+
+                <div class="block" id="requirement-candidate-search-3rd-party-block" style="display: none;">
+
+                    <div class="block-title">
+                        <h3 id="requirement-candidate-search-3rd-party-block-title">iFrame Search</h3>
+                    </div>
+
+                    <!-- 3rd party web pages are inserted into this iFrame -->
+                    <iframe id="requirement-candidate-search-3rd-party-block-iframe" allowfullscreen="true" width="100%" height="800" frameborder="0" allowtransparency="true"></iframe>
+
+                </div>
+
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-search-results">
+
+                <div class="block" id="requirement-candidate-search-results-grid-container">
+
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <div id="requirementCandidateSearchResultsFileMenu" style="display: none;">
+                            </div>
+                            <a id="requirementCandidateSearchResultsExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('requirementForm-CandidateSearchResultsGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+                                <i class="fa fa-file-excel-o"></i> &nbsp; Excel
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.OpenCandidate('requirementForm-CandidateSearchResultsGrid')" class="btn btn-sm btn-default enable-tooltip" title="Open selected candidate">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.OpenCandidateCV('requirementForm-CandidateSearchResultsGrid')" class="btn btn-sm btn-default enable-tooltip" title="Open selected candidates CV">
+                                <i class="gi gi-file_export"></i> &nbsp; Open CV
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.AddCandidateToList('requirementForm-CandidateSearchResultsGrid', false, false, true)" class="btn btn-sm btn-default enable-tooltip" title="Reject selected candidate">
+                                <i class="fa fa-remove fa-fw"></i> &nbsp; Reject
+                            </a>
+                            <span>&nbsp;</span>
+                            <div id="requirementCandidateSearchResultsGridMenu">
+                            </div>
+                            <span>&nbsp;</span>
+                            <div id="requirementCandidateSearchResultsActionsMenu">
+                            </div>
+                        </div>
+                        <h3>Candidate Search Results <span id="requirementForm-candidateSearch-grid-selected-counter"></span></h3>
+                    </div>
+                    <!-- The candidate search results grid populated by JS -->
+                    <div id="requirementForm-CandidateSearchResultsGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-longlist">
+
+                <div class="block" id="requirement-longlist-grid-container">
+
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <div id="requirementLonglistFileMenu" style="display: none;">
+                            </div>
+                            <a id="requirementLonglistExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('requirementForm-LonglistGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+                                <i class="fa fa-file-excel-o"></i> &nbsp; Excel
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.OpenCandidate('requirementForm-LonglistGrid')" class="btn btn-sm btn-default enable-tooltip" title="Open selected candidate">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.OpenCandidateCV('requirementForm-LonglistGrid')" class="btn btn-sm btn-default enable-tooltip" title="Open selected candidates CV">
+                                <i class="gi gi-file_export"></i> &nbsp; Open CV
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.AddCandidateToList('requirementForm-LonglistGrid', false, false, true)" class="btn btn-sm btn-default enable-tooltip" title="Reject selected candidate">
+                                <i class="fa fa-remove fa-fw"></i> &nbsp; Reject
+                            </a>
+                            <span>&nbsp;</span>
+                            <div id="requirementLonglistGridMenu">
+                            </div>
+                            <span>&nbsp;</span>
+                            <div id="requirementLonglistActionsMenu">
+                            </div>
+                        </div>
+                        <h3>Candidate Longlist</h3>
+                    </div>
+                    <!-- The candidate longlist grid populated by JS -->
+                    <div id="requirementForm-LonglistGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-shortlist">
+
+                <div class="block" id="requirement-shortlist-grid-container">
+
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <div id="requirementShortlistFileMenu" style="display: none;">
+                            </div>
+                            <a id="requirementShortlistExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('requirementForm-ShortlistGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+                                <i class="fa fa-file-excel-o"></i> &nbsp; Excel
+                            </a>
+                            <span>&nbsp;</span>
+                            <div id="requirementShortlistJobBoardApplicantsMenu">
+                            </div>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.OpenCandidate('requirementForm-ShortlistGrid')" class="btn btn-sm btn-default enable-tooltip" title="Open selected candidate">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.OpenCandidateCV('requirementForm-ShortlistGrid')" class="btn btn-sm btn-default enable-tooltip" title="Open selected candidates CV">
+                                <i class="gi gi-file_export"></i> &nbsp; Open CV
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.AddCandidateToShortlist()" class="btn btn-sm btn-default enable-tooltip" title="Add a candidate to the shortlist">
+                                <i class="gi gi-plus"></i> &nbsp; Add
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.AddCandidateToList('requirementForm-ShortlistGrid', false, false, true)" class="btn btn-sm btn-default enable-tooltip" title="Reject selected candidate">
+                                <i class="fa fa-remove fa-fw"></i> &nbsp; Reject
+                            </a>
+                            <span>&nbsp;</span>
+                            <div id="requirementShortlistGridMenu">
+                            </div>
+                            <span>&nbsp;</span>
+                            <div id="requirementShortlistActionsMenu">
+                            </div>
+                        </div>
+                        <h3>Candidate Shortlist <span id="requirementForm-ShortlistGrid-selected-counter"></span></h3>
+                    </div>
+
+                    <!-- The candidate shortlist grid populated by JS -->
+                    <div id="requirementForm-ShortlistGrid" style="border-width: 1px; width: 100%;">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-rejected">
+
+                <div class="block" id="requirement-rejected-grid-container">
+
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <div id="requirementRejectedFileMenu" style="display: none;">
+                            </div>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.OpenCandidate('requirementForm-RejectedGrid')" class="btn btn-sm btn-default enable-tooltip" title="Open selected candidate">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.OpenCandidateCV('requirementForm-RejectedGrid')" class="btn btn-sm btn-default enable-tooltip" title="Open selected candidates CV">
+                                <i class="gi gi-file_export"></i> &nbsp; Open CV
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.AddCandidateToList('requirementForm-RejectedGrid', false, false, false, true)" class="btn btn-sm btn-default enable-tooltip" title="Remove selected rejected candidate">
+                                <i class="fa fa-remove fa-fw"></i> &nbsp; Remove
+                            </a>
+                            <span>&nbsp;</span>
+                            <div id="requirementRejectedGridMenu">
+                            </div>
+                            <span>&nbsp;</span>
+                            <div id="requirementRejectedActionsMenu">
+                            </div>
+                        </div>
+                        <h3>Rejected Candidates <span id="requirementForm-rejected-grid-selected-counter"></span></h3>
+                    </div>
+                    <!-- The rejected candidate grid populated by JS -->
+                    <div id="requirementForm-RejectedGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tab-pane" id="requirement-form-panel-attributes">
+                <div id="requirement-form-attributes"></div>
+            </div>
+
+            <div class="tab-pane" id="requirement-form-panel-placements">
+
+                <div class="block" id="requirement-placements-grid-container">
+
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <div id="requirementPlacementsFileMenu" style="display: none;">
+                            </div>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.PlacementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected placement">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.PlacementGridFileMenuCallback('file-delete')" id="requirement-placements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected placement">
+                                <i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+                            </a>
+                            <span>&nbsp;</span>
+                            <div id="requirementPlacementsGridMenu">
+                            </div>
+                            <span>&nbsp;</span>
+                            <div id="requirementPlacementsActionsMenu">
+                            </div>
+                        </div>
+                        <h3>Requirement Placements</h3>
+                    </div>
+                    <!-- The contact placements grid populated by JS -->
+                    <div id="requirementForm-PlacementsGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-documentlibrary">
+
+                <div id="requirement-form-documentlibrary"></div>
+
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-noteshistory">
+
+                <div class="block" id="requirement-noteshistory-grid-container">
+
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <div id="requirementNotesHistoryFileMenu" style="display: none;">
+                            </div>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.NotesHistoryGridFileMenuCallback('file-delete')" id="requirement-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history">
+                                <i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+                            </a>
+                            <span>&nbsp;</span>
+                            <div id="requirementNotesHistoryGridMenu">
+                            </div>
+                        </div>
+                        <h3>Requirement Notes/History</h3>
+                    </div>
+                    <!-- The notes/history grid populated by JS -->
+                    <div id="requirementForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-scheduledtasks">
+
+                <div class="block" id="requirement-scheduledtasks-grid-container">
+
+                    <div class="block-title">
+                        <div class="block-options pull-right">
+                            <div id="requirementScheduledTasksFileMenu" style="display: none;">
+                            </div>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task">
+                                <i class="gi gi-folder_open"></i> &nbsp; Open
+                            </a>
+                            <span>&nbsp;</span>
+                            <a href="javascript:void(0)" onclick="ctrlRequirementForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="requirement-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task">
+                                <i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+                            </a>
+                            <span>&nbsp;</span>
+                            <div id="requirementScheduledTasksGridMenu">
+                            </div>
+                        </div>
+                        <h3>Requirement Scheduled Tasks</h3>
+                    </div>
+                    <!-- The Scheduled Tasks grid populated by JS -->
+                    <div id="requirementForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; ">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="tab-pane" id="requirement-form-panel-custom">
+
+                <div id="requirement-form-customfields"></div>
+
+            </div>
+        </div>
+	</div>
+	<!-- END FORM TABS -->
+</div>
+<!-- END Form Caption -->
+<!-- Tab Panel Buttons -->
+<!-- END Tab Panel Buttons -->
+<!-- Tabs Content -->
+
+<!-- END Tabs Content -->
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/requirement.js?ts=202411251129"></script>

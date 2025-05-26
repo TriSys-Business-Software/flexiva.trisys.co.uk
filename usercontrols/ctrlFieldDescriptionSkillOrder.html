@@ -1,0 +1,47 @@
+﻿<style scoped>
+    .td-label-customtab {
+        width: 120px;
+    }
+
+    /*.k-grid tbody tr {
+        cursor: move;
+    }
+
+    .placeholder {
+        outline-style: dashed;
+        outline-width: 1px;
+        outline-color: red;
+    }*/
+
+</style>
+
+<div class="row">
+
+    <div class="col-md-12 col-lg-12">
+        <div class="block full">
+
+            <div class="block-title">
+                <h2>Lookups / Order</h2>
+
+                <div class="block-options pull-right">
+
+                    <a href="javascript:void(0)" onclick="ctrlFieldDescriptionSkillOrder.MoveFieldUp()" class=" btn btn-sm btn-default enable-tooltip" title="Move selected lookup(s) up">
+                        <i class="gi gi-up_arrow"></i> &nbsp; Up &nbsp;
+                    </a>
+
+                    <span>&nbsp;</span>
+
+                    <a href="javascript:void(0)" onclick="ctrlFieldDescriptionSkillOrder.MoveFieldDown()" class=" btn btn-sm btn-default enable-tooltip" title="Move selected lookup(s) down">
+                        <i class="gi gi-down_arrow"></i> &nbsp; Down &nbsp;
+                    </a>
+
+                    <span>&nbsp;</span>
+
+                    <div id="ctrlFieldDescriptionSkillOrder-GridMenu"></div>
+                </div>
+            </div>
+
+            <div id="ctrlFieldDescriptionSkillOrder-Skills"></div>
+        </div>
+    </div>
+</div>

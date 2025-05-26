@@ -1,0 +1,84 @@
+{
+	"FileName": "web-api-load-balancing.json",
+	"Description": [
+		"List the available live/production/test Web API URL's for Apex applications",
+		"A TriSys BOT will update these depending upon utilisation, providing load",
+		" balancing and auto-scaling. Multiple Web API servers may be available."
+	],
+	"Created": "10 May 2022",
+	"Configurations":
+	[
+		{ 
+			"SecureURL": "https://api.trisys.co.uk/",
+            "xDeveloperSiteKey": "20131222-ba09-4e4c-8bcb-apex.web.app",
+			"UsagePercentage": 30,
+			"Status": "UP",
+            "DoNotAssignForThisApexURL": "crm2.trisys.co.uk"
+		},
+		{ 
+			"SecureURL": "http://api2.trisys.co.uk/",
+			"UsagePercentage": 20,
+			"Status": "DOWN",
+            "Notes": "Testing Web API on management server on 01 Nov 2023"
+		},
+		{ 
+			"SecureURL": "https://api.trisys.cloud/",
+			"UsagePercentage": 10,
+			"Status": "DOWN"
+		},
+		{ 
+			"SecureURL": "https://trisys-api.trisys.co.uk/",
+			"UsagePercentage":20,
+			"Status": "DOWN",
+            "xEMailAddressWhiteList": [
+                "isaac.newton@opuslaboris.com",
+                "linda.lee@trisysglobal.net",
+                "xjosie.musto@opuslaboris.com"
+            ]
+		},
+		{
+			"xSecureURL": "https://firstbrasspencil9.conveyor.cloud/",
+			"SecureURL": "http://54.74.244.253:45455/",
+			"SecureURLlocal": "http://localhost:61333/",
+			"SecureURLlocal2": "http://172.30.1.189:45457/",
+			"SecureURLremote": "http://54.74.244.253:45455/",
+			"SecureURLnote1": "Remember that web.config 'DEBUGGER: DevStudio Apex Custom URL' must also be set to the same URL else shit'll happen!",
+			"crmDeveloperSiteKey": "23b92857-b40b-4376-a310-trisys.crm.s",
+			"opusNetDeveloperSiteKey": "20140625-gl51-1231-wher-opuslaboris.",
+			"UsagePercentage": 10,
+			"Status": "DOWN",
+			"EMailAddressWhiteList": [
+				"xgarry@trisys.co.uk",
+				"xgarry@lowther.me.uk",
+				"josie.musto@opuslaboris.com",
+				"thomas.addison@opuslaboris.com",
+				"xformsdeveloper@busybeerecruitment.co.uk",
+				"xweb.contact@oraclecontractors.com",
+				"xaklein@lawabsolute.com",
+				"xinfo@lawabsolute.com",
+				"xcaitlin.dible@alphajobs.net",
+				"xpaul@careerconcept.co.uk",
+				"xinfo@busybeerecruitment.co.uk",
+				"xinfo@nexere.com",
+				"xTrisys.Support@search.co.uk",
+				"xinfo@alphajobs.net",
+				"xchloe.harris@rtlgroupltd.co.uk",
+				"xapi.user@joyrec.co.uk",
+				"xsblake@nexere.com",
+				"xusr-trisys6@search.co.uk"
+			]
+		},
+		{ 
+			"SecureURL_Live": "https://trisysapi.search.co.uk/",
+            "SecureURL": "http://54.75.23.118:45473/",
+            "DeveloperSiteKey": "124798dd-2f51-4d4d-b9d4-searchconsul",
+			"UsagePercentage": 5,
+			"Status": "DOWN",
+            "EMailAddressWhiteList": [
+                "mandy.bell@search.co.uk",
+                "david.armstrong@search.co.uk",
+                "searchconsultancy@search.co.uk"
+            ]
+		}
+	]
+}

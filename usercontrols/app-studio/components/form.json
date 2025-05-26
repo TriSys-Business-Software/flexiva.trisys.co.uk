@@ -1,0 +1,128 @@
+{
+    "Name": "New Form",
+    "Namev2": "e.g. footballers or football-teams i.e. no .json extension",
+    "Created": "06 Nov 2024",
+    "Purpose": "Define the data storage format of a Flexiva form",
+    "WebAPI": "The web api does not care what the format of this file is. It simply reads it and writes it as a JSON string.",
+    "Version": "1.0",
+    "AuthorDetails": {
+        "Copyright": "TriSys Business Software",
+        "LastUpdated": "06 Nov 2024 10:45",
+        "UpdatingUser": "Garry Lowther"
+    },
+    "Form": {
+        "Type": "Search form or CRUD form etc.. Set when form created.",
+        "Icon": "gi gi-stopwatch",
+        "Caption": "My Custom Form",
+        "Caption_Notes": "Displayed in the title bar of the form, but may be overriden by additional rules yet to be defined.",
+        "Description": "This is a custom form",
+        "EntityName": "Timesheet",
+        "Buttons": [
+            {
+                "ID": "save",
+                "Icon": "gi gi-floppy_saved",
+                "Caption": "Save",
+                "Function": "TriSysFlexiva.Forms.Events.CRUD.Update()"
+            },
+            {
+                "ID": "delete",
+                "Icon": "gi gi-remove",
+                "Caption": "Delete",
+                "Function": "TriSysFlexiva.Forms.Events.CRUD.Delete()"
+            },
+            {
+                "ID": "actions",
+                "Icon": "gi gi-magic",
+                "Caption": "Actions",
+                "Type": "dropdown",
+                "Items": [
+                    {
+                        "ID": "action1",
+                        "Caption": "Action 1",
+                        "Icon": "gi gi-brightness_increase",
+                        "Function": "TriSysFlexiva.Forms.Events.CallCustomFormFunctionAnonymously('Button_Click', { ID: 'action1' })"
+                    },
+                    {
+                        "ID": "action2",
+                        "Caption": "Action 2",
+                        "Icon": "gi gi-screenshot",
+                        "Function": "TriSysFlexiva.Forms.Events.CallCustomFormFunctionAnonymously('Button_Click', { ID: 'action2' })"
+                    }
+                ]
+            }
+        ]
+    },
+    "Tabs": [
+        {
+            "ID": "top",
+            "Caption": "Main Top Region",
+            "HTML": [
+                "<div class=\"block full form-control-borderless\">",
+                "    <div class=\"row\" id=\"{{GUID-1}}\">",
+                "        <div id=\"{{GUID-2}}\" flexiva-data-panel=\"eyJHVUlEIjoiYTAxM2IyYTktOGJlYS02ZGViLWVhOGEtZjRhMjdkOTc2YzM5IiwidGl0bGVUZXh0IjoiWW91ciBQYW5lbCBUaXRsZSIsImljb24iOiJnaSBnaS1jaXJjbGVfZXhjbGFtYXRpb25fbWFyayIsInR5cGUiOiJGb3JtIiwic2hvd1RpdGxlIjp0cnVlLCJib3JkZXIiOnRydWUsInN0cmlwZWRSb3dzIjp0cnVlLCJjb2x1bW5Db3VudCI6MSwicm93c1BlckNvbHVtbiI6MSwibGFiZWxXaWR0aCI6MTUwLCJ0aXRsZUJhY2tncm91bmRDb2xvdXIiOm51bGwsInRpdGxlRm9yZWdyb3VuZENvbG91ciI6bnVsbH0=\" class=\"col-md-12\">",
+                "            <div class=\"toolbox-component\" id=\"{{GUID-3}}\" flexiva-data-component=\"eyJJRCI6ImIxOWYxZDg2LTQ4MjgtNzY5Ny1lMDEwLWRhMzNkMDczNzRmMCIsIk5hbWUiOiJGaWxlIFJlZmVyZW5jZSIsIkRlc2NyaXB0aW9uIjoiRmlsZSBSZWZlcmVuY2UgQ29udHJvbCIsIkljb24iOiJnaSBnaS1kaXNrX29wZW4iLCJUeXBlIjoiRmlsZVJlZmVyZW5jZSIsIkxhYmVsVmlzaWJsZSI6dHJ1ZSwiTGFiZWxUZXh0IjoiQSBGaWxlIFJlZmVyZW5jZSJ9\" onclick=\"ctrlFormDesigner2024.Components.Editor(this)\" style=\"\">",
+                "            </div>",
+                "            <div class=\"toolbox-component\" id=\"{{GUID-4}}\" flexiva-data-component=\"eyJJRCI6ImYyMDYxYTY5LWIzY2ItMGJlZC1lMDE0LWY3NDM0ZDJjZjgzZCIsIk5hbWUiOiJEYXRlIiwiRGVzY3JpcHRpb24iOiJEYXRlIENvbnRyb2wiLCJJY29uIjoiZ2kgZ2ktY2FsZW5kYXIiLCJUeXBlIjoiRGF0ZSIsIkxhYmVsVmlzaWJsZSI6dHJ1ZSwiTGFiZWxUZXh0IjoiQSBEYXRlIn0=\" onclick=\"ctrlFormDesigner2024.Components.Editor(this)\" style=\"\">",
+                "            </div>",
+                "        </div>",
+                "    </div>",
+                "</div>"
+            ],
+            "HTML_Notes": [
+                "We are using an array for HTML as it makes reading easier for humans.",
+                "This HTML will include flexiva data tags for columns/panels and components/fields",
+                "to allow the form to be rendered at run-time and to be designed and saved."
+            ],
+            "Description": "This is the top region of the form",
+            "Visible": true,
+            "Enabled": true,
+            "SelectedInDesigner": true
+        },
+        {
+            "ID": "entity-form-first-tab",
+            "Icon": "gi gi-stroller",
+            "Caption": "First Tab",
+            "Selected": true,
+            "Visible": true,
+            "Enabled": true,
+            "HTML": [
+                "<div class=\"block full form-control-borderless flexiva-form\">",
+                "    <div>",
+                "    </div>",
+                "    <div class=\"row\" id=\"{{GUID-5}}\">",
+                "        <div id=\"{{GUID-6}}\" flexiva-data-panel=\"eyJHVUlEIjoiNjUyYTFlNGUtMjgyNS02YWViLTg1YTYtZTE5MTc5NTY1MWE5IiwidGl0bGVUZXh0IjoiWW91ciBGaXJzdCBUYWIgUGFuZWwiLCJpY29uIjoiZ2kgZ2ktc2hpZWxkIiwidHlwZSI6IkZvcm0iLCJzaG93VGl0bGUiOnRydWUsImJvcmRlciI6dHJ1ZSwic3RyaXBlZFJvd3MiOnRydWUsImNvbHVtbkNvdW50IjoxLCJyb3dzUGVyQ29sdW1uIjoxLCJsYWJlbFdpZHRoIjoxNTAsInRpdGxlQmFja2dyb3VuZENvbG91ciI6bnVsbCwidGl0bGVGb3JlZ3JvdW5kQ29sb3VyIjpudWxsfQ==\" class=\"col-md-12\">",
+                "            <div class=\"toolbox-component\" id=\"{{GUID-7}}\" flexiva-data-component=\"eyJJRCI6ImYxODkyZjkyLTdlMzgtMTY4OS1iMmNjLWJhN2EwYjU5ZWQ4ZiIsIk5hbWUiOiJDaGFydCIsIkRlc2NyaXB0aW9uIjoiQ2hhcnQgb3IgR3JhcGgiLCJJY29uIjoiZ2kgZ2ktY2hhcnRzIiwiVHlwZSI6IkNoYXJ0In0=\" onclick=\"ctrlFormDesigner2024.Components.Editor(this)\" style=\"\">",
+                "            </div>",
+                "        </div>",
+                "    </div>",
+                "</div>"
+            ]
+        }
+    ],
+    "DataSources": [
+        
+    ],
+    "Developer": {
+        "Description": "This section is where developers can extend the functionality of custom forms by adding custom code.",
+        "FormScriptObjectName": "yourCustomFormName",
+        "FormScriptObjectName_Description": "The object which will contain the named events e.g. var yourCustomFormName = { Scripts_Loaded: function(...",
+        "Scripts": [
+            {
+                "Url": "https://your-github-domain/flexiva/Your-Custom-Form-Name.js",
+                "Description": "This is a sample custom script that will be loaded at run-time to extend the functionality of the form."
+            }
+        ],
+        "Scripts_Description": "Each script URL will normally be hosted on GitHub pages, and will be loaded before the custom form is loaded."
+    },
+    "DesignTimeOnly": {
+        "Description": "This section is not persisted, but is used at design-time to hold form edit state in memory.",
+        "TabsChangedSinceLastEdit": false,
+        "FormPropertiesChangedSinceLastEdit": false,
+        "ComponentsChangedSinceLastEdit": false
+    },
+    "RunTimeOnly": {
+        "Description": "This section is not persisted, but is used at run-time to hold live form state in memory.",
+        "SomeProperty": "SomeValue",
+        "SomeOtherProperty": "SomeOtherValue"
+    }
+}

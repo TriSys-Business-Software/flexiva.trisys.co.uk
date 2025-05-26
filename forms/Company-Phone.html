@@ -1,0 +1,179 @@
+﻿<div class="block" id="company-form-top">
+    <div class="block-title">
+        <div class="block-options pull-left">
+            <a href="javascript:void(0)" onclick="javascript:TriSysApex.Forms.buttonGoBack()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Back"><i class="fa fa-chevron-left"></i> Back</a>
+        </div>
+        <div class="block-options pull-right">
+            <a href="javascript:void(0)" onclick="CompanyPhone.EditCompany()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Edit"><i class="gi gi-edit"></i> Edit</a>
+        </div>
+        <div class="block-options text-center" style="font-size: medium;">
+            <strong>Company</strong>
+        </div>
+    </div>
+    <table class="table table-borderless table-vcenter" id="company-phone-summary-top">
+        <tbody>
+            <tr>
+                <td style="vertical-align: top;">
+                    <strong><span style="font-size: large;" id="company-phone-companyname"></span></strong>
+                    <br />
+
+                    <span style="font-size: medium;" id="company-phone-industry"></span>
+                    <span id="company-phone-employees" style="display: none;"></span>                                      
+                    <span id="company-phone-directors" style="display: none;"></span>
+                    <span id="company-phone-turnover" style="display: none;"></span>
+                </td>
+                <td class="text-right" style="width: 100px;">
+                    <img id="company-phone-logourl" height="96" width="96" alt="logo" class="widget-image pull-right" style="border-radius: 10px;">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1)">
+        <tbody>
+            <tr id="company-phone-maintelno-tr" style="display: none;">
+                <td class="text-center" style="width: 30px;">
+                    <i class="gi gi-earphone" style="color: #e74c3c;"></i>
+                </td>
+                <td>
+                    <div id="company-phone-maintelno-hyperlink">
+                        <strong>Switchboard Phone</strong>
+                        <br />
+                        <span id="company-phone-maintelno"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="company-phone-email-tr" style="display: none;">
+                <td class="text-center" style="width: 30px;">
+                    <i class="fa fa-envelope-o" style="color: #ffc0cb;"></i>
+                </td>
+                <td>
+                    <div id="company-phone-email-hyperlink">
+                        <strong>E-Mail</strong>
+                        <br />
+                        <span id="company-phone-email"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="company-phone-website-tr" style="display: none;">
+                <td class="text-center" style="width: 30px;">
+                    <i class="fa fa-globe" style="color: #8b4513;"></i>
+                </td>
+                <td>
+                    <div id="company-phone-website-hyperlink">
+                        <strong>Web Site</strong>
+                        <br />
+                        <span id="company-phone-website"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); display: none;" id="company-phone-comments-table">
+        <tbody>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="fa fa-sticky-note-o" style="color: #800080;"></i>
+                </td>
+                <td>
+                    <span id="company-phone-comments"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="company-form-addresses-container">
+
+    </div>
+
+    <script type="text/x-kendo-template" id="company-form-address-template">
+        <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+            <tbody>
+                <tr>
+                    <td class="text-center" style="width: 30px;">
+                        <i class="fa fa-map-marker" style="color: #f39c12;"></i>
+                    </td>
+                    <td>
+                        <div>
+                            <a onclick="TriSysPhoneGap.OpenMap('{{contact-phone-address}}')" style="text-decoration: none; color: inherit;">
+                                <strong>{{contact-phone-address-type}}</strong>
+                                <br />
+                                {{contact-phone-address}}
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {{company-form-address-contact-list}}
+            </tbody>
+        </table>
+    </script>
+
+    <script type="text/x-kendo-template" id="company-form-address-contacts">
+        <tr>
+            <td class="text-center" style="width: 30px;">
+                <i class="gi gi-user" style="color: lightgray;"></i>
+            </td>
+            <td>
+                <div>
+                    <a onclick="TriSysPhoneGap.OpenContact({{contact-phone-address-contactid}})" style="text-decoration: none; color: inherit;">
+
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <h6 style="margin-top: 0px;" class="truncated-contacts-text">
+                                        <strong>#:FullName#</strong>
+                                    </h6>
+                                    <address class="truncated-contacts-text">
+                                        #:JobTitle#
+                                    </address>
+                                </td>
+                                <td style="width: 60px; vertical-align: top;">
+                                    <img src="#:ContactPhotoURL#" width="48" height="48" alt="Avatar" class="img-circle">
+                                </td>
+                            </tr>
+                        </table>
+
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </script>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); display: none;" id="company-phone-requirements-table">
+        <tbody>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-user_add" style="color: purple;"></i>
+                </td>
+                <td>
+                    <div id="company-phone-requirements-hyperlink">
+                        <strong><span id="company-phone-requirementcount"></span></strong>
+                        &nbsp; | &nbsp; <span style="color: purple;">View</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); display: none;" id="company-phone-placements-table">
+        <tbody>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-gbp" style="color: green;"></i>
+                </td>
+                <td>
+                    <div id="company-phone-placements-hyperlink">
+                        <strong><span id="company-phone-placementcount"></span></strong>
+                        &nbsp; | &nbsp; <span style="color: green;">View</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/Company-Phone.js"></script>

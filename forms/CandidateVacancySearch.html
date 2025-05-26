@@ -1,0 +1,204 @@
+﻿<div class="content-header" id="CandidateVacancySearchPageHeader">
+    <div class="header-section">
+        <h1>
+            <i class="gi gi-search"></i>Vacancy Search
+            <br><small>
+                Search, filter and sort our live vacancies based on type, job title location, salary/rates.
+                Drill down on each vacancy to apply.
+            </small>
+        </h1>
+    </div>
+</div>
+
+<div class="row" id="CandidateVacancySearchLoadBlock">
+    <div class="block" style="height: 300px; border: 0;">
+
+        <h1 style="text-align: center; padding-top: 15px;">
+            <i class="fa fa-sun-o fa-spin fa-3x themed-color" style="float: none;"></i> &nbsp;
+        </h1>
+
+        <h5 style="text-align: center; padding-top: 15px;">Loading Search Criteria &nbsp;</h5>
+    </div>
+</div>
+
+<div class="block full" id="CandidateVacancySearchCriteriaBlock" style="display: none;">
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="block">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtVacancySearchReference">Reference</label>
+                        <div class="col-md-9">
+                            <input type="text" id="txtVacancySearchReference" style="width:100%" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtVacancySearchJobTitle">Job Titles</label>
+                        <div class="col-md-9">
+                            <input type="text" id="txtVacancySearchJobTitle" style="width:100%" />
+                            <div id="btnVacancySearchJobTitle" style="text-align: right; display: none;">
+                                <button type="submit" class="btn btn-sm btn-default" onclick="CandidateVacancySearch.RemoveAllJobTitles()"><i class="gi gi-delete"></i> Remove All</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtVacancySearchType">Type</label>
+                        <div class="col-md-9">
+                            <input id="txtVacancySearchType" name="txtVacancySearchType">
+                            <div id="btnVacancySearchType" style="text-align: right; display: none;">
+                                <button type="submit" class="btn btn-sm btn-default" onclick="CandidateVacancySearch.RemoveAllTypes()"><i class="gi gi-delete"></i> Remove All</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtVacancySearchLocation">Locations</label>
+                        <div class="col-md-9">
+                            <input type="text" id="txtVacancySearchLocation" style="width:100%" />
+                            <div id="btnVacancySearchLocation" style="text-align: right; display: none;">
+                                <button type="submit" class="btn btn-sm btn-default" onclick="CandidateVacancySearch.RemoveAllLocations()"><i class="gi gi-delete"></i> Remove All</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtVacancySearchSkillCategories">Categories/Attributes</label>
+                        <div class="col-md-9">
+                            <input type="text" id="txtVacancySearchSkillCategories" style="width:100%" />
+                            <div id="btnVacancySearchSkillCategories" style="text-align: right; display: none;">
+                                <button type="submit" class="btn btn-sm btn-default" onclick="CandidateVacancySearch.RemoveAllSkillCategories()"><i class="gi gi-delete"></i> Remove All</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtVacancySearchFreeText">Keywords</label>
+                        <div class="col-md-9">
+                            <input type="text" id="txtVacancySearchFreeText" style="width:100%" class="form-control" />
+                            <span style="font-size: smaller">
+                                Please enter comma separated keywords
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="block">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="dtVacancySearchStartDate">Start Date</label>
+                        <div class="col-md-9">
+
+                            <div class="form-inline">
+                                <div class="form-group" style="border-bottom:0; padding-top: 0px; padding-left: 0px; padding-bottom: 0px;">
+                                    <input id="cmbVacancySearchStartDateOperator" style="width:120px" />
+                                </div>
+                                <div class="form-group" style="border-bottom:0; padding-top: 0px; padding-bottom: 0px;">
+                                    <input type="text" id="dtVacancySearchStartDate" style="min-width:200px; width: 310px;" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtVacancySearchMinimumSalaryRate">Salary/Rate Min</label>
+                        <div class="col-md-9">
+                            <div id="txtVacancySearchMinimumSalaryRate" style="width:100%"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="txtVacancySearchMaximumSalaryRate">Salary/Rate Max</label>
+                        <div class="col-md-9">
+                            <div id="txtVacancySearchMaximumSalaryRate" style="width:100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="form-horizontal">
+                    <div class="form-group form-actions">
+                        <div class="col-md-6 col-md-offset-3">
+                            <button type="submit" class="btn btn-sm btn-primary" onclick="CandidateVacancySearch.Search()"><i class="gi gi-search"></i> Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="block full" id="CandidateVacancySearchGridBlock" style="display: none;">
+
+    <div class="block-title">
+        <div class="block-options pull-right">
+
+            <a href="javascript:void(0)" onclick="CandidateVacancySearch.Apply()" class=" btn btn-sm btn-default enable-tooltip" title="Apply to selected vacancy"
+               id="CandidateVacancySearch-Menu-Apply">
+                <i class="gi gi-ok_2"></i> &nbsp; Apply &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <a href="javascript:void(0)" onclick="CandidateVacancySearch.AddToFavourites()" class=" btn btn-sm btn-default enable-tooltip" title="Add to favourites"
+               id="CandidateVacancySearch-Menu-AddToFavourites">
+                <i class="gi gi-plus"></i> &nbsp; Add to Favourites &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <a href="javascript:void(0)" onclick="CandidateVacancySearch.SendToFriend()" class=" btn btn-sm btn-default enable-tooltip" title="Send to a friend"
+               id="CandidateVacancySearch-Menu-SendToFriend">
+                <i class="gi gi-envelope"></i> &nbsp; Send to Friend &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <a href="javascript:void(0)" onclick="CandidateVacancySearch.ShowOnMap()" class=" btn btn-sm btn-default enable-tooltip" title="Show vacancies on a map"
+               id="CandidateVacancySearch-Menu-ShowOnMap">
+                <i class="gi gi-google_maps"></i> &nbsp; Show on Map &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <a href="javascript:void(0)" onclick="CandidateVacancySearch.ShowInGrid()" class=" btn btn-sm btn-default enable-tooltip" title="Show vacancies in a grid"
+               style="display: none;" id="CandidateVacancySearch-Menu-ShowInGrid">
+                <i class="gi gi-table"></i> &nbsp; Show in Grid &nbsp;
+            </a>
+
+            <span>&nbsp;</span>
+
+            <div id="CandidateVacancySearch-Menu-Grid">
+            </div>
+        </div>
+        <h2>
+            <strong>Live</strong> Vacancies
+            <span id="CandidateVacancySearch-MapKey" style="display: none;">
+                &nbsp; &nbsp; &nbsp;
+                <img src="/images/trisys/maps/key.png" style="height: 20px;">
+            </span>
+        </h2>
+    </div>
+
+    <!--TRISYS GRID VACANCIES START-->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- The grid populated by JS -->
+            <div id="divCandidateVacancySearchGrid" style="border-width: 1px; width: 100%; ">
+            </div>
+            <!-- The google map populated by JS -->
+            <div id="divCandidateVacancySearchMap" style="border-width: 1px; width: 100%; height:600px; display:none ">
+            </div>
+            <div style="height: 10px"></div>
+
+        </div>
+    </div>
+    <!--TRISYS GRID VACANCIES END-->
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/CandidateVacancySearch.js"></script>

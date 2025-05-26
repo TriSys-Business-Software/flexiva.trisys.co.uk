@@ -1,0 +1,94 @@
+﻿<style scoped>
+    .td-label {
+        width: 150px;
+    }
+</style>
+<div class="block">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="td-label"><strong>Category</strong></td>
+                <td>
+                    <input type="text" class="k-textbox" id="lookup-category" required="required" style="width:100%" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label"><strong><span id="lookup-name-label"></span></strong></td>
+                <td>
+                    <input type="text" class="k-textbox" id="lookup-name" required="required" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label"><strong>Description</strong></td>
+                <td>
+                    <textarea class="k-textbox" id="lookup-description" rows="5" style="width:100%; resize: none"></textarea>
+                </td>
+            </tr>
+            <tr id="lookup-contact-title-flags-tr" style="display: none;">
+                <td class="td-label">
+                    &nbsp;
+                </td>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 50%;">
+                                <strong>Male</strong> &nbsp;
+                                <label class="switch switch-primary" style="padding-left: 18px;">
+                                    <input type="checkbox" id="lookup-male" value="0" unchecked>
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td style="width: 50%; text-align: right;">
+                                <strong>Female</strong> &nbsp;
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" id="lookup-female" value="0" unchecked>
+                                    <span></span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%;">
+                                <strong>Married</strong> &nbsp;
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" id="lookup-married" value="0" unchecked>
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td style="width: 50%; text-align: right;">
+                                <strong>Unmarried</strong> &nbsp;
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" id="lookup-unmarried" value="0" unchecked>
+                                    <span></span>
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>    
+            <tr id="lookup-backcolour-tr" style="display: none;">
+                <td class="td-label" id="lookup-backcolour-td"><strong>Back Colour</strong></td>
+                <td>
+                    <div id="lookup-backcolour"></div>
+                </td>
+            </tr>        
+            <tr id="lookup-colour-tr" style="display: none;">
+                <td class="td-label" id="lookup-colour-td"><strong>Colour</strong></td>
+                <td>
+                    <div id="lookup-colour"></div>
+                </td>
+            </tr>
+            <tr id="lookup-image-tr" style="display: none;">
+                <td class="td-label">
+                    <strong>Icon</strong>
+                </td>
+                <td>
+                    <img id="lookup-image" style="width: 32px; height: 32px; border: 0" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlLookup.js"></script>

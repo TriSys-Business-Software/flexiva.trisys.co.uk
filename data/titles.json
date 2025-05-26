@@ -1,0 +1,27 @@
+﻿[
+    {
+        "Name": "Mr",
+        "Male": true,
+        "Married": false
+    },
+    {
+        "Name": "Mrs",
+        "Male": false,
+        "Married":  true
+    },
+    {
+        "Name": "Miss",
+        "Male": false,
+        "Married":  false
+    },
+    {
+        "Name": "Ms",
+        "Male": false,
+        "Married": false
+    },
+    {
+        "Name": "Other",
+        "Male": false,
+        "Married":  false
+    }
+]

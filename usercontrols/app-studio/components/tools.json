@@ -1,0 +1,279 @@
+{
+    "FileName": "usercontrols/app-studio/components/tools.json",
+    "Created": "23 Oct 2024",
+    "Purpose": "List of tools available in the Components toolbox in App Studio Form Designer",
+    "AdditionalInfo": "This file is used to populate the Components toolbox in App Studio Form Designer. Each tool is represented by a JSON object with the following properties: ID, Name, Description, Icon, and Type. The ID is a unique identifier for the tool, the Name is the display name of the tool, the Description is a brief description of the tool, the Icon is the CSS class for the icon to be displayed in the toolbox, and the Type is the type of the tool (e.g., 'Grid', 'Paragraph', 'Image', 'Chart', etc.).",
+    "Tools": [
+        {
+            "ID": "iFrame",
+            "Name": "iFrame",
+            "Description": "Web browser page container",
+            "Icon": "gi gi-globe_af",
+            "Type": "iFrame"
+        },
+        {
+            "ID": "Grid",
+            "Name": "Grid",
+            "Description": "Data grid pointing at static data or Web API data source request",
+            "Icon": "gi gi-table",
+            "Type": "Grid"
+        },
+        {
+            "ID": "Paragraph",
+            "Name": "Paragraph",
+            "Description": "Block of read-only text or a label",
+            "Icon": "gi gi-font",
+            "Type": "Paragraph"
+        },
+        {
+            "ID": "Image",
+            "Name": "Image",
+            "Description": "Picture or Photo",
+            "Icon": "gi gi-picture",
+            "Type": "Image"
+        },
+        {
+            "ID": "Chart",
+            "Name": "Chart",
+            "Description": "Chart or Graph",
+            "Icon": "gi gi-charts",
+            "Type": "Chart"
+        },
+        {
+            "ID": "DocumentViewer",
+            "Name": "Document Viewer",
+            "Description": "Document Viewer",
+            "Icon": "fa fa-file-word-o",
+            "Type": "DocumentViewer"
+        },
+        {
+            "ID": "Table",
+            "Name": "Table",
+            "Description": "Table",
+            "Icon": "gi gi-show_lines",
+            "Type": "Table"
+        },
+        {
+            "ID": "Company",
+            "Name": "Company Record",
+            "Description": "Company Record Control",
+            "Icon": "gi gi-building",
+            "Type": "Company",
+            "LabelVisible": true,
+            "LabelText": "A Company Record"
+        },
+        {
+            "ID": "Contact",
+            "Name": "Contact Record",
+            "Description": "Contact Record Control",
+            "Icon": "gi gi-parents",
+            "Type": "Contact",
+            "LabelVisible": true,
+            "LabelText": "A Contact Record"
+        },
+        {
+            "ID": "CurrencyAmount",
+            "Name": "Currency Amount",
+            "Description": "Currency Amount Control",
+            "Icon": "gi gi-money",
+            "Type": "CurrencyAmount",
+            "LabelVisible": true,
+            "LabelText": "A Currency Amount"
+        },
+        {
+            "ID": "CurrencyAmountPeriod",
+            "Name": "Currency Amount Period",
+            "Description": "Currency Amount Period Control",
+            "Icon": "gi gi-stopwatch",
+            "Type": "CurrencyAmountPeriod",
+            "LabelVisible": true,
+            "LabelText": "A Currency Amount Period"
+        },
+        {
+            "ID": "Date",
+            "Name": "Date",
+            "Description": "Date Control",
+            "Icon": "gi gi-calendar",
+            "Type": "Date",
+            "LabelVisible": true,
+            "LabelText": "A Date"
+},
+        {
+            "ID": "DateTime",
+            "Name": "DateTime",
+            "Description": "Date/Time Control",
+            "Icon": "gi gi-calendar",
+            "Type": "DateTime",
+            "LabelVisible": true,
+            "LabelText": "A Date/Time"
+        },
+        {
+            "ID": "EMail",
+            "Name": "E-Mail",
+            "Description": "E-Mail Control",
+            "Icon": "fa fa-envelope",
+            "Type": "EMail",
+            "LabelVisible": true,
+            "LabelText": "An E-Mail Address"
+        },
+        {
+            "ID": "FileReference",
+            "Name": "File Reference",
+            "Description": "File Reference Control",
+            "Icon": "gi gi-disk_open",
+            "Type": "FileReference",
+            "LabelVisible": true,
+            "LabelText": "A File Reference"
+        },
+        {
+            "ID": "FolderReference",
+            "Name": "Folder Reference",
+            "Description": "Folder Reference Control",
+            "Icon": "fa fa-folder-open",
+            "Type": "FolderReference",
+            "LabelVisible": true,
+            "LabelText": "A Folder Reference"
+        },
+        {
+            "ID": "Float",
+            "Name": "Float",
+            "Description": "Float Control",
+            "Icon": "fa fa-sort-numeric-asc",
+            "Type": "Float",
+            "LabelVisible": true,
+            "LabelText": "A Floating Point Number"
+        },
+        {
+            "ID": "Integer",
+            "Name": "Integer",
+            "Description": "Integer Control",
+            "Icon": "fa fa-sort-numeric-asc",
+            "Type": "Integer",
+            "LabelVisible": true,
+            "LabelText": "An Integer"
+        },
+        {
+            "ID": "Internet",
+            "Name": "Internet",
+            "Description": "Internet Control",
+            "Icon": "fa fa-globe",
+            "Type": "Internet",
+            "LabelVisible": true,
+            "LabelText": "An Internet/Web URL"
+        },
+        {
+            "ID": "JobTitle",
+            "Name": "Job Title",
+            "Description": "Job Title Control",
+            "Icon": "gi gi-spade",
+            "Type": "JobTitle",
+            "LabelVisible": true,
+            "LabelText": "A Job Title"
+        },
+        {
+            "ID": "Password",
+            "Name": "Password",
+            "Description": "Password Control",
+            "Icon": "fa fa-lock",
+            "Type": "Password",
+            "LabelVisible": true,
+            "LabelText": "A Password"
+        },
+        {
+            "ID": "Percent",
+            "Name": "Percent",
+            "Description": "Percent Control",
+            "Icon": "fa fa-sort-numeric-asc",
+            "Type": "Percent",
+            "LabelVisible": true,
+            "LabelText": "A Percentage"
+        },
+        {
+            "ID": "SkillCombo",
+            "Name": "Skill Combo",
+            "Description": "Skill Combo Control",
+            "Icon": "gi gi-sort-by-attributes",
+            "Type": "SkillCombo",
+            "LabelVisible": true,
+            "LabelText": "A Skill Combo"
+        },
+        {
+            "ID": "Telephone",
+            "Name": "Telephone",
+            "Description": "Telephone Control",
+            "Icon": "gi gi-phone_alt",
+            "Type": "Telephone",
+            "LabelVisible": true,
+            "LabelText": "A Telephone Number"
+        },
+        {
+            "ID": "Text",
+            "Name": "Text",
+            "Description": "Text Control",
+            "Icon": "gi gi-pencil",
+            "Type": "Text",
+            "LabelVisible": true,
+            "LabelText": "A Text Box"
+        },
+        {
+            "ID": "User",
+            "Name": "User",
+            "Description": "User Control",
+            "Icon": "gi gi-user",
+            "Type": "User",
+            "LabelVisible": true,
+            "LabelText": "A User Record"
+        },
+        {
+            "ID": "YesNo",
+            "Name": "Yes/No",
+            "Description": "Yes/No Control",
+            "Icon": "gi gi-check",
+            "Type": "YesNo",
+            "LabelVisible": true,
+            "LabelText": "A Boolean Yes/No"
+        },
+        {
+            "ID": "DashboardMetric",
+            "Name": "Dashboard Metric",
+            "Description": "Dashboard Metric Control",
+            "Icon": "gi gi-pie_chart",
+            "Type": "DashboardMetric"
+        },
+        {
+            "ID": "Duration",
+            "Name": "Duration",
+            "Description": "Duration Control",
+            "Icon": "gi gi-clock",
+            "Type": "Duration"
+        },
+        {
+            "ID": "Organogram",
+            "Name": "Organogram",
+            "Description": "Organogram Control",
+            "Icon": "fa fa-sitemap",
+            "Type": "Organogram"
+        },
+        {
+            "ID": "Progress",
+            "Name": "Progress",
+            "Description": "Progress Control",
+            "Icon": "fa fa-battery-half",
+            "Type": "Progress"
+        },
+        {
+            "ID": "SearchCriteria",
+            "Name": "Search Criteria",
+            "Description": "Search Criteria Control",
+            "Icon": "fa fa-search",
+            "Type": "SearchCriteria"
+        },
+        {
+            "ID": "SkillsTree",
+            "Name": "Skills Tree",
+            "Description": "Skills Tree Control",
+            "Icon": "fa fa-sitemap",
+            "Type": "SkillsTree"
+        }
+    ]
+}

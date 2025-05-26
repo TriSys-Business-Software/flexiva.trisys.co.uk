@@ -1,0 +1,81 @@
+﻿[
+    {
+        "Customer": "TriSys Business Software",
+        "Views": [
+            {
+                "Name": "Contact",
+                "Types": {
+                    "Desktop": "custom/trisys-business-software/contact.html",
+                    "Tablet": "custom/trisys-business-software/contact.html",
+                    "Phone": "custom/trisys-business-software/contact.html"
+                }
+            }
+        ]
+    },
+    {
+        "Customer": "Opus Laboris Recruitment",
+        "Views": [
+            {
+                "Name": "Import",
+                "Types": {
+                    "Desktop": "forms/opus/import-d.html",
+                    "Tablet": "forms/opus/import-t.html",
+                    "Phone": "forms/opus/import-p.html"
+                }
+            },
+            {
+                "Name": "skenken",
+                "Types": {
+                    "Desktop": "forms/opus/skenken-d.html",
+                    "Tablet": "forms/opus/skenken-t.html",
+                    "Phone": "forms/opus/skenken-p.html"
+                }
+            }
+        ]
+    },
+    {
+        "Customer": "Acme Recruitment",
+        "Views": [
+            {
+                "Name": "dashie",
+                "Types": {
+                    "Desktop": "forms/acme/dashboard.html"
+                }
+            }
+        ]
+    },
+    {
+        "Customer": "default",
+        "Views": [
+            {
+                "Name": "Import",
+                "Types": {
+                    "Desktop": "forms/dataimport.html"
+                }
+            },
+            {
+                "Name": "Contacts",
+                "Types": {
+                    "Desktop": "forms/Contacts.html",
+                    "Tablet": "forms/Contacts.html",
+                    "Phone": "forms/Contacts.html"
+                }
+            },
+            {
+                "Name": "Contact",
+                "Types": {
+                    "Desktop": "forms/Contact.html",
+                    "Tablet": "forms/Contact.html",
+                    "Phone": "forms/Contact.html",
+                    "Phone-XXX": "forms/contact-p.html"
+                }
+            },
+            {
+                "Name": "Reports",
+                "Types": {
+                    "Desktop": "forms/Reports.html"
+                }
+            }
+        ]
+    }
+]

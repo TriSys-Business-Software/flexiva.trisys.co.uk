@@ -1,0 +1,202 @@
+﻿<style scoped>
+    .block-title > i {
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+
+    .nav-horizontal i {
+        display: block;
+        height: 32px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        font-size: 24px;
+        padding: 2px;
+    }
+
+    .nav-horizontal a {
+        text-align: center;
+        min-width: 130px;
+        padding: 4px 4px;
+    }
+
+	.parameter-label {
+		width: 150px;
+	}
+
+	/* https://www.telerik.com/forums/header-wrapping-height */
+	/* Because some customers want far too many columns to be visible, we make this change */
+	.k-grid .k-grid-header .k-header .k-link {
+		height: auto;
+	}
+
+	.k-grid .k-grid-header .k-header {
+		white-space: normal;
+	}
+</style>
+
+<div class="content-header" style="display: none;">
+    <div class="header-section">
+        <h1>
+            <i class="gi gi-table"></i>Reports
+            <br />
+            <small>
+                A suite of ready to run management reports which slice and dice the recruitment database, and provide full export to Excel.
+            </small>
+        </h1>
+    </div>
+</div>
+
+<div class="block" id="reportsForm-ReportSelectorBlock">
+    <div class="block-title">
+        <i class="gi gi-table fa-2x pull-left themed-color"></i>
+        <h2>
+            Reports
+        </h2> 
+        <div class="block-options pull-right">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 80px;" id="reportsForm-CategoryLabel">
+                        Category
+                    </td>
+                    <td style="width: 380px;">
+                        <select id="reportsForm-Category" style="width:100%;"></select>
+                    </td>
+                    <td style="padding-left: 10px;">
+                        <span id="reportsForm-CategoryDescription" style="display: none;"></span>
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="reportsForm-ListOfReportsGrid" style="border-width: 1px; width: 100%; ">
+    </div>
+
+</div>
+
+<div class="block" id="reportsForm-ReportRunGridBlock" style="display: none;">
+    <div class="block-title">
+        <i class="gi gi-table fa-2x pull-left themed-color"></i>
+        <h2>
+            Report: <span id="reportsForm-SelectedReportName"></span>
+        </h2>
+		<div class="block-options pull-right">
+			<a href="javascript:void(0)" onclick="reportsForm.ToggleBlocks(false)" class=" btn btn-sm btn-default enable-tooltip" title="Back to report selection grid">
+				<i class="gi gi-left_arrow"></i> &nbsp; Back &nbsp;
+			</a>
+			<span>&nbsp;</span>
+			<div id="ReportGridMenu" style="display: none;">
+			</div>
+			<span>&nbsp;</span>
+			<div id="ReportActionsMenu" style="display: none;">
+			</div>
+			<span>&nbsp;</span>
+			<a href="javascript:void(0)" onclick="reportsForm.ExportToExcel()" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+				<i class="fa fa-file-excel-o"></i> &nbsp; Excel &nbsp;
+			</a>
+			<span>&nbsp;</span>
+			<a href="javascript:void(0)" onclick="reportsForm.Refresh()" class=" btn btn-sm btn-default enable-tooltip" title="Refresh current report">
+				<i class="gi gi-refresh"></i> &nbsp; Refresh &nbsp;
+			</a>
+			<!-- &nbsp;
+	<a href="javascript:void(0)" onclick="reportsForm.ExportToPDF()" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to an Adobe Acrobat file">
+		<i class="fa fa-file-pdf-o"></i> &nbsp; PDF &nbsp;
+	</a>-->
+		</div>
+    </div>
+
+    <div class="row" id="reportsForm-Parameter-Block" style="display: none;">
+        <div class="col-md-12">
+            <div class="block">
+                <table class="table table-borderless">
+					<tbody id="reportsForm-Parameter-tbody">
+						<tr id="reportsForm-Parameter-Year-tr">
+							<td class="parameter-label"><strong>Year</strong></td>
+							<td>
+								<input type="text" id="reportsForm-Parameter-Year" style="width:100px;" />
+							</td>
+						</tr>
+						<tr id="reportsForm-Parameter-Month-tr">
+							<td class="parameter-label"><strong>Month</strong></td>
+							<td>
+								<input type="text" id="reportsForm-Parameter-Month" style="width:150px;" />
+							</td>
+						</tr>
+						<tr id="reportsForm-Parameter-Consultant-tr">
+							<td class="parameter-label"><strong>Consultant</strong></td>
+							<td>
+								<input type="text" id="reportsForm-Parameter-Consultant" style="width:300px;" />
+							</td>
+						</tr>
+						<tr id="reportsForm-Parameter-Consultants-tr">
+							<td class="parameter-label"><strong>Consultant(s)</strong></td>
+							<td>
+								<select id="reportsForm-Parameter-Consultants" style="width:100%;"></select>
+							</td>
+						</tr>
+						<tr id="reportsForm-Parameter-WeekEndingSunday-tr">
+							<td class="parameter-label"><strong>Week Ending</strong></td>
+							<td>
+								<input type="text" id="reportsForm-Parameter-WeekEndingSunday" style="width:300px;" />
+							</td>
+						</tr>
+						<tr id="reportsForm-Parameter-StartDate-tr">
+							<td class="parameter-label"><strong><span id="reportsForm-Parameter-StartDate-label">Start Date</span></strong></td>
+							<td>
+								<input id="reportsForm-Parameter-StartDate" style="width:250px;" />
+							</td>
+						</tr>
+						<tr id="reportsForm-Parameter-EndDate-tr">
+							<td class="parameter-label"><strong><span id="reportsForm-Parameter-EndDate-label">End Date</span></strong></td>
+							<td>
+								<input id="reportsForm-Parameter-EndDate" style="width:250px;" />
+							</td>
+						</tr>
+						<tr id="reportsForm-Parameter-NumericRange-tr">
+							<td class="parameter-label"><strong><span id="reportsForm-Parameter-NumericRange-label">Numeric Range</span></strong></td>
+							<td>
+								<input id="reportsForm-Parameter-NumericRange-Start" style="width:100px;" />
+								&nbsp; to &nbsp;
+								<input id="reportsForm-Parameter-NumericRange-End" style="width:100px;" />
+							</td>
+						</tr>
+						<tr id="reportsForm-Parameter-PostCodeRadial-tr">
+							<td class="parameter-label"><strong><span id="reportsForm-Parameter-PostCodeRadial-label">Post Code Radial</span></strong></td>
+							<td>
+								within &nbsp;
+								<input id="reportsForm-Parameter-PostCodeRadial-Mileage" type="number" style="width:100px;" />
+								&nbsp; miles of &nbsp;
+								<input id="reportsForm-Parameter-PostCodeRadial-PostCode" class="k-textbox" style="width:100px; text-transform: uppercase;"
+									   maxlength="4" required pattern="[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]" />
+							</td>
+						</tr>
+					</tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="reportsForm-NoReportData" style="width: 100%; display: none;">
+        <h5>
+            No data returned for this report.
+        </h5>
+    </div>
+
+    <div id="reportsForm-RunReportGrid" style="border-width: 1px; width: 100%; ">
+    </div>
+
+</div>
+
+<!-- Allow extensibility by having skill lists -->
+<script type="text/template" id="reportsForm-DynamicSkillParameter-html">
+	<tr id="reportsForm-DynamicSkillParameter-##ParameterName##-tr">
+		<td class="parameter-label"><strong><span id="reportsForm-DynamicSkillParameter-##ParameterName##-label">##ParameterLabel##</span></strong></td>
+		<td>
+			<select id="reportsForm-DynamicSkillParameter-##ParameterName##" style="width:100%;"></select>
+		</td>
+	</tr>
+</script>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/reports.js"></script>

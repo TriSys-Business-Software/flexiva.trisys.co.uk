@@ -1,0 +1,1832 @@
+﻿<style scoped>
+
+    .block-title > i {
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+    
+    .sidebar-themes li a {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border-width: 2px;
+        border-style: solid;
+    }
+
+    .play-button {
+        width: 125px;
+        margin-top: 10px;
+    }
+    
+</style>
+
+<div class="block">
+    <div class="block-title">
+        <i class="fa fa-user fa-2x pull-left themed-color"></i>
+
+        <h2>User Options</h2>
+
+        <div class="block-options pull-right">
+            <a style="cursor: pointer;" onclick="TriSysApex.UserOptions.OpenLoggedInUserContactRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Open my subscriber contact record">
+                <i class="gi gi-folder_open"></i> &nbsp; Open My Contact Record
+            </a>
+        </div>
+    </div>
+
+    <!-- Tab Buttons -->
+    <div class="block full" id="user-options-tab-buttons">
+        <div class="block-title">
+            <ul class="nav nav-tabs" data-toggle="tabs" id="user-options-tab-nav-horizontal">
+                <li id="useroptions-form-tab-forms-behaviour">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-forms');">
+                        <i class="gi gi-imac"></i>&nbsp; Forms Behaviour
+                    </a>
+                </li>
+                <li id="useroptions-form-tab-login-credentials">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-login-credentials');">
+                        <i class="gi gi-lock"></i>&nbsp; Security
+                    </a>
+                </li>
+                <li id="useroptions-form-tab-app-settings">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-app-settings');">
+                        <i class="gi gi-settings"></i>&nbsp; App Settings
+                    </a>
+                </li>
+                <li id="useroptions-form-tab-grid-management">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-grid-management');">
+                        <i class="gi gi-server"></i>&nbsp; Grid Management
+                    </a>
+                </li>
+                <li style="display: none" id="useroptions-form-tab-reports">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-reports');">
+                        <i class="gi gi-print"></i>&nbsp; Reports
+                    </a>
+                </li>
+                <li id="useroptions-form-tab-e-mail">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-email');">
+                        <i class="gi gi-envelope"></i>&nbsp; E-Mail
+                    </a>
+                </li>
+                <li id="useroptions-form-tab-phone">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-phone');">
+                        <i class="gi gi-phone_alt"></i>&nbsp; Telephone
+                    </a>
+                </li>
+                <li id="useroptions-form-tab-recruitment-defaults">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-recruitment-defaults');">
+                        <i class="gi gi-user_add"></i>&nbsp; Recruitment Defaults
+                    </a>
+                </li>
+                <li id="useroptions-form-tab-job-posting">
+                    <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'user-options-panel-job-posting');">
+                        <i class="gi gi-cloud-upload"></i>&nbsp; Job Posting
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane" id="user-options-panel-forms">
+
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-imac fa-2x pull-left themed-color"></i>
+                        <h2>Form Settings</h2>
+                    </div>
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label" for="load-dashboard-after-login">Load Dashboard after Login</label>
+                                    <div class="col-md-6">
+                                        <label class="switch switch-primary">
+                                            <input type="checkbox" id="load-dashboard-after-login" value="1" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label" for="retain-form-in-memory">Retain Form in Memory</label>
+                                    <div class="col-md-6">
+                                        <label class="switch switch-primary">
+                                            <input type="checkbox" id="retain-form-in-memory" value="0">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label" for="append-recordid-to-caption">Append Record ID to Caption</label>
+                                    <div class="col-md-6">
+                                        <label class="switch switch-primary">
+                                            <input type="checkbox" id="append-recordid-to-caption" value="0">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="block" id="user-options-themes-block">
+                    <div class="block-title">
+                        <i class="gi gi-sun fa-2x pull-left themed-color"></i>
+                        <h2>Theme/Colours</h2>
+                    </div>
+
+                    <p>
+                        Please choose one of the available colour and style themes from the list below:
+                    </p>
+
+                    <!-- Change Color Theme functionality can be found in js/app.js - templateOptions() -->
+                    <ul class="sidebar-themes clearfix themed-background-dark" style="border-radius: 8px">
+                        <!-- You can also add the default color theme "Default Blue" renamed to "Ocean Drive" -->
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-default themed-border-default" data-theme="default" data-toggle="tooltip" title="Ocean Drive"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-amethyst themed-border-amethyst" data-theme="css/themes/amethyst.css" data-toggle="tooltip" title="Amethyst"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-modern themed-border-modern" data-theme="css/themes/modern.css" data-toggle="tooltip" title="Modern"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-autumn themed-border-autumn" data-theme="css/themes/autumn.css" data-toggle="tooltip" title="Autumn"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-flatie themed-border-flatie" data-theme="css/themes/flatie.css" data-toggle="tooltip" title="Dark Side"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-spring themed-border-spring" data-theme="css/themes/spring.css" data-toggle="tooltip" title="Spring"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-fancy themed-border-fancy" data-theme="css/themes/fancy.css" data-toggle="tooltip" title="Fancy"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-fire themed-border-fire" data-theme="css/themes/fire.css" data-toggle="tooltip" title="Fire"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-coral themed-border-coral" data-theme="css/themes/coral.css" data-toggle="tooltip" title="Coral"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-lake themed-border-lake" data-theme="css/themes/lake.css" data-toggle="tooltip" title="Lake"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-forest themed-border-forest" data-theme="css/themes/forest.css" data-toggle="tooltip" title="Forest"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-waterlily themed-border-waterlily" data-theme="css/themes/waterlily.css" data-toggle="tooltip" title="Waterlily"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-emerald themed-border-emerald" data-theme="css/themes/emerald.css" data-toggle="tooltip" title="Emerald"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-blackberry themed-border-blackberry" data-theme="css/themes/blackberry.css" data-toggle="tooltip" title="Blackberry"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-night themed-border-night" data-theme="css/themes/night.css" data-toggle="tooltip" title="Night"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-lightning themed-border-lightning" data-theme="css/themes/lightning.css" data-toggle="tooltip" title="Lightning"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-thunder themed-border-thunder" data-theme="css/themes/thunder.css" data-toggle="tooltip" title="Thunder"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-jasper themed-border-jasper" data-theme="css/themes/jasper.css" data-toggle="tooltip" title="Jasper"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-whistler themed-border-whistler" data-theme="css/themes/whistler.css" data-toggle="tooltip" title="Whistler"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-stratus themed-border-stratus" data-theme="css/themes/stratus.css" data-toggle="tooltip" title="Stratus"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-cumulus themed-border-cumulus" data-theme="css/themes/cumulus.css" data-toggle="tooltip" title="Cumulus"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-nimbus themed-border-nimbus" data-theme="css/themes/nimbus.css" data-toggle="tooltip" title="Nimbus"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-cirrus themed-border-cirrus" data-theme="css/themes/cirrus.css" data-toggle="tooltip" title="Cirrus"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-northernlights themed-border-northernlights" data-theme="css/themes/northernlights.css" data-toggle="tooltip" title="Northern Lights"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-crimson themed-border-crimson" data-theme="css/themes/crimson.css" data-toggle="tooltip" title="Crimson"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-ambient themed-border-ambient" data-theme="css/themes/ambient.css" data-toggle="tooltip" title="Ambient"></a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" class="themed-background-dark-trisys themed-border-trisys" data-theme="css/themes/trisys.css" data-toggle="tooltip" title="TriSys"></a>
+                        </li>
+                        <li id="user-options-designer-only-theme-tobedecided" style="display: none;">
+                            <a style="cursor: pointer;" class="themed-background-dark-tobedecided themed-border-tobedecided" data-theme="css/themes/tobedecided.css" data-toggle="tooltip" title="To be decided"></a>
+                        </li>
+                    </ul>
+                    <!-- END Theme Colors -->
+
+                    <br />
+                    <p>
+                        Current selected theme is <i><span id="user-options-current-theme-name" class="themed-color"></span></i>.
+                        <span id="user-options-themed-border">themed border</span>, <span id="user-options-themed-background">themed background</span>,
+                        <span id="user-options-themed-navbar" style="color: white;"> &nbsp; nav bar &nbsp; </span>,
+                        <span id="user-options-themed-navbar-light" style="color: white;"> &nbsp; nav bar light &nbsp; </span>.
+                    </p>
+
+                </div>
+
+                <div class="block" id="user-options-font-block">
+                    <div class="block-title">
+                        <i class="gi gi-font fa-2x pull-left themed-color"></i>
+                        <h2>Font</h2>
+                    </div>
+
+                    <p>
+                        Please choose your most suitable font and weight from the lists below:
+                    </p>
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-md-1 control-label" for="user-options-font-combo">Font</label>
+                                    <div class="col-md-11" style="margin-top: 3px;">
+                                        <input id="user-options-font-combo" placeholder="Select font..." style="width: 200px;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-md-1 control-label" for="user-options-fontweight-combo">Weight</label>
+                                    <div class="col-md-11" style="margin-top: 3px;">
+                                        <input id="user-options-fontweight-combo" placeholder="Select font weight..." style="width: 200px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        Selected font is <i><span id="user-options-current-font-name" class="themed-color"></span></i>,
+                        weight is <i><span id="user-options-current-font-weight" class="themed-color"></span></i>.
+                    </p>
+                </div>
+
+                <div class="block full" id="user-options-pagestyle-block">
+                    <div class="block-title">
+                        <i class="gi gi-brightness_reduce fa-2x pull-left themed-color"></i>
+                        <h2>Page Style</h2>
+                    </div>
+
+                    <p>
+                        Please choose one of the available page styles below:
+                    </p>
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <a style="cursor: pointer;" class="btn btn-primary" id="options-main-style">Default</a>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <a style="cursor: pointer;" class="btn btn-primary" id="options-main-style-alt">Alternative</a>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block full">
+                    <div class="block-title">
+                        <i class="fa fa-info-circle fa-2x pull-left themed-color"></i>
+                        <h2>Show Help</h2>
+                    </div>
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label" for="tour-guide-reminder">Reminder</label>
+                                    <div class="col-md-6">
+                                        <label class="switch switch-primary">
+                                            <input type="checkbox" id="tour-guide-reminder" value="1" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        The Show Help reminder can be shown by selecting this check box.
+                                        When turned on, a popup window will open after login to remind you that the Show Help can be invoked from anywhere in the application
+                                        by pressing the F1 key, or by clicking the Show Help button on the toolbar.
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 20 Jun 2024: AI Chatbot -->
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label" for="ai-chatbot-show">AI Chatbot</label>
+                                    <div class="col-md-6">
+                                        <label class="switch switch-primary">
+                                            <input type="checkbox" id="ai-chatbot-show" value="0" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        The artificial intelligence (AI) chatbot can be turned on at any time by selecting this check box.
+                                        When turned on, a chat button will be visible at the bottom right of the screen.
+                                        By clicking this button, you can ask the chatbot questions about this application which has been trained
+                                        on the user guide and help documentation.
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block full" style="display: none;">
+                    <div class="block-title">
+                        <i class="fa fa-language fa-2x pull-left themed-color"></i>
+                        <h2>Country/Language</h2>
+                    </div>
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label" for="tour-guide">Country</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="userOptions-Country" style="width:100%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        You can override your current country and language settings when you are visiting another country or wish to test
+                                        your own customised help, forms or messages.
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="height: 25px;"></div>
+                </div>
+
+                <!-- 01 May 2024: Task Options -->
+                <div class="block" id="user-options-task-block">
+                    <div class="block-title">
+                        <i class="gi gi-calendar fa-2x pull-left themed-color"></i>
+                        <h2>Tasks</h2>
+                    </div>
+
+                    <p>
+                        Configure your task alarm defaults below:
+                    </p>
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="limit-grid-rows">Set Alarm</label>
+                                        <div class="col-sm-8">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="userOptions-taskForm-set-alarm" value="1" checked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            New task forms will default to this alarms on or off setting.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="grid-grouping">Lead Time</label>
+                                        <div class="col-sm-8">
+                                            <div id="userOptions-taskForm-Duration" style="width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            The amount of time before the task start date that the alarm will trigger.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        Configure your task alarm notifications below:
+                    </p>
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="limit-grid-rows">Notifications</label>
+                                        <div class="col-sm-8">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="popup-task-alarm-notifications" value="1" checked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            If this is checked, you will receive pop-up alarm notifications when the scheduled task is approaching.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="grid-grouping">Alarm Sound</label>
+                                        <div class="col-sm-8">
+                                            <trisys-field id="userOptions-taskAlarm-Sound" type="combo" style="margin-top: 5px;"></trisys-field>
+                                            <br />
+                                            <a style="cursor: pointer;" class="btn btn-primary play-button" id="userOptions-taskAlarm-Play">
+                                                <i class="fa fa-play"></i> &nbsp; Play
+                                            </a>
+                                            &nbsp;
+                                            <a class="btn btn-primary play-button" id="userOptions-taskAlarm-Stop" style="display: none; cursor: pointer;">
+                                                <i class="gi gi-stop"></i> &nbsp; Stop
+                                            </a>
+                                            &nbsp;
+                                            <a style="cursor: pointer;" class="btn btn-primary play-button active" id="userOptions-taskAlarm-Custom">
+                                                <i class="gi gi-globe_af"></i> &nbsp; Custom
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            Choose a sound which will play when the task alarm triggers.
+                                            You can choose to have no sound, or a standard system sound,
+                                            or even point at your own customised sound.
+                                            Use the Play button to hear your chosen sound, or use the Custom button to point at a public sound file.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tab-pane" id="user-options-panel-login-credentials">
+
+                <!-- Start of Cloud Sync Block-->
+                <div class="block" id="user-options-cloud-sync-block" style="display: none;">
+                    <div class="block-title">
+                        <i class="gi gi-git_compare fa-2x pull-left themed-color"></i>
+                        <h2>Cloud Sync</h2>
+                    </div>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="enable-cloud-sync">Enable Cloud Sync</label>
+                                        <div class="col-md-7">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="enabled-cloud-sync" value="0" unchecked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            Enabling <a href="https://www.trisys.co.uk/cloud-sync" title="Cloud-Sync" target="_blank">Cloud Sync</a>
+                                            will allow your cloud e-mail, calendar <!-- and contacts--> to be synchronised
+                                            with your TriSys database. All incoming and sent e-mail will be logged against contacts with matching e-mail addresses.
+                                            You can learn more about synchronising your cloud services with TriSys by
+                                            <a href="https://www.trisys.co.uk/cloud-sync" title="Cloud-Sync" target="_blank">clicking here</a>.
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="cloud-sync-row3" style="padding-bottom: 10px;">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="cloud-sync-date-authorised">Authorisation</label>
+                                        <div class="col-md-7">
+                                            <a style="cursor: pointer;" class="btn btn-primary" id="authorise-cloud-sync-account">Authorise</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10" style="margin-top: 7px;">
+                                            Authorise, or re-authorise your cloud e-mail account to be synchronised with TriSys
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="cloud-sync-row1">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="cloud-sync-authorised">Authorised</label>
+                                        <div class="col-md-7">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="cloud-sync-authorised" value="0" unchecked disabled>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10" style="margin-top: 7px;">
+                                            Whether your cloud e-mail account has been authorised by you for synchronisation with TriSys
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="cloud-sync-row2">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="cloud-sync-date-authorised">Date Authorised</label>
+                                        <div class="col-md-7" style="padding-top: 7px;">
+                                            <span id="cloud-sync-date-authorised"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10" style="margin-top: 7px;">
+                                            The most recent date that you authorised your cloud e-mail account to be synchronised with TriSys
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal" id="cloud-sync-row4">
+                                <div class="form-group">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        <fieldset>
+                                            <legend>Synchronisation Items</legend>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+                            </div>
+                            <div class="row" id="cloud-sync-row5">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="enabled-cloud-sync-email">E-Mail</label>
+                                        <div class="col-md-7">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="enabled-cloud-sync-email" value="1" checked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10" style="margin-top: 7px;">
+                                            Synchronise E-Mail between your e-mail service provider and TriSys
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="cloud-sync-row6">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="enabled-cloud-sync-calendar">Diary</label>
+                                        <div class="col-md-7">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="enabled-cloud-sync-calendar" value="0" unchecked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10" style="margin-top: 7px;">
+                                            Synchronise Diary/Calendar between your e-mail service provider and TriSys
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="cloud-sync-row7" style="display: none;">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="enabled-cloud-sync-contacts">Contacts</label>
+                                        <div class="col-md-7">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="enabled-cloud-sync-contacts" value="0" unchecked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10" style="margin-top: 7px;">
+                                            Synchronise Contacts between your e-mail service provider and TriSys
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Cloud Sync Block-->
+
+                <!-- Start of Login Credentials Block-->
+                <div class="block">
+                    <div class="block-title">
+                        <i class="gi gi-lock fa-2x pull-left themed-color"></i>
+                        <h2>Login Credentials</h2>
+                    </div>
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="automatic-login" style="text-align: right;">
+                                            Enable Automatic Login
+                                        </label>
+                                        <div class="col-md-7">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="automatic-login" value="1" checked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            Turning off this setting will remove all of your cookies from this computer/device/browser, forcing
+                                            you to log in with your credentials when you next visit this application on this computer/device/browser.
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label" for="login-email" style="text-align: right;">
+                                            Login
+                                        </label>
+                                        <div class="col-md-7" style="padding-top: 7px;">
+                                            <span id="login-email"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10" style="padding-top: 7px;">
+                                            The e-mail address you use to log in to this application.
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <div class="col-md-5">
+                                        </div>
+                                        <div class="col-md-7">
+                                            <a class="btn btn-primary" id="change-login-credentials"
+                                               style="display: none; cursor: pointer;">Change</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
+                                            Change your e-mail address and password using this button.
+                                            You will be prompted for your existing password prior to submitting these changes.
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <!-- Start of 2FA: Disabled on 29 Mar 2023 -->
+
+                <div class="form-horizontal" id="useroptions-2factor-authentication" style="display: none;">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <legend>Two-Factor Authentication</legend>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal" style="display: none;">
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <div class="col-md-12" style="text-align: right;">
+                                    <label class="control-label" for="two-factor-authentication" style="text-align: right;">Enable Two Factor Authentication</label>
+                                    &nbsp; &nbsp;
+                                    <label class="switch switch-primary">
+                                        <input type="checkbox" id="two-factor-authentication" value="0" unchecked>
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-10">
+                                    Turning on two factor authentication will add an additional layer of security
+                                    to your account.
+                                    Every time you login, you will need to use your mobile telephone to obtain a
+                                    new generated six digit code and type this to gain access to this system.
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End of 2FA -->
+                <!-- Start of Social Network Authorisations -->
+                <div class="form-horizontal" id="useroptions-socialnetworks-1">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <legend>Social Network Authorisations</legend>
+                            </fieldset>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group" style="padding-top: 8px;">
+                                <div class="col-md-12">
+                                    Login with your favourite social network to associate it with your user account.
+                                    This will allow you to login with your social network instead of supplying your e-mail address and password.
+                                    You can also remove your social network association if necessary.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal" id="useroptions-socialnetworks-2">
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <div class="col-md-12" style="text-align: right;">
+                                    <div id="useroptions-SocialNetworkButtons">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="form-group" id="useroptions-socialnetwork-list-google" style="display: none;">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-google fa-2x"></i> &nbsp;
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    Associated with Google
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    <a style="cursor: pointer;" onclick="ctrlUserOptions.Social.RemoveGoogle();" class="btn btn-default">Remove</a>
+                                </div>
+                            </div>
+                            <div class="form-group" id="useroptions-socialnetwork-list-windows-live" style="display: none;">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-windows fa-2x"></i> &nbsp;
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    Associated with Microsoft Live
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    <a style="cursor: pointer;" onclick="ctrlUserOptions.Social.RemoveMicrosoft();" class="btn btn-default">Remove</a>
+                                </div>
+                            </div>
+                            <div class="form-group" id="useroptions-socialnetwork-list-apple" style="display: none;">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-apple fa-2x"></i> &nbsp;
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    Associated with Apple
+                                </div>
+                                <div class="col-md-6" style="text-align: left;">
+                                    <a style="cursor: pointer;" onclick="ctrlUserOptions.Social.RemoveApple();" class="btn btn-default">Remove</a>
+                                </div>
+                            </div>
+                            <div class="form-group" id="useroptions-socialnetwork-list-linkedin" style="display: none;">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-linkedin fa-2x"></i> &nbsp;
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    Associated with LinkedIn
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    <a style="cursor: pointer;" onclick="ctrlUserOptions.Social.RemoveLinkedIn();" class="btn btn-default">Remove</a>
+                                </div>
+                            </div>
+                            <div class="form-group" id="useroptions-socialnetwork-list-twitter" style="display: none;">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-twitter fa-2x"></i> &nbsp;
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    Associated with Twitter
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    <a style="cursor: pointer;" onclick="ctrlUserOptions.Social.RemoveTwitter();" class="btn btn-default">Remove</a>
+                                </div>
+                            </div>
+                            <div class="form-group" id="useroptions-socialnetwork-list-facebook" style="display: none;">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-1">
+                                    <i class="fa fa-facebook fa-2x"></i> &nbsp;
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    Associated with Facebook
+                                </div>
+                                <div class="col-md-5" style="text-align: left;">
+                                    <a style="cursor: pointer;" onclick="ctrlUserOptions.Social.RemoveFacebook();" class="btn btn-default">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End of Social Network Authorisations -->
+                <!--<div class="form-horizontal">
+                    <div id="wonderpush-subscription-switch" data-sentence="Receive our latest news by web push: " data-on="YES" data-off="NO"></div>
+                </div>-->
+                <!-- End of Login Credentials Block-->
+                </div>
+            </div>
+
+			<div class="tab-pane" id="user-options-panel-app-settings">
+				<div class="block">
+					<div class="block-title">
+						<i class="gi gi-settings fa-2x pull-left themed-color"></i>
+						<h2>App Settings</h2>
+					</div>
+					<div id="divAppSettings"></div>
+				</div>
+			</div>
+			<div class="tab-pane" id="user-options-panel-grid-management">
+				<div class="block">
+					<div class="block-title">
+						<i class="gi gi-server fa-2x pull-left themed-color"></i>
+						<h2>Grid Management</h2>
+					</div>
+
+					<div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="limit-grid-rows">Limit Grid Rows</label>
+                                        <div class="col-sm-8">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="limit-grid-rows" value="1" checked disabled>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            In order to get fast and efficient access to cloud data sets, limiting the amount of rows
+                                            returned for display in grids is the best option.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="display: none;">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="limit-grid-row-count">Maximum Rows</label>
+                                        <div class="col-sm-8">
+                                            <select id="limit-grid-row-count" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                                <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                                <option value="50">50 Rows</option>
+                                                <option value="100">100 Rows</option>
+                                                <option value="250">250 Rows</option>
+                                                <option value="500">500 Rows</option>
+                                                <option value="1000">1,000 Rows</option>
+                                                <!--<option value="5000">5,000 Rows</option>
+                        <option value="10000">10,000 Rows</option>-->
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            The maximum number of rows which will be returned to the grid for filtering, sorting and drill down.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="records-per-page">Records per Page</label>
+                                        <div class="col-sm-8">
+                                            <select id="records-per-page" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                                <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                                <option value="5">5 Records</option>
+                                                <option value="10">10 Records</option>
+                                                <option value="15">15 Records</option>
+                                                <option value="20">20 Records</option>
+                                                <option value="25">25 Records</option>
+                                                <option value="30">30 Records</option>
+                                                <option value="50">50 Records</option>
+                                                <option value="100">100 Records</option>
+                                                <!--<option value="200">200 Records</option>
+                                                    <option value="500">500 Records</option>
+                                                    <option value="1000">1,000 Records</option>
+                                                    <option value="5000">5,000 Records</option>
+                                                    <option value="10000">10,000 Records</option>-->
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            The number of records which will be shown in each page of the grid.
+                                            Data will arrive faster when this number is smaller.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">&nbsp;</label>
+                                        <div class="col-sm-8">
+                                            <a style="cursor: pointer;" class="btn btn-primary" id="reset-grid-layouts" title="Reset all customised grid column layouts with default columns">Reset</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            Replace all customised grid column layouts with default columns.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="grid-grouping">Grouping</label>
+                                        <div class="col-sm-8">
+                                            <label class="switch switch-primary">
+                                                <input type="checkbox" id="grid-grouping" value="1" checked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            Show a 'Drag a column header and drop it here to group by that column'
+                                            region above the grid into which columns can be dragged to group grid data.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="grid-pager-position">Pager Position</label>
+                                        <div class="col-sm-8">
+                                            <trisys-field id="grid-pager-position" type="combo" style="margin-top: 5px;"></trisys-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="col-xs-1">&nbsp;</div>
+                                        <div class="col-xs-10">
+                                            The grid pager allowing movement between each page of the grid can be positioned at the top and/or bottom of the grid data.
+                                        </div>
+                                        <div class="col-xs-1">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="user-options-panel-reports">
+				<div class="block">
+					<div class="block-title">
+						<i class="gi gi-print fa-2x pull-left themed-color"></i>
+						<h2>Reports</h2>
+					</div>
+
+				</div>
+			</div>
+			<div class="tab-pane" id="user-options-panel-email">
+				<div class="block">
+					<div class="block-title">
+						<i class="gi gi-envelope fa-2x pull-left themed-color"></i>
+						<h2>E-Mail</h2>
+					</div>
+
+					<div class="form-horizontal">
+						<div class="form-group"  style="display: none;">
+							<div class="col-md-5">
+								<div class="form-group">
+									<label class="col-md-5 control-label" for="email-sending-application">Sending Application</label>
+									<div class="col-md-7">
+										<select id="email-sending-application" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+											<option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+											<option value="SMTP">SMTP</option>
+											<option value="Outlook">Outlook</option>
+											<option value="Google Mail">Google Mail</option>
+											<option value="Office 365">Office 365</option>
+											<option value="Custom">Custom</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="form-group">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										Generating template driven e-mails will be delivered either directly via your simple mail
+										transfer protocol (SMTP) gateway, or your locally installed Outlook application,
+										or your google mail (g-mail) web login, or Microsoft web based Office 365, or
+										another custom mail solution which you will configure here.
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12">
+								<fieldset>
+									<legend>SMTP Settings</legend>
+								</fieldset>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="col-md-5 control-label" for="smtp-server-address">Server Address</label>
+												<div class="col-md-7">
+													<input type="text" id="smtp-server-address" class="form-control input-lg" placeholder="SMTP Server Address" />
+												</div>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<div class="form-group">
+												<div class="col-md-1"></div>
+												<div class="col-md-10">
+													The Simple Mail Transfer Protocol (SMTP) server to which you send your outgoing e-mail.
+												</div>
+												<div class="col-md-1"></div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="col-md-5 control-label" for="smtp-server-login">Login</label>
+												<div class="col-md-7">
+													<input type="text" id="smtp-server-login" class="form-control input-lg" placeholder="SMTP Server Login">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<div class="form-group">
+												<div class="col-md-1"></div>
+												<div class="col-md-10">
+													The login name, or e-mail address, used to send outgoing e-mail.
+												</div>
+												<div class="col-md-1"></div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="col-md-5 control-label" for="smtp-server-password">Password</label>
+												<div class="col-md-7">
+													<input type="password" id="smtp-server-password" class="form-control input-lg" placeholder="SMTP Server Password" style="display: none;">
+                                                    <a class="btn btn-danger" id="smtp-server-password-button" style="width: 150px; cursor: pointer;">Change Password</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<div class="form-group">
+												<div class="col-md-1"></div>
+												<div class="col-md-10">
+													The password associated with the login, used to send outgoing e-mail.
+												</div>
+												<div class="col-md-1"></div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-5">
+											<div class="form-group">
+												<label class="col-md-5 control-label">&nbsp;</label>
+												<div class="col-md-7">
+													<a class="btn btn-primary" id="test-send-smtp-email" style="width: 150px; cursor: pointer;">Send Test E-Mail</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<div class="form-group">
+												<div class="col-md-1"></div>
+												<div class="col-md-10">
+													Send a test outgoing e-mail to yourself to verify that your personal SMTP credentials are fully operational.
+												</div>
+												<div class="col-md-1"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+                        <!-- 01 May 2024: Redundant -->
+						<div class="form-group" id="user-options-diary-synchronisation" style="display: none;">
+							<div class="col-md-12">
+								<fieldset>
+									<legend>E-Mail / Diary Synchronisation</legend>
+								</fieldset>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="enabled-sync-services">Enable Synchronisation</label>
+                                                <div class="col-md-7">
+                                                    <label class="switch switch-primary">
+                                                        <input type="checkbox" id="enabled-sync-services" value="0" unchecked onclick="ctrlUserOptions.EnableSyncCheckBoxClick(this, 'enabled-sync-services')">
+                                                        <span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    Turn on e-mail and/or diary synchronisation services
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row1">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="email-service-provider">E-Mail Service Provider</label>
+                                                <div class="col-md-7">
+                                                    <input id="email-service-provider" style="width:100%;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    Where your e-mail is managed i.e. in the cloud, or using a local e-mail server
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row2">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="sync-services-email-server">Mail Server URL</label>
+                                                <div class="col-md-7">
+                                                    <input id="sync-services-email-server" class="k-textbox" style="width:100%;" maxlength="128" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    The local or remote e-mail server
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row3">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="sync-services-email-login">Mail Server Login</label>
+                                                <div class="col-md-7">
+                                                    <input id="sync-services-email-login" class="k-textbox" style="width:100%;" maxlength="128" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    The e-mail server login
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row4">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="sync-services-email-password">Mail Server Password</label>
+                                                <div class="col-md-7">
+                                                    <input type="password" id="sync-services-email-password" class="k-textbox" style="width:100%;" maxlength="64" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    The e-mail server password
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row5">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="sync-services-StartDateTime">Start Synchronisation From</label>
+                                                <div class="col-md-7">
+                                                    <input id="sync-services-StartDateTime" style="width:100%;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    The starting date when your synchronisation of e-mail/diary begins
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row6">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="sync-services-diary-weeks">Diary Sync Window (in weeks)</label>
+                                                <div class="col-md-7">
+                                                    <input id="sync-services-diary-weeks" style="width:75px;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    The number of weeks in advance which your cloud diary will synchronise with TriSys
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row7">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="sync-services-timezone">Timezone</label>
+                                                <div class="col-md-7">
+                                                    <input id="sync-services-timezone" style="width:100%;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    The international timezone used to synchronise diary entries
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row8">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="enabled-sync-email">E-Mail Synchronisation</label>
+                                                <div class="col-md-7">
+                                                    <label class="switch switch-primary">
+                                                        <input type="checkbox" id="enabled-sync-email" value="1" checked>
+                                                        <span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    Synchronise E-Mail between your e-mail service provider and TriSys
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row9">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="enabled-sync-diary">Diary Synchronisation</label>
+                                                <div class="col-md-7">
+                                                    <label class="switch switch-primary">
+                                                        <input type="checkbox" id="enabled-sync-diary" value="0" unchecked>
+                                                        <span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    Synchronise Diary/Calendar between your e-mail service provider and TriSys
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="synch-services-row10">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Last Result</label>
+                                                <div class="col-md-7" style="margin-top: 7px;">
+                                                    <span id="enabled-sync-last-status"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7" style="text-align: left;">
+                                            <div class="form-group">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10" style="margin-top: 7px;">
+                                                    What happened last time the synch service ran using your details
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="user-options-panel-phone">
+				<div class="block">
+					<div class="block-title">
+						<i class="gi gi-phone_alt fa-2x pull-left themed-color"></i>
+						<h2>Telephone</h2>
+					</div>
+
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-md-5">
+								<div class="form-group">
+									<label class="col-md-5 control-label" for="phone-dialing-vendor">IP Telephony Vendor</label>
+									<div class="col-md-7">
+                                        <select id="phone-dialing-vendor" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                                            <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                            <option value="Default">Default</option>
+                                            <option value="RingCentral">RingCentral</option>
+                                        </select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="form-group">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										Clicking on the phone icon to the right of telephone number fields will automatically dial
+										the number using the vendor specified. Typically, the vendor has a browser extension/plug-in
+										which facilitates this.
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="user-options-panel-recruitment-defaults">
+				<div class="block">
+					<div class="block-title">
+						<i class="gi gi-user_add fa-2x pull-left themed-color"></i>
+						<h2>Recruitment Defaults</h2>
+					</div>
+
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="requirement-prefix">Requirement Prefix</label>
+										<div class="col-md-7">
+											<input type="text" id="requirement-prefix" class="form-control input-lg" placeholder="Requirement Prefix" maxlength="10" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-xs-1">&nbsp;</div>
+										<div class="col-xs-10">
+											New requirements will be prefixed by this string, with the automatically generated record ID appended to it.
+											This helps you easily recognise your own advertised requirements/vacancies in social media and job boards.
+										</div>
+										<div class="col-xs-1">&nbsp;</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="placement-prefix">Placement Prefix</label>
+										<div class="col-md-7">
+											<input type="text" id="placement-prefix" class="form-control input-lg" placeholder="Placement Prefix" maxlength="10" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-xs-1">&nbsp;</div>
+										<div class="col-xs-10">
+											New placements will be prefixed by this string, with the automatically generated record ID appended to it.
+											This helps you easily recognise your own placements in reports and dashboards.
+										</div>
+										<div class="col-xs-1">&nbsp;</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<fieldset>
+							<legend>iProfile Settings</legend>
+						</fieldset>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="iprofile-username">Username</label>
+										<div class="col-md-7">
+											<input type="text" id="iprofile-username" class="form-control input-lg" placeholder="iProfile Username" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											Your username assigned to you to connect to the iProfile service.
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="iprofile-recruiter-email">Recruiter E-Mail</label>
+										<div class="col-md-7">
+											<input type="text" id="iprofile-recruiter-email" class="form-control input-lg" placeholder="iProfile Recruiter E-Mail">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											Your recruiter e-mail address which connects you to the iProfile service.
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="iprofile-password">Password</label>
+										<div class="col-md-7">
+											<input type="password" id="iprofile-password" class="form-control input-lg" placeholder="iProfile Password">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											Your password for connecting to the iProfile service.
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="user-options-panel-job-posting">
+				<div class="block">
+					<div class="block-title">
+						<i class="gi gi-cloud-upload fa-2x pull-left themed-color"></i>
+						<h2>Job Posting</h2>
+					</div>
+
+					<div class="form-horizontal">
+						<fieldset>
+							<legend>Broadbean Settings</legend>
+						</fieldset>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="broadbean-login-name">Login Name</label>
+										<div class="col-md-7">
+											<input type="text" id="broadbean-login-name" class="form-control input-lg" placeholder="broadbean login name" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											Your login name assigned to you to connect to the broadbean job broadcasting service.
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="broadbean-password">Password</label>
+										<div class="col-md-7">
+											<input type="password" id="broadbean-password" class="form-control input-lg" placeholder="broadbean password">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											Your password for connecting to the broadbean job broadcasting service.
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<fieldset>
+							<legend>LogicMelon Settings</legend>
+						</fieldset>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="logicmelon-username">Username</label>
+										<div class="col-md-7">
+											<input type="text" id="logicmelon-username" class="form-control input-lg" placeholder="logicmelon username" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											Your username assigned to you to connect to the logicmelon job broadcasting service.
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="logicmelon-password">Password</label>
+										<div class="col-md-7">
+											<input type="password" id="logicmelon-password" class="form-control input-lg" placeholder="logicmelon password">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											Your password for connecting to the logicmelon job broadcasting service.
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<fieldset>
+							<legend>Buffer Settings</legend>
+						</fieldset>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="form-group">
+										<label class="col-md-5 control-label" for="buffer-email">E-Mail</label>
+										<div class="col-md-7">
+											<input type="email" id="buffer-email" class="form-control input-lg" placeholder="buffer e-mail" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="form-group">
+										<div class="col-md-1"></div>
+										<div class="col-md-10">
+											Your e-mail address assigned to you by the buffer social network aggregator to allow you to post jobs to
+											twitter, facebook and linkedin.
+										</div>
+										<div class="col-md-1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<fieldset>
+							<legend>Social Networks</legend>
+						</fieldset>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<div class="col-xs-12" style="padding-left: 28px">
+											<!-- WHY OH WHY??? -->
+											When posting jobs to social networks, specify each URL (uniform resource location) of your personal
+											social feed so that it can be conveniently displayed after posting.
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="col-md-2 control-label" for="twitter-url">twitter</label>
+										<div class="col-md-9">
+											<input type="email" id="twitter-url" class="form-control input-lg" placeholder="twitter" />
+										</div>
+										<div class="col-md-1">&nbsp;</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="col-md-2 control-label" for="facebook-url">facebook</label>
+										<div class="col-md-9">
+											<input type="email" id="facebook-url" class="form-control input-lg" placeholder="facebook" />
+										</div>
+										<div class="col-md-1">&nbsp;</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="col-md-2 control-label" for="linkedin-url">linkedin</label>
+										<div class="col-md-9">
+											<input type="email" id="linkedin-url" class="form-control input-lg" placeholder="linkedin" />
+										</div>
+										<div class="col-md-1">&nbsp;</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<!--<fieldset>
+							<legend>Event Notifications</legend>
+						</fieldset>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<div id="wonderpush-subscription-switch" data-sentence="Receive your alerts by web push: " data-on="YES" data-off="NO"></div>
+									</div>
+								</div>
+							</div>
+						</div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END Tab Buttons -->
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/useroptions.js?ts=2025-01-09-0854"></script>

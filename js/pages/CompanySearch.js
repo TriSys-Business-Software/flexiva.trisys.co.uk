@@ -1,0 +1,1 @@
+var CompanySearch={'Load':function(){TriSysApex['EntitySearch']['LoadControl']('company-search-placeholder','Company');}};$(document)['ready'](function(){CompanySearch['Load']();});

@@ -1,0 +1,7 @@
+{
+    "LaunchComments": "To prepare for launch, ensure the latest index.html is available and set .Upgrading to true. Once .StartOfService expires we will begin ",
+    "NewReleaseComments": "To prepare for a new release, set .Upgrading to true. Once all files are copied, set .Upgrading to false",
+    "StartOfService": "2015/06/30 12:00:00",
+    "Upgrading": false,
+    "NextVersion": "2025.05.25.1830"
+}

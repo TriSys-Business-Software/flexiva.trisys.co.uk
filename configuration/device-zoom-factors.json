@@ -1,0 +1,50 @@
+﻿{
+    "Description": "Allow the app to zoom the DOM for specific device sizes for best user experience.",
+    "Created": "8th March 2016",
+	"Revised": "18 August 2021 because 'view port' sizes are not the same as actual widths.",
+
+    "Sizes": [
+        {
+            "Description": "Phone. Expected that the responsive design will work as expected so no zoom required.",
+            "Minimum": 0,
+            "Maximum": 414,
+            "ZoomFactor": 1
+        },
+        {
+            "Description": "Small tablet e.g. iPad Mini",
+            "Minimum": 415,
+            "Maximum": 750,
+            "ZoomFactor": 0.65
+        },
+        {
+            "Description": "Large tablet e.g. iPad 3, 4, air, pro",
+            "Minimum": 751,
+            "Maximum": 1000,
+            "ZoomFactor": 0.70
+        },
+        {
+            "Description": "Small PC",
+            "Minimum": 1001,
+            "Maximum": 1100,
+            "ZoomFactor": 0.75
+        },
+        {
+            "Description": "Medium PC",
+            "Minimum": 1101,
+            "Maximum": 1200,
+            "ZoomFactor": 0.80
+        },
+        {
+            "Description": "Large PC",
+            "Minimum": 1201,
+            "Maximum": 1300,
+            "ZoomFactor": 0.90
+        },
+        {
+            "Description": "Larger PC",
+            "Minimum": 1301,
+            "Maximum": 100000,
+            "ZoomFactor": 1
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+﻿
+<div class="block" id="company-organogram-container">
+
+    <div class="block-title">
+        <div class="block-options pull-right">
+            <a href="javascript:void(0)" onclick="ctrlCompanyOrganogram.FileMenuItemSelectionCallback('company-organogram-file-menu-add-existing')" class="btn btn-sm btn-default enable-tooltip" title="Add existing company contacts to organogram">
+                <i class="gi gi-new_window"></i>  &nbsp; Add Existing Contact
+            </a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)" onclick="ctrlCompanyOrganogram.FileMenuItemSelectionCallback('company-organogram-file-menu-add-all')" class="btn btn-sm btn-default enable-tooltip" title="Add all other company contacts to organogram">
+                <i class="gi gi-folder_open"></i> &nbsp; Add All Other Contacts
+            </a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)" onclick="ctrlCompanyOrganogram.FileMenuItemSelectionCallback('company-organogram-file-menu-clear-all')" class="btn btn-sm btn-default enable-tooltip" title="Clear all contacts from organogram">
+                <i class="fa fa-remove fa-fw"></i> &nbsp; Clear All
+            </a>
+        </div>
+        <h3>Company Organogram</h3>
+    </div>
+
+
+    <ul id="trisys-organogram-hierarchy" style="display:none">
+        
+    </ul>
+
+    <div id="trisys-organogram-rendered-chart" class="orgChart" style="overflow-x: scroll;"></div>
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlCompanyOrganogram.js"></script>

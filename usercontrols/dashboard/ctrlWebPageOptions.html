@@ -1,0 +1,39 @@
+﻿<div class="block" id="dashboard-tile-webpage-options-block">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 150px;">
+                    <strong>Height</strong>
+                </td>
+                <td>
+                    <input id="dashboard-tile-webpage-options-height" type="number" value="350" min="100" step="10" style="width:100%;" />
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label" style="width: 150px;">
+                    <strong>URL</strong>
+                </td>
+                <td>
+                    <input type="text" class="k-textbox" id="dashboard-tile-webpage-options-url" required="required" style="width:100%" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+
+$(document).ready(function ()
+{
+    try
+    {
+        ctrlDashboard.WebPageOptionsModal.Load();
+
+    } catch (e)
+    {
+
+    }
+});
+
+</script>

@@ -1,0 +1,1 @@
+var QuickStart={'Load':function(){var iFudgeFactor=0x1e,lHeight=TriSysApex['Pages']['Index']['FormHeight']()-iFudgeFactor;$('#quick-start-frame')['height'](lHeight);}};$(document)['ready'](function(){QuickStart['Load']();});

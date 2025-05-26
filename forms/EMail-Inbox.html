@@ -1,0 +1,87 @@
+﻿<style scoped>
+    .block-title > i {
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+
+    .nav-horizontal i {
+        display: block;
+        height: 32px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        font-size: 24px;
+        padding: 2px;
+    }
+
+    .nav-horizontal a {
+        text-align: center;
+        min-width: 110px;
+        padding: 4px 4px;
+    }
+
+    .content-header, .content-top, .breadcrumb-top {
+        margin: -10px 0px 10px;
+    }
+</style>
+
+<!-- Form Caption -->
+<div class="block full" style="padding-bottom: 0px;">
+    
+    <div class="block-title">
+        <i class="gi gi-envelope fa-2x pull-left themed-color"></i>
+        <h2>E-Mail Inbox</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="block full">
+                <div class="block-title">
+                    <h2><strong>Folders</strong></h2>
+                </div>
+
+                <div id="EMailInbox-Folders" style="overflow-y: scroll; height:640px;"></div>
+
+            </div>
+        </div>
+        <div class="col-md-6" id="EMailInbox-ListBlock">
+            <div class="block full">
+                <div class="block-title">
+                    <h2><strong>Mail</strong></h2>
+
+                    <div class="block-options pull-right">
+
+                        <a href="javascript:void(0)" onclick="EMailInbox.ShowList()" class="btn btn-sm btn-default enable-tooltip" title="Back to e-mail list" id="EMailInbox-BackToList">
+                            <i class="gi gi-left_arrow"></i> &nbsp; Back
+                        </a>
+
+                    </div>
+                </div>
+
+                <button id="authorize-button" class="btn btn-primary hidden">Authorize</button>
+
+                <div id="EMailInbox-EMailGrid" style="border-width: 1px; width: 100%; ">
+                </div>
+
+                <iframe id="EMailInbox-MailViewer" name="EMailInbox-MailViewer" allowfullscreen="false" style="width: 100%; height: 630px;" scrolling="yes" frameborder="0" allowtransparency="false"></iframe>
+
+            </div>
+        </div>
+        <div class="col-md-3" id="EMailInbox-ContactSummaryBlock">
+            <div class="block full">
+                <div class="block-title">
+                    <h2><strong>Sender E-Mail</strong></h2>
+                </div>
+
+                <div>
+                    Show details about sender/recipients just like contact preview
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/email-inbox.js"></script>
+

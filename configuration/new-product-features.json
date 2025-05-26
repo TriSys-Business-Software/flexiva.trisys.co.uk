@@ -1,0 +1,746 @@
+{
+    "FileName": "new-product-features.json",
+    "Description": "Drives the advert/feature button on the Apex toolbar",
+    "Comment": "Originally called advertising.js, however AdBlock prevented access to this file, hence the name change!",
+    "Created": "10 October 2019",
+    "Author": "TriSys Business Software",
+    "Notes1": "Set Enabled to false to turn off all adverts. Set Enabled to true in either a single advert listed below,",
+    "Notes2": " or if multiple randomisation required, set more than one to be enabled.",
+    "Enabled": true,
+    "LastUpdated": "24 January 2022",
+    "LastUpdatedNotes": "Standardised new approach using action buttons with vertical scrollable HTML templates.",
+    "Adverts": [
+        {
+            "Enabled": true,
+            "Text": "Interactive Help",
+            "Title": "Interactive Help",
+            "Tooltip": "Learn about the powerful interactive help resources available with TriSys Apex",
+            "Icon": "gi gi-facetime_video",
+            "Page": "advertising/F1-Help.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "View Training Courses",
+                "Type": "Form",
+                "Instruction": "Training"
+            },
+            "EnabledDates": [
+                "2023/06/30",
+                "2023/07/01",
+                "2023/07/02",
+                "2023/07/03"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Rounded Corners",
+            "Title": "Rounded Cornered Apex",
+            "Tooltip": "Latest Apex release has rounded corners for greater aesthetic appeal",
+            "Icon": "gi gi-magic",
+            "Page": "advertising/rounded-corners.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/rounded-corners-over-sharp-corners"
+            },
+            "EnabledDates": [
+                "2023/04/14",
+                "2023/04/15",
+                "2023/04/16",
+                "2023/04/17"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Contact Preview",
+            "Title": "Contact Preview Popup",
+            "Tooltip": "Open the contact preview window in a popup browser window for large screens or multiple monitors",
+            "Icon": "gi gi-new_window_alt",
+            "Page": "advertising/pop-out-contact-preview.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/dual-display-contact-previews"
+            },
+            "EnabledDates": [
+                "2022/11/18",
+                "2022/11/17",
+                "2022/11/16"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Refer a Friend",
+            "Title": "Refer a Friend",
+            "Tooltip": "Get cash for referring a friend to subscribe to TriSys",
+            "Icon": "gi gi-money",
+            "Page": "advertising/referral-cashback.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/referral"
+            },
+            "EnabledDates": [
+                "2022/01/24"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "New Web Site",
+            "Title": "New Web Site",
+            "Tooltip": "TriSys' New Web Site has loads of information for recruiters",
+            "Icon": "gi gi-globe_af",
+            "Page": "advertising/new-website.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk"
+            },
+            "EnabledDates": [
+                "2022/01/25"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Benefits of Support Portal",
+            "Title": "Benefits of TriSys Support Portal",
+            "Tooltip": "TriSys support portal allows you to manage your GDPR and support issues.",
+            "Icon": "gi gi-circle_question_mark",
+            "Page": "advertising/benefits-of-support-portal.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://support.trisys.co.uk"
+            },
+            "EnabledDates": [
+                "2022/01/26"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Mobile Apps",
+            "Title": "Mobile Apps",
+            "Tooltip": "TriSys provide a suite of mobile apps for your convenience.",
+            "Icon": "gi gi-iphone",
+            "Page": "advertising/mobile-apps.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/mobile-apps"
+            },
+            "EnabledDates": [
+                "2022/01/27"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Weblog / Blog",
+            "Title": "Weblog / Blogs",
+            "Tooltip": "TriSys has produced blog posts over many years full of interesting information.",
+            "Icon": "gi gi-blog",
+            "Page": "advertising/blogs.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/blog"
+            },
+            "EnabledDates": [
+                "2022/01/28"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Twitter",
+            "Title": "Twitter",
+            "Tooltip": "TriSys has a twitter feed.",
+            "Icon": "si si-twitter",
+            "Page": "advertising/twitter.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://twitter.com/TriSys"
+            },
+            "EnabledDates": [
+                "2022/01/31"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Newsletters and Communication History",
+            "Title": "Newsletters and Communication History",
+            "Tooltip": "TriSys comms over the years since the 90's.",
+            "Icon": "gi gi-clock",
+            "Page": "advertising/communication-history.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/communications-history"
+            },
+            "EnabledDates": [
+                "2022/02/01"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "YouTube channel",
+            "Title": "YouTube channel",
+            "Tooltip": "TriSys video library.",
+            "Icon": "si si-youtube",
+            "Page": "advertising/youtube.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.youtube.com/user/TriSysRecruitment"
+            },
+            "EnabledDates": [
+                "2022/02/02"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Facebook Page",
+            "Title": "Facebook Page",
+            "Tooltip": "TriSys page on Facebook.",
+            "Icon": "si si-facebook",
+            "Page": "advertising/facebook.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.facebook.com/trisysrecruitmentsoftware"
+            },
+            "EnabledDates": [
+                "2022/02/03"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "LinkedIn Page",
+            "Title": "LinkedIn Page",
+            "Tooltip": "TriSys page on LinkedIn.",
+            "Icon": "si si-linked_in",
+            "Page": "advertising/linkedin.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.linkedin.com/company/trisys-business-software"
+            },
+            "EnabledDates": [
+                "2022/02/04"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Platformix Websites",
+            "Title": "Platformix Websites",
+            "Tooltip": "Build your own recruitment website using drag and drop, point and click",
+            "Icon": "gi gi-globe_af",
+            "Page": "advertising/platformix-websites.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/website-builder"
+            },
+            "EnabledDates": [
+                "2022/01/10",
+                "2022/01/11"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Space Invader Challenge",
+            "Title": "Space Invader Challenge",
+            "Tooltip": "Take part in our space invader challenge",
+            "Icon": "gi gi-gamepad",
+            "Page": "advertising/space-invaders.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForChristmas",
+            "EnabledDates": [
+                "2021/12/15",
+                "2021/12/16",
+                "2021/12/17",
+                "2021/12/18",
+                "2021/12/19",
+                "2021/12/20",
+                "2021/12/21",
+                "2021/12/22",
+                "2021/12/23",
+                "2021/12/24",
+                "2021/12/25",
+                "2021/12/26"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Custom Tab Fields",
+            "Title": "Customise your own database fields",
+            "Tooltip": "Create your own custom form tab with database fields",
+            "Icon": "fa fa-pencil-square-o",
+            "Page": "advertising/custom-tabs-apr2021.html",
+            "Width": 1020,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Full Screen",
+                "Type": "URL",
+                "Instruction": "https://apex.trisys.co.uk/assets/pdf/TriSys-Apex-Custom-Tab.pdf"
+            },
+            "EnabledDates": [
+                "2021/04/06",
+                "2021/04/07",
+                "2021/04/08",
+                "2022/01/20"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Task Search",
+            "Title": "Task Search",
+            "Tooltip": "TriSys Apex users can now search for all tasks",
+            "Icon": "gi gi-clock",
+            "Page": "advertising/apex-2021-Mar25.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Open Task Search",
+                "Type": "Form",
+                "Instruction": "TaskSearch"
+            },
+            "EnabledDates": [
+                "2021/03/25",
+                "2021/03/26",
+                "2022/01/19"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "User Guide",
+            "Title": "User Guide",
+            "Tooltip": "Please read the Apex user guide to learn about all features",
+            "Icon": "fa fa-question-circle",
+            "Page": "advertising/apex-user-guide.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Read User Guide",
+                "Type": "Form",
+                "Instruction": "UserGuide"
+            },
+            "EnabledDates": [
+                "2021/02/23",
+                "2021/02/24",
+                "2022/01/12",
+                "2022/01/18"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Apex 2021",
+            "Title": "Apex 2021",
+            "Tooltip": "What our 2021 TriSys Apex release can do for you",
+            "Icon": "gi gi-globe_af",
+            "Page": "advertising/apex-2021-Feb01.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Open User Options",
+                "Type": "Form",
+                "Instruction": "UserOptions"
+            },
+            "EnabledDates": [
+                "2021/01/31",
+                "2021/02/01",
+                "2021/02/02",
+                "2021/02/03"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Browser Extension",
+            "Title": "Web Browser Extension",
+            "Tooltip": "Click to open information about our web browser extension",
+            "Icon": "gi gi-globe_af",
+            "Page": "advertising/browser-extension.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/browser-extension"
+            },
+            "EnabledDates": [
+                "2022/01/13"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "OLD Browser Extension",
+            "Title": "Web Browser Extension",
+            "Tooltip": "Click to open information about our web browser extension",
+            "Icon": "gi gi-globe_af",
+            "Page": "advertising/chrome-extension.html",
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "EnabledDates": [
+                "2019/10/17",
+                "2019/10/19"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Office Add-In",
+            "Title": "Microsoft Office Add-In",
+            "Tooltip": "Click to learn about our office add-in",
+            "Icon": "fa fa-windows",
+            "Page": "advertising/office-addin.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/outlook-add-in"
+            },
+            "EnabledDates": [
+                "2022/01/14"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "OLD Office Add-In",
+            "Title": "Microsoft Office Add-In",
+            "Tooltip": "Click to learn about our office add-in",
+            "Icon": "fa fa-windows",
+            "Page": "advertising/office-addin.html",
+            "Width": 800,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "EnabledDates": [
+                "2019/10/18",
+                "2019/10/20"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Training Courses",
+            "Title": "TriSys Training Courses",
+            "Tooltip": "Click to read more about our tailored CRM training courses",
+            "Icon": "fa fa-graduation-cap",
+            "Page": "advertising/trisys-training-courses.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "ActionButton": {
+                "Text": "Learn More...",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/training"
+            },
+            "EnabledDates": [
+                "2022/01/17"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "OLD Training Courses",
+            "Title": "TriSys Training Courses",
+            "Tooltip": "Click to read more about our tailored CRM training courses",
+            "Icon": "fa fa-windows",
+            "Page": "advertising/trisys-training-courses.html",
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "EnabledDates": [
+                "2019/10/18"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "CRM Marketing Module",
+            "Title": "TriSys CRM Marketing Module",
+            "Tooltip": "Click to read more about the TriSys Marketing Campaign Module",
+            "Icon": "gi gi-envelope",
+            "Page": "advertising/marketing-campaigns.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "EnabledDates": [
+                "2022/01/15"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "OLD CRM Marketing Module",
+            "Title": "TriSys CRM Marketing Module",
+            "Tooltip": "Click to read more about the TriSys Marketing Campaign Module",
+            "Icon": "fa fa-windows",
+            "Page": "advertising/marketing-campaigns.html",
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "EnabledDates": [
+                "2019/10/19"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "TriSys Penny Fundraising",
+            "Title": "CV Parsing and Fundraising",
+            "Tooltip": "The fact that you choose TriSys CRM to parse candidate CV's also means you are helping raise funds for a charitable cause",
+            "Icon": "fa fa-windows",
+            "Page": "advertising/cv-penny-donation.html",
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 4,
+            "EnabledDates": [
+                "2019/10/18"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "Customer Survey",
+            "Title": "Help us shape your future, today",
+            "Tooltip": "Please complete our online customer survey today",
+            "Icon": "fa fa-pencil-square-o",
+            "Page": "advertising/customer-survey-oct2019.html",
+            "Width": 830,
+            "TourGuideFormName": "AfterLoginEventForSurvey",
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "EnabledDates": [
+                "2019/10/15",
+                "2019/10/16",
+                "2019/10/21",
+                "2019/10/24"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Candidate &amp; Client Portal",
+            "Title": "Client and Candidate Web Portals",
+            "Tooltip": "Learn more about our client and candidate web portals",
+            "Icon": "gi gi-globe_af",
+            "Page": "advertising/client-candidate-web-portals.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "EnabledDates": [
+                "2022/01/21"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "OLD Candidate &amp; Client Portal",
+            "Title": "Client and Candidate Web Portals",
+            "Tooltip": "Learn more about our client and candidate web portals",
+            "Icon": "gi gi-globe_af",
+            "Page": "advertising/client-candidate-web-portals.html",
+            "Width": 700,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "EnabledDates": [
+                "2019/10/22",
+                "2019/10/23"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Monthly Newsletter",
+            "Title": "Latest Monthly Newsletter",
+            "Tooltip": "Please read our monthly newsletter",
+            "Icon": "fa fa-newspaper-o",
+            "Page": "advertising/monthly-newsletter.html",
+            "Width": 830,
+            "TourGuideFormName": "AfterLoginEventForNewsletter",
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "EnabledDates": [
+                "2019/10/30",
+                "2019/10/31",
+                "2019/11/01",
+                "2019/11/02",
+                "2019/11/03",
+                "2019/12/20",
+                "2019/12/22",
+                "2019/12/24"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "Two Factor Authentication",
+            "Title": "Two Factor Authentication",
+            "Tooltip": "Add additional security to your TriSys Account",
+            "Icon": "fa fa-lock",
+            "Page": "advertising/apex-2fa.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "EnabledDates": [
+                "2019/12/09",
+                "2019/12/10",
+                "2019/12/11"
+            ]
+        },
+        {
+            "Enabled": true,
+            "Text": "Space Invader Challenge",
+            "Title": "Space Invader Challenge",
+            "Tooltip": "Take part in our space invader challenge",
+            "Icon": "gi gi-gamepad",
+            "Page": "advertising/space-invaders.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForChristmas",
+            "EnabledDates": [
+                "2019/12/21",
+                "2019/12/23",
+                "2019/12/25"
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "Video Conferencing",
+            "Title": "Video Conferencing",
+            "Tooltip": "Our video conferencing platform for recruiters working from home",
+            "Icon": "gi gi-facetime_video",
+            "Page": "advertising/video-conferencing.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Open Video Conferencing",
+                "Type": "Form",
+                "Instruction": "VideoChat"
+            },
+            "EnabledDates": [
+                "2023/11/24"                
+            ]
+        },
+        {
+            "Enabled": false,
+            "Text": "Text Only",
+            "Title": "Text Only Title",
+            "Tooltip": "Click to open a text only message",
+            "Icon": "gi gi-circle_question_mark",
+            "HTML": [
+                "Welcome to my world!",
+                "<br/>",
+                "This is an example of HTML only."
+            ],
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 2
+        },
+		{
+            "Enabled": true,
+            "Text": "Daxtra Integration",
+            "Title": "Daxtra Integration",
+            "Tooltip": "Streamline your recruitment workflows using AI and machine learning technology developed by Daxtra",
+            "Icon": "gi gi-check",
+            "Page": "advertising/daxtra-integration.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Read Blog Post",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/announcing-a-new-trisys-integration-daxtra-search-nexus-and-capture"
+            },
+            "EnabledDates": [
+                "2023/11/24",
+                "2023/11/25",
+                "2023/11/26",
+                "2023/11/27",
+				"2023/11/28",
+				"2023/11/29",
+				"2023/11/30",
+				"2023/12/01"								
+            ]
+        },		
+		{
+            "Enabled": true,
+            "Text": "Editable Contact Previews",
+            "Title": "Editable Contact Previews",
+            "Tooltip": "Edit contact fields directly from search results grids",
+            "Icon": "gi gi-check",
+            "Page": "advertising/editable-contact-previews.html",
+            "Width": 830,
+            "HighlightButtonEnabled": true,
+            "HighlightButtonTimeoutSeconds": 5,
+            "TourGuideFormName": "AfterLoginEventForEmergencies",
+            "ActionButton": {
+                "Text": "Read Blog Post",
+                "Type": "URL",
+                "Instruction": "https://www.trisys.co.uk/editable-contact-previews"
+            },
+            "EnabledDates": [                
+				"2024/03/13",
+                "2024/03/14",
+                "2024/03/15",
+				"2024/03/18",
+				"2024/03/19"				
+            ]
+        }		
+    ]
+}

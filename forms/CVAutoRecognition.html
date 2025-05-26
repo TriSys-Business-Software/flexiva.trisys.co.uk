@@ -1,0 +1,832 @@
+﻿<style scoped>
+    .block-title > i {
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+</style>
+
+<!-- Form Caption -->
+<div class="block full" style="padding-bottom: 0px;">
+
+    <div class="block-title">
+        <i class="gi gi-file_export fa-2x pull-left themed-color"></i>
+        <h2>CV Auto-Recognition Form</h2>
+        <div class="block-options pull-right">
+
+            <div class="btn-group btn-group-sm show-on-hover">
+                <a href="javascript:void(0)" onclick="TriSysApex.FormsManager.CloseCurrentForm()" class=" btn btn-sm btn-default enable-tooltip" title="Close this form">
+                    <i class="fa fa-ban fa-fw"></i> &nbsp; Close
+                </a>
+                <!--<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="File">
+                    <i class="fa fa-file"></i> &nbsp; File &nbsp;<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                    <li>
+                        <a href="javascript:void(0)" onclick="TriSysApex.FormsManager.CloseCurrentForm()" id=" file-menu-close"><i class="fa fa-ban fa-fw pull-right"></i>Close</a>
+                    </li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Panel Buttons -->
+    <div class="block full" id="cvautorecognition-form-tab-panel-buttons">
+		<div class="block-title">
+			<ul class="nav nav-tabs" data-toggle="tabs" id="cvautorecognition-form-tab-nav-horizontal">
+				<li id="cvautorecognition-form-tab-incoming">
+					<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'cvautorecognition-form-panel-incoming', CVAutoRecognitionForm.TabButtonCallback);"
+					   id="cvautorecognitionForm-form-tab-panel-incoming-hyperlink">
+						<i class="gi gi-folder_open"></i>&nbsp; Incoming CV's
+					</a>
+				</li>
+				<li id="cvautorecognition-form-tab-parse">
+					<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'cvautorecognition-form-panel-parse', CVAutoRecognitionForm.TabButtonCallback);"
+					   id="cvautorecognitionForm-form-tab-panel-parse-hyperlink">
+						<i class="gi gi-random"></i>&nbsp; Import
+					</a>
+				</li>
+				<li id="cvautorecognition-form-tab-duplicate">
+					<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'cvautorecognition-form-panel-duplicate', CVAutoRecognitionForm.TabButtonCallback);"
+					   id="cvautorecognitionForm-form-tab-panel-duplicate-hyperlink">
+						<i class="gi gi-address_book"></i>&nbsp; Duplicate
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tab-content">
+			<div class="tab-pane" id="cvautorecognition-form-panel-incoming">
+				<div class="block full" style="padding-bottom: 0px;">
+
+					<div class="block-title">
+						<h2>Incoming CV's</h2>
+						<div class="block-options pull-right">
+							<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.AddGridCV()" class=" btn btn-sm btn-default enable-tooltip" title="Add new CV" id="cvautorecognition-grid-add-cv">
+								<i class="gi gi-plus"></i> &nbsp; Add &nbsp;
+							</a>
+
+							<span>&nbsp;</span>
+
+							<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.ImportGridCV()" class=" btn btn-sm btn-default enable-tooltip" title="Import selected CV" id="cvautorecognition-grid-import-cv">
+								<i class="gi gi-folder_open"></i> &nbsp; Import &nbsp;
+							</a>
+
+							<span>&nbsp;</span>
+
+							<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.DeleteGridCV()" class="btn btn-sm btn-default enable-tooltip" title="Delete selected CV" id="cvautorecognition-grid-delete-cv">
+								<i class="gi gi-remove"></i> &nbsp; Delete &nbsp;
+							</a>
+
+							<span>&nbsp;</span>
+
+							<div id="cvautorecognitionGridMenu">
+							</div>
+						</div>
+					</div>
+
+					<div id="cvautorecognition-IncomingCVGrid" style="border-width: 1px; width: 100%; ">
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="cvautorecognition-form-panel-parse">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-7">
+						<!--CV Viewer Block -->
+						<div class="block" id="cvautorecognition-cv-viewer-block">
+							<div class="block-title">
+								<h2 id="cvautorecognition-parsing-document-name">&nbsp;</h2>
+
+								<div class="block-options pull-right">
+
+									<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.OpenViewCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open CV" id="cvautorecognition-open-cv">
+										<i class="gi gi-folder_open"></i> &nbsp; Open &nbsp;
+									</a>
+									<span>&nbsp;</span>
+									<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.DeleteViewCV()" class="btn btn-sm btn-default enable-tooltip" title="Delete this CV" id="cvautorecognition-delete-cv">
+										<i class="gi gi-remove"></i> &nbsp; Delete &nbsp;
+									</a>
+								</div>
+							</div>
+
+							<!-- Sized to match the height of the data entry fields to the right of the CV viewer  -->
+							<div id="cvautorecognition-document-viewer-converted-contents" class="block" style="overflow-y: scroll; height: 822px; display: none;">
+
+							</div>
+
+							<!-- PDF Viewer: data="https://bitcoin.org/bitcoin.pdf" -->
+							<object id="cvautorecognition-document-viewer-pdf-viewer" type="application/pdf" style="height: 822px; display: none;"></object>
+
+							<div id="cvautorecognition-document-viewer-zoom" style="height: 50px; width: 100%; display: none;">
+								<input id="cvautorecognition-form-slider" value="100" style="width: 800px;" />
+							</div>
+
+							<div id="cvautorecognition-document-viewer-waiting" class="block" style="overflow-y: scroll; height: 600px; display: none;">
+
+								<h1 style="text-align: center; padding-top: 55px;">
+									<i class="fa fa-sun-o fa-spin fa-3x" style="float: none;" id="cvautorecognition-viewer-waiting-spinner-image"></i> &nbsp;
+								</h1>
+
+								<h5 style="text-align: center; padding-top: 25px;">Loading CV</h5>
+							</div>
+
+						</div>
+						<!-- END CV Viewer Block -->
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-5">
+						<div class="block">
+							<div class="block-title">
+								<h2>Candidate Details</h2>
+
+								<div class="block-options pull-right">
+
+									<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.SaveCandidateRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Save Candidate Record">
+										<i class="gi gi-floppy_saved"></i> &nbsp; Save &nbsp;
+									</a>
+									<span>&nbsp;</span>
+									<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.ViewDuplicateCandidates()" class="btn btn-sm btn-default enable-tooltip" title="View Duplicate Candidates"
+									   id="cvautorecognition-view-duplicate-candidates">
+										<i class="gi gi-address_book"></i> &nbsp; <span id="cvautorecognition-view-duplicate-candidate-count"></span> Duplicates &nbsp;
+									</a>
+								</div>
+
+							</div>
+							<div id="cvautorecognition-form-no-vertical-scrollbar-deliberately">
+								<table class="table table-borderless table-striped" style="padding-right: 10px;">
+									<tbody>
+										<tr>
+											<td style="width:120px;">
+												<strong>Title/Gender</strong>
+											</td>
+											<td>
+												<table style="width: 100%">
+													<tr>
+														<td style="width: 40%;">
+															<input type="text" id="cvautorecognition-form-Title" style="width:100%" />
+														</td>
+														<td style="width: 20%;">&nbsp;</td>
+														<td style="width: 40%;">
+															<input type="text" id="cvautorecognition-form-Gender" required="required" style="width:100%" />
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Forename(s)</strong>
+											</td>
+											<td>
+												<input type="text" class="k-textbox" id="cvautorecognition-form-Forenames" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'Forenames')" required="required" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Surname</strong></td>
+											<td>
+												<input type="text" class="k-textbox" id="cvautorecognition-form-Surname" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'Surname')" required="required" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Job Title</strong>
+											</td>
+											<td>
+
+												<table style="width: 100%;" cellpadding="0" cellspacing="0">
+													<tr>
+														<td>
+															<input type="text" class="k-textbox" id="cvautorecognition-form-JobTitle" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'JobTitle')" required="required" style="width:100%" />
+														</td>
+														<td style="width: 40px; padding-left: 5px;">
+															<button type="submit" class="btn btn-sm btn-default" onclick="CVAutoRecognitionForm.JobTitleLookup()" title="Lookup Job Title" style="right:0px;">
+																<i class="gi gi-search"></i>
+															</button>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Photo</strong></td>
+											<td>
+												<table class="table table-borderless" style="text-align: center">
+													<tbody>
+														<tr>
+															<td>
+																<img id="cvautorecognition-form-ContactPhoto" src="https://apex.trisys.co.uk/images/profile-grey.png"
+																	 ondrop="CVAutoRecognitionForm.DropPhoto(event, 'cvautorecognition-form-ContactPhoto')" ondragover="CVAutoRecognitionForm.AllowDropPhoto(event)"
+																	 style="height: 72px; width: 72px; border-radius: 10px;" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Street</strong></td>
+											<td>
+												<textarea class="k-textbox" id="cvautorecognition-form-Street" rows="3" ondrop="CVAutoRecognitionForm.DropStreet(event)" style="width:100%; resize: none"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>City/Town</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-City" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>County</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-County" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Post Code</strong></td>
+											<td>
+												<table style="width: 160px;">
+													<tr>
+														<td>
+															<input class="k-textbox" id="cvautorecognition-form-PostCode"
+																   ondrop="CVAutoRecognitionForm.DropPostCode(event)"
+																   ondragover="CVAutoRecognitionForm.AllowDragDrop(event)"
+																   style="width:100px; text-transform: uppercase;" />
+														</td>
+														<td style="width: 50px;">
+															<button type="submit" class="btn btn-sm btn-default" onclick="CVAutoRecognitionForm.PostCodeLookup()" title="Lookup Post Code">
+																<i class="gi gi-search"></i>
+															</button>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Country</strong></td>
+											<td>
+												<input type="text" id="cvautorecognition-form-Country" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Home Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-HomeTelNo" style="width:100%" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'HomeTelNo')" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Work Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-WorkTelNo" style="width:100%" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'WorkTelNo')" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Mobile Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-MobileTelNo" style="width:100%" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'MobileTelNo')" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Private E-Mail</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-PersonalEMail" style="width:100%" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'PersonalEMail')" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Work E-Mail</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-WorkEMail" style="width:100%" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'WorkEMail')" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Date of Birth</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-DateOfBirth" style="width:140px;" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'DateOfBirth')" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong><span id="cvautorecognition-form-source">Source</span></strong></td>
+											<td>
+												<input id="cvautorecognition-form-ContactSource" style="width:100%;" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Type of Work</strong>
+											</td>
+											<td>
+												<input type="text" id="cvautorecognition-form-TypeOfWorkRequired" style="width:100%" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-nationality-tr" style="display: none;">
+											<td><strong>Nationality</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-Nationality" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-linkedin-tr" style="display: none;">
+											<td><strong>LinkedIn</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-LinkedIn" style="width:100%;" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'LinkedIn')" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-twitter-tr" style="display: none;">
+											<td><strong>Twitter</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-Twitter" style="width:100%;" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'Twitter')" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-facebook-tr" style="display: none;">
+											<td><strong>Facebook</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-Facebook" style="width:100%;" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'Facebook')" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-skype-tr" style="display: none;">
+											<td><strong>Skype</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-Skype" style="width:100%;" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'Skype')" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-youtube-tr" style="display: none;">
+											<td><strong>YouTube</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-YouTube" style="width:100%;" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'YouTube')" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-blog-tr" style="display: none;">
+											<td><strong>Blog</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-Blog" style="width:100%;" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'Blog')" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-website-tr" style="display: none;">
+											<td><strong>WebSite</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-WebSite" style="width:100%;" ondrop="CVAutoRecognitionForm.DropDuplicateCheckField(event, 'WebSite')" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div style="height: 10px"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="cvautorecognition-form-panel-duplicate">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-4">
+						<!--CV Viewer Block -->
+						<div class="block" id="cvautorecognition-cv-viewer-block-duplicate">
+							<div class="block-title">
+								<h2>New CV: <span id="cvautorecognition-parsing-document-name-duplicate">&nbsp;</span></h2>
+							</div>
+
+							<!-- Sized to match the height of the data entry fields to the right of the CV viewer  -->
+							<div id="cvautorecognition-document-viewer-converted-contents-duplicate" class="block" style="overflow-y: scroll; height: 822px; display: none;">
+
+							</div>
+
+							<!-- PDF Viewer: -->
+							<object id="cvautorecognition-document-viewer-pdf-viewer-duplicate" type="application/pdf" style="height: 822px; display: none;"></object>
+
+							<div id="cvautorecognition-document-viewer-zoom-duplicate" style="height: 50px; width: 100%; display: none;">
+								<input id="cvautorecognition-form-slider-duplicate" value="100" style="width: 800px;" />
+							</div>
+
+						</div>
+						<!-- END CV Viewer Block -->
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-4">
+						<div class="block">
+							<div class="block-title">
+								<h2>New Candidate</h2>
+
+								<div class="block-options pull-right">
+
+									<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.SaveDuplicateCandidateRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Save Duplicate Candidate">
+										<i class="gi gi-floppy_saved"></i> &nbsp; Save Duplicate &nbsp;
+									</a>
+
+								</div>
+
+							</div>
+							<div id="cvautorecognition-form-no-vertical-scrollbar-deliberately-duplicate">
+								<table class="table table-borderless table-striped" style="padding-right: 10px;">
+									<tbody>
+										<tr>
+											<td style="width:120px;">
+												<strong>Title/Gender</strong>
+											</td>
+											<td>
+												<table style="width: 100%">
+													<tr>
+														<td style="width: 40%;">
+															<input type="text" id="cvautorecognition-form-new-Title" style="width:100%" />
+														</td>
+														<td style="width: 20%;">&nbsp;</td>
+														<td style="width: 40%;">
+															<input type="text" id="cvautorecognition-form-new-Gender" style="width:100%" />
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Forename(s)</strong>
+											</td>
+											<td>
+												<input type="text" class="k-textbox" id="cvautorecognition-form-new-Forenames" required="required" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Surname</strong></td>
+											<td>
+												<input type="text" class="k-textbox" id="cvautorecognition-form-new-Surname" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Job Title</strong>
+											</td>
+											<td>
+												<input type="text" class="k-textbox" id="cvautorecognition-form-new-JobTitle" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Photo</strong></td>
+											<td>
+												<table class="table table-borderless" style="text-align: center">
+													<tbody>
+														<tr>
+															<td>
+																<img id="cvautorecognition-form-new-ContactPhoto" src="https://apex.trisys.co.uk/images/profile-grey.png"
+																	 ondrop="CVAutoRecognitionForm.DropPhoto(event, 'cvautorecognition-form-new-ContactPhoto')" ondragover="CVAutoRecognitionForm.AllowDropPhoto(event)"
+																	 style="height: 72px; width: 72px; border-radius: 10px;" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Street</strong></td>
+											<td>
+												<textarea class="k-textbox" id="cvautorecognition-form-new-Street" rows="3" style="width:100%; resize: none"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>City/Town</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-City" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>County</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-County" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Post Code</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-PostCode"
+													   style="width:100px; text-transform: uppercase;" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Country</strong></td>
+											<td>
+												<input type="text" id="cvautorecognition-form-new-Country" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Home Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-HomeTelNo" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Work Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-WorkTelNo" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Mobile Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-MobileTelNo" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Private E-Mail</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-PersonalEMail" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Work E-Mail</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-WorkEMail" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Date of Birth</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-DateOfBirth" style="width:140px;" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong><span id="cvautorecognition-form-new-source">Source</span></strong></td>
+											<td>
+												<input id="cvautorecognition-form-new-ContactSource" style="width:100%;" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Type of Work</strong>
+											</td>
+											<td>
+												<input type="text" id="cvautorecognition-form-new-TypeOfWorkRequired" style="width:100%" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-new-nationality-tr" style="display: none;">
+											<td><strong>Nationality</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-Nationality" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-new-linkedin-tr" style="display: none;">
+											<td><strong>LinkedIn</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-LinkedIn" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-new-twitter-tr" style="display: none;">
+											<td><strong>Twitter</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-Twitter" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-new-facebook-tr" style="display: none;">
+											<td><strong>Facebook</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-Facebook" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-new-skype-tr" style="display: none;">
+											<td><strong>Skype</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-Skype" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-new-youtube-tr" style="display: none;">
+											<td><strong>YouTube</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-YouTube" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-new-blog-tr" style="display: none;">
+											<td><strong>Blog</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-Blog" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-new-website-tr" style="display: none;">
+											<td><strong>WebSite</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-new-WebSite" style="width:100%;" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div style="height: 10px"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-4">
+						<div class="block">
+							<div class="block-title">
+								<h2>Existing Candidate</h2>
+
+								<div class="block-options pull-right">
+
+									<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.OpenExistingCandidateRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Open Existing Candidate Record">
+										<i class="gi gi-parents"></i> &nbsp; Open &nbsp;
+									</a>
+									<span>&nbsp;</span>
+									<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.OpenExistingCandidateCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open Existing Candidate CV">
+										<i class="gi gi-more_items"></i> &nbsp; Open CV &nbsp;
+									</a>
+									<span>&nbsp;</span>
+									<a href="javascript:void(0)" onclick="CVAutoRecognitionForm.UpdateExistingCandidateRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Update Existing Candidate">
+										<i class="gi gi-floppy_saved"></i> &nbsp; Save Existing &nbsp;
+									</a>
+									<span style="display: none;" id="cvautorecognition-form-existing-cvfileref"></span>
+								</div>
+
+							</div>
+							<div id="cvautorecognition-form-no-vertical-scrollbar-deliberately-duplicate-existing">
+								<table class="table table-borderless table-striped" style="padding-right: 10px;">
+									<tbody>
+										<tr>
+											<td style="width:120px;">
+												<strong>Title/Gender</strong>
+											</td>
+											<td>
+												<table style="width: 100%">
+													<tr>
+														<td style="width: 40%;">
+															<input type="text" id="cvautorecognition-form-existing-Title" style="width:100%" />
+														</td>
+														<td style="width: 20%;">&nbsp;</td>
+														<td style="width: 40%;">
+															<input type="text" id="cvautorecognition-form-existing-Gender" style="width:100%" />
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Forename(s)</strong>
+											</td>
+											<td>
+												<input type="text" class="k-textbox" id="cvautorecognition-form-existing-Forenames" required="required" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Surname</strong></td>
+											<td>
+												<input type="text" class="k-textbox" id="cvautorecognition-form-existing-Surname" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Job Title</strong>
+											</td>
+											<td>
+												<input type="text" class="k-textbox" id="cvautorecognition-form-existing-JobTitle" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Photo</strong></td>
+											<td>
+												<table class="table table-borderless" style="text-align: center">
+													<tbody>
+														<tr>
+															<td>
+																<img id="cvautorecognition-form-existing-ContactPhoto" src="https://apex.trisys.co.uk/images/profile-grey.png"
+																	 ondrop="CVAutoRecognitionForm.DropPhoto(event, 'cvautorecognition-form-existing-ContactPhoto')" ondragover="CVAutoRecognitionForm.AllowDropPhoto(event)"
+																	 style="height: 72px; width: 72px; border-radius: 10px;" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Street</strong></td>
+											<td>
+												<textarea class="k-textbox" id="cvautorecognition-form-existing-Street" rows="3" style="width:100%; resize: none"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td><strong>City/Town</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-City" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>County</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-County" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Post Code</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-PostCode"
+													   style="width:100px; text-transform: uppercase;" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Country</strong></td>
+											<td>
+												<input type="text" id="cvautorecognition-form-existing-Country" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Home Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-HomeTelNo" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Work Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-WorkTelNo" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Mobile Tel.</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-MobileTelNo" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Private E-Mail</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-PersonalEMail" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Work E-Mail</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-WorkEMail" style="width:100%" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong>Date of Birth</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-DateOfBirth" style="width:140px;" />
+											</td>
+										</tr>
+										<tr>
+											<td><strong><span id="cvautorecognition-form-existing-source">Source</span></strong></td>
+											<td>
+												<input id="cvautorecognition-form-existing-ContactSource" style="width:100%;" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Type of Work</strong>
+											</td>
+											<td>
+												<input type="text" id="cvautorecognition-form-existing-TypeOfWorkRequired" style="width:100%" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-existing-nationality-tr" style="display: none;">
+											<td><strong>Nationality</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-Nationality" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-existing-linkedin-tr" style="display: none;">
+											<td><strong>LinkedIn</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-LinkedIn" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-existing-twitter-tr" style="display: none;">
+											<td><strong>Twitter</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-Twitter" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-existing-facebook-tr" style="display: none;">
+											<td><strong>Facebook</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-Facebook" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-existing-skype-tr" style="display: none;">
+											<td><strong>Skype</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-Skype" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-existing-youtube-tr" style="display: none;">
+											<td><strong>YouTube</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-YouTube" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-existing-blog-tr" style="display: none;">
+											<td><strong>Blog</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-Blog" style="width:100%;" />
+											</td>
+										</tr>
+										<tr id="cvautorecognition-form-existing-website-tr" style="display: none;">
+											<td><strong>WebSite</strong></td>
+											<td>
+												<input class="k-textbox" id="cvautorecognition-form-existing-WebSite" style="width:100%;" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div style="height: 10px"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <!-- END Tabs Content -->
+
+</div>
+<!-- END Form Caption -->
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/cvautorecognition.js"></script>

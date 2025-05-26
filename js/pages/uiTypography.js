@@ -1,0 +1,1 @@
+var UiTypography=(function(){return{'init':function(){var headings=$('h1,\x20h2,\x20h3,\x20h4,\x20h5,\x20h6','.headings-container');$('.toggle-headings-page')['click'](function(){headings['removeClass']('sub-header')['toggleClass']('page-header');}),$('.toggle-headings-sub')['click'](function(){headings['removeClass']('page-header')['toggleClass']('sub-header');});}};}());

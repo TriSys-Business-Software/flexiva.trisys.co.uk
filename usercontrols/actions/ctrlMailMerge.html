@@ -1,0 +1,131 @@
+﻿<style scoped>
+    .td-label-mailmerge {
+        width: 120px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td class="td-label-mailmerge">
+                            <strong>Contact(s)</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlMailMerge-Contact" style="width:100%"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-mailmerge">
+                            <strong>Template</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlMailMerge-Template" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlMailMerge-EditTemplate">
+                                            <i class="gi gi-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="ctrlMailMerge-Attachments-tr">
+                        <td class="td-label-mailmerge">
+                            <strong>Attachment(s)</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input type="text" id="ctrlMailMerge-Attachments" style="width:100%" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="ctrlMailMerge-ManageAttachmentLibrary">
+                                            <i class="gi gi-paperclip"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-mailmerge">
+                            <strong>Delivery</strong>
+                        </td>
+                        <td>
+                            <input id="ctrlMailMerge-Delivery" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr id="ctrlMailMerge-Subject-tr">
+                        <td class="td-label-mailmerge">
+                            <strong>Subject</strong>
+                        </td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlMailMerge-Subject" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr id="ctrlMailMerge-BlindCopy-tr">
+                        <td class="td-label-mailmerge">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlMailMerge-BlindCopy" value="0" unchecked>
+                                <span></span>
+                            </label>
+                            &nbsp; Send to all recipients as blind copy (bcc)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="block full" style="padding-bottom: 0px;" id="ctrlMailMerge-entity-grid-block">
+
+            <div class="block-title">
+                <h2>Entity Data</h2>
+                <div class="block-options pull-right">
+
+                    <input id="ctrlMailMerge-Entity" style="width:140px;" />
+
+                    &nbsp;
+
+                    <a href="javascript:void(0)" onclick="ctrlMailMerge.AddGridRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Add Record(s)" id="ctrlMailMerge-grid-add-record">
+                        <i class="gi gi-plus"></i> &nbsp; Add &nbsp;
+                    </a>
+
+                    &nbsp;
+
+                    <a href="javascript:void(0)" onclick="ctrlMailMerge.DeleteGridRecord()" class="btn btn-sm btn-default enable-tooltip" title="Delete Record(s)" id="ctrlMailMerge-grid-delete-record">
+                        <i class="gi gi-remove"></i> &nbsp; Delete &nbsp;
+                    </a>
+
+                    &nbsp;
+
+                    <div id="ctrlMailMerge-GridMenu">
+                    </div>
+                </div>
+            </div>
+
+            <div id="ctrlMailMerge-DataGrid" style="border-width: 1px; width: 100%; ">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6">
+
+        <div id="ctrlMailMerge-NoteHistory">
+        </div>
+
+        <div id="ctrlMailMerge-FollowUp">
+        </div>
+    </div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlMailMerge.js"></script>

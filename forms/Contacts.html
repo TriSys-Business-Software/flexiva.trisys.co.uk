@@ -1,0 +1,44 @@
+﻿
+<div id="contact-lookup-criteria"></div>
+
+<!-- Grid Block -->
+<div class="block">
+    <!-- Block Title -->
+    <div class="block-title">
+		<div class="block-options pull-right" id="contacts-form-grid-buttons">
+			<div id="contactFileMenu" style="display: none;">
+			</div>
+			<a id="ContactLookupFormExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('divContactGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+				<i class="fa fa-file-excel-o"></i> &nbsp; Excel
+			</a>
+			<span>&nbsp;</span>
+			<a href="javascript:void(0)" onclick="ContactLookupForm.FileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected contact">
+				<i class="gi gi-folder_open"></i> &nbsp; Open
+			</a>
+			<span>&nbsp;</span>
+			<a href="javascript:void(0)" onclick="ContactLookupForm.FileMenuCallback('file-delete')" id="contacts-form-grid-button-delete" class="btn btn-sm btn-default enable-tooltip" title="Delete selected contact">
+				<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+			</a>
+			<span>&nbsp;</span>
+			<div id="contactGridMenu">
+			</div>
+			<span>&nbsp;</span>
+			<div id="contactActionsMenu">
+			</div>
+		</div>
+        <h2><strong>Contacts</strong> Grid <span id="contacts-form-grid-selected-counter"></span></h2>
+    </div>
+    <!-- END Block Title -->
+    
+    <div class="row">
+        <div class="col-md-12">
+            <!-- The contacts grid populated by JS -->
+            <div id="divContactGrid" style="border-width: 1px; width: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Grid Block -->
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/contacts.js"></script>

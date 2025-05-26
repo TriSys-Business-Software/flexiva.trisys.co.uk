@@ -1,0 +1,1606 @@
+﻿{
+	"FileName": "white-label.json",
+	"Description": "Configure white labelled variants or original equipment manufacturer (OEM) for specific customers.",
+	"Future": "Hope to attract resellers in other vertical markets, or marketeers wishing to offer their own CRM.",
+	"Created": "08 November 2016",
+
+	"Partners": [
+		{
+			"ID": "acme",
+			"LongName": "ACME Corporation",
+			"ShortName": "ACME",
+			"ProductIcon": "images/trisys/acme.png",
+			"ProductIconRadius": "5px",
+			"ProductName": "CRM",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login: this is a white-labelled CRM system so we need to load navbar.json and forms.json and main.js",
+			"AboutImage": "images/trisys/acme-Splash-Screen.png",
+			"ThemePath": "css/themes/fire.css",
+			"ThemeName": "Fire",
+			"HomePage": "https://en.wikipedia.org/wiki/Acme_Corporation",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@acme.com\">support@acme.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://apex.trisys.co.uk/images/trisys/acme-nav-bar-footer.png)",
+						"background-size": "200px 103px",
+						"background-repeat": "no-repeat",
+						"background-position": "bottom"
+					}
+				}
+			]
+		},
+		{
+			"ID": "support",
+			"CustomFolder": "trisys-technical-support-portal",
+			"AccountType": 12,
+			"Account Type Description": "NonCustomer = 12  Contact in CRM database e.g. any contact entitled to access via GDPR",
+			"AccountType_Pre06Mar2018": 7,
+			"Account Type 7 Description": "Customer = 7  Customer of the CRM database e.g. TriSys customer with a support contract",
+			"StartUpForm": "Login",
+			"LongName": "TriSys Technical Support",
+			"ShortName": "TriSys",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login: this is a white-labelled support system so we need to load navbar.json and forms.json and main.js",
+			"ProductIcon": "images/trisys/support.png",
+			"ProductIconRadius": "5px",
+			"ProductName": "Support",
+			"AboutImage": "images/trisys/support-Splash-Screen.png",
+			"ThemePath": "css/themes/cirrus.css",
+			"ThemeName": "Cirrus",
+			"HomePage": "https://www.trisys.co.uk",
+			"URL": "https://support.trisys.co.uk",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@trisys.co.uk\">support@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [
+				"NavBar.json",
+				"Forms.json",
+				"Blogs.html",
+				"Blogs.js",
+				"NetworkStatus.html",
+				"SupportServices.html",
+				"SubscribeToNewsletter.html",
+				"SubscribeToNewsletter.js",
+				"TrainingCourses.html",
+				"TrainingCourses.js",
+				"TrainingDesktopApp.html",
+				"TrainingDesktopApp.js",
+				"TrainingApex.html",
+				"Redirector.html",
+				"Redirector.js",
+				"SpaceInvaderScores.html",
+				"SpaceInvaderScores.js",
+				"Fun.html",
+				"ElectronProfile.html",
+				"ElectronProfile.js"
+			],
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/trisys-technical-support-portal/images/navbar.png)",
+						"background-size": "200px 84px",
+						"background-repeat": "no-repeat",
+						"background-position": "bottom"
+					}
+				}
+			]
+		},
+		{
+			"ID": "vacancy",
+			"CustomFolder": "trisys-vacancy-portal",
+			"LongName": "TriSys Vacancies",
+			"ShortName": "Vacancy",
+			"StartUpForm": "Vacancies",
+			"ProductIcon": "images/trisys/vacancy.trisys.co.uk-Icon.png",
+			"ProductIconRadius": "5px",
+			"ProductName": ".trisys",
+			"DefaultMode": "Vacancies",
+			"DefaultModeDescription": "Login: this is a white-labelled jobs system so we need to load navbar.json and forms.json and main.js",
+			"AboutImage": "images/trisys/vacancy.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/amethyst.css",
+			"ThemeName": "Amethyst",
+			"HomePage": "https://www.trisys.co.uk",
+			"URL": "https://vacancy.trisys.co.uk",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@trisys.co.uk\">support@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json", "Vacancies.html" ]
+		},
+		{
+			"ID": "opus-laboris-recruitment",
+			"CustomFolder": "opus-laboris-recruitment",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Opus Laboris Recruitment",
+			"ShortName": "Opus Laboris",
+			"AllowedSubDomains": [ "opuslaboris" ],
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "images/trisys/opuslaboris.trisys.co.uk-Icon.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/opuslaboris.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/emerald.css",
+			"ThemeName": "Emerald",
+			"HomePage": "http://www.opuslaboris.com",
+			"URL": "http://opuslaboris.com",
+			"WebAPIURL-remove-me-when-debugging": "http://localhost:61333/",
+			"WebAPIURL-remote": "http://54.247.72.235:45455/",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@opuslaboris.com\">support@opuslaboris.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ],
+			"Custom Forms Description 1": "Specify each custom form name here to have it automatically identified as custom.",
+			"Custom Forms Description 2": "Each file must exist in p:/inetpub/api.trisys.co.uk/Apex/custom/ID",
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/opus-laboris-recruitment/images/navbar.png)",
+						"background-size": "200px 200px",
+						"background-repeat": "repeat",
+						"background-position": "bottom"
+					}
+				}
+			]
+		},
+		{
+			"ID": "breaksys",
+			"CustomFolder": "breaksys",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "breaksys",
+			"ShortName": "breaksys",
+			"AllowedSubDomains": [ "trisysglobal" ],
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "images/trisys/breaksys.trisys.co.uk-Icon.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/breaksys.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/lake.css",
+			"ThemeName": "Lake",
+			"HomePage": "http://www.opuslaboris.com",
+			"URL": "http://opuslaboris.com",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@opuslaboris.com\">support@opuslaboris.com</a>",
+				" if you need help connecting to our service."
+			]
+		},
+		{
+			"ID": "tv",
+			"CustomFolder": "trisys-television",
+			"LongName": "TriSys Television",
+			"ShortName": "TV",
+			"StartUpForm": "Start",
+			"ProductIcon": "images/trisys/tv.trisys.co.uk-Icon.png",
+			"ProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/tv.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/forest.css",
+			"ThemeName": "Forest",
+			"HomePage": "https://www.trisys.co.uk",
+			"URL": "https://support.trisys.co.uk",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@trisys.co.uk\">support@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json", "Start.html" ]
+		},
+		{
+			"ID": "webpc",
+			"CustomFolder": "webpc",
+			"AccountType": 7,
+			"Account Type Description": "Customer = 0  Customer of the CRM database e.g. TriSys customer with a support contract",
+			"StartUpForm": "Login",
+			"LongName": "Web PC",
+			"ShortName": "WebPC",
+			"ProductIcon": "images/trisys/WebPC-Icon.png",
+			"ProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/WebPC-Splash.png",
+			"ThemePath": "css/themes/spring.css",
+			"ThemeName": "Spring",
+			"HomePage": "https://webpc.co.uk",
+			"URL": "https://webpc.co.uk",
+			"TermsAndConditionsFile": "custom/webpc/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@webpc.co.uk\">support@webpc.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [
+				"NavBar.json",
+				"Forms.json",
+				"WhatIsWebPC.html",
+				"Footer.html",
+				"KeyBenefits.html",
+				"Packages.html",
+				"Testimonials.html",
+				"FAQ.html",
+				"FreeTrial.html",
+				"ctrlConnect.html"
+			]
+		},		
+		{
+			"ID": "partner",
+			"AlternativeIDList": [ "partners" ],
+			"CustomFolder": "trisys-partner-portal",
+			"AccountType": 4,
+			"Account Type Description": "Partner = 4  A TriSys Partner e.g. Referrer, or Supplier",
+			"StartUpForm": "PartnerProgrammeInfo",
+			"LongName": "TriSys Partner Portal",
+			"ShortName": "TriSys",
+			"ProductIcon": "images/trisys/partner.png",
+			"ProductIconRadius": "5px",
+			"ProductName": "Partner",
+			"AboutImage": "images/trisys/Partner-Portal-Splash-Screen.png",
+			"ThemePath": "css/themes/coral.css",
+			"ThemeName": "Coral",
+			"HomePage": "https://www.trisys.co.uk",
+			"URL": "https://partner.trisys.co.uk",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"TermsAndConditions-MenuItem",
+				"SupportPortal-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:partner@trisys.co.uk\">partner@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [
+				"NavBar.json",
+				"Forms.json",
+				"Partner-Programme-Info.html",
+				"FAQ.html"
+			]
+		},
+		{
+			"ID": "search-consultancy",
+            "WhatIsThisFor": "This is their live GDPR candidate portal which is referenced from your.search.co.uk and generated e-mails.",
+			"AlternativeIDList": [ "partners" ],
+			"CustomFolder": "Search-Consultancy",
+			"AccountType": 2,
+			"Account Type Description": "AgencyVacanciesOnly = 3  Specified TriSys CRM user who works for a recruitment agency. Can show agency vacancies.",
+			"StartUpForm": "CandidateLogin",
+			"LongName": "Search Consultancy",
+			"ShortName": "Search",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "https://www.search.co.uk/favicon.ico",
+			"xProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/search-consultancy.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/autumn.css",
+			"ThemeName": "Autumn",
+			"HomePage": "https://www.search.co.uk",
+			"URL": "https://www.search.co.uk",
+			"WebAPIURL": "https://trisysapi.search.co.uk/",
+			"DevWebAPIURL": "http://localhost:61333/",
+			"newAPIKey": "a35dc999-a834-4c14-a801-volcanic1019",
+			"APIKey": "124798dd-2f51-4d4d-b9d4-searchconsul",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"TermsAndConditions-MenuItem",
+				"SupportPortal-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:partner@trisys.co.uk\">partner@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"IntelligentRoutingURLActive": false,
+			"IntelligentRoutingURL": "https://search-consultancy.trisys.co.uk/",
+			"IntelligentRoutingURL Description": "In TriSysApex.Router.IntelligentRouting, this is the URL to start the PhoneGap app.",
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "search",
+			"CustomFolder": "search",
+			"AccountType": 0,
+			"Account Type Description": "Subscriber Recruiter.",
+			"StartUpForm": "Login",
+			"LongName": "Search Consultancy",
+			"ShortName": "Search",
+			"DefaultMode": "Recruiter",
+			"DefaultModeDescription": "Recruiter: recruitment consultant",
+			"ProductIcon": "https://www.search.co.uk/favicon.ico",
+			"xProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/search-consultancy.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/autumn.css",
+			"ThemeName": "Autumn",
+			"HomePage": "https://www.search.co.uk",
+			"URL": "https://www.search.co.uk",
+			"WebAPIURL": "https://trisysapi.search.co.uk/",
+			"DevWebAPIURL": "http://localhost:61333/",
+			"APIKey": "124798dd-2f51-4d4d-b9d4-searchconsul",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"TermsAndConditions-MenuItem",
+				"SupportPortal-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:search@trisys.co.uk\">search@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"IntelligentRoutingURLActive": false,
+			"IntelligentRoutingURL": "https://search.trisys.co.uk/",
+			"IntelligentRoutingURL Description": "In TriSysApex.Router.IntelligentRouting, this is the URL to start the PhoneGap app.",
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "search-consultancy-test",
+			"AlternativeIDList": [ "partners" ],
+			"CustomFolder": "Search-Consultancy-Test",
+			"AccountType": 0,
+			"Account Type Description": "Subscriber",
+			"StartUpForm": "Login",
+			"LongName": "Search Consultancy",
+			"ShortName": "Search",
+			"AllowedSubDomains": [ "search", "opuslaboris", "trisys" ],
+			"DefaultMode": "Recruiter",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "images/trisys/search-consultancy.trisys.co.uk-Icon.png",
+			"xProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/search-consultancy.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/coral.css",
+			"ThemeName": "Coral",
+			"HomePage": "https://www.search.co.uk",
+			"URL": "https://www.search.co.uk",
+			"xWebAPIURL": "https://triapitesting.search.co.uk/",
+			"DevWebAPIURL": "http://localhost:61333/",
+			"xAPIKey": "124798dd-2f51-4d4d-b9d4-searchconsul",
+			"APIKey": "e65f2caa-5a97-49b5-ab48-search__test",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"TermsAndConditions-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:partner@trisys.co.uk\">partner@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"IntelligentRoutingURLActive": false,
+			"IntelligentRoutingURL": "https://search-consultancy-test.trisys.co.uk",
+			"IntelligentRoutingURL Description": "In TriSysApex.Router.IntelligentRouting, this is the URL to start the PhoneGap app.",
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "cosector",
+			"CustomFolder": "cosector",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "CoSector | University of London",
+			"ShortName": "CoSector",
+			"AllowedSubDomains": [ "cosector", "london", "careers", "trisys" ],
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "images/trisys/cosector.trisys.co.uk-Icon.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/cosector.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/cosector.css",
+			"ThemeName": "CoSector",
+			"PreventThemeChange": true,
+			"HomePage": "http://www.london.ac.uk",
+			"URL": "http://www.london.ac.uk",
+			"APIKey": "63e4c2b4-e19d-4803-a14a-universityof",
+			"WebAPIURL-remove-me-when-debugging": "http://54.247.72.235:45455/",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@london.ac.uk\">support@london.ac.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "logicmelon",
+			"CustomFolder": "logicmelon",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "LogicMelon CRM",
+			"ShortName": "LogicMelon",
+			"ProductIcon": "https://api.trisys.co.uk/apex/custom/logicmelon/logic-melon-32.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://apex.trisys.co.uk/images/trisys/logicmelon.trisys.co.uk-Splash-Screen.png?ts=201803150815",
+			"ThemePath": "css/themes/emerald.css",
+			"ThemeName": "Emerald",
+			"PreventThemeChange": true,
+			"HomePage": "https://logicmelon.com/",
+			"URL": "https://logicmelon.com/",
+			"AllowedSubDomains": [ "opuslaboris" ],
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@logicmelon.com\">support@logicmelon.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "crm",
+			"CustomFolder": "trisys-business-software",
+            "AlternativeIDList": [ "trisys-business-software", "crm2" ],
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "TriSys Business Software CRM",
+			"ShortName": "TriSys CRM",
+			"StartUpForm": "Login",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login to TriSys CRM staff system",
+			"ProductIcon": "images/trisys/support.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "images/trisys/crm.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/coral.css",
+			"ThemeName": "Coral",
+			"HomePage": "https://trisys.co.uk",
+			"URL": "https://trisys.co.uk",
+			"APIKey": "23b92857-b40b-4376-a310-trisys.crm.s",
+			"WebAPIURL-remove-me-when-debugging": "http://localhost:61333/",
+			"xTermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@trisys.co.uk\">support@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ],
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/trisys-business-software/images/trisys-business-software.png)",
+						"background-size": "190px 96px",
+						"background-repeat": "no-repeat",
+						"background-position": "bottom"
+					}
+				}
+			]
+		},
+		{
+			"ID": "shepherd-stubbs-ltd",
+			"CustomFolder": "shepherd-stubbs-ltd",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Shepherd Stubbs",
+			"ShortName": "ShepherdStubbs",
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "http://www.shepherdstubbs.com/wp-content/uploads/2015/08/favicon.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/crimson.css",
+			"ThemeName": "Crimson",
+			"PreventThemeChange": true,
+			"HomePage": "http://www.shepherdstubbs.com/",
+			"URL": "http://www.shepherdstubbs.com/",
+			"APIKey": "20151111-1328-0008-2219-shepherdstub",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@shepherdstubbs.com/\">support@shepherdstubbs.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "scantec-personnel-limited-killed-27-Jan-2023",
+			"CustomFolder": "scantec-personnel-limited-killed-27-Jan-2023",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Scantec Personnel",
+			"ShortName": "Scantec",
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "https://d3jh33bzyw1wep.cloudfront.net/s3/W1siZiIsImNvbXBpbGVkX3RoZW1lX2Fzc2V0cy9TY2FudGVjL3BuZy9mYXZpY29uLnBuZyJdXQ",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/crimson.css",
+			"ThemeName": "Crimson",
+			"PreventThemeChange": true,
+			"HomePage": "https://www.scantec.co.uk",
+			"URL": "https://www.scantec.co.uk",
+			"APIKey": "6bc8e02f-3b42-4fe3-905c-scantecperso",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@scantec.co.uk/\">support@scantec.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "premises-recruitment-ltd",
+			"CustomFolder": "premises-recruitment-ltd",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Premises Recruitment",
+			"ShortName": "Premises",
+			"AllowedSubDomains": [ "premisesrecruitment" ],
+			"StartUpForm": "EditCandidateAccountDetails",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "http://www.premisesrecruitment.co.uk/templates/flatbuild/favicon.ico?random=739900",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/whistler.css",
+			"ThemeName": "Whistler",
+			"PreventThemeChange": true,
+			"HomePage": "http://www.premisesrecruitment.co.uk",
+			"URL": "http://www.premisesrecruitment.co.uk",
+			"APIKey": "1ea0d8f4-133c-49ff-952c-premisesrecr",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@premisesrecruitment.co.uk/\">support@premisesrecruitment.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "Alma-IT-Sales-Recruitment-Ltd",
+			"CustomFolder": "Alma-IT-Sales-Recruitment-Ltd",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Alma IT Sales-Recruitment",
+			"ShortName": "Alma",
+			"AllowedSubDomains": [ "almarecruitment" ],
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "http://www.almarecruitment.com/templates/responsive-express4/favicon.ico",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/emerald.css",
+			"ThemeName": "Emerald",
+			"PreventThemeChange": true,
+			"HomePage": "http://www.almarecruitment.com",
+			"URL": "http://www.almarecruitment.com",
+			"APIKey": "4fa27515-18f3-4743-8624-almaitsalesr",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@almarecruitment.com/\">support@almarecruitment.com</a>",
+				" if you need help connecting to our service."
+			]
+		},
+		{
+			"ID": "Lorus-Consulting",
+			"CustomFolder": "Lorus-Consulting",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Lorus Consulting",
+			"ShortName": "Lorus",
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "http://www.lorusconsulting.com/wp-content/themes/lorus/favicon.ico",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/emerald.css",
+			"ThemeName": "Emerald",
+			"PreventThemeChange": true,
+			"HomePage": "http://www.lorusconsulting.com",
+			"URL": "http://www.lorusconsulting.com",
+			"APIKey": "baf94336-f93e-4fd2-b205-lorusconsult",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@lorusconsulting.com/\">support@lorusconsulting.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "type",
+			"CustomFolder": "type",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Type Recruitment",
+			"ShortName": "Type",
+			"AllowedSubDomains": [ "type-agency" ],
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "http://www.type-agency.com/favicon.ico",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/fire.css",
+			"ThemeName": "Fire",
+			"PreventThemeChange": true,
+			"HomePage": "http://www.type-agency.com",
+			"URL": "http://www.type-agency.com",
+			"APIKey": "247a08eb-3c93-490d-8c18-type________",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@type-agency.com/\">support@type-agency.com</a>",
+				" if you need help connecting to our service."
+			]
+		},
+		{
+			"ID": "Lucid-Support-Services",
+			"CustomFolder": "Lucid-Support-Services",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Lucid Support Services",
+			"ShortName": "Lucid",
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "https://www.lucid-support.com/wp-content/uploads/2014/06/favicon-lucid.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/whistler.css",
+			"ThemeName": "Whistler",
+			"PreventThemeChange": true,
+			"HomePage": "https://www.lucid-support.com",
+			"URL": "https://www.lucid-support.com",
+			"APIKey": "e6a252ad-bf34-400f-9b36-lucidsupport",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@lucid-support.com/\">support@lucid-support.com</a>",
+				" if you need help connecting to our service."
+			]
+		},
+		{
+			"ID": "Braxfield-Recruitment",
+			"CustomFolder": "Braxfield-Recruitment",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Braxfield Recruitment",
+			"ShortName": "Braxfield",
+			"AllowedSubDomains": [ "braxfieldrecruitment" ],
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"ProductIcon": "https://static1.squarespace.com/static/5730cc3e8259b5058cf4e0c5/t/573da2be60b5e97fae69b8f7/favicon.ico",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/emerald.css",
+			"ThemeName": "Emerald",
+			"PreventThemeChange": true,
+			"HomePage": "http://www.braxfieldrecruitment.com",
+			"URL": "http://www.braxfieldrecruitment.com",
+			"APIKey": "f82b5f93-4134-45f4-a3bc-braxfieldrec",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@braxfieldrecruitment.com/\">support@braxfieldrecruitment.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "Maplefield-Recruitment",
+			"CustomFolder": "Maplefield-Recruitment",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "Maplefield Recruitment",
+			"ShortName": "Maplefield",
+			"AllowedSubDomains": [ "maplefield" ],
+			"StartUpForm": "CandidateVacancySearch",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"xProductIcon": "https://nonee.ico",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/night.css",
+			"ThemeName": "Night",
+			"PreventThemeChange": true,
+			"HomePage": "https://www.maplefield.co.uk",
+			"URL": "https://www.maplefield.co.uk",
+			"APIKey": "a8354b36-dc5a-4ace-9862-maplefieldre",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@maplefield.co.uk/\">support@maplefield.co.uk</a>",
+				" if you need help connecting to our service."
+			]
+		},
+		{
+			"ID": "ITS-City-Ltd",
+			"CustomFolder": "ITS-City-Ltd",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "ITS City Ltd",
+			"ShortName": "ITSCity",
+			"StartUpForm": "EditCandidateAccountDetails",
+			"DefaultMode": "Candidate",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"xProductIcon": "https://nonee.ico",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"xAboutImage": "images/trisys/mane.trisys.co.uk-Splash-Screen.png",
+			"ThemePath": "css/themes/night.css",
+			"ThemeName": "Night",
+			"PreventThemeChange": true,
+			"HomePage": "http://www.its-city.com",
+			"URL": "http://www.its-city.com",
+			"APIKey": "eb67df52-e8c8-407e-839e-i.t.scityltd",
+			"xTermsAndConditionsFile": null,
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@its-city.com/\">support@its-city.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "TQS-Blu-Limited",
+			"CustomFolder": "TQS-Blu-Limited",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"Customer Specific Comment": "This is a minimal white label item only to get the main.js into play.",
+			"AllowedSubDomains": [ "tqsblu" ],
+			"HomePage": "http://www.tqsblu.co.uk",
+			"URL": "http://www.tqsblu.co.uk",
+			"APIKey": "35d532ed-70e5-4e26-907c-tqsblulimite",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@tqsblu.co.uk/\">support@tqsblu.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},
+		{
+			"ID": "Fire-Hospitality",
+			"CustomFolder": "Fire-Hospitality",
+			"AccountType": 0,
+			"LongName": "Fire Hospitality",
+			"ShortName": "Fire Hospitality",
+			"ShortNameFontSize": "16px",
+			"StartUpForm": "CandidateVacancySearch",
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"Customer Specific Comment": "This is a minimal white label item only to get the main.js into play.",
+			"AllowedSubDomains": [ "firehospitality" ],
+			"ProductIcon": "https://api.trisys.co.uk/apex/custom/fire-hospitality/favicon-16x16.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/fire-hospitality/fire-hospitality-splash-screen.png",
+			"HomePage": "http://firehospitality.com",
+			"URL": "http://firehospitality.com",
+			"APIKey": "67c74962-9266-4099-a0a0-firehospital",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:info@firehospitality.com/\">info@firehospitality.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ]
+		},		
+		{
+			"ID": "LRL",
+			"CustomFolder": "LRL",
+			"AccountType": 0,
+			"LongName": "LRL",
+			"ShortName": "LRL",
+			"ShortNameFontSize": "16px",
+			"StartUpForm": "CandidateVacancySearch",
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"Customer Specific Comment": "This is a minimal white label item only to get the main.js into play.",
+			"AllowedSubDomains": [ "lrljobs" ],
+			"ProductIcon": "https://api.trisys.co.uk/apex/custom/lrl/lrl-favicon.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/lrl/lrl-splash-screen.png",
+			"HomePage": "http://www.lrljobs.com",
+			"URL": "http://www.lrljobs.com",
+			"APIKey": "da131d68-4886-41a0-a9ff-lrl_________",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:team@lrljobs.com/\">team@lrljobs.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [
+				"NavBar.json",
+				"Forms.json"
+			]
+		},
+		{
+			"ID": "Oracle-Contractors",
+			"CustomFolder": "Oracle-Contractors",
+			"AccountType": 0,
+			"LongName": "OCNR",
+			"ShortName": "OCNR",
+			"ShortNameFontSize": "16px",
+			"StartUpForm": "Login",
+			"DefaultMode": "Recruiter",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"Customer Specific Comment": "This is a minimal white label item only to get the apex sub-domain working.",
+			"AllowedSubDomains": [ "oraclecontractors", "talenterprize", "sapcontractors", "prodapta", "intagralis","ellisgroup" ],
+			"ProductIcon": "https://api.trisys.co.uk/apex/custom/oracle-contractors/favicon-16x16.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/oracle-contractors/oracle-contractors-splash-screen.png",
+			"HomePage": "http://oraclecontractors.com",
+			"URL": "http://oraclecontractors.com/",
+			"APIKey": "5e66ec2b-9274-4529-b566-contractorsn",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:web.contact@oraclecontractors.com/\">web.contact@oraclecontractors.com</a>",
+				" if you need help connecting to our services."
+			]
+		},
+		{
+			"ID": "KPMG",
+			"CustomFolder": "KPMG",
+			"AccountType": 0,
+			"LongName": "KPMG Flex",
+			"ShortName": "KPMG Flex",
+			"ShortNameFontSize": "16px",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login: this is a white-labelled CRM system so we need to load navbar.json and forms.json and main.js",
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"Customer Specific Comment": "This is a minimal white label item only to get the apex sub-domain working.",
+			"AllowedSubDomains": [ "kpmg" ],
+			"ProductIcon": "https://api.trisys.co.uk/apex/custom/kpmg/images/favicon-16x16.png",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/kpmg/images/kpmg-splash-screen.png",
+			"HomePage": "https://home.kpmg/uk/en/home.html",
+			"URL": "https://home.kpmg/uk/en/home.html",
+			"APIKey": "90a87835-e139-4db4-9b3f-kpmg________",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:info@kpmg.co.uk/\">info@kpmg.co.uk</a>",
+				" if you need help connecting to our online services."
+			]
+		},
+		{
+			"ID": "SEP-Engineers",
+			"CustomFolder": "sep-engineers",
+			"AccountType": 0,
+			"LongName": "SEP Engineers CRM Database System",
+			"ShortName": "SEP Engineers",
+			"ShortNameFontSize": "16px",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login: this is a white-labelled CRM system so we need to load navbar.json and forms.json and main.js",
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"Customer Specific Comment": "This is a minimal white label item only to get the apex sub-domain working.",
+			"AllowedSubDomains": [ "sepltd" ],
+			"ProductIcon": "",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "",
+			"HomePage": "https://www.sepltd.com",
+			"URL": "https://www.sepltd.com",
+			"APIKey": "6682aefa-fd68-456c-8ec8-sepengineers",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:See white-label.json/\">See white-label.json</a>",
+				" if you need help connecting to our online services."
+			]
+		},
+		{
+			"ID": "resourcer",
+			"AlternativeIDList": [ "resourcers" ],
+			"CustomFolder": "trisys-resourcer",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"StartUpForm": "ResourcerPlatformInfo",
+			"LongName": "TriSys Resourcer",
+			"ShortName": "TriSys",
+			"ProductIcon": "images/trisys/resourcer.png?ts=201910161000",
+			"xProductIconRadius": "5px",
+			"ProductName": "Resourcer",
+			"DefaultMode": "Recruiter",
+			"DefaultModeDescription": "Recruiter: Apex User Login",
+			"AboutImage": "images/trisys/Resourcer-Portal-Splash-Screen.png",
+			"ThemePath": "css/themes/coral.css",
+			"ThemeName": "Coral",
+			"HomePage": "https://www.trisys.co.uk",
+			"URL": "https://resourcer.trisys.co.uk",
+			"TermsAndConditionsFile": "https://api.trisys.co.uk/apex/custom/trisys-resourcer/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:resourcer@trisys.co.uk\">resourcer@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json", "Resourcer-Platform-Info.html", "FAQ.html" ],
+			"Custom Forms Description 1": "Specify each custom form name here to have it automatically identified as custom.",
+			"Custom Forms Description 2": "Each file must exist in p:/inetpub/api.trisys.co.uk/Apex/custom/ID",
+			"BlockCustomerSpecificFiles": true,
+			"BlockNote1": "Prevent regular Apex subscribers from getting customisation i.e. use only this apps resources",
+			"BlockNote2": " from p:/inetpub/api.trisys.co.uk/Apex/custom/trisys-resourcer"
+		},
+		{
+			"ID": "generix",
+			"AlternativeIDList": [ "designix", "designer", "designers" ],
+			"CustomFolder": "trisys-generix",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"StartUpForm": "GenerixPlatformInfo",
+			"LongName": "TriSys Generix",
+			"ShortName": "TriSys",
+			"ProductIcon": "images/trisys/generix.png?ts=202001041700",
+			"xProductIconRadius": "5px",
+			"ProductName": "Generix",
+			"DefaultMode": "Recruiter",
+			"DefaultModeDescription": "Generix: Apex User Login",
+			"AboutImage": "images/trisys/Generix-Portal-Splash-Screen.png",
+			"ThemePath": "css/themes/coral.css",
+			"ThemeName": "Coral",
+			"HomePage": "https://www.trisys.co.uk",
+			"URL": "https://generix.trisys.co.uk",
+			"TermsAndConditionsFile": "https://api.trisys.co.uk/apex/custom/trisys-generix/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:generix@trisys.co.uk\">generix@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json", "Generix-Platform-Info.html", "FAQ.html" ],
+			"Custom Forms Description 1": "Specify each custom form name here to have it automatically identified as custom.",
+			"Custom Forms Description 2": "Each file must exist in p:/inetpub/api.trisys.co.uk/Apex/custom/ID",
+			"BlockCustomerSpecificFiles": true,
+			"BlockNote1": "Prevent regular Apex subscribers from getting customisation i.e. use only this apps resources",
+			"BlockNote2": " from p:/inetpub/api.trisys.co.uk/Apex/custom/trisys-generix",
+			"CSS": [
+				{
+					"ID": "nav-bar-activities",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "new-record-drop-down-menu",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "history-drop-down-menu",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "search-textbox-group",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "sidebar-user-link-lock",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Lock",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-ActivityHeader",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Alarms",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Divider-ActiveSearch",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-ActiveSearch",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Divider-Tasks",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Tasks",
+					"Style": { "display": "none" }
+				}
+			]
+		},
+		{
+			"ID": "Offshore-Marine-People-and-Academy-Limited",
+			"CustomFolder": "Offshore-Marine-People-and-Academy-Limited",
+			"AccountType": 0,
+			"LongName": "OMPA",
+			"ShortName": "OMPA",
+			"ShortNameFontSize": "16px",
+			"StartUpForm": "Login",
+			"DefaultMode": "Recruiter",
+			"DefaultModeDescription": "Candidate: Web Jobs Candidate Vacancy Search, Client: Web Jobs Client Login, Recruiter: Apex User Login",
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"Customer Specific Comment": "This is a minimal white label item only to get the apex sub-domain working.",
+			"AllowedSubDomains": [ "offshorempa" ],
+			"ProductIcon": "",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/Offshore-Marine-People-and-Academy-Limited/ompa-splash-screen.png",
+			"HomePage": "https://offshorempa.com/",
+			"URL": "https://offshorempa.com/",
+			"APIKey": "198e75c6-43a4-481d-8a83-offshoremari",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:info@offshorempa.com/\">info@offshorempa.com</a>",
+				" if you need help connecting to our services."
+			]
+		},
+		{
+			"ID": "bullwhippers",
+			"CustomFolder": "bullwhip---feather-society",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"StartUpForm": "Login",
+			"LongName": "Bullwhipper Portal",
+			"ShortName": "Bullwhippers",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login: this is a white-labelled custom system so we need to load navbar.json and forms.json and main.js",
+			"ProductIcon": "https://api.trisys.co.uk/apex/custom/bullwhip---feather-society/images/icon.png",
+			"ProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/bullwhip---feather-society/images/whipper-Splash-Screen.png?ts=202004051700",
+			"ThemePath": "css/themes/cirrus.css",
+			"ThemeName": "Cirrus",
+			"HomePage": "https://www.bullwhippers.com",
+			"URL": "https://www.bullwhippers.com",
+			"APIKey": "74afe278-7d2a-49ac-9951-92cf06b962d0",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@trisys.co.uk\">support@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [
+				"NavBar.json",
+				"Forms.json"
+			],
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/bullwhip---feather-society/images/navbar.png?ts=202004051951)",
+						"background-size": "200px 84px",
+						"background-repeat": "no-repeat",
+						"background-position": "bottom"
+					}
+				}
+			]
+		},
+		{
+			"ID": "vertex",
+			"CustomFolder": "trisys-vertex",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"Description": "This is a redirector only which may have a code appended e.g. ?code=1234",
+			"RedirectURL": "https://apex.trisys.co.uk/legacy/development/test/vertex"
+		},
+		{
+			"ID": "video",
+			"CustomFolder": "video",
+			"AccountType": 12,
+			"Account Type Description": "NonCustomer = 12  Contact in CRM database e.g. any contact entitled to access via GDPR",
+			"StartUpForm": "Login",
+			"LongName": "TriSys Video Portal",
+			"ShortName": "TriSys",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login: this is a white-labelled custom system so we need to load navbar.json and forms.json and main.js",
+			"ProductIcon": "https://api.trisys.co.uk/apex/custom/video/images/icon.png",
+			"ProductIconRadius": "5px",
+			"ProductName": "Video",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/video/images/video-Splash-Screen.png",
+			"ThemePath": "css/themes/cirrus.css",
+			"ThemeName": "Cirrus",
+			"HomePage": "https://www.trisys.co.uk",
+			"URL": "https://support.trisys.co.uk",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@trisys.co.uk\">support@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [
+				"NavBar.json",
+				"Forms.json",
+				"NetworkStatus.html",
+				"Redirector.html",
+				"Redirector.js"
+			],
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/video/images/navbar.png)",
+						"background-size": "200px 84px",
+						"background-repeat": "no-repeat",
+						"background-position": "bottom"
+					}
+				}
+			]
+		},
+		{
+			"ID": "law-absolute",
+			"CustomFolder": "law-absolute",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "LAW Absolute",
+			"ShortName": "LAW Absolute",
+			"AllowedSubDomains": [ "lawabsolute" ],
+			"ProductIcon": "https://api.trisys.co.uk/apex/custom/law-absolute/images/favicon.ico",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/law-absolute/images/law-absolute-splash-screen-693-330-logo.png",
+			"ThemePath": "css/themes/fancy.css",
+			"ThemeName": "Fancy",
+			"HomePage": "https://www.lawabsolute.com",
+			"URL": "https://lawabsolute.com",
+			"WebAPIURL-remove-me-when-debugging": "http://localhost:61333/",
+			"WebAPIURL-remote": "http://54.247.72.235:45455/",
+			"APIKey": "891d43ed-1a9c-4bdd-b657-lawabsolute_",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please try again, ensuring you type the correct password.",
+				"<br /><br />",
+				"Should you have forgotten your password, please ",
+				"<a href=\"javascript:void(0)\" onclick=\"TriSysApex.FormsManager.OpenForm(TriSysApex.Constants.ForgottenPasswordForm, 0, true);",
+				" TriSysApex.UI.CloseModalPopup();\">click here</a>",
+				" to set a new password."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ],
+			"Custom Forms Description 1": "Specify each custom form name here to have it automatically identified as custom.",
+			"Custom Forms Description 2": "Each file must exist in p:/inetpub/api.trisys.co.uk/Apex/custom/ID",
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/law-absolute/images/nav-bar-footer-rounded.png)",
+						"background-size": "190px 37px",
+						"background-repeat": "no-repeat",
+						"background-position": "bottom",
+                        "margin-bottom": "4px"
+					}
+				}
+			]
+		},
+		{
+			"ID": "globallogic-inc",
+			"CustomFolder": "globallogic-inc",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"LongName": "GlobalLogic",
+			"ShortName": "GlobalLogic",
+			"AllowedSubDomains": [  "ecs", "globallogic", "uk"  ],
+			"ProductIcon": "https://api.trisys.co.uk/Apex/custom/GlobalLogic-Inc/globallogic-images/favicon16x16.ico",
+			"XProductIconRadius": "5px",
+			"ProductName": " ",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/globallogic-inc/ecs-images/splash-screen-693-330.png",
+			"ThemePath": "css/themes/fancy.css",
+			"ThemeName": "Ocean Drive",
+			"HomePage": "https://www.globallogic.com/uk/careers/",
+			"URL": "https://www.globallogic.com/uk/careers/",
+			"WebAPIURL-remove-me-when-debugging": "http://localhost:61333/",
+			"WebAPIURL-remote": "http://54.247.72.235:45455/",
+			"APIKey": "fffe6bf4-754b-421c-bef0-cc606897f01f",
+			"TermsAndConditionsFile": "custom/acme/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please try again, ensuring you type the correct password.",
+				"<br /><br />",
+				"Should you have forgotten your password, please ",
+				"<a href=\"javascript:void(0)\" onclick=\"TriSysApex.FormsManager.OpenForm(TriSysApex.Constants.ForgottenPasswordForm, 0, true);",
+				" TriSysApex.UI.CloseModalPopup();\">click here</a>",
+				" to set a new password."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json" ],
+			"Custom Forms Description 1": "Specify each custom form name here to have it automatically identified as custom.",
+			"Custom Forms Description 2": "Each file must exist in p:/inetpub/api.trisys.co.uk/Apex/custom/ID",
+			"CSS": [
+				{
+					"ID": "xsidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/opus-laboris-recruitment/images/navbar.png)",
+						"background-size": "200px 200px",
+						"background-repeat": "repeat",
+						"background-position": "bottom"
+					}
+				}
+			]
+		},
+        {
+			"ID": "daxtra",
+            "CustomFolder": "daxtra",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",			
+			"LongName": "Daxtra CRM",
+			"ShortName": "Daxtra",
+            "AllowedSubDomains": [  "trisys", "daxtra" ],
+			"ProductIcon": "images/t-logo-flat-wb.png",
+			"ProductIconRadius": "5px",
+			"ProductName": "CRM",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login: this is a white-labelled CRM system so we need to load navbar.json and forms.json and main.js",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/daxtra/images/daxtra-splash.png",
+			"ThemePath": "css/themes/spring.css",
+			"ThemeName": "Spring",
+			"HomePage": "https://www.daxtra.com",
+			"TermsAndConditionsFile": "custom/daxtra/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@daxtra.com\">support@daxtra.com</a>",
+				" if you need help connecting to our service."
+			],
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/daxtra/images/daxtra-logo-rounded-2.png)",
+						"background-size": "190px 60px",
+						"background-repeat": "no-repeat",
+						"background-position": "bottom",
+                        "margin-bottom": "5px"
+					}
+				}
+			]
+		},
+		{
+			"ID": "tennis",
+			"AlternativeIDList": [ "bookings", "courts" ],
+			"CustomFolder": "trisys-tennis",
+			"AccountType": 0,
+			"Account Type Description": "ContactOnDemandSubscriber = 0  Specific user contact with ASP Active and Service Status = 'OK to Service' and Company.Service Expires > Today",
+			"StartUpForm": "TennisPlatformInfo",
+			"LongName": "TriSys Tennis",
+			"ShortName": "TriSys",
+			"ProductIcon": "images/trisys/tennis.png?ts=202302081900",
+			"xProductIconRadius": "5px",
+			"ProductName": "Tennis",
+			"DefaultMode": "Recruiter",
+			"DefaultModeDescription": "Tennis: Apex User Login",
+			"AboutImage": "images/trisys/Tennis-Portal-Splash-Screen.png",
+			"ThemePath": "css/themes/coral.css",
+			"ThemeName": "Coral",
+			"HomePage": "https://www.trisys.co.uk",
+			"URL": "https://tennis.trisys.co.uk",
+			"TermsAndConditionsFile": "https://api.trisys.co.uk/apex/custom/trisys-tennis/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:tennis@trisys.co.uk\">tennis@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [ "NavBar.json", "Forms.json", "Tennis-Platform-Info.html", "FAQ.html" ],
+			"Custom Forms Description 1": "Specify each custom form name here to have it automatically identified as custom.",
+			"Custom Forms Description 2": "Each file must exist in p:/inetpub/api.trisys.co.uk/Apex/custom/ID",
+			"BlockCustomerSpecificFiles": true,
+			"BlockNote1": "Prevent regular Apex subscribers from getting customisation i.e. use only this apps resources",
+			"BlockNote2": " from p:/inetpub/api.trisys.co.uk/Apex/custom/trisys-tennis",
+			"CSS": [
+				{
+					"ID": "nav-bar-activities",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "new-record-drop-down-menu",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "history-drop-down-menu",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "search-textbox-group",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "sidebar-user-link-lock",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Lock",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-ActivityHeader",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Alarms",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Divider-ActiveSearch",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-ActiveSearch",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Divider-Tasks",
+					"Style": { "display": "none" }
+				},
+				{
+					"ID": "LoggedInUserDropDownMenu-Tasks",
+					"Style": { "display": "none" }
+				}
+			]
+		},
+        {
+			"ID": "flexiva",
+            "CustomFolder": "flexiva",
+			"AccountType": 12,
+			"Account Type Description": "NonCustomer = 12  Contact in CRM database e.g. any contact entitled to access via GDPR",			
+			"LongName": "Flexiva Builder",
+			"ShortName": "Flexiva",
+            "StartUpForm": "Login",
+			"ProductIcon": "images/flexiva-icon-green-100.png",
+			"ProductIconRadius": "5px",
+			"ProductName": " ",
+			"DefaultMode": "Login",
+			"DefaultModeDescription": "Login: this is a white-labelled CRM system so we need to load navbar.json and forms.json and main.js",
+			"AboutImage": "https://api.trisys.co.uk/apex/custom/flexiva/images/splash.png",
+			"ThemePath": "css/themes/night.css",
+			"ThemeName": "Night",
+			"HomePage": "https://www.flexiva.co.uk",
+			"TermsAndConditionsFile": "custom/flexiva/ctrlTermsAndConditions.html",
+			"HideElements": [
+				"QuickStart-MenuItem",
+				"UserGuide-MenuItem",
+				"Training-MenuItem",
+				"PlugIns-MenuItem",
+				"Registration-MenuItem",
+				"show-contextual-help"
+			],
+			"EMailSupportMessageHTML": [
+				"<br /><br />",
+				"Please e-mail <a href=\"mailto:support@trisys.co.uk\">support@trisys.co.uk</a>",
+				" if you need help connecting to our service."
+			],
+			"CustomForms": [
+				"NavBar.json",
+				"Forms.json"
+			],
+			"CSS": [
+				{
+					"ID": "sidebar",
+					"Style": {
+						"background-image": "url(https://api.trisys.co.uk/apex/custom/flexiva/images/flexiva-green-blue-solid-curved-edge.png)",
+						"background-size": "190px 60px",
+						"background-repeat": "no-repeat",
+						"background-position": "bottom",
+                        "margin-bottom": "5px"
+					}
+				}
+			]
+		}
+	]
+}

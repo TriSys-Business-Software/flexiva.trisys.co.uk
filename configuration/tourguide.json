@@ -1,0 +1,814 @@
+﻿[
+    {
+        "FormName": "Login",
+        "Guide": [
+            {
+                "title": "Login to TriSys Apex",
+                "html": "If you are a subscriber, and have a valid e-mail address and password, you should enter them here.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#txtLoginEMail", "x": 100, "y": 0, "width": 400, "arrow": "lt" }
+            },
+            {
+                "title": "Remember Credentials",
+                "html": "If you wish to retain your e-mail address for future visits, please check this.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#login-remember-me", "x": 75, "y": -10, "width": 400, "arrow": "lt" }
+            },
+            {
+                "title": "Login Button",
+                "html": "Press this login button to submit and authenticate your credentials.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#btn-login", "x": 10, "y": -260, "width": 400, "arrow": "bl" }
+            },
+            {
+                "title": "Forgot Password",
+                "html": "If you have forgotten your password, please click this link to receive an e-mail link to reset your password.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#btn-forgotten-password", "x": 10, "y": -260, "width": 400, "arrow": "bl" }
+            },
+            {
+                "title": "Register",
+                "html": "If you do not have an account, please click this link to create a new free-trial account.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#btn-register", "x": 10, "y": -260, "width": 400, "arrow": "bl" }
+            },
+            {
+                "title": "Social Logins",
+                "html": "If you have associated your login with a social network, you can login using your account using the appropriate button.",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#social-login-buttons", "x": 0, "y": -240, "width": 400, "arrow": "br" }
+            }
+        ]
+    },
+
+    {
+        "FormName": "ForgottenPassword",
+        "Guide": [
+            {
+                "title": "Forgotten Password E-Mail",
+                "html": "If you are a subscriber, and have a valid e-mail address but forgotten your password, you should enter your e-mail address here.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#txtPasswordResetEMail", "x": 100, "y": 0, "width": 400, "arrow": "lt" }
+            },
+            {
+                "title": "Submit Forgotten Password Request",
+                "html": "Press this button to submit your e-mail address to our service and receive an automated e-mail allowing you to reset your password.",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 1,
+                "position": { "container": "#txtPasswordResetEMail", "x": 85, "y": -148, "width": 400, "arrow": "lb" }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Registration",
+        "Guide": [
+            {
+                "title": "Free Trial / Registration",
+                "html": "If you wish to become a subscriber, or wish to take advantage of our free trial, please enter your details into this form.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#div-apex-content-Registration", "x": 400, "y": 200, "width": 400 }
+            },
+            {
+                "title": "Social Network Login",
+                "html": "If you have a social network login, you can login using the appropriate button and pre-fill some fields in this form.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#div-apex-content-Registration", "x": 540, "y": 260, "width": 400, "arrow": "lt" }
+            },
+            {
+                "title": "Social Network Details",
+                "html": "If you logged in with a social network, your name and photo will be displayed here.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#trisys-social-network-instructions", "x": -300, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Contact Details",
+                "html": "Your personal and company contact details must be entered here.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#txtRegistrationCompany", "x": -300, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Login Credentials",
+                "html": "You must complete the e-mail address and password fields if you did not login with a social network.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#txtRegistrationPasswordConfirmation", "x": -300, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Agree to Terms and Conditions",
+                "html": "You must agree to the terms and conditions of this service before submitting your registration.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#chkSignUp_Agree", "x": 0, "y": 40, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Register",
+                "html": "After pressing this button you will receive a confirmation e-mail containing a button/link to allow login using your credentials.",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 1,
+                "position": { "container": "#btn-register-free-trial", "x": 10, "y": -260, "width": 400, "arrow": "bl" }
+            }
+        ]
+    },
+
+    {
+        "FormName": "ContactUs",
+        "Guide": [
+            {
+                "title": "Contact Us Form",
+                "html": "If you wish to contact us, please complete this form so that we can contact you as soon as possible.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#ContactUsBlock", "x": -100, "y": 80, "width": 400 }
+            },
+            {
+                "title": "Name",
+                "html": "Please enter your full name i.e. first name and last name.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#txtContactUsName", "x": 0, "y": 40, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Company",
+                "html": "Please enter your company name.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#txtContactUsCompany", "x": 0, "y": 40, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "E-Mail",
+                "html": "Please enter your e-mail address.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#txtContactUsEMail", "x": 0, "y": 40, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Phone",
+                "html": "Please enter your preferred phone number.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#txtContactUsPhone", "x": 0, "y": 40, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Message",
+                "html": "Please enter your message. Please enter as much detail as you can as this will help us direct your query to the relevant team.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#txtContactUsMessage", "x": 0, "y": 40, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Submit",
+                "html": "After pressing this button you will receive an automated e-mail confirming your request for us to contact you.",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 1,
+                "position": { "container": "#contact-us-submit", "x": 10, "y": -260, "width": 400, "arrow": "bl" }
+            }
+        ]
+    },
+
+    {
+        "FormName": "VideoExample",
+        "Guide": [
+            {
+                "title": "Welcome to TriSys Apex",
+                "html": "Are you ready to take a quick tour of this application? <br /><iframe width=\"650\" height=\"450\" src=\"https://www.trisys.co.uk/video/v10/TriSys%20-%20Install%20Trial%20Version%20-%20Oct%202014/TriSys%20-%20Install%20Trial%20Version%20-%20Oct%202014_player.html\" frameborder=\"0\" allowfullscreen></iframe>",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#trisys-navigation-bar", "x": 84, "y": 60, "width": 690, "arrow": "tl" }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Dashboard",
+        "Guide": [
+            {
+                "title": "Welcome to TriSys Apex",
+                "html": "Are you ready to take a quick tour of this application?",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#trisys-navigation-bar", "x": 250, "y": 120, "width": 400 }
+            },
+            {
+                "title": "Navigation Bar",
+                "html": "The navigation bar is how you invoke all of the business functionality in this application. Functions are logically grouped to allow you to easily open forms.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#divFormContentRow", "x": 10, "y": 125, "width": 400, "arrow": "lt" }
+            },
+            {
+                "title": "Show/Hide Navigation Bar",
+                "html": "The navigation bar can be minimised or maximised using this button.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#show-hide-nav-bar", "x": 5, "y": 62, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Navigation/History",
+                "html": "All forms and records which you open are listed in this drop down menu.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#history-drop-down-menu", "x": 5, "y": 62, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Add New Record",
+                "html": "You can quickly add new records by using this drop down menu.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#new-record-drop-down-menu", "x": 5, "y": 62, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Account Summary/Activity",
+                "html": "You can see a summary of your activities from where you can action tasks from this drop down menu.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#proUI-Right-SideBar-Demo", "x": -350, "y": 62, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Learn More",
+                "html": "If you would like to learn more, press F1 at any time, or click on the Help section in the navigation bar for detailed documentation.",
+                "buttons": { "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#scrollNavBar", "x": 210, "y": -50, "width": 400 }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Lock",
+        "Guide": [
+            {
+                "title": "Locked Application",
+                "html": "This application has been locked by the currently logged in user.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#loggedin-user-company-name", "x": -45, "y": 50, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Enter Password",
+                "html": "Enter your password and press &lt;Enter&gt; or the Unlock button in order to unlock the application.",
+                "buttons": { "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#lock-password", "x": 0, "y": 45, "width": 400, "arrow": "tc" }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Contacts",
+        "GridHelp": true,
+        "GridName": "#divContactGrid",
+        "GridEntityPlural": "contacts",
+        "GridEntitySingular": "contact",
+        "GridInsertIndex": 2,
+        "GridButtonHelp": true,
+        "GridButtons": "#contacts-form-grid-buttons",
+        "ButtonsInsertIndex": 10,
+
+        "Guide": [
+            {
+                "title": "Contact Search Criteria",
+                "html": "To lookup a contact, you can build a boolean search using any contact field, and combine or group fields.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#search-criteria-tree-contact-lookup-criteria", "x": 20, "y": 100, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Search/Lookup Button",
+                "html": "Click the Search/Lookup button to display matching contacts in the database in the grid below.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#search-criteria-lookup-button-contact-lookup-criteria", "x": 35, "y": 35, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Contacts Lookup Summary",
+                "html": "This form allows you to lookup contacts on your database, and drill down into their records, or run actions against them.",
+                "buttons": { "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#divContactGrid", "x": 10, "y": -100, "width": 400 }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Companies",
+        "GridHelp": true,
+        "GridName": "#divCompanyGrid",
+        "GridEntityPlural": "companies",
+        "GridEntitySingular": "company",
+        "GridInsertIndex": 2,
+        "GridButtonHelp": true,
+        "GridButtons": "#companies-form-grid-buttons",
+        "ButtonsInsertIndex": 10,
+
+        "Guide": [
+            {
+                "title": "Company Search Criteria",
+                "html": "To lookup a company, you can build a boolean search using any company field, and combine or group fields.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#search-criteria-tree-company-lookup-criteria", "x": 20, "y": 100, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Search/Lookup Button",
+                "html": "Click the Search/Lookup button to display matching companies in the database in the grid below.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#search-criteria-lookup-button-company-lookup-criteria", "x": 35, "y": 35, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Companies Lookup Summary",
+                "html": "This form allows you to lookup companies on your database, and drill down into their records, or run actions against them.",
+                "buttons": { "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#divCompanyGrid", "x": 10, "y": -100, "width": 400 }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Requirements",
+        "GridHelp": true,
+        "GridName": "#divRequirementGrid",
+        "GridEntityPlural": "requirements",
+        "GridEntitySingular": "requirement",
+        "GridInsertIndex": 2,
+        "GridButtonHelp": true,
+        "GridButtons": "#requirements-form-grid-buttons",
+        "ButtonsInsertIndex": 10,
+
+        "Guide": [
+            {
+                "title": "Requirement Search Criteria",
+                "html": "To lookup a requirement, you can build a boolean search using any requirement field, and combine or group fields.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#search-criteria-tree-requirement-lookup-criteria", "x": 20, "y": 100, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Search/Lookup Button",
+                "html": "Click the Search/Lookup button to display matching requirements in the database in the grid below.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#search-criteria-lookup-button-requirement-lookup-criteria", "x": 35, "y": 35, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Requirements Lookup Summary",
+                "html": "This form allows you to lookup requirements on your database, and drill down into their records, or run actions against them.",
+                "buttons": { "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#divRequirementGrid", "x": 10, "y": -100, "width": 400 }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Placements",
+        "GridHelp": true,
+        "GridName": "#divPlacementGrid",
+        "GridEntityPlural": "placements",
+        "GridEntitySingular": "placement",
+        "GridInsertIndex": 2,
+        "GridButtonHelp": true,
+        "GridButtons": "#placements-form-grid-buttons",
+        "ButtonsInsertIndex": 10,
+
+        "Guide": [
+            {
+                "title": "Placement Search Criteria",
+                "html": "To lookup a placement, you can build a boolean search using any placement field, and combine or group fields.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#search-criteria-tree-placement-lookup-criteria", "x": 20, "y": 100, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Search/Lookup Button",
+                "html": "Click the Search/Lookup button to display matching placements in the database in the grid below.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#search-criteria-lookup-button-placement-lookup-criteria", "x": 35, "y": 35, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Placements Lookup Summary",
+                "html": "This form allows you to lookup placements on your database, and drill down into their records, or run actions against them.",
+                "buttons": { "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#divPlacementGrid", "x": 10, "y": -100, "width": 400 }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Grid",
+        "Description": "A generic help sequence inserted into forms with .GridHelp = true",
+         
+        "Guide": [
+            {
+                "title": "Grid Records",
+                "html": "Matching ##GridEntityPlural## are shown in the grid. Use the Open button to drill down into the ##GridEntitySingular## record.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridName##", "x": 100, "y": 80, "width": 400 }
+            },
+            {
+                "title": "Grid Column Sort",
+                "html": "You can sort each column by clicking on the column name to toggle between ascending/descending, or click on the down arrow to the right of the column caption to open a drop down menu which can be used to sort, filter and choose columns to be displayed.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridName##", "x": 0, "y": 40, "width": 500, "arrow": "tc" }
+            },
+            {
+                "title": "Grid Column Filters",
+                "html": "You can filter each column by typing into the column filter text box, or by using the column caption down arrow drop down menu.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridName##", "x": 60, "y": 65, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Grid Column Filter Pattern",
+                "html": "You can changes the text filter pattern by clicking on the funnel button to drop down a menu of search patterns.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridName##", "x": 85, "y": 65, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Grid Column Move",
+                "html": "You can move grid columns into different positions, by holding down the mouse and dragging the column to a new position.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridName##", "x": 135, "y": 40, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Grid Column Selection",
+                "html": "You can add additional columns to the grid, or remove existing columns from the grid by clicking the down arrow in the column caption and choosing the Columns drop down menu.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridName##", "x": 160, "y": 40, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Grid Paging",
+                "html": "A page of data is displayed in the grid. You can move to the next or previous page by clicking on these grid footer buttons.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "#form-tabs", "x": 117, "y": -328, "width": 400, "arrow": "bc" }
+            },
+            {
+                "title": "Grid Row Selection",
+                "html": "You can select one or more grid rows by clicking the check box to the left of the grid. This is useful if you wish to run actions against one or more records.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridName##", "x": 32, "y": -65, "width": 400, "arrow": "lb" }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Grid-Button-Menus",
+        "Description": "A generic help sequence inserted into forms with .GridButtonHelp = true",
+         
+        "Guide": [
+            {
+                "title": "File Menu Button",
+                "html": "The file button drops down a menu of all functions relating to ##GridEntityPlural## displayed in this grid. You can create new records, open selected records or delete records.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridButtons##", "x": -335, "y": 45, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Grid Menu Button",
+                "html": "The grid button drops down a menu allowing you to select all visible ##GridEntityPlural##, or de-select all records. You can also refresh the grid data.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridButtons##", "x": -265, "y": 45, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Actions Menu Button",
+                "html": "The actions button drops down a menu allowing you to run an action against the selected ##GridEntityPlural## in the grid.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 1,
+                "position": { "container": "##GridButtons##", "x": -175, "y": 45, "width": 400, "arrow": "tr" }
+            }
+        ]
+    },
+    {
+        "FormName": "ProductVideoLibrary",
+        "Guide": [
+            {
+                "title": "Product Video Library #1 of 2",
+                "html": "This page contains a series of multi-media video presentations about this product and service.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#objectVideoLibrary", "x": 10, "y": 0, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Product Video Library #2 of 2",
+                "html": "Please click on the hyperlink associated with each video to launch.",
+                "buttons": { "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#objectVideoLibrary", "x": 50, "y": 100, "width": 400, "arrow": "tl" }
+            }
+        ]
+    },
+    {
+        "FormName": "CVAutoRecognition",
+        "Guide": [
+            {
+                "title": "CV Auto-Recognition Form",
+                "html": "This form allows you to import CV's/Resumes into the database to create candidate contact records.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#cvautorecognition-form-panel-incoming", "x": 250, "y": -135, "width": 400, "arrow": "lt" }
+            },
+            {
+                "title": "Incoming CV's Tab",
+                "html": "Pressing this button displays all of the CV's which are ready for processing. You can drag files from your computer into this grid to add them to this list.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#cvautorecognition-form-panel-incoming", "x": 30, "y": 0, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Incoming CV's Grid",
+                "html": "Pressing this button displays all of the CV's which are ready for processing.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#cvautorecognition-IncomingCVGrid", "x": 30, "y": 40, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Import Tab",
+                "html": "This tab will be highlighted when a CV is being processed.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#cvautorecognitionForm-form-tab-panel-parse-hyperlink", "x": 40, "y": 80, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Duplicate Tab",
+                "html": "Pressing this tab will show a list of potential duplicate candidates.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#cvautorecognitionForm-form-tab-panel-duplicate-hyperlink", "x": 40, "y": 80, "width": 400, "arrow": "tl" }
+            },
+            {
+                "title": "Add Button",
+                "html": "Pressing this button will popup an 'Upload CV Document' window:<br /><img src=\"https://apex.trisys.co.uk/images/trisys/help/upload-cv-document.png\" /><br />You can drag files from your computer into the dotted rectangle, or click the dotted rectangle to choose a local file, or click the cloud to choose a file from social media.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#cvautorecognition-grid-add-cv", "x": -450, "y": 40, "width": 500, "arrow": "tr" }
+            },
+            {
+                "title": "Import Button",
+                "html": "Pressing this button will commence the import of the selected document.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#cvautorecognition-grid-import-cv", "x": -350, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Delete Button",
+                "html": "Pressing this button will remove the selected document from the grid.",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#cvautorecognition-grid-delete-cv", "x": -350, "y": 40, "width": 400, "arrow": "tr" }
+            }
+        ]
+    },
+
+    {
+        "FormName": "Contact",
+        "Guide": [
+            {
+                "title": "Contact Form",
+                "html": "This form is where you can view and edit both client and candidate contact details, as well as carry out a range of sophisticated business operations using actions.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#divFormContentRow", "x": 400, "y": 100, "width": 400 }
+            },
+            {
+                "title": "Contact Master Record",
+                "html": "These are the key fields which identify this contact such as the forename(s)/first name + middle names, surname/last name, type (client, candidate or user), job title, title, marital status, gender, status, comments and photo.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#contact-form-tab-nav-horizontal", "x": 150, "y": -20, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Contact Tabs",
+                "html": "These tabs/buttons are used to show additional information such as personal details, employment, attributes/skills, social networks, requirements, placements, documents, notes/history and scheduled tasks.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#contact-form-tab-nav-horizontal", "x": 300, "y": -290, "width": 400, "arrow": "bc" }
+            },
+            {
+                "title": "Save Button",
+                "html": "Pressing this button will save all changes to the current record to the database, and update the form caption with the full contact name and optionally the ID.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#contactForm-save-button", "x": -360, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "File Menu",
+                "html": "This menu has the following options:<br /><b>New</b> - clear the current fields ready for a new record to be entered<br /><b>Open</b> - popup a find dialogue to lookup a contact record and open it<br /><b>Save</b> - save all changes to the current record to the database<br /><b>Delete</b> - delete the current record from the database<br /><b>Close</b> - close this form and do not save changes",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#contactForm-save-button", "x": -400, "y": 40, "width": 500, "arrow": "tr" }
+            },
+            {
+                "title": "Actions Menu",
+                "html": "This menu has the following options:<br /><b>Add to Shortlist</b> - choose one or more requirements and add this contact to their shortlists<br /><b>Call</b> - make a telephone call and record the outcome<br /><b>E-Mail</b> - send an ad-hoc e-mail and record it<br /><b>Mail Merge</b> - send a template driven e-mail with notes and follow-ups<br /><b>Meeting</b> - schedule a meeting with confirmation e-mail<br /><b>Note</b> - record a note<br /><b>Send SMS Text</b> - send a text message<br /><b>ToDo</b> - schedule a task linked to this contact",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#contactForm-save-button", "x": -410, "y": 40, "width": 600, "arrow": "tr" }
+            },
+            {
+                "title": "LinkedIn",
+                "html": "If the contact has a LinkedIn profile, click here to open it in a new browser tab",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#contactForm-view-linkedin-profile", "x": -360, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Facebook",
+                "html": "If the contact has a Facebook profile, click here to open it in a new browser tab",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#contactForm-view-facebook-profile", "x": -360, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Twitter",
+                "html": "If the contact has a Twitter feed, click here to open it in a new browser tab",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#contactForm-view-twitter-profile", "x": -360, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "Contact Preview",
+                "html": "Open a contact preview window summarising the important contact details. This can preview can also be opened from the contacts lookup grid.",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#contactForm-view-preview", "x": -360, "y": 40, "width": 400, "arrow": "tr" }
+            }
+
+            
+        ]
+    },
+    
+    {
+        "FormName": "Company",
+        "Guide": [
+            {
+                "title": "Company Form",
+                "html": "This form is where you can view and edit client company details, as well as carry out a range of sophisticated business operations using actions.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#divFormContentRow", "x": 400, "y": 100, "width": 400 }
+            },
+            {
+                "title": "Company Master Record",
+                "html": "These are the key fields which identify this company such as the name, web site, switchboard phone number, e-mail, industry, registration number, comments and company logo.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#company-form-tab-nav-horizontal", "x": 150, "y": -20, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Company Tabs",
+                "html": "These tabs/buttons are used to show additional information such as contacts/addresses, organogram, rate card, attributes/skills, requirements, placements, documents, notes/history and scheduled tasks.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#company-form-tab-nav-horizontal", "x": 300, "y": -290, "width": 400, "arrow": "bc" }
+            },
+            {
+                "title": "Save Button",
+                "html": "Pressing this button will save all changes to the current record to the database, and update the form caption with the company name and optionally the ID.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#companyForm-save-button", "x": -360, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "File Menu",
+                "html": "This menu has the following options:<br /><b>New</b> - clear the current fields ready for a new record to be entered<br /><b>Open</b> - popup a find dialogue to lookup a company record and open it<br /><b>Save</b> - save all changes to the current record to the database<br /><b>Delete</b> - delete the current record from the database<br /><b>Close</b> - close this form and do not save changes",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#companyForm-save-button", "x": -400, "y": 40, "width": 500, "arrow": "tr" }
+            },
+            {
+                "title": "Actions Menu",
+                "html": "This menu has the following options:<br /><b>Call</b> - make a telephone call and record the outcome<br /><b>Mail Merge</b> - send a template driven e-mail with notes and follow-ups<br /><b>Meeting</b> - schedule a meeting with confirmation e-mail<br /><b>Note</b> - record a note<br /><b>Send SMS Text</b> - send a text message<br /><b>ToDo</b> - schedule a task linked to this company",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#companyForm-save-button", "x": -410, "y": 40, "width": 600, "arrow": "tr" }
+            }            
+        ]
+    },
+    
+    {
+        "FormName": "Requirement",
+        "Guide": [
+            {
+                "title": "Requirement Form",
+                "html": "This form is where you can view and edit requirement/vacancy details, search and shortlist candidates, as well as carry out a range of sophisticated business operations using actions, including making placements.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#divFormContentRow", "x": 400, "y": 100, "width": 400 }
+            },
+            {
+                "title": "Requirement Master Record",
+                "html": "These are the key fields which identify this requirement such as the auto-generated reference, type (permanent, contract, temp), client contact/company link, status, earliest start date, job title, site address, user link, job description document, number of people required, and both internal and external (web site) comments.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#requirement-form-tab-nav-horizontal", "x": 150, "y": -20, "width": 400, "arrow": "tc" }
+            },
+            {
+                "title": "Requirement Tabs",
+                "html": "These tabs/buttons are used to show additional information such as salary/rates, search criteria, search results grid, shortlisted candidates grid, rejected candidates, attributes/skills, placements, documents, notes/history and scheduled tasks.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#requirement-form-tab-nav-horizontal", "x": 300, "y": -290, "width": 500, "arrow": "bc" }
+            },
+            {
+                "title": "Save Button",
+                "html": "Pressing this button will save all changes to the current record to the database, and update the form caption with the reference, job title and optionally the ID.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#requirementForm-save-button", "x": -360, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "File Menu",
+                "html": "This menu has the following options:<br /><b>New</b> - clear the current fields ready for a new record to be entered<br /><b>Open</b> - popup a find dialogue to lookup a requirement record and open it<br /><b>Save</b> - save all changes to the current record to the database<br /><b>Delete</b> - delete the current record from the database<br /><b>Close</b> - close this form and do not save changes",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#requirementForm-save-button", "x": -400, "y": 40, "width": 500, "arrow": "tr" }
+            },
+            {
+                "title": "Actions Menu",
+                "html": "This menu has the following options:<br /><b>Call</b> - make a telephone call and record the outcome<br /><b>Mail Merge</b> - send a template driven e-mail with notes and follow-ups<br /><b>Meeting</b> - schedule a meeting with confirmation e-mail<br /><b>Note</b> - record a note<br /><b>Send SMS Text</b> - send a text message<br /><b>ToDo</b> - schedule a task linked to this company<br /><b>Upload to Web</b> - advertise the job on social media and job boards",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#requirementForm-save-button", "x": -410, "y": 40, "width": 600, "arrow": "tr" }
+            },
+            {
+                "title": "View on Web",
+                "html": "Click this button to view this vacancy as it looks to candidates on your web site, or on the TriSys Web Jobs portal",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#requirementForm-ViewJobOnTriSysWeb", "x": -340, "y": 40, "width": 400, "arrow": "tr" }
+            }                                    
+        ]
+    },
+    
+    {
+        "FormName": "Placement",
+        "Guide": [
+            {
+                "title": "Placement Form",
+                "html": "This form is where you can view and edit placement details, as well as carry out a range of sophisticated business operations using actions, including generating placement documentation.",
+                "buttons": { "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#divFormContentRow", "x": 400, "y": 100, "width": 400 }
+            },
+            {
+                "title": "Placement Master Record",
+                "html": "These are the key fields which identify this placement such as the auto-generated reference, type (permanent, contract, temp), client contact/company link, job title, candidate, user link, status, start/end dates, duration, site address, requirement link, and job description.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#placement-form-tab-nav-horizontal", "x": 320, "y": -20, "width": 500, "arrow": "tc" }
+            },
+            {
+                "title": "Placement Tabs",
+                "html": "These tabs/buttons are used to show additional information such as salary/rates, attributes/skills, documents, notes/history and scheduled tasks.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#placement-form-tab-nav-horizontal", "x": 300, "y": -250, "width": 500, "arrow": "bc" }
+            },
+            {
+                "title": "Save Button",
+                "html": "Pressing this button will save all changes to the current record to the database, and update the form caption with the reference, job title and optionally the ID.",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#placementForm-save-button", "x": -360, "y": 40, "width": 400, "arrow": "tr" }
+            },
+            {
+                "title": "File Menu",
+                "html": "This menu has the following options:<br /><b>New</b> - clear the current fields ready for a new record to be entered<br /><b>Open</b> - popup a find dialogue to lookup a placement record and open it<br /><b>Save</b> - save all changes to the current record to the database<br /><b>Delete</b> - delete the current record from the database<br /><b>Close</b> - close this form and do not save changes",
+                "buttons": { "Prev": -1, "Next": 1 },
+                "focus": 0,
+                "position": { "container": "#placementForm-save-button", "x": -400, "y": 40, "width": 500, "arrow": "tr" }
+            },
+            {
+                "title": "Actions Menu",
+                "html": "This menu has the following options:<br /><b>Call</b> - make a telephone call and record the outcome<br /><b>Mail Merge</b> - send a template driven e-mail with notes and follow-ups<br /><b>Meeting</b> - schedule a meeting with confirmation e-mail<br /><b>Note</b> - record a note<br /><b>Contract/Documents</b> - generate placement documentation such as client and candidate contracts<br /><b>Send SMS Text</b> - send a text message<br /><b>ToDo</b> - schedule a task linked to this placement",
+                "buttons": { "Prev": -1, "Done": 2 },
+                "focus": 0,
+                "position": { "container": "#placementForm-save-button", "x": -510, "y": 40, "width": 700, "arrow": "tr" }
+            }                                 
+        ]
+    }
+]
+ 

@@ -1,0 +1,48 @@
+﻿<style scoped>
+    .td-label {
+        width: 150px;
+    }
+</style>
+<div class="block">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="td-label"><strong>Category Name</strong></td>
+                <td>
+                    <input type="text" class="k-textbox" id="skill-category-name" required="required" style="width:100%" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label"><strong>Description</strong></td>
+                <td>
+                    <textarea class="k-textbox" id="skill-category-description" rows="5" style="width:100%; resize: none"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label">
+                    &nbsp;
+                </td>
+                <td>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 50%;">
+                                &nbsp;
+                            </td>
+                            <td style="width: 50%; text-align: right;">
+                                <strong>Locked</strong> &nbsp;
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" id="skill-category-locked" value="0" unchecked>
+                                    <span></span>
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlSkillCategory.js"></script>

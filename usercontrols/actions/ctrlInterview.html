@@ -1,0 +1,174 @@
+﻿<style scoped>
+    .td-label-interview {
+        width: 120px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Client</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlInterview-Client" style="width:100%"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Candidate</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlInterview-Candidate" style="width:100%"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Task Type &nbsp; </strong>
+                            <img id="ctrlInterview-Selected-TaskType-Image" style="width: 24px; height: 24px; border: 0" />
+                        </td>
+                        <td>
+                            <input id="ctrlInterview-TaskType" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Stage</strong>
+                        </td>
+                        <td>
+                            <input id="ctrlInterview-Stage" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr id="ctrlInterview-Location-tr">
+                        <td class="td-label-interview">
+                            <strong>Location</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlInterview-Location" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Specify a new location for the interview" id="ctrlInterview-NewLocation">
+                                            <i class="gi gi-google_maps"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Date/Time</strong>
+                        </td>
+                        <td>
+                            <input id="ctrlInterview-StartDateTime" style="width:100%;" />
+                        </td>
+                    </tr>
+                    <tr id="Interview-NoteHistory-Duration-Row">
+                        <td class="td-label-interview">
+                            <strong>Duration</strong>
+                        </td>
+                        <td>
+                            <div id="ctrlInterview-Duration" style="width:300px;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Set Alarm</strong>
+                        </td>
+                        <td>
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlInterview-Set-Alarm" value="1" checked>
+                                <span></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr id="ctrlInterview-LeadTime-tr">
+                        <td class="td-label-interview">
+                            <strong>Lead Time</strong>
+                        </td>
+                        <td>
+                            <div id="ctrlInterview-LeadTime" style="width:100%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Notes</strong>
+                        </td>
+                        <td>
+                            <textarea class="k-textbox" id="ctrlInterview-Notes" rows="3" maxlength="1024" style="width:100%; resize: none;"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6">
+        <div id="ctrlInterview-FollowUp">
+        </div>
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Client Template</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlInterview-ClientTemplate" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlInterview-EditClientTemplate">
+                                            <i class="gi gi-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-interview">
+                            <strong>Candidate Template</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlInterview-CandidateTemplate" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlInterview-EditCandidateTemplate">
+                                            <i class="gi gi-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-mailmerge">
+                            <strong>Subject</strong>
+                        </td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlInterview-Subject" style="width:100%" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlInterview.js"></script>
+

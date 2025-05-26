@@ -1,0 +1,176 @@
+﻿<!-- Allow the administrator to manage the list of available views and to
+     assign views to users and groups.
+-->
+<style scoped>
+    .td-label {
+        width: 100px;
+    }
+
+    .nav-stacked > li > a 
+    {
+      margin-right: 10px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 col-lg-5">
+        <div class="block">
+            <div class="block-title">
+                <h2>Views</h2>
+                <div class="block-options pull-right">
+
+                    <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Copy a view layout and tiles" id="dashboard-view-manager-copy">
+                        <i class="fa fa-plus-square-o"></i> &nbsp; Copy View &nbsp;
+                    </a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the current view layout" id="dashboard-view-manager-delete">
+                        <i class="gi gi-remove_2"></i> &nbsp; Delete View &nbsp;
+                    </a>
+                </div>
+            </div>
+            <ul class="nav nav-pills nav-stacked nav-icons" id="dashboard-view-manager-list" style="overflow-y: scroll; height:400px;">
+                <li id="dashboard-view-manager-list-item-template" style="display:none;">
+                    <a href="javascript:void(0)" onclick="##view-click-event##">
+                        <i class="##view-icon## themed-color icon-push"></i> <strong>##view-caption##</strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-7">
+        <div class="block">
+            <div class="block-title">
+                <i class="gi gi-cogwheels pull-left themed-color" style="margin-top: 5px;"></i>
+                <h4>
+                    <span id="dashboard-view-manager-selected-view-name">Selected View Item</span>
+                </h4>
+            </div>
+
+            <div style="height:400px; margin-bottom: 20px;">
+
+                <table class="table table-borderless" id="dashboard-view-manager-selected-view-detail">
+                    <tbody>
+                        <!-- First Item -->
+                        <tr>
+                            
+                            <td class="td-label">
+                                <strong>Name</strong>
+                            </td>
+                            <td>
+                                <input type="text" class="k-textbox" id="dashboard-view-manager-name" style="width:100%" readonly="readonly" />
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="td-label">
+                                <strong>Caption</strong>
+                            </td>
+                            <td>
+                                <input type="text" class="k-textbox" id="dashboard-view-manager-caption" style="width:100%" />
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="td-label">
+                                <strong>Icon</strong>
+                            </td>
+                            <td>
+                                <i id="dashboard-view-manager-icon"></i>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="td-label">
+                                <strong>Description</strong>
+                            </td>
+                            <td>
+                                <textarea class="k-textbox" id="dashboard-view-manager-description" rows="2" style="width:100%; resize: none"></textarea>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="td-label">
+                                <strong>Default</strong>
+                            </td>
+                            <td>
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" id="dashboard-view-manager-default" value="1" checked>
+                                    <span></span>
+                                </label>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="td-label">
+                                <strong>Ordering</strong>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Move up order of display" id="dashboard-view-manager-move-up">
+                                    <i class="gi gi-up_arrow"></i> &nbsp; Up &nbsp;
+                                </a>
+                                <span>&nbsp;</span>
+                                <span>&nbsp;</span>
+                                <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Move down order of display" id="dashboard-view-manager-move-down">
+                                    <i class="gi gi-down_arrow"></i> &nbsp; Down &nbsp;
+                                </a>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="td-label">
+                                <strong>Visible</strong>
+                            </td>
+                            <td>
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" id="dashboard-view-manager-visible" value="1" checked>
+                                    <span></span>
+                                </label>
+                            </td>
+
+                        </tr>
+
+                        <!--  This extra section is to helpd ebugging only. Make it visible if you need it.
+                              The plan is to create a user management section here in future versions so that
+                              specific views can be made available to groups of users.  
+                          -->
+                        <tr style="display:none;">
+
+                            <td class="td-label">
+                                <strong>Extra</strong>
+                            </td>
+                            <td>
+                                <textarea class="k-textbox" id="dashboard-view-manager-extra" rows="8" style="width:100%; resize: none" readonly="readonly"></textarea>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- See ctrlDashboard.js for code -->
+<!-- REMEMBER!!! No SCRIPT comments allowed below because of obfuscation! -->
+<script>
+
+    $(document).ready(function ()
+    {
+        ctrlDashboard.ViewManagerModal.Load();
+    });
+
+</script>

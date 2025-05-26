@@ -1,0 +1,1 @@
+var TimesheetSearch={'Load':function(){TriSysApex['EntitySearch']['LoadControl']('timesheet-search-placeholder','Timesheet');}};$(document)['ready'](function(){TimesheetSearch['Load']();});

@@ -1,0 +1,882 @@
+/*
+ *  Document   : themes.css
+ *  Author     : pixelcave
+ *  Description: The themes stylesheet of the template. The classes can be used to
+ *  alter the text, the background or the border color of an element individually
+ *
+ */
+
+/*
+=================================================================
+THEME DEFAULT
+=================================================================
+*/
+
+.themed-color-default {
+    color: #1bbae1 !important;
+}
+
+.themed-border-default {
+    border-color: #1bbae1 !important;
+}
+
+.themed-background-default {
+    background-color: #1bbae1 !important;
+}
+
+.themed-color-dark-default {
+    color: #394263 !important;
+}
+
+.themed-border-dark-default {
+    border-color: #394263 !important;
+}
+
+.themed-background-dark-default {
+    background-color: #394263 !important;
+}
+
+/*
+=================================================================
+THEME NIGHT
+=================================================================
+*/
+
+.themed-color-night {
+    color: #888888 !important;
+}
+
+.themed-border-night {
+    border-color: #888888 !important;
+}
+
+.themed-background-night {
+    background-color: #888888 !important;
+}
+
+.themed-color-dark-night {
+    color: #333333 !important;
+}
+
+.themed-border-dark-night {
+    border-color: #333333 !important;
+}
+
+.themed-background-dark-night {
+    background-color: #333333 !important;
+}
+
+/*
+=================================================================
+THEME AMETHYST
+=================================================================
+*/
+
+.themed-color-amethyst {
+    color: #af64cc !important;
+}
+
+.themed-border-amethyst {
+    border-color: #af64cc !important;
+}
+
+.themed-background-amethyst {
+    background-color: #af64cc !important;
+}
+
+.themed-color-dark-amethyst {
+    color: #583a63 !important;
+}
+
+.themed-border-dark-amethyst {
+    border-color: #583a63 !important;
+}
+
+.themed-background-dark-amethyst {
+    background-color: #583a63 !important;
+}
+
+/*
+=================================================================
+THEME MODERN
+=================================================================
+*/
+
+.themed-color-modern {
+    color: #46b7bf !important;
+}
+
+.themed-border-modern {
+    border-color: #46b7bf !important;
+}
+
+.themed-background-modern {
+    background-color: #46b7bf !important;
+}
+
+.themed-color-dark-modern {
+    color: #3b3f40 !important;
+}
+
+.themed-border-dark-modern {
+    border-color: #3b3f40 !important;
+}
+
+.themed-background-dark-modern {
+    background-color: #3b3f40 !important;
+}
+
+/*
+=================================================================
+THEME AUTUMN
+=================================================================
+*/
+
+.themed-color-autumn {
+    color: #e67e22 !important;
+}
+
+.themed-border-autumn {
+    border-color: #e67e22 !important;
+}
+
+.themed-background-autumn {
+    background-color: #e67e22 !important;
+}
+
+.themed-color-dark-autumn {
+    color: #4a392b !important;
+}
+
+.themed-border-dark-autumn {
+    border-color: #4a392b !important;
+}
+
+.themed-background-dark-autumn {
+    background-color: #4a392b !important;
+}
+
+/*
+=================================================================
+THEME FLATIE
+=================================================================
+*/
+
+.themed-color-flatie {
+    color: #1ec1b8 !important;
+}
+
+.themed-border-flatie {
+    border-color: #1ec1b8 !important;
+}
+
+.themed-background-flatie {
+    background-color: #1ec1b8 !important;
+}
+
+.themed-color-dark-flatie {
+    color: #32323a !important;
+}
+
+.themed-border-dark-flatie {
+    border-color: #32323a !important;
+}
+
+.themed-background-dark-flatie {
+    background-color: #32323a !important;
+}
+
+/*
+=================================================================
+THEME SPRING
+=================================================================
+*/
+
+.themed-color-spring {
+    color: #27ae60 !important;
+}
+
+.themed-border-spring {
+    border-color: #27ae60 !important;
+}
+
+.themed-background-spring {
+    background-color: #27ae60 !important;
+}
+
+.themed-color-dark-spring {
+    color: #344a3d !important;
+}
+
+.themed-border-dark-spring {
+    border-color: #344a3d !important;
+}
+
+.themed-background-dark-spring {
+    background-color: #344a3d !important;
+}
+
+/*
+=================================================================
+THEME FANCY
+=================================================================
+*/
+
+.themed-color-fancy {
+    color: #d9416c !important;
+}
+
+.themed-border-fancy {
+    border-color: #d9416c !important;
+}
+
+.themed-background-fancy {
+    background-color: #d9416c !important;
+}
+
+.themed-color-dark-fancy {
+    color: #352b4e !important;
+}
+
+.themed-border-dark-fancy {
+    border-color: #352b4e !important;
+}
+
+.themed-background-dark-fancy {
+    background-color: #352b4e !important;
+}
+
+/*
+=================================================================
+THEME FIRE
+=================================================================
+*/
+
+.themed-color-fire {
+    color: #e74c3c !important;
+}
+
+.themed-border-fire {
+    border-color: #e74c3c !important;
+}
+
+.themed-background-fire {
+    background-color: #e74c3c !important;
+}
+
+.themed-color-dark-fire {
+    color: #4a2e2b !important;
+}
+
+.themed-border-dark-fire {
+    border-color: #4a2e2b !important;
+}
+
+.themed-background-dark-fire {
+    background-color: #4a2e2b !important;
+}
+
+/*
+=================================================================
+THEME CORAL
+=================================================================
+*/
+
+.themed-color-coral {
+    color: #ff6b6b !important;
+}
+
+.themed-border-coral {
+    border-color: #ff6b6b !important;
+}
+
+.themed-background-coral {
+    background-color: #ff6b6b !important;
+}
+
+.themed-color-dark-coral {
+    color: #3c3e4f !important;
+}
+
+.themed-border-dark-coral {
+    border-color: #3c3e4f !important;
+}
+
+.themed-background-dark-coral {
+    background-color: #3c3e4f !important;
+}
+
+/*
+=================================================================
+THEME LAKE
+=================================================================
+*/
+
+.themed-color-lake {
+    color: #e38e7b !important;
+}
+
+.themed-border-lake {
+    border-color: #e38e7b !important;
+}
+
+.themed-background-lake {
+    background-color: #e38e7b !important;
+}
+
+.themed-color-dark-lake {
+    color: #043e50 !important;
+}
+
+.themed-border-dark-lake {
+    border-color: #043e50 !important;
+}
+
+.themed-background-dark-lake {
+    background-color: #043e50 !important;
+}
+
+/*
+=================================================================
+THEME FOREST
+=================================================================
+*/
+
+.themed-color-forest {
+    color: #0ead87 !important;
+}
+
+.themed-border-forest {
+    border-color: #0ead87 !important;
+}
+
+.themed-background-forest {
+    background-color: #0ead87 !important;
+}
+
+.themed-color-dark-forest {
+    color: #3b322c !important;
+}
+
+.themed-border-dark-forest {
+    border-color: #3b322c !important;
+}
+
+.themed-background-dark-forest {
+    background-color: #3b322c !important;
+}
+
+/*
+=================================================================
+THEME WATERLILY
+=================================================================
+*/
+
+.themed-color-waterlily {
+    color: #4ca5a9 !important;
+}
+
+.themed-border-waterlily {
+    border-color: #4ca5a9 !important;
+}
+
+.themed-background-waterlily {
+    background-color: #4ca5a9 !important;
+}
+
+.themed-color-dark-waterlily {
+    color: #4f243e !important;
+}
+
+.themed-border-dark-waterlily {
+    border-color: #4f243e !important;
+}
+
+.themed-background-dark-waterlily {
+    background-color: #4f243e !important;
+}
+
+/*
+=================================================================
+THEME EMERALD
+=================================================================
+*/
+
+.themed-color-emerald {
+    color: #69b899 !important;
+}
+
+.themed-border-emerald {
+    border-color: #69b899 !important;
+}
+
+.themed-background-emerald {
+    background-color: #69b899 !important;
+}
+
+.themed-color-dark-emerald {
+    color: #07313a !important;
+}
+
+.themed-border-dark-emerald {
+    border-color: #07313a !important;
+}
+
+.themed-background-dark-emerald {
+    background-color: #07313a !important;
+}
+
+
+/*
+=================================================================
+THEME BLACKBERRY
+=================================================================
+*/
+
+.themed-color-blackberry {
+    color: #148e81 !important;
+}
+
+.themed-border-blackberry {
+    border-color: #148e81 !important;
+}
+
+.themed-background-blackberry {
+    background-color: #148e81 !important;
+}
+
+.themed-color-dark-blackberry {
+    color: #352738 !important;
+}
+
+.themed-border-dark-blackberry {
+    border-color: #352738 !important;
+}
+
+.themed-background-dark-blackberry {
+    background-color: #352738 !important;
+}
+
+
+/*
+=================================================================
+THEME THUNDER
+=================================================================
+*/
+
+.themed-color-thunder {
+    color: #ffde75 !important;
+}
+
+.themed-border-thunder {
+    border-color: #ffde75 !important;
+}
+
+.themed-background-thunder {
+    background-color: #ffde75 !important;
+}
+
+.themed-color-dark-thunder {
+    color: #600037 !important;
+}
+
+.themed-border-dark-thunder {
+    border-color: #600037 !important;
+}
+
+.themed-background-dark-thunder {
+    background-color: #600037 !important;
+}
+
+.themed-background-dark-thunder {
+    background-color: #600037 !important;
+}
+
+
+/*
+=================================================================
+THEME LIGHTNING
+=================================================================
+*/
+
+.themed-color-lightning {
+    color: #69b899 !important;
+}
+
+.themed-border-lightning {
+    border-color: #69b899 !important;
+}
+
+.themed-background-lightning {
+    background-color: #69b899 !important;
+}
+
+.themed-color-dark-lightning {
+    color: #017468 !important;
+}
+
+.themed-border-dark-lightning {
+    border-color: #017468 !important;
+}
+
+.themed-background-dark-lightning {
+    background-color: #017468 !important;
+}
+
+.themed-background-dark-lightning {
+    background-color: #017468 !important;
+}
+
+
+/*
+=================================================================
+THEME JASPER
+=================================================================
+*/
+
+.themed-color-jasper {
+    color: #ea6d4b !important;
+}
+
+.themed-border-jasper {
+    border-color: #ea6d4b !important;
+}
+
+.themed-background-jasper {
+    background-color: #ea6d4b !important;
+}
+
+.themed-color-dark-jasper {
+    color: #7d1b00 !important;
+}
+
+.themed-border-dark-jasper {
+    border-color: #7d1b00 !important;
+}
+
+.themed-background-dark-jasper {
+    background-color: #7d1b00 !important;
+}
+
+.themed-background-dark-jasper {
+    background-color: #7d1b00 !important;
+}
+
+
+/*
+=================================================================
+THEME WHISTLER
+=================================================================
+*/
+
+.themed-color-whistler {
+    color: #0b6bc0 !important;
+}
+
+.themed-border-whistler {
+    border-color: #0b6bc0 !important;
+}
+
+.themed-background-whistler {
+    background-color: #0b6bc0 !important;
+}
+
+.themed-color-dark-whistler {
+    color: #5782a8 !important;
+}
+
+.themed-border-dark-whistler {
+    border-color: #5782a8 !important;
+}
+
+.themed-background-dark-whistler {
+    background-color: #5782a8 !important;
+}
+
+.themed-background-dark-whistler {
+    background-color: #5782a8 !important;
+}
+
+
+
+/*
+=================================================================
+THEME STRATUS
+=================================================================
+*/
+
+.themed-color-stratus {
+    color: #f0ebf2 !important;
+}
+
+.themed-border-stratus {
+    border-color: #f0ebf2 !important;
+}
+
+.themed-background-stratus {
+    background-color: #f0ebf2 !important;
+}
+
+.themed-color-dark-stratus {
+    color: #494349 !important;
+}
+
+.themed-border-dark-stratus {
+    border-color: #494349 !important;
+}
+
+.themed-background-dark-stratus {
+    background-color: #494349 !important;
+}
+
+.themed-background-dark-stratus {
+    background-color: #494349 !important;
+}
+
+
+
+/*
+=================================================================
+THEME CUMULUS
+=================================================================
+*/
+
+.themed-color-cumulus {
+    color: #eb6e9f !important;
+}
+
+.themed-border-cumulus {
+    border-color: #eb6e9f !important;
+}
+
+.themed-background-cumulus {
+    background-color: #eb6e9f !important;
+}
+
+.themed-color-dark-cumulus {
+    color: #ab3d52 !important;
+}
+
+.themed-border-dark-cumulus {
+    border-color: #ab3d52 !important;
+}
+
+.themed-background-dark-cumulus {
+    background-color: #ab3d52 !important;
+}
+
+.themed-background-dark-cumulus {
+    background-color: #ab3d52 !important;
+}
+
+
+/*
+=================================================================
+THEME NIMBUS
+=================================================================
+*/
+
+.themed-color-nimbus {
+    color: #da9597 !important;
+}
+
+.themed-border-nimbus {
+    border-color: #da9597 !important;
+}
+
+.themed-background-nimbus {
+    background-color: #da9597 !important;
+}
+
+.themed-color-dark-nimbus {
+    color: #261a22 !important;
+}
+
+.themed-border-dark-nimbus {
+    border-color: #261a22 !important;
+}
+
+.themed-background-dark-nimbus {
+    background-color: #261a22 !important;
+}
+
+.themed-background-dark-nimbus {
+    background-color: #261a22 !important;
+}
+
+
+/*
+=================================================================
+THEME CIRRUS
+=================================================================
+*/
+
+.themed-color-cirrus {
+    color: #d87357 !important;
+}
+
+.themed-border-cirrus {
+    border-color: #d87357 !important;
+}
+
+.themed-background-cirrus {
+    background-color: #d87357 !important;
+}
+
+.themed-color-dark-cirrus {
+    color: #07314d !important;
+}
+
+.themed-background-dark-cirrus {
+    background-color: #07314d !important;
+}
+
+
+
+/*
+=================================================================
+THEME NORTHERNLIGHTS
+=================================================================
+*/
+
+.themed-color-northernlights {
+    color: #a2f85a !important;
+}
+
+.themed-border-northernlights {
+    border-color: #a2f85a !important;
+}
+
+.themed-background-northernlights {
+    background-color: #a2f85a !important;
+}
+
+.themed-color-dark-northernlights {
+    color: #234052 !important;
+}
+
+.themed-border-dark-northernlights {
+    border-color: #234052 !important;
+}
+
+.themed-background-dark-northernlights {
+    background-color: #234052 !important;
+}
+
+
+/*
+=================================================================
+THEME CRIMSON
+=================================================================
+*/
+
+.themed-color-crimson {
+    color: #df1937 !important;
+}
+
+.themed-border-crimson {
+    border-color: #df1937 !important;
+}
+
+.themed-background-crimson {
+    background-color: #6e0c1d !important;
+}
+
+.themed-color-dark-crimson {
+    color: #6e0c1d !important;
+}
+
+.themed-background-dark-crimson {
+    background-color: #6e0c1d !important;
+}
+
+
+/*
+=================================================================
+THEME COSECTOR (Customer Theme)
+=================================================================
+*/
+
+.themed-color-cirrus {
+    color: #0071b9 !important;
+}
+
+.themed-border-cirrus {
+    border-color: #0071b9 !important;
+}
+
+.themed-background-cirrus {
+    background-color: #0071b9 !important;
+}
+
+.themed-color-dark-cirrus {
+    color: #00558b !important;              /* Menu Group Backcolour 07314d */
+}
+
+.themed-background-dark-cirrus {
+    background-color: #00558b !important;   /* Menu Group Backcolour */
+}
+
+
+/* 16 Apr 2024 */
+/*
+=================================================================
+THEME AMBIENT
+=================================================================
+*/
+
+.themed-color-ambient {
+    color: #9966FF !important;
+}
+
+.themed-border-ambient {
+    border-color: #9966FF !important;
+}
+
+.themed-background-ambient {
+    background-color: #9966FF !important;
+}
+
+.themed-color-dark-ambient {
+    color: #FF6600 !important;
+}
+
+.themed-border-dark-ambient {
+    border-color: #7E106E !important;
+}
+
+.themed-background-dark-ambient {
+    background-color: #BD2FA8 !important;
+}
+
+/*
+=================================================================
+THEME TRISYS
+=================================================================
+*/
+
+.themed-color-trisys {
+    color: #C1D82F !important;
+}
+
+.themed-border-trisys {
+    border-color: #C1D82F !important;
+}
+
+.themed-background-trisys {
+    background-color: #C1D82F !important;
+}
+
+.themed-color-dark-trisys {
+    color: #264FA2 !important;
+}
+
+.themed-border-dark-trisys {
+    border-color: #264FA2 !important;
+}
+
+.themed-background-dark-trisys {
+    background-color: #264FA2 !important;
+}
+
+/* END */

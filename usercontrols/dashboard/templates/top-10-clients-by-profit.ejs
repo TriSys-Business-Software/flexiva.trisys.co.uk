@@ -1,0 +1,92 @@
+﻿<table style="width: 100%; margin-bottom: 10px;" >
+
+  <tr>
+    <td style="font-size: 10px; margin-right: 5px; text-align: right;">
+      &nbsp;
+    </td>
+    <td style="font-size: 10px; padding-left:10px;">
+      Company
+    </td>
+    <td style="font-size: 10px; text-align: right;">
+      Total Profit
+    </td>
+    <td style="font-size: 10px; text-align: right; padding-left:10px;">
+      Num<br />Placements
+    </td>
+    <td style="font-size: 10px; text-align: right;">
+      Last Placement
+    </td>
+  </tr>
+  
+	<% for(var i=0; i < Top10ClientData.length; i++) {%>
+
+	<tr>
+      
+		<td style="margin-left:5px; margin-right: 5px; text-align: right;">
+		  <span style="font-weight:bold; font-size: 14px;">
+			<%= Top10ClientData[i].Position  %>
+		  </span>
+		</td>
+
+		<td>
+      
+			<div style="margin-left:10px;">
+
+				<p style="font-size: 12px; margin-bottom: 0px;">
+
+					<%= Top10ClientData[i].CompanyName  %>
+
+				</p>
+
+			</div>
+
+		</td>
+		
+		<td>
+      
+			<div style="margin-left:10px; margin-right: 5px;">
+
+				<p style="font-size: 12px; margin-bottom: 0px; text-align: right;">
+
+					<%= Top10ClientData[i].AmountWithCurrency  %>
+
+				</p>
+
+			</div>
+
+		</td>
+
+		<td>
+      
+			<div style="margin-left:10px;">
+
+				<p style="font-size: 12px; margin-bottom: 0px; text-align: right;">
+
+					<%= Top10ClientData[i].NumberOfPlacements  %>
+
+				</p>
+
+			</div>
+
+		</td>
+          
+		<td>
+      
+			<div style="margin-left:10px;">
+
+				<p style="font-size: 12px; margin-bottom: 0px; text-align: right;">
+
+					<%= Top10ClientData[i].LastPlacementDate  %>
+
+				</p>
+
+			</div>
+
+		</td>
+
+	</tr>
+        
+	<% } %>
+	                    
+</table>
+            

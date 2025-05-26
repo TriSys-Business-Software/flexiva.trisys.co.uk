@@ -1,0 +1,1 @@
+var RequirementSearch={'Load':function(){TriSysApex['EntitySearch']['LoadControl']('requirement-search-placeholder','Requirement');}};$(document)['ready'](function(){RequirementSearch['Load']();});

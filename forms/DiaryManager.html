@@ -1,0 +1,86 @@
+﻿<div id="diaryManagerScheduler"></div>
+
+<script id="trisys-diary-event-template-month" type="text/x-kendo-template">
+
+    <table style="margin-left: 2px; margin-right: 2px; border: none;">
+        <tbody>
+            <tr>
+                <td >
+                    <img src="images/trisys/16x16/tasktype/#= TaskType #.png?ts=201707260744" alt="#= TaskType #" width="16" height="16">
+                    &nbsp; <b>#: TaskType #</b>
+                </td>
+                <td>
+                    &nbsp; - &nbsp; #: UserName #
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</script>
+
+<script id="trisys-diary-event-template" type="text/x-kendo-template">
+    <div class="trisys-diary-event-template-css" style="text-decoration: #:TriSysSDK.Scheduler.TaskTextDecoration(data)#;">
+
+        <table class="table table-borderless" style="margin-left: -10px; margin-bottom: -5px;">
+            <tbody>
+                <tr>
+                    <td style="border-left-width: 0px; border-bottom-width: 0px;">
+                        <img src="images/trisys/16x16/tasktype/#= TaskType #.png?ts=201707260744" alt="#= TaskType #">
+                        &nbsp; <b>#: TaskType #</b>
+                    </td>
+                    <td class="pull-right" style="border-left-width: 0px; border-bottom-width: 0px; margin-right: -10px;">
+                        #: UserName # &nbsp; <img src="#: UserImage #" style="border-radius: 50%; float: right;">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>#: title #</h3>
+
+    </div>
+</script>
+<style scoped>
+    .trisys-diary-event-template-css img {
+        float: left;
+        margin: 0 8px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .trisys-diary-event-template-css p {
+        margin: 10px 0 0;
+        padding-left: 8px;
+    }
+
+    .trisys-diary-event-template-css h3 {
+        padding: 0 8px 5px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .trisys-diary-event-template-css a {
+        /*color: #ffffff;
+        font-weight: bold;*/
+        text-decoration: none;
+    }
+
+    .k-state-hover .trisys-diary-event-template-css a,
+    trisys-diary-event-template-css a:hover {
+        color: #000000;
+    }
+
+    /* Attempt to stop flickering */
+
+    .k-scheduler-table .k-state-hover,
+    .k-scheduler-table .k-state-border-down,
+    .k-scheduler-table .k-state-hover .k-link {
+        background-color: transparent !important;
+        /*background-image: none !important;*/
+        color: #515967 !important;
+    }
+</style>
+
+<span id="configurableNotification" style="display:none;"></span>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/diarymanager.js"></script>

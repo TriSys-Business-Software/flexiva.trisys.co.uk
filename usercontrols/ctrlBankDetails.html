@@ -1,0 +1,113 @@
+﻿<div class="block">
+    <div class="block-title" id="BankDetails_Title">
+        <div class="block-options pull-right">
+            <a href="javascript:void(0)" id="EntityNameForm-BankDetails-edit-button" class="btn btn-sm btn-default enable-tooltip" title="Edit bank details">
+                <i class="gi gi-folder_open"></i> &nbsp; Edit
+            </a>
+            <span>&nbsp;</span>
+        </div>
+        <h2>Bank Details</h2>
+    </div>
+    <table class="table table-borderless table-striped">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>Bank Name</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <input type="text" class="k-textbox" name="Name" id="BankDetails_Name" maxlength="50" readonly="readonly" style="width:100%" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>Sort Code</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <input type="text" class="k-textbox" name="Name" id="BankDetails_SortCode" maxlength="8" readonly="readonly" style="width:100%" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>Account Name</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <input type="text" class="k-textbox" name="Name" id="BankDetails_AccountName" maxlength="50" readonly="readonly" style="width:100%" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>Account Number</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <input type="text" class="k-textbox" name="Name" id="BankDetails_AccountNumber" maxlength="10" readonly="readonly" style="width:100%" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>Street</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <textarea class="k-textbox" name="Street" id="BankDetails_Street" rows="3" readonly="readonly" style="width:100%;" resize: none;"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>City/Town</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <input type="text" class="k-textbox" name="City" id="BankDetails_City" maxlength="50" readonly="readonly" style="width:100%" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>County</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <input type="text" class="k-textbox" name="County" id="BankDetails_County" maxlength="50" readonly="readonly" style="width:100%" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>Post Code</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <div class="col-xs-11 col-sm-10 col-md-9" style="padding-left:0px; padding-right:0px; height:30px;">
+                            <input class="k-textbox" id="BankDetails_PostCode" style="width:100%; height:100%; margin-top:1px; text-transform: uppercase;" readonly="readonly" />
+                        </div>
+                        <div class="col-xs-1 col-sm-2 col-md-3" style="padding-right:0px; padding-left:0px;">
+                            <button type="submit" id="BankDetails_PostCodeLookup" class="btn btn-sm btn-default" onclick="ctrlBankDetails.PostCodeLookup()" title="Lookup Post Code" style="position:absolute; right:0px; display: none;">
+                                <i class="gi gi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <strong>Country</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8">
+                        <input type="text" class="k-textbox" id="BankDetails_Country" maxlength="50" readonly="readonly" style="width:100%" />
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

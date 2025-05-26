@@ -1,0 +1,27 @@
+{
+	"FileName": "form-rules.json",
+	"Description": "These are customer-specific form business rules. Rules: Form load, load record, pre save record, save record etc..",
+	"Additional_Thoughts": "Evolutionary for no-code / declarative customisation. Will become complex over time!",
+	"Location": "e:\\inetpub\\api.trisys.co.uk\\Apex\\custom\\{CustomerID}",
+	"Created": "05 March 2021",
+
+	"Rules": [
+		{
+			"FormName": "Contact",
+			"Created": "05 March 2021",
+			"Description": "Custom business rule to prevent editing a field unless user security permits",
+			"Event": "FormRecordLoad",
+			"Fields": [
+				{ 
+					"Name": "ContactConfigFields_AnyField",
+					"Rule":
+					{
+						"Type": "Editable-Only-When-User-Security-Permission-True",
+						"SecurityItemName": "Any Field Editable",
+						"SecurityItemCategory": "Custom"
+					}			
+				}
+			]
+		}
+	]
+}

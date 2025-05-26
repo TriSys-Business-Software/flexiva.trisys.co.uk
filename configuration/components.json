@@ -1,0 +1,242 @@
+{
+	"FileName": "components.json",
+	"Description1": "Form designer and Form Renderer components e.g. labels, controls, groups, panels, images etc...",
+	"Description2": "There will an application specific file, and a possible custom file.",
+	"Location1": "e:\\inetpub\\api.trisys.co.uk\\Apex\\configuration",
+	"Location2": "e:\\inetpub\\api.trisys.co.uk\\Apex\\custom\\{CustomerID}",
+	"Created": "26 April 2021",
+
+	"Components": [
+		{
+			"ID": "label",
+			"Name": "Label",
+			"Icon": "gi gi-font",
+			"Created": "26 April 2021",
+			"Description": "A simple field label",
+			"Properties":
+			{
+				"Value": "Label Text",
+				"Visible": true
+			},
+			"PreRenderFunction": "GetLabelHTML",
+			"PostRenderFunction": "AssignLabelProperties",
+			"RenderFunctionNotes": "This function will be prefixed by ctrlFormDesignerModal.FormRenderer. during dev, but elsewhere in production"
+		},
+		{
+			"ID": "textbox",
+			"Name": "Text Box",
+			"Icon": "gi gi-text_resize",
+			"Created": "26 April 2021",
+			"Description": "Capture text",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "textbox"
+				},
+				"Visible": true,
+				"MultiLine": false,
+				"Rows": 1
+			},		
+			"PreRenderFunction": "GetTextBoxHTML",
+			"PostRenderFunction": "AssignTextBoxProperties"
+		},
+		{
+			"ID": "checkbox",
+			"Name": "Check Box",
+			"Icon": "fa fa-toggle-on",
+			"Created": "26 April 2021",
+			"Description": "Capture on/off or yes/no",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "yesno"
+				},
+				"Visible": true
+			},			
+			"PreRenderFunction": "GetCheckBoxHTML",
+			"PostRenderFunction": "AssignCheckBoxProperties"
+		},
+		{
+			"ID": "button",
+			"Name": "Button",
+			"Icon": "gi gi-hand_up",
+			"Created": "26 April 2021",
+			"Description": "Show a button and specify sophisticated workflow when clicked", 
+			"Properties":
+			{
+				"Value": "Button Text",
+				"Icon": "fa fa-exclamation-triangle",
+				"Visible": true
+			},
+			"PreRenderFunction": "GetButtonHTML",
+			"PostRenderFunction": null
+		},
+		{
+			"ID": "date",
+			"Name": "Date",
+			"Icon": "gi gi-calendar",
+			"Created": "27 April 2021",
+			"Description": "A date control",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "date"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "datetime",
+			"Name": "Date/Time",
+			"Icon": "fa fa-clock-o",
+			"Created": "27 April 2021",
+			"Description": "A date/time control",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "datetime"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "numeric",
+			"Name": "Numeric",
+			"Icon": "gi gi-calculator",
+			"Created": "27 April 2021",
+			"Description": "A number control for integers or decimals",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "numeric"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "currencyamount",
+			"Name": "Currency Amount",
+			"Icon": "gi gi-gbp",
+			"Created": "27 April 2021",
+			"Description": "Capture a currency amount",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "currencyamount"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "currencyamountperiod",
+			"Name": "Currency Amount Period",
+			"Icon": "gi gi-usd",
+			"Created": "27 April 2021",
+			"Description": "Capture a currency amount period e.g. $100 per hour",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "currencyamountperiod"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "usercombo",
+			"Name": "User Combo",
+			"Icon": "fa fa-user",
+			"Created": "27 April 2021",
+			"Description": "Select a single user",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "usercombo"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "contact",
+			"Name": "Contact Lookup",
+			"Icon": "gi gi-user",
+			"Created": "27 April 2021",
+			"Description": "Select a single contact",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "contact"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "company",
+			"Name": "Company Lookup",
+			"Icon": "gi gi-building",
+			"Created": "27 April 2021",
+			"Description": "Select a single company",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "company"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "file",
+			"Name": "File Upload",
+			"Icon": "gi gi-cloud-upload",
+			"Created": "27 April 2021",
+			"Description": "Upload a file",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "file"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "telephone",
+			"Name": "Telephone",
+			"Icon": "gi gi-phone_alt",
+			"Created": "27 April 2021",
+			"Description": "Telephone number",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "telephone"
+				},
+				"Visible": true
+			}
+		},
+		{
+			"ID": "internet",
+			"Name": "Internet",
+			"Icon": "gi gi-globe",
+			"Created": "27 April 2021",
+			"Description": "Internet/World Wide Web Uniform Resource Locator (URL)",	
+			"Properties":
+			{
+				"TriSysField":
+				{
+					"Type": "internet"
+				},
+				"Visible": true
+			}
+		}
+	]
+}

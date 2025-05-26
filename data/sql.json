@@ -1,0 +1,14 @@
+﻿[
+	{
+		"ID":	"TriSysWeb.TopJobs",
+		"SQL": [
+					" Requirement_JobTitle as JobTitle, Count(*) as Counter",
+					"    from v_Requirement_AllFields ",
+					"    where Requirement_RequirementStatus in ('Active', 'Open')   ",
+					"      and Requirement_JobTitle <> '-'",
+					"      and (case Requirement_RequirementEntityType when 'Permanent' then Requirement_MaximumSalary else Requirement_MaximumRate end) is not null",
+					"   group by Requirement_JobTitle",
+					"   Order by 2 desc"
+				]
+	}
+]

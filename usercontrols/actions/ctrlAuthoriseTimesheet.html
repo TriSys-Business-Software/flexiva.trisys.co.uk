@@ -1,0 +1,79 @@
+﻿<style scoped>
+    .td-label-sww {
+        width: 120px;
+    }
+</style>
+
+<div class="block">
+    <table class="table table-borderless">
+        <tbody>
+
+            <tr>
+                <td class="td-label-sww">
+                    <strong>Placement</strong>
+                </td>
+                <td>
+                    <span id="ctrlAuthoriseTimesheet-Placement"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label-sww">
+                    <strong>Candidate</strong>
+                </td>
+                <td>
+                    <span id="ctrlAuthoriseTimesheet-Candidate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label-sww">
+                    <strong>Period</strong>
+                </td>
+                <td>
+                    <span id="ctrlAuthoriseTimesheet-Period"></span>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+
+<div class="block">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td colspan="2">
+
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4>
+                            <i class="fa fa-exclamation-circle"></i> Warning
+                        </h4>
+                        Running this action may export this timesheet to your payroll system,
+                        resulting in the candidate being paid for the specified hours.
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px;">
+                    <label class="switch switch-primary">
+                        <input type="checkbox" id="ctrlAuthoriseTimesheet-ConfirmExportToPayroll" value="0" unchecked>
+                        <span></span>
+                    </label>
+                    &nbsp;
+                </td>
+                <td style="width: 100%;">
+                    I <b>confirm</b> that this timesheet has not been authorised by our customer
+                    using the TriSys Web Jobs portal, but that I have been instructed to authorise the
+                    hours on this timesheet which will result in
+                    the candidate being paid for the hours specified.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlAuthoriseTimesheet.js"></script>

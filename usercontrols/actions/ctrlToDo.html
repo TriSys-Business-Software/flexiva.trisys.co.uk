@@ -1,0 +1,85 @@
+﻿<style scoped>
+    .td-label-todo {
+        width: 120px;
+    }
+</style>
+
+<div class="block">
+    <table class="table table-borderless">
+        <tbody>
+
+            <tr style="display: none;">
+                <td class="td-label-todo">
+                    <strong>Template</strong>
+                </td>
+                <td>
+                    <input id="ctrlToDo-Action-Template" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label-todo">
+                    <strong>Task Type &nbsp; </strong>
+                    <img id="ctrlToDo-Selected-TaskType-Image" style="width: 24px; height: 24px; border: 0" />
+                </td>
+                <td>
+                    <input id="ctrlToDo-TaskType" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label-todo">
+                    <strong>Attributes</strong>
+                </td>
+                <td>
+                    <input type="text" id="ctrlToDo-Attributes" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label-todo">
+                    <strong>Date</strong>
+                </td>
+                <td>
+                    <input id="ctrlToDo-StartDateTime" style="width:100%;" />
+                </td>
+            </tr>
+            <tr id="ToDo-NoteHistory-Duration-Row">
+                <td class="td-label-todo">
+                    <strong>Duration</strong>
+                </td>
+                <td>
+                    <div id="ctrlToDo-Duration" style="width:300px;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label-todo">
+                    <strong>Set Alarm</strong>
+                </td>
+                <td>
+                    <label class="switch switch-primary">
+                        <input type="checkbox" id="ctrlToDo-Set-Alarm" value="1" checked>
+                        <span></span>
+                    </label>
+                </td>
+            </tr>
+            <tr id="ctrlToDo-LeadTime-tr">
+                <td class="td-label-todo">
+                    <strong>Lead Time</strong>
+                </td>
+                <td>
+                    <div id="ctrlToDo-LeadTime" style="width:100%;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label-todo">
+                    <strong>Description</strong>
+                </td>
+                <td>
+                    <textarea class="k-textbox" id="ctrlToDo-Description" rows="5" style="width:100%; resize: vertical;"></textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlToDo.js"></script>

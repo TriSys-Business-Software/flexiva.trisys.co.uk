@@ -1,0 +1,66 @@
+﻿<style scoped>
+    .td-label {
+        width: 150px;
+    }
+</style>
+<div class="block">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="td-label"><strong>Type</strong></td>
+                <td>
+                    <input type="text" id="ctrlNewDeveloperFile-Type" style="width:100%" />                     
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label"><strong>Name</strong></td>
+                <td>
+                    <input type="text" class="k-textbox" id="ctrlNewDeveloperFile-Name" required="required" maxlength="50" style="width:100%" />
+                </td>
+            </tr>
+            <tr id="ctrlNewDeveloperFile-Layout-tr">
+                <td class="td-label"><strong>Layout</strong></td>
+				<td>
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="https://apex.trisys.co.uk/images/trisys/developer-studio/blank.png" width="150">
+						</div>
+						<div class="col-xs-4">
+							<img src="https://apex.trisys.co.uk/images/trisys/developer-studio/block-menu.png" width="150">
+						</div>
+						<div class="col-xs-4" id="ctrlNewDeveloperFile-layout-tabbed-column-image">
+							<img src="https://apex.trisys.co.uk/images/trisys/developer-studio/tabbed-form.png?ts=201906291857" width="150">
+						</div>
+					</div>
+					<div class="row" style="padding-top: 10px;">
+						<div class="col-xs-4">
+							<label class="switch switch-primary">
+								<input type="checkbox" id="ctrlNewDeveloperFile-layout-block" value="0" unchecked>
+								<span></span>
+							</label>
+							&nbsp; Single Block
+						</div>
+						<div class="col-xs-4">
+							<label class="switch switch-primary">
+								<input type="checkbox" id="ctrlNewDeveloperFile-layout-blockmenu" value="0" unchecked>
+								<span></span>
+							</label>
+							&nbsp; Blocks with Menu
+						</div>
+						<div class="col-xs-4" id="ctrlNewDeveloperFile-layout-tabbed-column-checkbox">
+							<label class="switch switch-primary">
+								<input type="checkbox" id="ctrlNewDeveloperFile-layout-tabbed" value="0" unchecked>
+								<span></span>
+							</label>
+							&nbsp; Tabbed Form
+						</div>
+					</div>
+				</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlNewDeveloperFile.js"></script>

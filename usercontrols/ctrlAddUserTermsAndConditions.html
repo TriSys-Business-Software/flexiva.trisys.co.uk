@@ -1,0 +1,99 @@
+﻿<style scoped>
+    /* http://stackoverflow.com/questions/4098195/can-ordered-list-produce-result-that-looks-like-1-1-1-2-1-3-instead-of-just-1 */
+    /* Numbered lists like 1, 1.1, 2.2.1... */
+    ol li {
+        display: block;
+    }
+    /* hide original list counter */
+    ol > li:first-child {
+        counter-reset: item;
+    }
+    /* reset counter */
+    ol > li {
+        counter-increment: item;
+        position: relative;
+        margin-top: 10px;
+    }
+        /* increment counter */
+        ol > li:before {
+            content: counters(item, ".") ". ";
+            position: absolute;
+            margin-right: 100%;
+            right: 10px;
+        }
+    /* print counter */
+</style>
+
+<div class="block full">
+    <div class="block-title">
+        <h2><strong>TriSys Recruitment Software</strong> Add User Account Terms &amp; Conditions</h2>
+    </div>
+    <div id="" style="overflow-y: scroll; height:400px;">
+        <ol>
+            <li>
+                Introduction
+                <ol>
+                    <li>
+                        You are about to create a new user account in TriSys [the Product/Service] which is a cloud hosted on-line recruitment software application and service
+                        available via web browsers on desktop computers, tablets and mobile devices for a fixed monthly fee.                        
+                    </li>
+                    <li>
+                        This document details your obligations when creating new user accounts.
+                    </li>
+                    <li>
+                        By clicking the 'I Agree' button below, you agree to these terms &amp; conditions.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                User Account
+                <ol>
+                    <li>
+                        Each user account you create will, after payment, be authorised to login to the service and create, read, update and delete data held in your
+                        recruitment database. 
+                    </li>
+                    <li>
+                        Each user will be able to access the service at any time, from any location, until such time as you prevent access to the
+                        account by locking it.
+                    </li>
+                    <li>
+                        TriSys Business Software is not responsible for any deliberate sabotage, or misuse of the data in your recruitment database
+                        by users who you have authorised.
+                    </li>
+
+                </ol>
+            </li>
+            <li>
+                Fees
+				<ol>
+					<li>
+						You will be charged a pay-as-you-go fee for each user account you create, payable in advance.
+					</li>
+					<li>
+						You can choose the most suitable and convenient pay-as-you-go price plan: Monthly, Quarterly, Half Yearly or Annual.
+						Monthly fees per user effectively reduce when paying in advance for longer periods.
+					</li>
+					<li>
+						No refunds are available for any pay-as-you-go price plan.
+					</li>
+					<li>
+						A full list of our plans is available on <a href="https://www.trisys.co.uk/pricing" target="_blank">our web site</a>.
+					</li>
+					<li>
+						TriSys Business Software reserves the right to suspend one or more user accounts in
+						the event of non-payment of sums due under this Agreement, or by violation of our standard terms &amp; conditions.
+					</li>
+				</ol>
+            </li>
+
+            <li>
+                Full Terms &amp; Conditions
+                <ol>
+                    <li>
+                        Our full terms &amp; conditions of service are available by clicking the button below.
+                    </li>
+                </ol>
+            </li>            
+        </ol>
+    </div>
+</div>

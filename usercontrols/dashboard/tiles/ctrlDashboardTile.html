@@ -1,0 +1,30 @@
+﻿<div class="block" id=##TileID##>
+    <div class="block-title" id="dashboard-tile-title" ##title-colour##>
+        <h6 id="dashboard-tile-caption">##TileTitle##</h6>
+        <div class="block-options pull-right" id="dashboard-tile-configure-menu-container">
+            <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Configure" id="dashboard-tile-configure-menu-button">
+                <i class="fa fa-cog"></i> &nbsp; Configure &nbsp;<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-custom dropdown-menu-right" id="dashboard-tile-configure-menu-items-container" style="position: relative; top: 35px; left: 105px;">
+                <li id="dashboard-tile-configure-menu-items-custom-group">
+                    <a href="javascript:void(0)" id="dashboard-tile-configure-menu-items-custom-item" onclick="custom-menu-onclick"><i class="custom-menu-icon fa-fw pull-right"></i>custom-menu-caption</a>
+                </li>
+                <li class="divider" id="dashboard-tile-configure-menu-items-custom-group-divider"></li>
+                <li>
+                    <a href="javascript:void(0)" id="dashboard-tile-configure-menu-items-set-caption" ##set-caption##><i class="gi gi-text_underline pull-right"></i>Set Caption</a>
+                    <a href="javascript:void(0)" id="dashboard-tile-configure-menu-items-set-colours" ##set-colours##><i class="fa fa-paint-brush pull-right"></i>Set Colours</a>
+                </li>
+                <li class="divider" id="dashboard-tile-configure-menu-items-options-group-divider" ##options-group-divider##></li>
+                <li>
+                    <a href="javascript:void(0)" id="dashboard-tile-configure-menu-items-chart-options" ##chart-options##><i class="gi gi-charts pull-right"></i>Chart Options</a>
+                    <a href="javascript:void(0)" id="dashboard-tile-configure-menu-items-webpage-options" ##webpage-options##><i class="gi gi-globe pull-right"></i>Web Page Options</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:void(0)" id="dashboard-tile-configure-menu-items-delete" ##delete-tile##><i class="gi gi-delete pull-right"></i>Delete</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="##TileContentID##"></div>
+</div>

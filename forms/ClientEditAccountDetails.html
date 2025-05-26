@@ -1,0 +1,381 @@
+﻿<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <i class="gi gi-cogwheel"></i>Edit Client Profile
+            <br><small>
+                Edit your Client details and preferences.
+                You can view or update your existing photo, login details and company address.
+                You can set automated e-mails with lists of suitable candidates for your vacancies.
+            </small>
+        </h1>
+    </div>
+</div>
+<div class="block full">
+
+	<div class="row">
+		<div class="col-md-6">
+
+			<div class="block">
+				<div class="block-title">
+					<h2><strong>Contact Details</strong> Form</h2>
+				</div>
+				<div class="form-horizontal form-bordered">
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientTitle">Title</label>
+						<div class="col-md-9">
+							<input id="txtEditClientTitle" style="width:100%" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientForenames">Forenames</label>
+						<div class="col-md-9">
+							<input type="text" id="txtEditClientForenames" name="txtEditClientForenames" class="form-control" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientSurname">Surname</label>
+						<div class="col-md-9">
+							<input type="text" id="txtEditClientSurname" name="txtEditClientSurname" class="form-control" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientJobTitle">Job Title</label>
+						<div class="col-md-9">
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<input type="text" id="txtEditClientJobTitle" name="txtEditClientJobTitle" class="form-control" maxlength="50">
+									</td>
+									<td style="width: 40px; padding-left: 5px; display: none;" id="tr-EditClientJobTitle">
+										<button type="submit" class="btn btn-sm btn-default" onclick="ClientEditAccountDetails.JobTitleLookup()" title="Lookup Job Title" style="right:0px;">
+											<i class="gi gi-search"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientWorkTelNo">Work Tel.</label>
+						<div class="col-md-9">
+							<input type="text" id="txtEditClientWorkTelNo" name="txtEditClientWorkTelNo" class="form-control" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientMobileTelNo">Work Mobile Tel.</label>
+						<div class="col-md-9">
+							<input type="text" id="txtEditClientMobileTelNo" name="txtEditClientMobileTelNo" class="form-control" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="EditClientContactPhoto">Photo</label>
+						<div class="col-md-9">
+							<div id="EditClientContactPhoto" style="width:100%;"></div>
+							<br />
+							<img id="imgEditClientEditor" height="64" width="64" style="display:none; border-radius: 5px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="block">
+				<!-- Horizontal Form Title -->
+				<div class="block-title">
+					<h2><strong>Company</strong> Form</h2>
+				</div>
+				<!-- END Horizontal Form Title -->
+				<!-- Horizontal Form Content -->
+				<div class="form-horizontal form-bordered">
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientCompanyName">Company Name</label>
+						<div class="col-md-9">
+							<input type="text" id="txtEditClientCompanyName" name="txtEditClientCompanyName" class="form-control" maxlength="50" readonly="readonly">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientAddress">Address</label>
+						<div class="col-md-9">
+
+							<div class="form-group" style="margin: 0px; padding: 0px;">
+								<div class="col-md-11" style="padding-left: 0px;">
+									<input id="cmbEditClientAddress" style="width:100%;" />
+								</div>
+								<div class="col-md-1">
+									<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Specify a new company address" id="EditClientNewCompanyAddress">
+										<i class="gi gi-google_maps"></i>
+									</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group" style="display: none;">
+						<label class="col-md-3 control-label" for="txtEditClientStreet">Street</label>
+						<div class="col-md-9">
+							<textarea class="form-control" name="txtEditClientStreet" id="txtEditClientStreet" rows="3" style="resize: none"></textarea>
+						</div>
+					</div>
+					<div class="form-group" style="display: none;">
+						<label class="col-md-3 control-label" for="txtEditClientCity">Town/City</label>
+						<div class="col-md-9">
+							<input type="text" id="txtEditClientCity" name="txtEditClientCity" class="form-control" maxlength="50">
+						</div>
+					</div>
+					<div class="form-group" style="display: none;">
+						<label class="col-md-3 control-label" for="txtEditClientCounty">County/State</label>
+						<div class="col-md-9">
+							<input type="text" id="txtEditClientCounty" name="txtEditClientCounty" class="form-control" maxlength="50">
+						</div>
+					</div>
+					<div class="form-group" style="display: none;">
+						<label class="col-md-3 control-label" for="txtEditClientPostCode">Post Code / ZIP</label>
+						<div class="col-md-9">
+							<div class="input-group" style="width: 200px;">
+								<input type="text" class="form-control" name="txtEditClientPostCode" id="txtEditClientPostCode" maxlength="10" style="width: 120px; text-transform: uppercase">
+								<span class="input-group-btn">
+									<button class="btn btn-sm btn-default" type="button" id="btnEditClientPostCodeLookup" onclick="ClientEditAccountDetails.PostCodelookup()">
+										Lookup
+									</button>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group" style="display: none;">
+						<label class="col-md-3 control-label" for="txtEditClientCountry">Country</label>
+						<div class="col-md-9">
+							<input id="txtEditClientCountry" style="width:100%" />
+						</div>
+					</div>
+					<div class="form-group" style="display: none;">
+						<label class="col-md-3 control-label" for="txtEditClientAddressPhone">Switchboard</label>
+						<div class="col-md-9">
+							<input type="text" id="txtEditClientAddressPhone" name="txtEditClientAddressPhone" class="form-control" maxlength="30">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-6">
+			<div class="block">
+				<div class="block-title">
+					<h2><strong>Login Credentials</strong> Form</h2>
+				</div>
+				<div class="form-horizontal form-bordered">
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientEMail">Work E-Mail</label>
+						<div class="col-md-9">
+							<input type="email" id="txtEditClientEMail" name="txtEditClientEMail" class="form-control" placeholder="Enter E-Mail.." maxlength="100">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientPassword">Password</label>
+						<div class="col-md-9">
+							<input type="password" id="txtEditClientPassword" name="txtEditClientPassword" class="form-control" placeholder="Enter Password.." maxlength="20">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="txtEditClientPasswordConfirmation">Confirm Password</label>
+						<div class="col-md-9">
+							<input type="password" id="txtEditClientPasswordConfirmation" name="txtEditClientPasswordConfirmation" class="form-control" placeholder="Enter Password Confirmation.." maxlength="20">
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="block">
+				<div class="block-title">
+					<h2><strong>Social Media</strong> Form</h2>
+				</div>
+				<div class="form-horizontal form-bordered">
+					<div class="form-group">
+						<label class="col-md-3 control-label">Twitter</label>
+						<div class="col-md-9">
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<input type="text" id="txtEditClientTwitter" name="txtEditClientTwitter" class="form-control" maxlength="50">
+									</td>
+									<td style="width: 40px; padding-left: 5px;">
+										<button type="submit" class="btn btn-sm btn-default" onclick="TriSysWebJobs.SocialNetwork.OpenSocialLink('txtEditClientTwitter')" title="Open your twitter feed" style="right:0px;">
+											<i class="fa fa-twitter"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">LinkedIn</label>
+						<div class="col-md-9">
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<input type="text" id="txtEditClientLinkedIn" name="txtEditClientLinkedIn" class="form-control" maxlength="50">
+									</td>
+									<td style="width: 40px; padding-left: 5px;">
+										<button type="submit" class="btn btn-sm btn-default" onclick="TriSysWebJobs.SocialNetwork.OpenSocialLink('txtEditClientLinkedIn')" title="Open your linkedin profile" style="right:0px;">
+											<i class="fa fa-linkedin"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">Facebook</label>
+						<div class="col-md-9">
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<input type="text" id="txtEditClientFacebook" name="txtEditClientFacebook" class="form-control" maxlength="50">
+									</td>
+									<td style="width: 40px; padding-left: 5px;">
+										<button type="submit" class="btn btn-sm btn-default" onclick="TriSysWebJobs.SocialNetwork.OpenSocialLink('txtEditClientFacebook')" title="Open your facebook page" style="right:0px;">
+											<i class="fa fa-facebook"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">YouTube</label>
+						<div class="col-md-9">
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<input type="text" id="txtEditClientYouTube" name="txtEditClientYouTube" class="form-control" maxlength="50">
+									</td>
+									<td style="width: 40px; padding-left: 5px;">
+										<button type="submit" class="btn btn-sm btn-default" onclick="TriSysWebJobs.SocialNetwork.OpenSocialLink('txtEditClientYouTube')" title="Open youtube" style="right:0px;">
+											<i class="fa fa-youtube"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">Skype</label>
+						<div class="col-md-9">
+							<table style="width: 100%;" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<input type="text" id="txtEditClientSkype" name="txtEditClientSkype" class="form-control" maxlength="50">
+									</td>
+									<td style="width: 40px; padding-left: 5px;">
+										<button type="submit" class="btn btn-sm btn-default" onclick="TriSysWebJobs.SocialNetwork.OpenSkype('txtEditClientSkype')" title="Open skype" style="right:0px;">
+											<i class="fa fa-skype"></i>
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="block-title">
+					<h2><strong>Privacy / General Data Protection Regulation</strong></h2>
+				</div>
+				<div class="form-horizontal form-bordered">
+					<table class="table table-borderless">
+						<tbody>
+							<tr>
+								<td colspan="2">
+									<label class="switch switch-primary">
+										<input type="checkbox" id="ClientEditAccountDetails-AgreeToReceiveMarketingCommunications" value="0" unchecked>
+										<span></span>
+									</label>
+									&nbsp; I agree to receiving marketing communications
+									&nbsp; <i class="gi gi-circle_info pull-right" id="ClientEditAccountDetails-QuestionMark-comms"
+									 data-caption="Marketing Communications"
+									 title="From time to time we may send you marketing communications. You may opt out by unchecking this and updating your settings."></i>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<label class="switch switch-primary">
+										<input type="checkbox" id="ClientEditAccountDetails-AgreeToPrivacyPolicy" value="0" unchecked>
+										<span></span>
+									</label>
+									&nbsp; I agree to your <a href="#" onclick="ClientEditAccountDetails.PrivacyPolicy()">privacy policy</a>
+									&nbsp; <i class="gi gi-circle_info pull-right" id="ClientEditAccountDetails-QuestionMark-privpol"
+									 data-caption="Privacy Policy"
+									 title="Our privacy policy is available by clicking the hyperlink to the left."></i>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<label class="switch switch-primary">
+										<input type="checkbox" id="ClientEditAccountDetails-RestrictProcessing" value="0" unchecked>
+										<span></span>
+									</label>
+									&nbsp; Restrict processing of my details
+									&nbsp; <i class="gi gi-circle_info pull-right" id="ClientEditAccountDetails-QuestionMark-restrproc"
+									 data-caption="Restrict Processing"
+									 title="You may request restricted processing. Your details will be kept on our database however we will no longer process them."></i>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row" style="margin-left: -30px;">
+		<div class="col-md-12" style="text-align: center; padding-bottom: 20px;">
+
+			<h4 class="sub-header" style="margin-top: 0px;"></h4>
+
+			<div class="row" style="padding-top: 10px;">
+				<div class="col-sm-4">
+					<a href="javascript:void(0)" onclick="ClientEditAccountDetails.SubmitButtonClick()" class=" btn btn-sm btn-default enable-tooltip"
+					   id="ClientEditAccountDetails-UpdateButton"
+					   title="Update your details">
+						<i class="gi gi-ok_2"></i> &nbsp; Update &nbsp;
+					</a>
+				</div>
+
+				<div class="col-sm-4">
+
+					<a href="javascript:void(0)" onclick="ClientEditAccountDetails.RequestRemoval()" class=" btn btn-sm btn-default enable-tooltip"
+					   id="ClientEditAccountDetails-RequestRemovalButton"
+					   title="Request that your details be removed from our database">
+						<i class="gi gi-remove_2"></i> &nbsp; Request Removal &nbsp;
+					</a>
+					<span id="ClientEditAccountDetails-RequestRemovalMessage" class="label label-danger" style="display: none; line-height: 2; padding-top: 5px; padding-bottom: 5px;">
+						<i class="gi gi-remove_2"></i> &nbsp;
+					</span>
+
+				</div>
+
+				<div class="col-sm-4">
+
+					<a href="javascript:void(0)" onclick="ClientEditAccountDetails.PortabilityRequest()" class=" btn btn-sm btn-default enable-tooltip"
+					   id="ClientEditAccountDetails-PortabilityRequestButton"
+					   title="Request that your details can be copied to another service">
+						<i class="gi gi-global"></i> &nbsp; Portability Request &nbsp;
+					</a>
+					<span id="ClientEditAccountDetails-PortabilityRequestMessage" class="label label-warning" style="display: none; line-height: 2; padding-top: 5px; padding-bottom: 5px;">
+						<i class="gi gi-global"></i> &nbsp;
+					</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ClientEditAccountDetails.js"></script>

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<widget xmlns = "http://www.w3.org/ns/widgets"
+		xmlns:gap = "http://phonegap.com/ns/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+		id = "com.trisys.apex"
+		versionCode=""
+		version = "2018.02.19">
+		<name-iOS-Android>
+      TriSys
+    </name-iOS-Android>
+    <name>
+      TriSys
+    </name>
+		<description>
+      TriSys Cross Platform Native Application		
+    </description>
+		<author href="http://www.trisys.co.uk" email="garry@trisys.co.uk">
+      TriSys Business Software
+		</author>
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-targetSdkVersion" value="14" />
+    <preference name="android-installLocation" value="internalOnly" />
+    <preference name="BackgroundColor" value="0x000000"/>
+    <preference name="phonegap-version" value="cli-6.5.0" />
+		<preference name="Orientation" value="default" />
+		<preference name="FullScreen" value="false" />
+		<preference name="target-device" value="universal" />
+		<preference name="webviewbounce" value="true" />
+		<preference name="prerendered-icon" value="true" />
+		<preference name="stay-in-webview" value="true" />
+		<preference name="ios-statusbarstyle" value="default" />
+		<preference name="detect-data-types" value="true" />
+		<preference name="exit-on-suspend" value="false" />
+		<preference name="ShowSplashScreenSpinner" value="true" />
+		<preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="15000" />
+    <!--<preference name="SplashScreen" value="screen" />-->
+    <preference name="EnableViewportScale" value="true" />
+		<preference name="MediaPlaybackRequiresUserAction" value="false" />
+		<preference name="BackupWebStorage" value="cloud" />
+		<preference name="TopActivityIndicator" value="gray" />
+		<preference name="KeyboardDisplayRequiresUserAction" value="false" />
+		<preference name="HideKeyboardFormAccessoryBar" value="false" />
+		<preference name="SuppressesIncrementalRendering" value="false" />
+		<preference name="ErrorUrl" value=""/>
+		<preference name="KeepRunning" value="true"/>
+		<preference name="DisallowOverscroll" value="false"/>
+		<preference name="LoadingDialog" value=","/> 
+		<preference name="LoadUrlTimeoutValue" value="20000" />
+		<preference name="disable-cursor" value="false" />
+		<gap:platform name="ios" />
+		<gap:platform name="android" />
+		<gap:platform name="winphone" />
+    
+    <!-- The 3rd party plug-ins-->
+
+    <plugin name="cordova-plugin-camera"   spec="2.4.1"   source="npm" >
+      <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow the app to use your camera" />
+      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
+    </plugin>
+    
+		
+    <plugin name="cordova-plugin-media-capture"       source="npm"  >
+      <variable name="CAMERA_USAGE_DESCRIPTION"       value="Allow the app to use your camera" />
+      <variable name="MICROPHONE_USAGE_DESCRIPTION"   value="Allow the app to use your microphone" />
+      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
+    </plugin>
+    
+		<plugin name="cordova-plugin-inappbrowser"  />
+
+    <plugin name="cordova-plugin-network-information"  />
+		<plugin name="cordova-plugin-splashscreen"        source="npm"  />
+    <plugin name="cordova-plugin-statusbar"  />
+    <plugin name="cordova-plugin-vibration"  />
+    
+    <!-- Manually Added to allow access to our whitelist -->
+    <plugin name="cordova-plugin-whitelist" source="npm" />
+
+    <!-- https://forums.adobe.com/thread/2410117 Nov 12 2017!!!!        -->
+    <!-- <plugin name="cordova-plugin-file" version="4.3.3"/>           -->
+    <!-- <plugin name="cordova-plugin-file-transfer" version="1.6.3" /> -->
+    
+
+
+    <!-- https://github.com/pwlin/cordova-plugin-file-opener2 -->
+    <!-- <plugin name="cordova-plugin-file-opener2" source="npm" /> -->
+
+
+    <!-- http://devgirl.org/2014/07/31/phonegap-developers-guid/ 
+    <preference name="StatusBarOverlaysWebView" value="false"/>
+    <preference name="StatusBarBackgroundColor" value="#000000"/
+    <preference name="StatusBarStyle" value="lightcontent" />-->
+
+    <!-- https://stackoverflow.com/questions/41525725/phonegap-missing-plist-key -->
+    <gap:config-file platform="ios" parent="NSCameraUsageDescription" overwrite="true"> 
+      <string>We are using the Camera to allow you to take your own photo..</string>
+    </gap:config-file>
+    <gap:config-file platform="ios" parent="NSPhotoLibraryUsageDescription" overwrite="true">
+      <string>We are using the photo library to allow you to choose your own photo..</string>
+    </gap:config-file>
+    
+    
+    <!-- http://docs.phonegap.com/phonegap-build/configuring/icons-and-splash/ -->
+    <icon src="icons/icon.png" />
+
+    <icon src="icons/android/36.png" gap:platform="android" gap:density="ldpi" />
+		<icon src="icons/android/48.png" gap:platform="android" gap:density="mdpi" />
+		<icon src="icons/android/72.png" gap:platform="android" gap:density="hdpi" />
+		<icon src="icons/android/96.png" gap:platform="android" gap:density="xhdpi" />
+		<icon src="icons/android/144.png" gap:platform="android" gap:density="xxhdpi" />
+		<icon src="icons/android/192.png" gap:platform="android" gap:density="xxxhdpi" />
+
+    <!-- iPhone 6 / 6+ -->
+    <icon src="icons/iOS/180.png" platform="ios" width="180" height="180" />
+
+    <!-- iPhone / iPod Touch  -->
+    <icon src="icons/iOS/60.png" platform="ios" width="60" height="60" />
+    <icon src="icons/iOS/120.png" platform="ios" width="120" height="120" />
+
+    <!-- iPad -->
+    <icon src="icons/iOS/76.png" platform="ios" width="76" height="76" />
+    <icon src="icons/iOS/152.png" platform="ios" width="152" height="152" />
+    <icon src="icons/iOS/167.png" platform="ios" width="167" height="167" />
+
+    <!-- Settings Icon -->
+    <icon src="icons/iOS/29.png" platform="ios" width="29" height="29" />
+    <icon src="icons/iOS/58.png" platform="ios" width="58" height="58" />
+    <icon src="icons/iOS/87.png" platform="ios" width="87" height="87" />
+
+    <!-- Spotlight Icon -->
+    <icon src="icons/iOS/180.png" platform="ios" width="40" height="40" />
+    <icon src="icons/iOS/80.png" platform="ios" width="80" height="80" />
+    <icon src="icons/iOS/120.png" platform="ios" width="120" height="120" />
+
+    <!-- Additional ones from random sites -->
+    <icon src="icons/iOS/40.png" platform="ios" width="40" height="40" />
+    <icon src="icons/iOS/50.png" platform="ios" width="50" height="50" />
+    <icon src="icons/iOS/100.png" platform="ios" width="100" height="100" />
+    <icon src="icons/iOS/72.png" platform="ios" width="72" height="72" />
+    <icon src="icons/iOS/144.png" platform="ios" width="144" height="144" />
+    <icon src="icons/iOS/216.png" platform="ios" width="216" height="216" />
+    <icon src="icons/iOS/57.png" platform="ios" width="57" height="57" />
+    <icon src="icons/iOS/114.png" platform="ios" width="114" height="114" />
+
+    <!-- http://stackoverflow.com/questions/35313761/windows-10-icons-in-cordova-config-xml -->
+    <platform name="windows">
+      <icon src="icons/windows/Square150x150Logo.png" target="StoreLogo"         width="150"  height="150"  />
+      <icon src="icons/windows/smalllogo30x30.png"    target="Square30x30Logo"   width="30"   height="30"   />
+      <icon src="icons/windows/Square44x44Logo.png"   target="Square44x44Logo"   width="44"   height="44"   />
+      <icon src="icons/windows/Square70x70Logo.png"   target="Square70x70Logo"   width="70"   height="70"   />
+      <icon src="icons/windows/Square71x71Logo.png"   target="Square71x71Logo"   width="71"   height="71"   />
+      <icon src="icons/windows/Square150x150Logo.png" target="Square150x150Logo" width="150"  height="150"  />
+      <icon src="icons/windows/Square310x310Logo.png" target="Square310x310Logo" width="310"  height="310"  />
+      <icon src="icons/windows/Wide310x150Logo.png"   target="Wide310x150Logo"   width="310"  height="150"  />
+
+      <icon src="icons/windows/360x360.png"                                      width="360"  height="360"  />
+      <icon src="icons/windows/106x106.png"                                      width="106"  height="106"  />
+      <icon src="icons/windows/170x170.png"                                      width="170"  height="170"  />
+      <icon src="icons/windows/50x50.png"                                        width="50"   height="50"   />
+      <icon src="icons/windows/120x120.png"                                      width="120"  height="120"  />
+      <icon src="icons/windows/744x360.png"                                      width="744"  height="360"  />
+    </platform>
+
+    <!-- http://stackoverflow.com/questions/38784047/phonegap-windows-app-image-issue -->
+    <platform name="winphone">
+      <icon src="icons/windows/Square150x150Logo.png" target="StoreLogo"         width="150"  height="150"  />
+      <icon src="icons/windows/smalllogo30x30.png"    target="Square30x30Logo"   width="30"   height="30"   />
+      <icon src="icons/windows/Square44x44Logo.png"   target="Square44x44Logo"   width="44"   height="44"   />
+      <icon src="icons/windows/Square70x70Logo.png"   target="Square70x70Logo"   width="70"   height="70"   />
+      <icon src="icons/windows/Square71x71Logo.png"   target="Square71x71Logo"   width="71"   height="71"   />
+      <icon src="icons/windows/Square150x150Logo.png" target="Square150x150Logo" width="150"  height="150"  />
+      <icon src="icons/windows/Square310x310Logo.png" target="Square310x310Logo" width="310"  height="310"  />
+      <icon src="icons/windows/Wide310x150Logo.png"   target="Wide310x150Logo"   width="310"  height="150"  />
+
+      <icon src="icons/windows/360x360.png"                                      width="360"  height="360"  />
+      <icon src="icons/windows/106x106.png"                                      width="106"  height="106"  />
+      <icon src="icons/windows/170x170.png"                                      width="170"  height="170"  />
+      <icon src="icons/windows/50x50.png"                                        width="50"   height="50"   />
+      <icon src="icons/windows/120x120.png"                                      width="120"  height="120"  />
+      <icon src="icons/windows/744x360.png"                                      width="744"  height="360"  />
+    </platform>
+    
+    <!-- SPLASH: The default splash must be named splash.png and must reside in the root of your application folder. -->
+    <!-- Crashes app if left in -->
+    <!--<splash src="splash.png" />-->
+    
+
+    <!-- iPhone and iPod touch -->
+    <splash src="splash/iOS/320x480.png" platform="ios" width="320" height="480" />
+    <splash src="splash/iOS/480x320.png" platform="ios" width="480" height="320" />
+    
+    <splash src="splash/iOS/640x960.png" platform="ios" width="640" height="960" />
+    <splash src="splash/iOS/960x640.png" platform="ios" width="960" height="640" />
+
+    <!-- iPhone 5 / iPod Touch (5th Generation) -->
+    <splash src="splash/iOS/640x1136.png" platform="ios" width="640" height="1136" />
+    <splash src="splash/iOS/1136x640.png" platform="ios" width="1136" height="640" />
+
+    <!-- iPhone 6 -->
+    <splash src="splash/iOS/750x1334.png" platform="ios" width="750" height="1334" />
+    <splash src="splash/iOS/1334x750.png" platform="ios" width="1334" height="750" />
+    
+    <splash src="splash/iOS/1242x2208.png" platform="ios" width="1242" height="2208" />
+    <splash src="splash/iOS/2208x1242.png" platform="ios" width="2208" height="1242" />
+
+    <!-- iPhone 7+, 6s+ -->
+    <splash src="splash/iOS/1080x1920.png" platform="ios" width="1080" height="1920" />
+    <splash src="splash/iOS/1920x1080.png" platform="ios" width="1920" height="1080" />
+
+    <!-- iPad -->
+    <splash src="splash/iOS/768x1024.png" platform="ios" width="768" height="1024" />
+    <splash src="splash/iOS/1024x768.png" platform="ios" width="1024" height="768" />
+
+    <!-- 9.7-inch iPad Pro, iPad Air 2, iPad mini 4, iPad mini 2 -->
+    <splash src="splash/iOS/1536x2048.png" platform="ios" width="1536" height="2048" />
+    <splash src="splash/iOS/2048x1536.png" platform="ios" width="2048" height="1536" />
+
+    <!-- 12.9 inch iPad Pro -->
+    <splash src="splash/iOS/2048x2732.png" platform="ios" width="2048" height="2732" />
+    <splash src="splash/iOS/2732x2048.png" platform="ios" width="2732" height="2048" />
+
+    
+    <!-- ANDROID -->
+    
+    <!-- OLD -->
+    <gap:splash src="splash/splash.jpg" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="splash/splash.jpg" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="splash/splash.jpg" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="splash/splash.jpg" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="splash/splash.jpg" gap:platform="android" gap:density="xxhdpi" />
+
+    
+    <!--Portrait--> 
+    <!--<splash src="splash/android/320x426.png" platform="android" density="port-ldpi" width="320" height="426" />
+    <splash src="splash/android/320x470.png" platform="android" density="port-mdpi" width="320" height="470" />
+    <splash src="splash/android/480x640.png" platform="android" density="port-hdpi" width="480" height="640" />
+    <splash src="splash/android/720x960.png" platform="android" density="port-xhdpi" width="720" height="960" />-->
+      <!--Landscape--> 
+    <!--<splash src="splash/android/426x320.png" platform="android" density="land-ldpi" width="426" height="320" />
+    <splash src="splash/android/470x320.png" platform="android" density="land-mdpi" width="470" height="320" />
+    <splash src="splash/android/640x480.png" platform="android" density="land-hdpi" width="640" height="480" />
+    <splash src="splash/android/960x720.png" platform="android" density="land-xhdpi" width="960" height="720" />-->
+
+
+    <!-- Open up the app to allow external Web API access -->
+    <access origin="tel:*" launch-external="yes" />
+    <access origin="mailto:*" launch-external="yes" />
+    <access origin="sms:*" launch-external="yes" />
+    <access origin="*" />
+    <access origin="file:///*" />
+    <access origin="cdvfile:///*" />
+
+    <!-- <allow-navigation href="https://*/*" /> -->
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+
+    <!-- Turn on workstation debugging - You must set to "false" when publishing to stores -->
+    <gap:config-file platform="android" parent="/manifest">
+      <application android:debuggable="false" />
+    </gap:config-file>
+
+
+
+    <!-- Windows: http://phonegap.com/blog/2016/04/25/windows-10-and-phonegap-cli-6_1-now-on-build/ -->
+    
+    <!-- Windows 10 (default): -->
+    <preference name="windows-appx-target" value="uap" />
+    <!-- Windows 8.1: -->
+    <preference name="windows-appx-target" value="8.1-win" />
+    <!-- Windows Phone 8.1: -->
+    <!--<preference name="windows-appx-target" value="8.1-phone" />-->
+    
+    <!-- https://cordova.apache.org/docs/en/latest/guide/platforms/win8/index.html#signing-an-app -->
+
+    <!--<widget windows-packageVersion="2.0.0" ...="">-->
+    <!-- windows-packageVersion overrides version -->
+    <preference name="WindowsStoreIdentityName" value="TriSys.TriSysCRM"/>
+    <preference name="windows-identity-name" value="TriSys.TriSysCRM" />
+    <!-- WindowsStoreIdentityName overrides widget.id -->
+
+    <preference name="WindowsStoreIdentityPublisher" value="CN=DA45873D-6C2D-45A6-8005-8B49246821D2"/> 
+    <preference name="WindowsStoreIdentityPublisherDisplayName" value="TriSys Business Software"/> 
+    <!-- WindowsStorePublisherName overrides author -->
+    <!-- <preference name="WindowsStoreDisplayName" value="TriSys CRM"/> -->
+    <!-- WindowsStorePublisherName overrides name -->
+      
+      
+	</widget>

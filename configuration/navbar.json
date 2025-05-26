@@ -1,0 +1,62 @@
+﻿[
+    {
+        "ID": "navBar-ContactManagement",
+        "Caption": "CRM",
+        "ImagePath": "gi-group",
+        "Open": false,
+        "Visible": false,
+		"Locked": true
+    },
+    {
+        "ID": "navBar-Marketing",
+        "Caption": "Marketing",
+        "ImagePath": "fa-envelope-o",
+        "Open": false,
+        "Visible": false,
+        "Phone": false,
+		"Locked": true
+    },
+    {
+        "ID": "navBar-Search",
+        "Caption": "Saved Searches",
+        "ImagePath": "gi-search",
+        "Open": false,
+        "Visible": false,
+        "Phone": false,
+		"Locked": true
+    },
+    {
+        "ID": "navBar-Import",
+        "Caption": "Import",
+        "ImagePath": "gi-file_import",
+        "Open": false,
+        "Visible": false,
+        "Phone": false,
+		"Locked": true
+    },
+    {
+        "ID": "navBar-SystemAdministration",
+        "Caption": "Administration",
+        "ImagePath": "gi-cogwheel",
+        "Open": false,
+        "Visible": false,
+		"Locked": true
+    },
+    {
+        "ID": "navBar-Help",
+        "Caption": "Help",
+        "ImagePath": "gi-book",
+        "Open": true,
+        "Visible": true,
+		"Locked": true
+    },
+    {
+        "ID": "navBar-Developer",
+        "Caption": "Developer",
+        "ImagePath": "fa-file-code-o",
+        "Open": false,
+        "Visible": false,
+        "Phone": false,
+		"Locked": true
+    }
+]

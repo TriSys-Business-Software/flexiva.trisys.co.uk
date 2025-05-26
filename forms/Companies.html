@@ -1,0 +1,41 @@
+﻿
+<div id="company-lookup-criteria"></div>
+
+<!-- Grid Block -->
+<div class="block" id="companyGrid-Container">
+    <!-- Block Title -->
+    <div class="block-title">
+        <div class="block-options pull-right" id="companies-form-grid-buttons">
+            <div id="companyFileMenu" style="display: none;">
+            </div>
+            <a id="companiesExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('divCompanyGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+                <i class="fa fa-file-excel-o"></i> &nbsp; Excel
+            </a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)" onclick="CompanyLookupForm.FileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected company">
+                <i class="gi gi-folder_open"></i> &nbsp; Open
+            </a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)" onclick="CompanyLookupForm.FileMenuCallback('file-delete')" id="companies-form-grid-button-delete" class="btn btn-sm btn-default enable-tooltip" title="Delete selected company">
+                <i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+            </a>
+            <span>&nbsp;</span>
+            <div id="companyGridMenu">
+            </div>
+            <span>&nbsp;</span>
+            <div id="companyActionsMenu">
+            </div>
+        </div>
+        <h2><strong>Companies</strong> Grid <span id="companies-form-grid-selected-counter"></span></h2>
+    </div>
+    <!-- END Block Title -->
+    <!-- Block Content -->
+    <!-- The companies grid populated by JS -->
+    <div id="divCompanyGrid" style="border-width: 1px; width: 100%; ">
+    </div>
+    <!-- END Block Content -->
+</div>
+<!-- END Grid Block -->
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/companies.js"></script>

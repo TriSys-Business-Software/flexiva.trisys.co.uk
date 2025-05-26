@@ -1,0 +1,40 @@
+﻿<!--
+  -- Redirector.html
+  -- Created on Monday 21 May 2018 by Garry Lowther, TriSys Business Software
+  -- Copied from TriSys Support Portal for GDPR compliance
+  -->
+
+<style scoped>
+	.td-label-Redirector {
+		width: 120px;
+	}
+
+	.history > li {
+		margin-top: 8px;
+	}
+</style>
+
+<div class="content-header">
+	<div class="header-section">
+		<h1>
+			<i class="gi gi-direction"></i>Redirector
+			<br />
+			<small>
+				Routing your request to the appropriate page on our web site.
+			</small>
+		</h1>
+	</div>
+</div>
+
+<h1 style="text-align: center; padding-top: 25px;" id="Redirector-Spinner">
+	<i class="fa fa-sun-o fa-spin fa-3x" style="float: none;"></i> &nbsp;
+</h1>
+
+<h5 style="text-align: center; padding-top: 25px; padding-bottom: 25px;" id="Redirector-Message">Redirecting...</h5>
+
+<h5 style="text-align: center; padding-top: 25px; padding-bottom: 25px;" id="Redirector-Debug"></h5>
+
+<!-- Dynamically load the specific associated development/production javascript file -->
+<script type="text/javascript">
+	TriSysApex.WhiteLabelling.LoadJavascriptFile('js/pages/Redirector.js', null, 'Redirector.Load');
+</script>

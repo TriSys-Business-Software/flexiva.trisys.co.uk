@@ -1,0 +1,750 @@
+﻿[
+    {
+        "Category": "Consultant",
+        "Name": "Sparkline-Test-1",
+        "Caption": "Sparkline Test #1",
+        "CaptionBackColour": "yellow",
+        "CaptionForeColour": "blue",
+        "Icon": "gi-projector",
+        "Control": "ctrlSparklines-1.html",
+        "LoadedCallback": "ctrlSparklines1.LoadedInTile",
+        "AutoRefresh": false,
+        "AutoRefreshSeconds": 60,
+        "MenuVisible": true,
+        "MenuRefresh": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "Test-Sparkline-Test-1-Menu-Item",
+                "Caption": "Test Sparkline Test 1 Menu Item",
+                "Icon": "gi-projector"
+            }
+        ],
+        "MenuCallback": "ctrlSparklines1.ConfigureMenuButtonClick",
+        "MinimumTileSize": 4,
+        "Thumbnail": "sparkline-1-test.png",
+        "ThumbnailAlt": "See the images/trisys/dashboard-tiles folder. This is for end-users to quickly identify the tile from the dashboard wall designer.",
+        "Description": "This is a test tile/metric to prove the concept of standalone live-tiles. Enjoy ;-)",
+        "Hidden": true
+    },
+    {
+        "Category": "Placements",
+        "Name": "Ticker-Test-1",
+        "Caption": "Ticker Test #1",
+        "CaptionBackColour": "red",
+        "CaptionForeColour": "white",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlTicker-1.html",
+        "LoadedCallback": "ctrlTicker1.LoadedInTile",
+        "AutoRefresh": false,
+        "AutoRefreshSeconds": 60,
+        "MenuVisible": true,
+        "MenuRefresh": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "Font-Size-72",
+                "Caption": "Set Font Size to 72",
+                "Icon": "gi-plus"
+            },
+            {
+                "ID": "Font-Size-48",
+                "Caption": "Set Font Size to 48",
+                "Icon": "gi-minus"
+            },
+            {
+                "ID": "Direction-Left",
+                "Caption": "Change Direction Right to Left",
+                "Icon": "gi-left_arrow"
+            },
+            {
+                "ID": "Direction-Right",
+                "Caption": "Change Direction Left to Right",
+                "Icon": "gi-right_arrow"
+            }
+        ],
+        "MenuCallback": "ctrlTicker1.ConfigureMenuButtonClick",
+        "MinimumTileSize": 1,
+        "Thumbnail": "ticker-1.png",
+        "ThumbnailAlt": "See the images/trisys/dashboard-tiles folder. This is for end-users to quickly identify the tile from the dashboard wall designer.",
+        "Description": "This is a test tile/metric to prove the concept of standalone live-tiles. Enjoy ;-)",
+        "Hidden": true
+    },
+    {
+        "Category": "Undefined",
+        "Name": "InProgress",
+        "Caption": "In Progress #1",
+        "CaptionBackColour": "pink",
+        "CaptionForeColour": "red",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "not exist yet.html",
+        "AutoRefresh": false,
+        "AutoRefreshSeconds": 60,
+        "MenuVisible": true,
+        "MenuRefresh": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "Test-Menu-Item",
+                "Caption": "Test Menu Item",
+                "Icon": "gi-film"
+            }
+        ],
+        "Description": "This is a test of what an in-development tile would look like. It is here to test this framework only and should not appear in production.",
+        "Hidden": true
+    },
+    {
+        "Category": "Requirements",
+        "Name": "TopJobs",
+        "Caption": "Top Jobs",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlTopJobs.html",
+        "LoadedCallback": "ctrlTopJobs.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "List the top jobs according to the specified criteria.",
+        "Thumbnail": "apex-top-jobs-thumbnail.png",
+        "ThumbnailAlt": "Show top 10 jobs based on selected criteria."
+    },
+    {
+        "Category": "Placements",
+        "Name": "PlacementType",
+        "Caption": "Placement Type",
+        "HideCaption": false,
+        "Icon": "gi-gbp",
+        "Control": "ctrlPlacementType.html",
+        "LoadedCallback": "ctrlPlacementTypeChart.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Chart the breakdown in placement types.",
+        "Thumbnail": "apex-placement-type-thumbnail.png",
+        "ThumbnailAlt": "Placement types chart."
+    },
+    {
+        "Category": "Placements",
+        "Name": "PlacementLeaderboard",
+        "Caption": "Placement Leaderboard",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlPlacementLeaderboard.html",
+        "LoadedCallback": "ctrlPlacementLeaderboard.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "Permanent",
+                "Caption": "Permanent",
+                "Icon": "gi-old_man"
+            },
+            {
+                "ID": "ContractTemp",
+                "Caption": "Contract/Temp",
+                "Icon": "gi-stopwatch"
+            },
+            {
+                "ID": "AllTime",
+                "Caption": "All Time",
+                "Icon": "gi-calendar"
+            }
+        ],
+        "MenuCallback": "ctrlPlacementLeaderboard.ConfigureMenuButtonClick",
+        "Description": "List the top consultants making placements this month.",
+        "Thumbnail": "apex-placement-leaderboard-thumbnail.png",
+        "ThumbnailAlt": "Top consultants making placements this month."
+    },
+    {
+        "Category": "Placements",
+        "Name": "LeaderboardTicker",
+        "Caption": "Leaderboard Ticker",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlLeaderboardTicker.html",
+        "LoadedCallback": "ctrlLeaderboardTicker.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [            
+            {
+                "ID": "AllTime",
+                "Caption": "All Time",
+                "Icon": "gi-calendar"
+            }
+        ],
+        "MenuCallback": "ctrlLeaderboardTicker.ConfigureMenuButtonClick",
+        "Description": "Scroll and order the top consultants making placements this month.",
+        "Thumbnail": "apex-leaderboard-ticker-thumbnail.png",
+        "ThumbnailAlt": "Top consultants profit ticker."
+    },
+    {
+        "Category": "Requirements",
+        "Name": "MyQuickStats",
+        "Caption": "My Quick Stats",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlMyQuickStats.html",
+        "LoadedCallback": "ctrlMyQuickStats.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Display summary statistics about end-user performance.",
+        "Thumbnail": "apex-my-quick-stats-thumbnail.png",
+        "ThumbnailAlt": "Summary statistics about end-user."
+    },
+    {
+        "Category": "Financial",
+        "Name": "MonthlyMarginAndFees",
+        "Caption": "Monthly Margin And Fees",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlMonthlyMarginAndFees.html",
+        "LoadedCallback": "ctrlMonthlyMarginAndFees.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Display monthly fees and margins about end-user performance.",
+        "Thumbnail": "apex-monthly-margin-fees-thumbnail.png",
+        "ThumbnailAlt": "Monthly fees/margins for end-user."
+    },
+    {
+        "Category": "Companies",
+        "Name": "Top10Clients",
+        "Caption": "Top 10 Clients by Profit",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlTop10ClientsByProfit.html",
+        "LoadedCallback": "ctrlTop10ClientsByProfit.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Display total profit (fees and margins) per company.",
+        "Thumbnail": "apex-top-10-clients-profit-thumbnail.png",
+        "ThumbnailAlt": "Total profit (fees and margins) per company."
+    },
+    {
+        "Category": "Financial",
+        "Name": "CandidateSourceProfits",
+        "Caption": "Profits by Candidate Source",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlCandidateSourceProfits.html",
+        "LoadedCallback": "ctrlCandidateSourceProfits.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "Permanent",
+                "Caption": "Permanent",
+                "Icon": "gi-old_man"
+            },
+            {
+                "ID": "Contract",
+                "Caption": "Contract",
+                "Icon": "gi-stopwatch"
+            },
+            {
+                "ID": "Temporary",
+                "Caption": "Temporary",
+                "Icon": "gi-clock"
+            },
+            {
+                "ID": "All",
+                "Caption": "All",
+                "Icon": "fa-bar-chart-o"
+            }
+        ],
+        "MenuCallback": "ctrlCandidateSourceProfits.ConfigureMenuButtonClick",
+        "Description": "Display total profit by candidate source for either Permanent, Contract, Temporary or All.",
+        "Thumbnail": "apex-candidate-source-profits-thumbnail.png",
+        "ThumbnailAlt": "Total profit (fees and margins) per candidate source."
+    },
+    {
+        "Category": "Social",
+        "Name": "WeatherForecast",
+        "Caption": "Weather Forecast",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlWeatherForecast.html",
+        "LoadedCallback": "ctrlWeatherForecast.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [
+			{
+				"ID": "14979",
+				"Caption": "Cambridge, United Kingdom",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/fotob66d64e93c43b6b71d78581fecdc8f16.png\">"
+			},
+			{
+				"ID": "2459115",
+				"Caption": "New York, United States",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/foto9a70906d8adc1e03aa2e608d74914b15.png\">"
+			},
+			{
+				"ID": "44418",
+				"Caption": "London, United Kingdom",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/foto46b944bb454ac30b66ac761b599d7b4c.png\">"
+			},
+			{
+				"ID": "615702",
+				"Caption": "Paris, France",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/foto82b046f2b53c26a53a45170c8af3eafe.png\">"
+			},
+			{
+				"ID": "676757",
+				"Caption": "Munich, Germany",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/foto7b519ca5f698024e885cccbcb51edef6.png\">"
+			},
+			{
+				"ID": "24865698",
+				"Caption": "Hong Kong, China",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/foto94addc75d074e58178f79354cd6081d7.png\">"
+			},
+			{
+				"ID": "1118370",
+				"Caption": "Tokyo, Japan",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/foto89a80031e0d0ded9da1ddeac0d9d64c0.png\">"
+			},
+			{
+				"ID": "1105779",
+				"Caption": "Sydney, Australia",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/foto9ebf1b0494b49774abb87ed49a2b36d8.png\">"
+			},
+			{
+				"ID": "2487956",
+				"Caption": "San Francisco, United States",
+				"Icon": "fa-map-marker",
+				"yourweather": "<img src=\"https://www.yourweather.co.uk/wimages/foto885b245b20ebe41d291cb5651b9140e6.png\">"
+			}
+        ],
+        "MenuCallback": "ctrlWeatherForecast.ConfigureMenuButtonClick",
+        "Description": "Display 3 day weather forecast for a specified location.",
+        "Thumbnail": "apex-weather-forecast-thumbnail.png",
+        "ThumbnailAlt": "Weather forecast."
+    },
+    {
+        "Category": "Social",
+        "Name": "TwitterFeed",
+        "Caption": "Twitter Feed",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlTwitterFeed.html",
+        "LoadedCallback": "ctrlTwitterFeed.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "TriSys, 380744941695025153",
+                "Caption": "TriSys",
+                "Icon": "si-twitter"
+            },
+            {
+                "ID": "BBCNews, 605264299184017408",
+                "Caption": "BBC News",
+                "Icon": "si-twitter"
+            },
+            {
+                "ID": "Microsoft, 605265374762946561",
+                "Caption": "Microsoft",
+                "Icon": "si-twitter"
+            },
+            {
+                "ID": "Google, 605265679768559616",
+                "Caption": "Google",
+                "Icon": "si-twitter"
+            },
+            {
+                "ID": "Amazon, 605266051581005824",
+                "Caption": "Amazon",
+                "Icon": "si-twitter"
+            },
+            {
+                "ID": "AppStore, 605267319770738688",
+                "Caption": "Apple App Store",
+                "Icon": "si-twitter"
+            },
+            {
+                "ID": "SkyNews, 747696840993280000",
+                "Caption": "Sky News",
+                "Icon": "si-twitter"
+            }
+        ],
+        "MenuCallback": "ctrlTwitterFeed.ConfigureMenuButtonClick",
+        "Description": "Display twitter feed for a specified tag.",
+        "Thumbnail": "apex-twitter-feed-thumbnail.png",
+        "ThumbnailAlt": "Twitter Feed."
+    },
+    {
+        "Category": "System",
+        "Name": "WorldClock",
+        "Caption": "World Clock",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlWorldClock.html",
+        "LoadedCallback": "ctrlWorldClock.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "America%2FNew_York, New York, USA",
+                "Caption": "New York, United States",
+                "Icon": "fa-map-marker"
+            },
+            {
+                "ID": "Europe%2FLondon, London, United Kingdom",
+                "Caption": "London, United Kingdom",
+                "Icon": "fa-map-marker"
+            },
+            {
+                "ID": "Europe%2FParis, Paris, France",
+                "Caption": "Paris, France",
+                "Icon": "fa-map-marker"
+            },
+            {
+                "ID": "Europe%2FBerlin, Munich, Germany",
+                "Caption": "Munich, Germany",
+                "Icon": "fa-map-marker"
+            }
+        ],
+        "MenuCallback": "ctrlWorldClock.ConfigureMenuButtonClick",
+        "Description": "World Clock.",
+        "Thumbnail": "apex-world-clock-thumbnail.png",
+        "ThumbnailAlt": "World Clock."
+    },
+    {
+        "Category": "Consultant",
+        "Name": "Consultant12MonthActivity",
+        "Caption": "12 Month Activity",
+        "HideCaption": false,
+        "Icon": "gi-film",
+        "Control": "ctrlConsultant12MonthActivity.html",
+        "LoadedCallback": "ctrlConsultant12MonthActivity.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,        
+        "MenuCallback": "ctrlConsultant12MonthActivity.ConfigureMenuButtonClick",
+        "Description": "Consultant 12 Month Activity showing a series of sparklines for key performance indicators by user by month.",
+        "Thumbnail": "apex-consultant-12-month-activity-thumbnail.png",
+        "ThumbnailAlt": "Consultant 12 Month Activity."
+    },
+    {
+        "Category": "Consultant",
+        "Name": "ConsultantPlacementSummary",
+        "Caption": "Consultant Placement Summary",
+        "HideCaption": false,
+        "Icon": "gi-woman",
+        "Control": "ctrlConsultantPlacementSummary.html",
+        "LoadedCallback": "ctrlConsultantPlacementSummary.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "Settings",
+                "Caption": "Settings",
+                "Icon": "gi-settings"
+            }
+        ],
+        "MenuCallback": "ctrlConsultantPlacementSummary.ConfigureMenuButtonClick",
+        "Description": "Consultant summary of placement activity with targets against actuals.",
+        "Thumbnail": "apex-consultant-placement-summary-thumbnail.png",
+        "ThumbnailAlt": "Consultant Placement Summary."
+    },
+    {
+        "Category": "System",
+        "Name": "EntityMetrics",
+        "Caption": "Entity Metrics",
+        "HideCaption": false,
+        "Icon": "gi-charts",
+        "Control": "ctrlEntityMetrics.html",
+        "LoadedCallback": "ctrlEntityMetrics.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Display counters for each entity with quick lookup/add button.",
+        "Thumbnail": "apex-entity-metrics.png",
+        "ThumbnailAlt": "Counters for each entity."
+    },
+    {
+        "Category": "Contacts",
+        "Name": "CVAutoRec",
+        "Caption": "CV Import",
+        "HideCaption": false,
+        "Icon": "gi-file_export",
+        "Control": "ctrlCVImport.html",
+        "LoadedCallback": "ctrlCVImport.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Quick drag/drop of CV document to invoke CV auto-recognition process.",
+        "Thumbnail": "apex-cv-import.png",
+        "ThumbnailAlt": "Quickly import a candidate CV."
+    },
+    {
+        "Category": "Contacts",
+        "Name": "ContactImport",
+        "Caption": "Contact Import",
+        "HideCaption": false,
+        "Icon": "gi-disk_import",
+        "Control": "ctrlContactImport.html",
+        "LoadedCallback": "ctrlContactImport.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Quick drag/drop of CSV/XLS file to import contact records.",
+        "Thumbnail": "apex-data-import.png",
+        "ThumbnailAlt": "Quickly import a set of contact/company records."
+    },
+    {
+        "Category": "Requirements",
+        "Name": "ActiveRequirements",
+        "Caption": "Active Requirements",
+        "HideCaption": false,
+        "Icon": "gi-piano",
+        "Control": "ctrlActiveRequirements.html",
+        "LoadedCallback": "ctrlActiveRequirements.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "MyVacanciesOnly",
+                "Caption": "Yours Only",
+                "Icon": "gi-user"
+            },
+            {
+                "ID": "EveryonesVacancies",
+                "Caption": "Everyones",
+                "Icon": "gi-parents"
+            }
+        ],
+        "MenuCallback": "ctrlActiveRequirements.ConfigureMenuButtonClick",
+        "Description": "Show the currently active 'live' requirements.",
+        "Thumbnail": "apex-active-requirements.png",
+        "ThumbnailAlt": "Active 'live' requirements."
+    },
+    {
+        "Category": "Requirements",
+        "Name": "UpcomingInterviews",
+        "Caption": "Upcoming Interviews",
+        "HideCaption": false,
+        "Icon": "gi-bowling",
+        "Control": "ctrlUpcomingInterviews.html",
+        "LoadedCallback": "ctrlUpcomingInterviews.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuItems": [
+            {
+                "ID": "MyInterviewsOnly",
+                "Caption": "Yours Only",
+                "Icon": "gi-user"
+            },
+            {
+                "ID": "EveryonesInterviews",
+                "Caption": "Everyones",
+                "Icon": "gi-parents"
+            }
+        ],
+        "MenuCallback": "ctrlUpcomingInterviews.ConfigureMenuButtonClick",
+        "Description": "Show the upcoming interviews for your candidates and requirements.",
+        "Thumbnail": "apex-upcoming-interviews.png",
+        "ThumbnailAlt": "Upcoming interviews."
+    },
+    {
+        "Category": "Requirements",
+        "Name": "MapActiveRequirements",
+        "Caption": "Map of Active Requirements",
+        "HideCaption": false,
+        "Icon": "gi-google_maps",
+        "Control": "ctrlLiveVacanciesMap.html",
+        "LoadedCallback": "ctrlLiveVacanciesMap.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Show the live requirements on a map.",
+        "Thumbnail": "apex-live-req-map.png",
+        "ThumbnailAlt": "Live requirements on a map."
+    },
+    {
+        "Category": "Placements",
+        "Name": "MapCurrentPlacements",
+        "Caption": "Map of Current Placements",
+        "HideCaption": false,
+        "Icon": "gi-google_maps",
+        "Control": "ctrlCurrentPlacementsMap.html",
+        "LoadedCallback": "ctrlCurrentPlacementsMap.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Show the current placements on a map.",
+        "Thumbnail": "apex-current-placements-map.png",
+        "ThumbnailAlt": "Current placements on a map."
+    },
+    {
+        "Category": "Social",
+        "Name": "RssFeed",
+        "Caption": "RSS Feed",
+        "HideCaption": false,
+        "Icon": "si-rss",
+        "Control": "ctrlRSSFeed.html",
+        "LoadedCallback": "ctrlRSSFeed.LoadedInTile",
+        "AutoRefresh": false,
+        "AutoRefreshSeconds": 60,
+        "AutoRefreshCallback": "ctrlRSSFeed.AutoRefresh",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuCallback": "ctrlRSSFeed.ConfigureMenuButtonClick",
+        "MenuItems": [
+            {
+                "ID": "BBC-News-UK",
+                "Caption": "BBC News UK",
+                "Icon": "si-rss",
+                "Settings": {
+                    "URL": "http://feeds.bbci.co.uk/news/rss.xml?edition=uk",
+                    "Image": "http://newsimg.bbc.co.uk/shared/bsp/xsl/rss/img/news_logo.gif"
+                }
+            },
+            {
+                "ID": "Reuters-UK",
+                "Caption": "Reuters UK",
+                "Icon": "si-rss",
+                "Settings": {
+                    "URL": "http://feeds.reuters.com/reuters/UKDomesticNews?format=xml",
+                    "Image": "https://apex.trisys.co.uk/legacy/images/misc/thomsonreuters.jpg"
+                }
+            },
+            {
+                "ID": "Financial-Times-Business",
+                "Caption": "Financial Times Business",
+                "Icon": "si-rss",
+                "Settings": {
+                    "URL": "http://www.ft.com/rss/home/uk?ft_site=falcon&desktop=true",
+                    "Image": "https://apex.trisys.co.uk/legacy/images/misc/financial-times-logo.png"
+                }
+            },
+            {
+                "ID": "Time-Magazine",
+                "Caption": "Time Magazine",
+                "Icon": "si-rss",
+                "Settings": {
+                    "URL": "http://feeds2.feedburner.com/time/world",
+                    "Image": "https://apex.trisys.co.uk/legacy/images/misc/time-magazine-logo.jpg"
+                }
+            },
+            {
+                "ID": "iTunes-Top-100",
+                "Caption": "iTunes Top 100",
+                "Icon": "si-rss",
+                "Settings": {
+                    "URL": "http://feeds.musicchartfeeds.com/itunestop100songsusa",
+                    "Image": "https://apex.trisys.co.uk/legacy/images/misc/itunes-logo.png"
+                }
+            },
+            {
+                "ID": "Instyle-Celebrity-Pictures",
+                "Caption": "Instyle Celebrities",
+                "Icon": "si-rss",
+                "Settings": {
+                    "URL": "http://www.instyle.co.uk/celebrity/pictures.rss",
+                    "Image": "https://apex.trisys.co.uk/legacy/images/misc/instyle-logo.png"
+                }
+            },
+            {
+                "ID": "London-Stock-Exchange",
+                "Caption": "London Stock Exchange",
+                "Icon": "si-rss",
+                "Settings": {
+                    "URL": "http://www.londonstockexchange.com/exchange/CompanyNewsRSS.html?newsSource=RNS&indexSymbol=UKX",
+                    "Image": "https://apex.trisys.co.uk/legacy/images/misc/london-stock-exchange.png"
+                }
+            }
+
+        ],
+        "Description": "Show a ticker for an RSS feed.",
+        "Thumbnail": "apex-rss-feeds.png",
+        "ThumbnailAlt": "Current placements on a map."
+    },
+    {
+        "Category": "Placements",
+        "Name": "Starters",
+        "Caption": "Starters",
+        "HideCaption": false,
+        "Icon": "gi-gbp",
+        "Control": "ctrlStarters.html",
+        "LoadedCallback": "ctrlStarters.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Show the placements which are starting.",
+        "Thumbnail": "apex-starters.png",
+        "ThumbnailAlt": "Placements starting."
+    },
+    {
+        "Category": "Placements",
+        "Name": "Finishers",
+        "Caption": "Finishers",
+        "HideCaption": false,
+        "Icon": "gi-gbp",
+        "Control": "ctrlFinishers.html",
+        "LoadedCallback": "ctrlFinishers.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Show the placements which are finishing.",
+        "Thumbnail": "apex-starters.png",
+        "ThumbnailAlt": "Placements finishing."
+    },
+    {
+        "Category": "Placements",
+        "Name": "ContractorsWorking",
+        "Caption": "Contractors Working",
+        "HideCaption": false,
+        "Icon": "gi-gbp",
+        "Control": "ctrlContractorsWorking.html",
+        "LoadedCallback": "ctrlContractorsWorking.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Show the placements where contractors are working.",
+        "Thumbnail": "apex-contractors-working.png",
+        "ThumbnailAlt": "Placements where contractors working."
+    },
+    {
+        "Category": "System",
+        "Name": "ctrlTop5Pie",
+        "Caption": "Top 5",
+        "HideCaption": false,
+        "Icon": "gi-pie_chart",
+        "Control": "ctrlTop5Pie.html",
+        "LoadedCallback": "ctrlTop5Pie.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuConfigurationItems": ["chart-options"],
+        "Description": "Generic Top 5 Pie Chart. Developers or database administrators must configure a SQL statement to return top 5 percentages e.g. Select top 5 Contact_OwnerUser as Metric, 100. * count(*) / sum(count(*)) over () as Percentage from v_Contact_AllFields Where Contact_OwnerUser is not null group by Contact_OwnerUser order by 2 desc ",
+        "Thumbnail": "apex-top-5-pie.png",
+        "ThumbnailAlt": "Top 5"
+    },
+    {
+        "Category": "System",
+        "Name": "WebPage",
+        "Caption": "Web Page",
+        "HideCaption": false,
+        "Icon": "gi-globe",
+        "Control": "ctrlWebPage.html",
+        "LoadedCallback": "ctrlWebPage.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "MenuConfigurationItems": [ "webpage-options" ],
+        "Description": "Display any web page by specifying the height and URL. Please ensure that page is HTTPS else it will not be displayed.",
+        "Thumbnail": "apex-webpage.png",
+        "ThumbnailAlt": "Web Page"
+    },
+    {
+        "Category": "Consultant",
+        "Name": "ConsultantSummary",
+        "Caption": "Consultant Summary",
+        "HideCaption": false,
+        "Icon": "gi-list",
+        "Control": "ctrlConsultantSummary.html",
+        "LoadedCallback": "ctrlConsultantSummary.LoadedInTile",
+        "MenuVisible": true,
+        "MenuClose": true,
+        "Description": "Consultant summary of 19 important activities.",
+        "Thumbnail": "apex-consultant-summary.png",
+        "ThumbnailAlt": "Consultant Summary."
+    }
+]

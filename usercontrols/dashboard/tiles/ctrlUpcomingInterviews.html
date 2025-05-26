@@ -1,0 +1,70 @@
+﻿<div class="row">
+
+    <div class="col-xs-12">
+
+        <div class="table-responsive">
+
+            <style type="text/css" scoped>
+                .table thead > tr > th {
+                    font-size: 12px;
+                }
+            </style>
+
+            <table class="table table-striped table-bordered table-hover" style="cursor: pointer;" id="ctrlUpcomingInterviews-table">
+                <thead id="ctrlUpcomingInterviews-table-header">
+                    <tr>
+                        <th>Candidate</th>
+                        <th>Job Title</th>
+                        <th>Date / Time</th>
+                        <th>Stage</th>
+                        <th>Reference</th>
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody class="interviews" id="ctrlUpcomingInterviews-table-body">
+
+                    <tr>
+                        <td>
+                            <a class="hyperlink"><span class="Candidate"></span></a>
+                        </td>
+                        <td class="JobTitle"></td>
+                        <td class="DateTime"></td>
+                        <td class="Stage"></td>
+                        <td>
+                            <a class="hyperlink"><span class="Reference"></span></a>
+                        </td>
+                        <td class="Company"></td>
+                        <td class="Contact"></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody class="interviews" id="ctrlUpcomingInterviews-table-body-phone">
+
+                    <tr>
+                        <td>
+                            <a class="hyperlink" style="cursor: pointer;">
+                                <span class="Candidate"></span>: <span class="JobTitle"></span>
+                            </a>
+                            <br />
+                            Date / Time: <b><span class="DateTime"></span></b>
+                            <br />
+                            <i class="gi gi-google_maps"></i> &nbsp; <a class="hyperlink"><span class="Location"></span></a>
+                            <br />
+                            Requirement: <a class="hyperlink"><span class="Reference"></span></a>
+                            <br />
+                            <b><span class="Contact"></span></b> at <b><span class="Company"></span></b>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- This javascript is in the tiles folder for ease of maintenance -->
+<script src="usercontrols/dashboard/tiles/ctrlUpcomingInterviews.js"></script>

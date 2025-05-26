@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../kendoui/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://apex.trisys.co.uk/javascript/trisysapi.js"></script>
+    <script type="text/javascript" src="https://apex.trisys.co.uk/javascript/trisyssdk.js"></script>
+</head>
+<body>
+
+    <h4>https://api.trisys.co.uk/users/search</h4>
+    <p>
+        This page demonstrates how to get a page of users via the TriSys Web API.
+        <br /><br />
+    </p>
+
+    <p>
+        Raw JSON Results:
+        <br />
+        <hr />
+    </p>
+    <div id="trisys-api-results"></div>
+    <hr />
+
+    <script type="text/javascript">
+
+        // Code to get a list of user accounts from the public TriSys Web API
+        // October 2015
+        //
+        $('#trisys-api-results').html('Calling the TriSys Web API...');
+
+        // The callback function
+        var fnAuthenticated = function(bAuthenticated)
+        {
+            // Basic data packet to get second page of 10 user accounts
+            var dataPacket = {
+                'PageNumber': 2,
+                'RecordsPerPage': 10,
+                'SortColumnName': ''
+            };
+
+            var payloadObject = {};
+
+            payloadObject.URL = 'Users/Search';
+
+            // Our payload
+            payloadObject.OutboundDataPacket = dataPacket;
+
+            // Callback function
+            payloadObject.InboundDataFunction = function (data) {
+    
+                var sDisplay = JSON.stringify(data);
+
+                $('#trisys-api-results').html(sDisplay);
+    
+                return true;
+            };
+
+            payloadObject.ErrorHandlerFunction = function (request, status, error) {
+                alert('http://jsfiddle.net/TriSys/Xm77p/ : ' + status + ": " + error + ". responseText: " +
+                      request.responseText);
+            };
+
+            TriSysAPI.Data.PostToWebAPI(payloadObject);
+        };
+
+        // Override base library settings
+        TriSysAPI.Cookies.CookiePrefix = 'TriSys-Mobile';
+        var sDeveloperSiteKey = '20131222-ba09-4e4c-8bcb-apex.web.app';
+        TriSysAPI.Session.SetDeveloperSiteKey(sDeveloperSiteKey);
+
+        var dataPacket = {
+            FullName: 'martin.earls@opuslaboris.com',
+            Password: 'upwork-test-account'
+        };
+
+        var payloadObject = {};
+
+        payloadObject.URL = "Security/AuthenticateTriSysCRMCredentials";
+
+        payloadObject.OutboundDataPacket = dataPacket;
+
+        payloadObject.InboundDataFunction = function (data)
+        {
+            alert(data);
+            var sDataServicesKey = data;
+
+            if (sDataServicesKey && sDataServicesKey.length > 0)
+            {
+                // Record in session state
+                TriSysAPI.Session.SetDataServicesKey(sDataServicesKey);
+
+                //if (bRememberMe)
+                //	YourCacheFunction();
+
+
+                // Call back into app engine to continue login process
+                fnAuthenticated(true);
+            }
+            else
+            {
+                sIncorrectMessage = 'Incorrect login credentials.';
+
+                alert(sIncorrectMessage);
+            }
+        };
+
+        payloadObject.ErrorHandlerFunction = function (request, status, error)
+        {
+            alert(status + ": " + error + ". responseText: " + request.responseText);
+        };
+
+        TriSysAPI.Data.PostToWebAPI(payloadObject);
+
+    </script>
+
+</body>
+</html>

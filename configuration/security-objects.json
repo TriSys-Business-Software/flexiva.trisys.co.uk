@@ -1,0 +1,2171 @@
+{
+	"FileName": "security-objects.json",
+	"Description": "This is the security sub-system designed to turn off certain product features for new customers.",
+	"Future": "This replaced interim-security.json in Feb 2018.",
+	"Created": "20 February 2018",
+	"SeeAlso": "TriSysApex.Cache.ApplicationSettingsManager.Security.Apply",
+	"AndAlso": "Web API E:/inetpub/api.trisys.co.uk/Flexiva/custom/{customer}/custom-security-objects.json",
+
+	"SecurityItems": [
+		{
+			"Name": "SaveSettingsButton",
+			"Description": [
+				"Show save settings button on action popup form"
+			],
+			"Category": "Actions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true"
+		},
+		{
+			"Name": "Form",
+			"Description": [
+				"The form which is opened after the user has logged into the application"
+			],
+			"Category": "PostLogin",
+			"Type": "TextBox",
+			"Default": ""
+		},
+		{
+			"Name": "Activities",
+			"Description": [
+				"The task alarms/post it notes, interviews, live requirements, contractors working, starters and finishers"
+			],
+			"Category": "Logged in User Drop Down  Menu",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"LoggedInUserDropDownMenu-ActivityHeader",
+				"LoggedInUserDropDownMenu-Alarms",
+				"LoggedInUserDropDownMenu-Divider-ActiveSearch",
+				"LoggedInUserDropDownMenu-ActiveSearch",
+				"LoggedInUserDropDownMenu-Divider-Tasks",
+				"LoggedInUserDropDownMenu-Tasks"
+			]
+		},
+		{
+			"Name": "DefaultGroup",
+			"Description": [
+				"Which navigation bar group is shown when the application starts"
+			],
+			"Category": "NavBar",
+			"Type": "TextBox",
+			"Default": "navBar-ContactManagement"
+		},
+		{
+			"Name": "Timesheets",
+			"Description": [
+				"Visibility of timesheets menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "Timesheets-MenuItem" ]
+		},
+		{
+			"Name": "Task Search",
+			"Description": [
+				"Visibility of task search menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "TaskSearch-MenuItem" ]
+		},
+		{
+			"Name": "Daxtra Search",
+			"Description": [
+				"Visibility of Daxtra search menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "DaxtraSearch-MenuItem" ]
+		},
+		{
+			"Name": "Daxtra Menu on Contact Form",
+			"Description": [
+				"Visibility of Daxtra menu option on contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "contactForm-DaxtraMenu" ]
+		},
+		{
+			"Name": "Daxtra Menu on Requirement Form",
+			"Description": [
+				"Visibility of Daxtra menu option on requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "requirementForm-DaxtraMenu" ]
+		},
+		{
+			"Name": "AuthoriseTimesheet",
+			"Description": [
+				"Visibility of timesheets menu option: Authorise Timesheet"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "timesheetForm-ActionsMenu-AuthoriseTimesheet" ]
+		},
+		{
+			"Name": "CV Auto Recognition",
+			"Caption": "CV Auto-Recognition",
+			"Description": [
+				"Visibility of CV auto-recognition menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "CVAutoRecognition-MenuItem" ]
+		},
+		{
+			"Name": "Chat",
+			"Description": [
+				"Visibility of chat menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "HelpChat-MenuItem" ]
+		},
+		{
+			"Name": "Dashboard",
+			"Description": [
+				"Visibility of dashboard menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "Dashboard-MenuItem" ]
+		},
+		{
+			"Name": "Reports",
+			"Description": [
+				"Are management reports available?"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "Reports-MenuItem" ]
+		},
+		{
+			"Name": "Video Conferencing",
+			"Description": [
+				"Visibility of video conferencing"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "VideoChat-MenuItem" ]
+		},
+		{
+			"Name": "Marketing",
+			"Description": [
+				"Visibility of the marketing campaign group"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "navBar-Marketing-GroupID" ]
+		},
+		{
+			"Name": "Timesheet Search",
+			"Description": [
+				"Visibility of timesheet search menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "TimesheetSearch-MenuItem" ]
+		},
+		{
+			"Name": "Administration Nav Bar Menu",
+			"Description": [
+				"Is the Administrator menu on the navigation bar available to this user?"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "navBar-SystemAdministration-GroupID" ]
+		},
+        {
+			"Name": "Admin Console",
+			"Description": [
+				"Is the Administrator Console available to this user?",
+				"Only members of the System Administration group can access the admin console."
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "AdminConsole-MenuItem" ]
+		},
+		{
+			"Name": "GDPR Monitor",
+			"Description": [
+				"Is the GDPR Monitor available to this user?"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "GDPRMonitor-MenuItem" ]
+		},
+		{
+			"Name": "User Options",
+			"Description": [
+				"Visibility of user options menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "UserOptions-MenuItem" ]
+		},
+		{
+			"Name": "Terms and Conditions",
+			"Caption": "Terms & Conditions",
+			"Description": [
+				"Is the terms and conditions menu available"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "TermsAndConditions-MenuItem" ]
+		},
+		{
+			"Name": "Developer Group",
+			"Description": [
+				"Visibility of the developer group"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "navBar-Developer-GroupID" ]
+		},
+		{
+			"Name": "Online Portals Group",
+			"Description": [
+				"Visibility of the online portals group"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "navBar-OnlinePortals-GroupID" ]
+		},
+		{
+			"Name": "Help Group",
+			"Description": [
+				"Visibility of the help group"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "navBar-Help-GroupID" ]
+		},
+		{
+			"Name": "File Manager",
+			"Description": [
+				"Visibility of file manager menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "FileManager-MenuItem" ]
+		},
+		{
+			"Name": "Diary Manager",
+			"Description": [
+				"Visibility of diary manager menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "DiaryManager-MenuItem" ]
+		},
+		{
+			"Name": "Data Import",
+			"Description": [
+				"Visibility of data import menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "DataImport-MenuItem" ]
+		},
+		{
+			"Name": "Optional Available Columns",
+			"Description": [
+				"Optional columns available in contact grids"
+			],
+			"Category": "Contacts",
+			"Type": "MultiSelectCombo",
+			"List": [ "Contact_AddedByName", "Contact_AvailabilityDate", "Contact_ContactSource", "Contact_LimitedCompany", "Contact_Status", "Contact_HomeEMail" ],
+			"SelectedItems": [ "Contact_Status" ],
+			"GridColumns": true,
+			"Grid": "grdContacts",
+			"Hidden": false
+		},
+		{
+			"Name": "Configure",
+			"Description": [
+				"Access to the configure view menu in the dashboard"
+			],
+			"Category": "Dashboard",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [ "dashboard-view-menu-configure" ]
+		},
+		{
+			"Name": "Manager",
+			"Description": [
+				"Access to the view manager menu in the dashboard"
+			],
+			"Category": "Dashboard",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [ "dashboard-view-menu-manager" ]
+		},
+		{
+			"Name": "View",
+			"Description": [
+				"Access to change the current view in the dashboard"
+			],
+			"Category": "Dashboard",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "true",
+			"DOMidList": [ "dashboard-view-menu-button" ]
+		},
+		{
+			"Name": "Delete CV",
+			"Description": [
+				"Delete incoming CV's"
+			],
+			"Category": "CV Auto Recognition",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [ "cvautorecognition-delete-cv" ]
+		},
+		{
+			"Name": "Find Job Description",
+			"Description": [
+				"Allow job description document to be added or changed"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "true",
+			"DOMidList": [
+				"RequirementConfigFields_JobDescription-FileReference_FindButton"
+			]
+		},
+		{
+			"Name": "Delete Job Description",
+			"Description": [
+				"Allow job description document to be deleted"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"RequirementConfigFields_JobDescription-FileReference_DeleteButton"
+			]
+		},
+		{
+			"Name": "Delete Additional Documents",
+			"Description": [
+				"Allow additional documents to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"CompanyConfigFields_AdditionalDoc1-FileReference_DeleteButton",
+				"CompanyConfigFields_AdditionalDoc2-FileReference_DeleteButton",
+				"CompanyConfigFields_AdditionalDoc3-FileReference_DeleteButton",
+				"CompanyConfigFields_AdditionalDoc4-FileReference_DeleteButton"
+			]
+		},
+		{
+			"Name": "Delete Logo",
+			"Description": [
+				"Allow company logo to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"CompanyConfigFields_CompanyLogo-FileReference_DeleteButton"
+			]
+		},
+		{
+			"Name": "Delete Social Profiles",
+			"Description": [
+				"Allow social network profiles to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"contact-form-social-linkedin-delete-profile",
+				"contact-form-social-facebook-delete-profile",
+				"contact-form-social-twitter-delete-profile",
+				"contact-form-social-youtube-delete-profile",
+				"contact-form-social-instagram-delete-profile",
+				"contact-form-social-pinterest-delete-profile"
+			]
+		},
+		{
+			"Name": "Delete Photo",
+			"Description": [
+				"Allow contact photo to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"ContactConfigFields_ContactPhoto-FileReference_DeleteButton"
+			]
+		},
+		{
+			"Name": "Delete Identification and Links",
+			"Description": [
+				"Allow identification and link documents to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"ContactConfigFields_IdentificationLink-FileReference_DeleteButton",
+				"ContactConfigFields_IdentificationLink2-FileReference_DeleteButton",
+				"ContactConfigFields_Link3-FileReference_DeleteButton",
+				"ContactConfigFields_Link4-FileReference_DeleteButton",
+				"ContactConfigFields_Link5-FileReference_DeleteButton",
+				"ContactConfigFields_Link6-FileReference_DeleteButton"
+			]
+		},
+		{
+			"Name": "Delete Formatted CVs",
+			"Caption": "Delete Formatted CV's",
+			"Description": [
+				"Allow formatted CV's to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"ContactConfigFields_FormattedCVFileRef1-CVManager_DeleteCVButton",
+				"ContactConfigFields_FormattedCVFileRef1-CVManager_DeleteCVButton",
+				"ContactConfigFields_FormattedCVFileRef2-CVManager_DeleteCVButton",
+				"ContactConfigFields_FormattedCVFileRef3-CVManager_DeleteCVButton",
+				"ContactConfigFields_FormattedCVFileRef4-CVManager_DeleteCVButton"
+			]
+		},
+		{
+			"Name": "Delete Tasks",
+			"Description": [
+				"Allow timesheet tasks to be deleted"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"timesheet-noteshistory-delete-button",
+				"timesheet-scheduledtasks-delete-button"
+			]
+		},
+		{
+			"Name": "Delete",
+			"Description": [
+				"Allow timesheets to be deleted"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"timesheetForm-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Library Documents",
+			"Description": [
+				"Allow documents in the timesheet document library to be deleted"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"DocumentLibrary-Delete-timesheet-form-documentlibrary"
+			]
+		},
+		{
+			"Name": "Delete Library Documents",
+			"Description": [
+				"Allow documents in the placement document library to be deleted"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"DocumentLibrary-Delete-placement-form-documentlibrary"
+			]
+		},
+		{
+			"Name": "Delete Library Documents",
+			"Description": [
+				"Allow documents in the requirement document library to be deleted"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"DocumentLibrary-Delete-requirement-form-documentlibrary"
+			]
+		},
+		{
+			"Name": "Delete Library Documents",
+			"Description": [
+				"Allow documents in the company document library to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"DocumentLibrary-Delete-company-form-documentlibrary"
+			]
+		},
+		{
+			"Name": "Delete Library Documents",
+			"Description": [
+				"Allow documents in the contact document library to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"DocumentLibrary-Delete-contact-form-documentlibrary"
+			]
+		},
+		{
+			"Name": "Delete Contract Rates",
+			"Description": [
+				"Allow placement contract rates to be deleted"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"ContractRates-Delete-placement-form-contract-rates"
+			]
+		},
+		{
+			"Name": "Delete Tasks",
+			"Description": [
+				"Allow placement tasks to be deleted"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"placement-noteshistory-delete-button",
+				"placement-scheduledtasks-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Timesheets",
+			"Description": [
+				"Allow placement timesheets to be deleted"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"placement-timesheet-delete-button"
+			]
+		},
+		{
+			"Name": "Delete",
+			"Description": [
+				"Allow placements to be deleted"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"placementForm-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Contract Rates",
+			"Description": [
+				"Allow requirement contract rates to be deleted"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"ContractRates-Delete-requirement-form-contract-rates"
+			]
+		},
+		{
+			"Name": "Delete Tasks",
+			"Description": [
+				"Allow requirement tasks to be deleted"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"requirement-noteshistory-delete-button",
+				"requirement-scheduledtasks-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Placements",
+			"Description": [
+				"Allow requirement placements to be deleted"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"requirement-placements-delete-button"
+			]
+		},
+		{
+			"Name": "Delete",
+			"Description": [
+				"Allow requirement to be deleted"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"requirementForm-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Contract Rates",
+			"Description": [
+				"Allow company contract rates to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"ContractRates-Delete-company-form-contract-rates"
+			]
+		},
+		{
+			"Name": "Delete Tasks",
+			"Description": [
+				"Allow company tasks to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"companyForm-noteshistory-delete-button",
+				"companyForm-scheduledtasks-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Requirements",
+			"Description": [
+				"Allow company requirements to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"companyForm-requirements-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Placements",
+			"Description": [
+				"Allow company placements to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"companyForm-placements-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Contacts",
+			"Description": [
+				"Allow company contacts to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"company-contact-menu-delete-contact-companyForm"
+			]
+		},
+		{
+			"Name": "Delete Addresses",
+			"Description": [
+				"Allow company addresses to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"company-address-menu-delete-address-companyForm"
+			]
+		},
+		{
+			"Name": "Delete",
+			"Description": [
+				"Allow company to be deleted"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"companyForm-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Tasks",
+			"Description": [
+				"Allow contact tasks to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"contactForm-noteshistory-delete-button",
+				"contactForm-scheduledtasks-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Requirements",
+			"Description": [
+				"Allow contact requirements to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"contactForm-requirements-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Placements",
+			"Description": [
+				"Allow contact placements to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"contactForm-placements-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Timesheets",
+			"Description": [
+				"Allow contact timesheets to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"contactForm-timesheets-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Education History",
+			"Description": [
+				"Allow contact education history to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"contactForm-EducationHistory-delete-button"
+			]
+		},
+		{
+			"Name": "Delete Work History",
+			"Description": [
+				"Allow contact work history to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"contactForm-WorkHistory-delete-button"
+			]
+		},
+		{
+			"Name": "Delete",
+			"Description": [
+				"Allow contact to be deleted"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false",
+			"DOMidList": [
+				"contactForm-delete-button"
+			]
+		},
+		{
+			"Name": "Delete",
+			"Description": [
+				"Show delete from lookup forms"
+			],
+			"Category": "Lookups",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"contacts-form-grid-button-delete",
+				"companies-form-grid-button-delete",
+				"requirements-form-grid-button-delete",
+				"placements-form-grid-button-delete",
+				"timesheets-form-grid-button-delete"
+			]
+		},
+		{
+			"Name": "Lookup Text Box",
+			"Description": [
+				"Visibility of the lookup text box"
+			],
+			"Category": "Toolbar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"TriSysHostedCRM": true,
+			"DOMidList": [
+				"search-textbox-group"
+			]
+		},
+		{
+			"Name": "Add New Timesheet",
+			"Description": [
+				"Visibility of the add new timesheet drop down toolbar menu option"
+			],
+			"Category": "Toolbar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"new-record-timesheet"
+			]
+		},
+		{
+			"Name": "Add New PostIt Note",
+			"Caption": "Add New Post-It Note",
+			"Description": [
+				"Visibility of the add new post-it note drop down toolbar menu option"
+			],
+			"Category": "Toolbar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"new-record-postitnote"
+			]
+		},
+		{
+			"Name": "Sidebar Help Icon",
+			"Description": [
+				"Visibility of the circular help icon beneath the login name on the navigation bar"
+			],
+			"Category": "Toolbar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"sidebar-user-link-help"
+			]
+		},
+		{
+			"Name": "Delete",
+			"Description": [
+				"Allow any task to be deleted"
+			],
+			"Category": "Task",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false"
+		},
+		{
+			"Name": "Delete",
+			"Description": [
+				"Allow any file to be deleted"
+			],
+			"Category": "File",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false"
+		},
+		{
+			"Name": "Call",
+			"Description": [
+				"Visibility of the call action from anywhere.",
+				"Note that if we wanted granularity of each form/grid and each action, this would result in an additional",
+				"350 separate security settings. Simply too many given that there is no requirement for this at present."
+			],
+			"Category": "Action",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contactActionsMenu-Call",
+				"contactForm-ActionsMenu-Call",
+				"contactRequirementsActionsMenu-Call",
+				"contactPlacementsActionsMenu-Call",
+				"companyForm-ActionsMenu-Call",
+				"companyAddressesActionsMenu-Call",
+				"companyRequirementsActionsMenu-Call",
+				"companyPlacementsActionsMenu-Call",
+				"requirementForm-ActionsMenu-Call",
+				"requirementCandidateSearchResultsActionsMenu-Call",
+				"requirementShortlistActionsMenu-Call",
+				"requirementRejectedActionsMenu-Call",
+				"requirementPlacementsActionsMenu-Call",
+				"placementForm-ActionsMenu-Call"
+			],
+			"Hidden": true
+		},
+		{
+			"Name": "Entity Search Export",
+			"Description": [
+				"Allow entity search records to be exported to excel"
+			],
+			"Category": "Search",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"ctrlEntitySearch-exportToExcel-button-Contact",
+				"ctrlEntitySearch-exportToExcel-button-favourites-Contact",
+				"ctrlEntitySearch-exportToExcel-button-Company",
+				"ctrlEntitySearch-exportToExcel-button-favourites-Company",
+				"ctrlEntitySearch-exportToExcel-button-Requirement",
+				"ctrlEntitySearch-exportToExcel-button-favourites-Requirement",
+				"ctrlEntitySearch-exportToExcel-button-Placement",
+				"ctrlEntitySearch-exportToExcel-button-favourites-Placement",
+				"ctrlEntitySearch-exportToExcel-button-Timesheet",
+				"ctrlEntitySearch-exportToExcel-button-favourites-Timesheet",
+				"ctrlEntitySearch-exportToExcel-button-Task",
+				"ctrlEntitySearch-exportToExcel-button-favourites-Task"
+			]
+		},
+		{
+			"Name": "Requirement Search Results Export",
+			"Description": [
+				"Allow requirement search results to be exported to excel"
+			],
+			"Category": "Search",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"requirementCandidateSearchResultsExportToExcel"
+			]
+		},
+		{
+			"Name": "Requirement Longlist Export",
+			"Description": [
+				"Allow requirement longlist records to be exported to excel"
+			],
+			"Category": "Search",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"requirementLonglistExportToExcel"
+			]
+		},
+		{
+			"Name": "Requirement Shortlist Export",
+			"Description": [
+				"Allow requirement shortlist records to be exported to excel"
+			],
+			"Category": "Search",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"requirementShortlistExportToExcel"
+			]
+		},
+		{
+			"Name": "Requirements Export",
+			"Description": [
+				"Allow requirements to be exported to excel"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"requirementsExportToExcel"
+			]
+		},
+		{
+			"Name": "Placements Export",
+			"Description": [
+				"Allow placements to be exported to excel"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"placementsExportToExcel"
+			]
+		},
+		{
+			"Name": "Timesheets Export",
+			"Description": [
+				"Allow timesheets to be exported to excel"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"timesheetsExportToExcel"
+			]
+		},
+		{
+			"Name": "Companies Export",
+			"Description": [
+				"Allow companies to be exported to excel"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"companiesExportToExcel"
+			]
+		},
+		{
+			"Name": "Contacts Grid Export",
+			"Description": [
+				"Allow contacts grid records to be exported to excel"
+			],
+			"Category": "Search",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"ContactLookupFormExportToExcel"
+			]
+		},
+		{
+			"Name": "Employment Tab",
+			"Description": [
+				"Show Employment tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-employment"
+			]
+		},
+		{
+			"Name": "Attributes Tab",
+			"Description": [
+				"Show Attributes tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-attributes"
+			]
+		},
+		{
+			"Name": "Social Tab",
+			"Description": [
+				"Show Social tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-social-networks"
+			]
+		},
+		{
+			"Name": "Requirements Tab",
+			"Description": [
+				"Show Requirements tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-requirements"
+			]
+		},
+		{
+			"Name": "Placements Tab",
+			"Description": [
+				"Show Placements tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-placements"
+			]
+		},
+		{
+			"Name": "Timesheets Tab",
+			"Description": [
+				"Show Timesheets tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-timesheets"
+			]
+		},
+		{
+			"Name": "Documents Tab",
+			"Description": [
+				"Show Documents tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-documentlibrary"
+			]
+		},
+		{
+			"Name": "Notes Tab",
+			"Description": [
+				"Show Notes tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-noteshistory"
+			]
+		},
+		{
+			"Name": "Tasks Tab",
+			"Description": [
+				"Show Tasks tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-scheduledtasks"
+			]
+		},
+		{
+			"Name": "Privacy Tab",
+			"Description": [
+				"Show Privacy/GDPR tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"contact-form-tab-privacy"
+			]
+		},
+		{
+			"Name": "Amendments Tab",
+			"Description": [
+				"Show Amendments tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"contact-form-tab-amendments"
+			]
+		},
+		{
+			"Name": "Relationships Tab",
+			"Description": [
+				"Show relationships tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"contact-form-tab-relationships"
+			]
+		},
+		{
+			"Name": "Relationships Tab",
+			"Description": [
+				"Show relationships tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"company-form-tab-relationships"
+			]
+		},
+		{
+			"Name": "Back Office Tab",
+			"Description": [
+				"Show back office tab on the Contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"contact-form-tab-back-office"
+			]
+		},
+		{
+			"Name": "Organogram Tab",
+			"Description": [
+				"Show Organogram tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"company-form-tab-organogram"
+			]
+		},
+		{
+			"Name": "Rate Card Tab",
+			"Description": [
+				"Show Rate Card tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"company-form-tab-ratecard"
+			]
+		},
+		{
+			"Name": "Attributes Tab",
+			"Description": [
+				"Show Attributes tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"company-form-tab-attributes"
+			]
+		},
+		{
+			"Name": "Back Office Tab",
+			"Description": [
+				"Show Back Office tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"company-form-tab-backoffice"
+			]
+		},
+		{
+			"Name": "Requirements Tab",
+			"Description": [
+				"Show Requirements tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"company-form-tab-requirements"
+			]
+		},
+		{
+			"Name": "Placements Tab",
+			"Description": [
+				"Show Placements tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"company-form-tab-placements"
+			]
+		},
+		{
+			"Name": "Documents Tab",
+			"Description": [
+				"Show Documents tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"company-form-tab-documentlibrary"
+			]
+		},
+		{
+			"Name": "Notes Tab",
+			"Description": [
+				"Show Notes tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"company-form-tab-noteshistory"
+			]
+		},
+		{
+			"Name": "Tasks Tab",
+			"Description": [
+				"Show Tasks tab on the Company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"company-form-tab-scheduledtasks"
+			]
+		},
+		{
+			"Name": "Search Tab",
+			"Description": [
+				"Show Search tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-search-criteria-li"
+			]
+		},
+		{
+			"Name": "Search Results Tab",
+			"Description": [
+				"Show Search Results tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-search-results-li"
+			]
+		},
+		{
+			"Name": "Shortlist Tab",
+			"Description": [
+				"Show Shortlist tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-shortlist-li"
+			]
+		},
+		{
+			"Name": "Rejected Tab",
+			"Description": [
+				"Show Rejected tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-rejected-li"
+			]
+		},
+		{
+			"Name": "Attributes Tab",
+			"Description": [
+				"Show Attributes tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-attributes-li"
+			]
+		},
+		{
+			"Name": "Placements Tab",
+			"Description": [
+				"Show Placements tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-placements-li"
+			]
+		},
+		{
+			"Name": "Documents Tab",
+			"Description": [
+				"Show Documents tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-documentlibrary-li"
+			]
+		},
+		{
+			"Name": "Notes Tab",
+			"Description": [
+				"Show Notes tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-noteshistory-li"
+			]
+		},
+		{
+			"Name": "Tasks Tab",
+			"Description": [
+				"Show Tasks tab on the Requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"requirement-form-tab-scheduledtasks-li"
+			]
+		},
+		{
+			"Name": "Attributes Tab",
+			"Description": [
+				"Show Attributes tab on the Placement form"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"placement-form-tab-attributes-li"
+			]
+		},
+		{
+			"Name": "Back Office Tab",
+			"Description": [
+				"Show Back Office tab on the Placement form"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"placement-form-tab-backoffice-li"
+			]
+		},
+		{
+			"Name": "Timesheets Tab",
+			"Description": [
+				"Show Timesheets tab on the Placement form"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"placement-form-tab-timesheets-li"
+			]
+		},
+		{
+			"Name": "Documents Tab",
+			"Description": [
+				"Show Documents tab on the Placement form"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"placement-form-tab-documentlibrary-li"
+			]
+		},
+		{
+			"Name": "Notes Tab",
+			"Description": [
+				"Show Notes tab on the Placement form"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"placement-form-tab-noteshistory-li"
+			]
+		},
+		{
+			"Name": "Tasks Tab",
+			"Description": [
+				"Show Tasks tab on the Placement form"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"placement-form-tab-scheduledtasks-li"
+			]
+		},
+		{
+			"Name": "Amendments Tab",
+			"Description": [
+				"Show Amendments tab on the Placement form"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"placement-form-tab-amendments-li"
+			]
+		},
+		{
+			"Name": "Attributes Tab",
+			"Description": [
+				"Show Attributes tab on the Timesheet form"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"timesheet-form-tab-attributes"
+			]
+		},
+		{
+			"Name": "Documents Tab",
+			"Description": [
+				"Show Documents tab on the Timesheet form"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"timesheet-form-tab-documentlibrary"
+			]
+		},
+		{
+			"Name": "Notes Tab",
+			"Description": [
+				"Show Notes tab on the Timesheet form"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"timesheet-form-tab-noteshistory"
+			]
+		},
+		{
+			"Name": "Tasks Tab",
+			"Description": [
+				"Show Tasks tab on the Timesheet form"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [
+				"timesheet-form-tab-scheduledtasks"
+			]
+		},
+		{
+			"Name": "Company Website Contact Management System",
+			"Description": [
+				"Allow user to edit the company web site"
+			],
+			"Category": "OnlinePortals",
+			"Type": "Boolean",
+			"Title": "Enable",
+			"Default": "false"
+		},
+		{
+			"Name": "Candidate Portal",
+			"Description": [
+				"Visibility of the candidate portal link"
+			],
+			"Category": "OnlinePortals",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "CandidatePortal-MenuItem" ]
+		},
+		{
+			"Name": "Client Portal",
+			"Description": [
+				"Visibility of the client portal link"
+			],
+			"Category": "OnlinePortals",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "ClientPortal-MenuItem" ]
+		},
+		{
+			"Name": "DEPRECATED Diary Synchronisation User Options",
+			"Description": [
+				"Visibility of diary synchronisation user options",
+                "Deprecated 01 May 2024"
+			],
+			"Category": "UserOptions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "DEPRECATED-user-options-diary-synchronisation" ]
+		},
+		{
+			"Name": "Cloud Sync User Options",
+			"Description": [
+				"Visibility of Cloud Sync user options"
+			],
+			"Category": "UserOptions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "user-options-cloud-sync-block" ]
+		},
+		{
+			"Name": "Invalid CV Paths",
+			"Description": [
+				"Visibility of the admin console invalid CV paths applet"
+			],
+			"Category": "AdminConsole",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "admin-console-tab-invalid-cvpaths" ]
+		},
+		{
+			"Name": "User Settings",
+			"Description": [
+				"Visibility of the admin console user settings applet"
+			],
+			"Category": "AdminConsole",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "admin-console-tab-user-settings" ]
+		},
+		{
+			"Name": "Audit Trail",
+			"Description": [
+				"Visibility of the admin console audit trail grid"
+			],
+			"Category": "AdminConsole",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "admin-console-tab-audit-trail" ]
+		},
+		{
+			"Name": "Edit GDPR Button",
+			"Description": [
+				"Visibility of the edit GDPR button on the contact form Privacy/GDPR tab"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "contactForm-EditGDPRButton" ]
+		},
+		{
+			"Name": "Mail Merge Action Edit Templates",
+			"Description": [
+				"Visibility of the action templates edit button"
+			],
+			"Category": "Actions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "ctrlMailMerge-EditTemplate" ]
+		},
+		{
+			"Name": "Action Templates New Button",
+			"Description": [
+				"Visibility of the action templates new button"
+			],
+			"Category": "Actions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "template-editor-new" ]
+		},
+		{
+			"Name": "Action Templates Copy Button",
+			"Description": [
+				"Visibility of the action templates copy button"
+			],
+			"Category": "Actions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "template-editor-copy" ]
+		},
+		{
+			"Name": "Action Templates Delete Button",
+			"Description": [
+				"Visibility of the action templates delete button"
+			],
+			"Category": "Actions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "template-editor-delete" ]
+		},
+		{
+			"Name": "Action Template Save Button",
+			"Description": [
+				"Visibility of the action template editor save button"
+			],
+			"Category": "Actions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "true",
+			"DOMidList": [ "template-editor-save" ]
+		},
+		{
+			"Name": "Asynchronous Mail Merge",
+			"Description": [
+				"Whether the mail merge is delivered asynchronously (behind the scenes) or whilst the user waits"
+			],
+			"Category": "Actions",
+			"Type": "Boolean",
+			"Title": "Enabled",
+			"Default": "true"
+		},
+		{
+			"Name": "Timesheet Period Maintenance",
+			"Caption": "Timesheet Period Maintenancence",
+			"Description": [
+				"Timesheet Period Maintenance navigation menu security option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "TimesheetPeriods-MenuItem" ]
+		},
+		{
+			"Name": "Contact Tasks Export",
+			"Description": [
+				"Allow contact note/history and scheduled tasks to be exported to excel"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"contact-noteshistory-ExportToExcel",
+				"contact-scheduledtasks-ExportToExcel"
+			]
+		},
+		{
+			"Name": "Company Tasks Export",
+			"Description": [
+				"Allow company note/history and scheduled tasks to be exported to excel"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"company-noteshistory-ExportToExcel",
+				"company-scheduledtasks-ExportToExcel"
+			]
+		},
+		{
+			"Name": "Requirement Longlist Mode",
+			"Caption": "Requirement Longlist Mode",
+			"Description": [
+				"Requirement forms display the Longlist tab and show actions which allow candidates to be moved to and from the longlist"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ 
+				"requirement-form-tab-longlist-li", 
+				"requirementCandidateSearchResultsActionsMenu-AddContactToLonglist", 
+				"contactForm-ActionsMenu-AddContactToLonglist" 
+			]
+		},
+		{
+			"Name": "Contact Custom Fields Tab",
+			"Caption": "Contact Custom Fields Tab",
+			"Description": [
+				"Display the custom fields tab on the contact form"
+			],
+			"Category": "Contact",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ 
+				"contact-form-tab-custom" 
+			]
+		},
+		{
+			"Name": "Company Custom Fields Tab",
+			"Caption": "Company Custom Fields Tab",
+			"Description": [
+				"Display the custom fields tab on the company form"
+			],
+			"Category": "Company",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ 
+				"company-form-tab-custom" 
+			]
+		},
+		{
+			"Name": "Requirement Custom Fields Tab",
+			"Caption": "Requirement Custom Fields Tab",
+			"Description": [
+				"Display the custom fields tab on the requirement form"
+			],
+			"Category": "Requirement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ 
+				"requirement-form-tab-custom" 
+			]
+		},
+		{
+			"Name": "Placement Custom Fields Tab",
+			"Caption": "Placement Custom Fields Tab",
+			"Description": [
+				"Display the custom fields tab on the placement form"
+			],
+			"Category": "Placement",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ 
+				"placement-form-tab-custom" 
+			]
+		},
+		{
+			"Name": "Timesheet Custom Fields Tab",
+			"Caption": "Timesheet Custom Fields Tab",
+			"Description": [
+				"Display the custom fields tab on the timesheet form"
+			],
+			"Category": "Timesheet",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ 
+				"timesheet-form-tab-custom" 
+			]
+		},
+		{
+			"Name": "Developer Studio Folder Menu",
+			"Description": [
+				"Visibility of the developer studio Folder menu"
+			],
+			"Category": "DevStudio",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "DeveloperStudio-FolderMenu" ]
+		},
+		{
+			"Name": "Developer Studio File Menu",
+			"Description": [
+				"Visibility of the developer studio File menu"
+			],
+			"Category": "DevStudio",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "DeveloperStudio-FileMenu" ]
+		},
+		{
+			"Name": "Mail-Merge Entity Data Grid",
+			"Description": [
+				"Show the entity data grid on the mail-merge action"
+			],
+			"Category": "Actions",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [
+				"ctrlMailMerge-entity-grid-block"
+			]
+		},
+		{
+			"Name": "Developer Studio",
+			"Description": [
+				"Visibility of developer studio menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "DeveloperStudio-MenuItem" ]
+		},
+		{
+			"Name": "App Studio",
+			"Description": [
+				"Visibility of app studio menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "AppStudio-MenuItem" ]
+		},
+		{
+			"Name": "Contact Management",
+			"Description": [
+				"Visibility of the contact management menu group"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "navBar-ContactManagement-GroupID" ]
+		},
+		{
+			"Name": "Contacts",
+			"Description": [
+				"Visibility of contacts menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "Contacts-MenuItem" ]
+		},
+		{
+			"Name": "Companies",
+			"Description": [
+				"Visibility of companies menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "Companies-MenuItem" ]
+		},
+		{
+			"Name": "Requirements",
+			"Description": [
+				"Visibility of requirements menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "Requirements-MenuItem" ]
+		},
+		{
+			"Name": "Placements",
+			"Description": [
+				"Visibility of placements menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "Placements-MenuItem" ]
+		},
+		{
+			"Name": "Campaigns",
+			"Description": [
+				"Visibility of marketing campaigns menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "Campaigns-MenuItem" ]
+		},
+		{
+			"Name": "Saved Searches",
+			"Description": [
+				"Visibility of the saved searches menu group"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "navBar-Search-GroupID" ]
+		},
+		{
+			"Name": "Contact Search",
+			"Description": [
+				"Visibility of contact search menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "ContactSearch-MenuItem" ]
+		},
+		{
+			"Name": "Company Search",
+			"Description": [
+				"Visibility of company search menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "CompanySearch-MenuItem" ]
+		},
+		{
+			"Name": "Requirement Search",
+			"Description": [
+				"Visibility of requirement search menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "RequirementSearch-MenuItem" ]
+		},
+		{
+			"Name": "Placement Search",
+			"Description": [
+				"Visibility of placement search menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "PlacementSearch-MenuItem" ]
+		},
+		{
+			"Name": "LinkedIn",
+			"Description": [
+				"Visibility of LinkedIn import menu option"
+			],
+			"Category": "NavBar",
+			"Type": "Boolean",
+			"Title": "Visible",
+			"Default": "false",
+			"DOMidList": [ "LinkedIn-MenuItem" ]
+		}
+	]
+}

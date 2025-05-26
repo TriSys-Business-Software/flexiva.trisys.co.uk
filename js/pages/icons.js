@@ -1,0 +1,1 @@
+var Icons=(function(){return{'init':function(){var titleAttr;$('#divFormContentRow\x20.btn')['click'](function(){return titleAttr=$(this)['attr']('data-original-title'),$('#icon-gen-input')['val']('<i\x20class=\x22'+titleAttr+'\x22></i>')['select'](),$('html,body')['animate']({'scrollTop':$('#icon-gen')['offset']()['top']-0xf}),![];});}};}());

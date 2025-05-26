@@ -1,0 +1,80 @@
+{
+	"File": "widgets.json",
+	"Description": "Used in ctrlWidgetPicker.js used in form designer.",
+	"Created": "March 2019",
+	"HTML-to-JSON": "https://www.freeformatter.com/json-escape.html#ad-output",
+	"JSON-Lint": "https://jsonlint.com/",
+	"Widgets":
+	[
+		{
+			"Category": "blocks",
+			"Name": "Row-Block-Titled",
+			"Caption": "Row Block with Title",
+			"Description": "A full width row with a block title and internal row with two columns.",
+			"Thumbnail": "block-title.png",
+			"Hidden": true,
+			"HTML": [
+				"\r\n\t\t\t\t<div class=\"row\">",
+				"\r\n\t\t\t\t\t<div class=\"col-xs-12 col-sm-12 col-md-12\">",
+				"\r\n\t\t\t\t\t\t<div class=\"block\">",
+				"\r\n\t\t\t\t\t\t\t<div class=\"block-title\">",
+				"\r\n\t\t\t\t\t\t\t\t<h2>Block Title<\/h2>",
+				"\r\n\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t<div class=\"row\">",
+				"\r\n\t\t\t\t\t\t\t\t<div class=\"col-xs-12\">",
+				"\r\n\t\t\t\t\t\t\t\t\t<div class=\"row\">",
+				"\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-xs-6\">",
+				"\r\n\t\t\t\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-xs-6\">",
+				"\r\n\t\t\t\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t<\/div>"
+			],
+			"ForceReEditMode": true,
+			"Why-force-re-edit-mode": "Because when we insert some HTML, it renders without editable widgets. This forces save/edit mode change."
+		},
+		{
+			"Category": "blocks",
+			"Name": "Column-Block-Titled",
+			"Caption": "Column Block with Title",
+			"Description": "A full width column with a block title and internal row with two columns.",
+			"Hidden": true,
+			"Reason-for-hiding": "Because the 3rd party editor gets confused.",
+			"HTML": [
+				"\r\n\t\t\t\t\t\t<div class=\"block\">",
+				"\r\n\t\t\t\t\t\t\t<div class=\"block-title\">",
+				"\r\n\t\t\t\t\t\t\t\t<h2>Block Title<\/h2>",
+				"\r\n\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t<div class=\"row\">",
+				"\r\n\t\t\t\t\t\t\t\t<div class=\"col-xs-12\">",
+				"\r\n\t\t\t\t\t\t\t\t\t<div class=\"row\">",
+				"\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-xs-6\">",
+				"\r\n\t\t\t\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-xs-6\">",
+				"\r\n\t\t\t\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t\t<\/div>",
+				"\r\n\t\t\t\t\t\t<\/div>"
+			],
+			"ForceReEditMode": true,
+			"Why-force-re-edit-mode": "Because when we insert some HTML, it renders without editable widgets. This forces save/edit mode change."
+		},
+		{
+			"Category": "blocks",
+			"Name": "Field-Label",
+			"Caption": "Field Label",
+			"Description": "When adding a field, this label is often placed to a column on the left of the field.",
+			"Thumbnail": "field-label.png",
+			"Hidden": false,
+			"HTML": [
+				"<strong>Field Label</strong>"
+			],
+			"Text": "Field Label"
+		}
+	]
+}

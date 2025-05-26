@@ -1,0 +1,1 @@
+var ContactSearch={'Load':function(){TriSysApex['EntitySearch']['LoadControl']('contact-search-placeholder','Contact');}};$(document)['ready'](function(){ContactSearch['Load']();});

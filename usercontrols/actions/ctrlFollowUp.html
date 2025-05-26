@@ -1,0 +1,77 @@
+﻿<style scoped>
+    .td-label-follow-up {
+        width: 120px;
+    }
+</style>
+
+<div class="block">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="td-label-follow-up">
+                    &nbsp;
+                </td>
+                <td>
+                    <label class="switch switch-primary">
+                        <input type="checkbox" id="ctrlFollowUp-Create-FollowUp" value="0" unchecked>
+                        <span></span>
+                    </label>
+                    &nbsp; Create a Follow-Up Scheduled Task
+                </td>
+            </tr>
+            <tr id="ctrlFollowUp-TaskType-tr" style="display: none;">
+                <td class="td-label-follow-up">
+                    <strong>Task Type &nbsp; </strong>
+                    <img id="ctrlFollowUp-Selected-TaskType-Image" style="width: 24px; height: 24px; border: 0" />
+                </td>
+                <td>
+                    <input id="ctrlFollowUp-TaskType" style="width:100%" />
+                </td>
+            </tr>
+            <tr id="ctrlFollowUp-Attributes-tr" style="display: none;">
+                <td class="td-label-follow-up">
+                    <strong>Attributes</strong>
+                </td>
+                <td>
+                    <input type="text" id="ctrlFollowUp-Attributes" style="width:100%" />
+                </td>
+            </tr>
+            <tr id="ctrlFollowUp-StartDateTime-tr" style="display: none;">
+                <td class="td-label-follow-up">
+                    <strong>Date</strong>
+                </td>
+                <td>
+                    <input id="ctrlFollowUp-StartDateTime" style="width:100%;" />
+                </td>
+            </tr>
+            <tr id="ctrlFollowUp-Duration-tr" style="display: none;">
+                <td class="td-label-follow-up">
+                    <strong>Duration</strong>
+                </td>
+                <td>
+                    <div id="ctrlFollowUp-Duration" style="width:300px;"></div>
+                </td>
+            </tr>
+            <tr id="ctrlFollowUp-Alarm-tr" style="display: none;">
+                <td class="td-label-follow-up">
+                    <strong>Set Alarm</strong>
+                </td>
+                <td>
+                    <label class="switch switch-primary">
+                        <input type="checkbox" id="ctrlFollowUp-Set-Alarm" value="1" checked>
+                        <span></span>
+                    </label>
+                </td>
+            </tr>
+            <tr id="ctrlFollowUp-LeadTime-tr" style="display: none;">
+                <td class="td-label-follow-up">
+                    <strong>Lead Time</strong>
+                </td>
+                <td>
+                    <div id="ctrlFollowUp-LeadTime" style="width:100%;"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

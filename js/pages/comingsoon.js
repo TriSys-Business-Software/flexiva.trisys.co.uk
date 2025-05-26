@@ -1,0 +1,1 @@
+$(document)['ready'](function(){TriSysLoad['ApexFramework']['LoadDynamically'](function(){var sSecureURL='https://apex.trisys.co.uk';window['location']['replace'](sSecureURL);return;TriSysApex['ComingSoon']['Initialise']();});});

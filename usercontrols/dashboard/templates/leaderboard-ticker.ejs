@@ -1,0 +1,30 @@
+﻿
+
+<% for(var i=0; i < LeaderboardData.length; i++) {%>
+
+	<span style="font-weight:bold; font-size: 32px;">
+		<%= LeaderboardData[i].Position  %>
+	</span>
+
+	&nbsp;
+	
+	<img src="<%= LeaderboardData[i].UserPhoto %>" style="width: 48px; height: 48px; border-radius: 5px;" />
+			
+	&nbsp;
+
+	<span style="font-weight:bold;">
+
+		<%= LeaderboardData[i].UserName  %>
+
+	</span>
+
+	&nbsp;
+
+	<span style="color: blue; font-weight:bold;">
+
+		<%= LeaderboardData[i].AmountWithCurrency  %>
+	</span>
+
+	&nbsp; &nbsp; | &nbsp; &nbsp;
+        
+<% } %>

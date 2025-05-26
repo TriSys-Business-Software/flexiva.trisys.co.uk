@@ -1,0 +1,1 @@
+var TaskSearch={'Load':function(){TriSysApex['EntitySearch']['LoadControl']('task-search-placeholder','Task');}};$(document)['ready'](function(){TaskSearch['Load']();});

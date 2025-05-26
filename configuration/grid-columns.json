@@ -1,0 +1,79 @@
+{
+	"FileName": "grid-columns.json",
+	"Description": "Allow custom configuration of grid columns. Only read when in e:\\inetpub\\api.trisys.co.uk\\Apex\\custom\\{CustomerID}",
+	"Created": "04 March 2021",
+	"Grids": [
+		{
+			"ID": [
+				"divContactGrid",
+				"ctrlEntitySearch-search-grid-Contact" 	
+			],
+			"Comment": "The contacts and contact entity search grids",
+			"Columns": [
+				{ "field": "Contact_ContactId", "title": "ID", "type": "number", "width": 150, "hidden": true },
+                { "field": "Contact_Christian", "title": "Forename(s)", "type": "string", "width": 150, "sticky": true, "lockable": true },
+                { "field": "Contact_Surname", "title": "Surname", "type": "string", "width": 150, "sticky": true, "lockable": true },
+                { "field": "Contact_FullName", "title": "Full Name", "type": "string", "width": 250, "sticky": true, "lockable": true, "hidden": true },
+                { "field": "Contact_Company", "title": "Company", "type": "string", "width": 200},
+                { "field": "Contact_EMail", "title": "Work E-Mail", "type": "string", "width": 200 },
+                { "field": "Contact_HomeEMail", "title": "Home E-Mail", "type": "string", "width": 200 },
+                { "field": "Contact_WorkTelNo", "title": "Work Tel. No", "type": "string", "width": 150 },
+                { "field": "Contact_MobileTelNo", "title": "Personal Mobile", "type": "string", "width": 150 },
+                { "field": "Contact_WorkMobile", "title": "Work Mobile", "type": "string", "hidden": true, "width": 150},
+                { "field": "Contact_HomeAddressTelNo", "title": "Home Tel. No", "type": "string", "width": 150 },
+                { "field": "Contact_DateOfBirth", "title": "Date of Birth", "hidden": true, "type": "date", "width": 150, "format": "{0:dd MMM yyyy }" },
+                { "field": "Contact_Title", "title": "Title", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_OwnerUser", "title": "Owner User", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_CompanyAddressStreet", "title": "Company Street", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_CompanyAddressCity", "title": "Company City", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_CompanyAddressCounty", "title": "Company County", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_CompanyAddressPostCode", "title": "Company Post/ZIP Code", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_CompanyAddressCountry", "title": "Company Country", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_HomeAddressStreet", "title": "Home Street", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_HomeAddressCity", "title": "Home City", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_HomeAddressCounty", "title": "Home County", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_HomeAddressPostCode", "title": "Home Post/ZIP Code", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_HomeAddressCountry", "title": "Home Country", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_ContactType", "title": "Contact Type", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_JobTitle", "title": "Job Title", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_AvailabilityDate", "title": "Availability Date", "width": 150, "hidden": true, "type": "date", "format": "{0:dd MMM yyyy }" },
+                { "field": "Contact_ContactSource", "title": "Source", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_Status", "title": "Status", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_DateLastUpdated", "title": "Date Last Updated", "width": 150, "hidden": true, "type": "date", "format": "{0:dd MMM yyyy }" },
+                { "field": "Contact_AddedByName", "title": "Added By", "type": "string", "width": 150, "hidden": true },
+                { "field": "Contact_Comments", "title": "Comments", "type": "string", "width": 300, "hidden": true },
+                { "field": "Contact_PayrollNumber", "title": "Payroll Number", "type": "string", "width": 150, "hidden": true }
+			]
+		},
+		{
+			"ID": [
+				"XdivTimesheetGrid",
+				"XctrlEntitySearch-search-grid-Timesheet"
+			],
+			"Comment": "The timesheets and timesheet entity search grids",
+			"Columns": [
+				{ "field": "Timesheet_TimesheetId", "title": "ID", "type": "number", "width": 70, "hidden": true },
+                { "field": "Reference", "title": "Placement", "type": "string", "width": 150 },
+                { "field": "Company", "title": "Company", "type": "string", "width": 200 },
+                { "field": "Candidate", "title": "Candidate", "type": "string", "width": 200 },
+                { "field": "JobTitle", "title": "Job Title", "type": "string", "width": 150 },
+                { "field": "Period", "title": "Period", "type": "string", "width": 150 },
+                { "field": "InputDate", "title": "Input Date", "type": "date", "format": "{0:dd MMM yyyy}", "width": 150 },
+                { "field": "TotalTimeWorked", "title": "Total Time Worked", "type": "number", "format": "{0:n}", "width": 150 },
+                { "field": "Authorised", "title": "Authorised", "type": "string", "width": 150 },
+                { "field": "Paid", "title": "Exported", "type": "string", "width": 150 },
+                { "field": "NetPay", "title": "Net Pay", "type": "string", "hidden": true, "width": 150 },
+                { "field": "NetCharge", "title": "Net Charge", "type": "string", "hidden": true, "width": 150 },
+                { "field": "PayTotal", "title": "Pay Total", "type": "string", "hidden": true, "width": 150 },
+                { "field": "VATAmount", "title": "VAT Amount", "type": "string", "hidden": true, "width": 150 },
+                { "field": "PayrollCompany", "title": "Payroll Company", "type": "string", "hidden": true, "width": 200 },
+                { "field": "PayRate", "title": "Pay Rate", "type": "string", "hidden": true, "width": 150 },
+                { "field": "ChargeRate", "title": "Charge Rate", "type": "string", "hidden": true, "width": 150 },
+                { "field": "NetMargin", "title": "Net Margin", "type": "string", "hidden": true, "width": 150 },
+                { "field": "SiteAddress", "title": "Site Address", "type": "string", "hidden": true, "width": 200 },
+                { "field": "TimesheetLink", "title": "Original Timesheet", "type": "string", "hidden": true, "width": 400 },
+                { "field": "PlacementUser", "title": "Placement User", "type": "string", "hidden": true, "width": 150 }
+			]
+		}
+	]
+}

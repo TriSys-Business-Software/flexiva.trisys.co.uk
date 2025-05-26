@@ -1,0 +1,521 @@
+﻿[
+	{
+		"ID": "AddContactToLonglist",
+		"Caption": "Add to Longlist",
+		"ImagePath": "gi-circle_plus",
+		"Visible": true,
+		"Control": "ctrlAddToLonglist.html",
+		"FullScreen": true,
+		"Entities": [
+			"Contact"
+		],
+		"HideOnSpecificMenus": [ "requirementLonglistActionsMenu", "requirementShortlistActionsMenu", "requirementRejectedActionsMenu" ],
+		"FinishFunction": "ctrlAddToLonglist.Finish",
+		"AllowInvocationWithNoRecords": false,
+		"FinishCaption": "Add Contact"
+	},
+	{
+		"ID": "AddContactToShortlist",
+		"Caption": "Add to Shortlist",
+		"ImagePath": "gi-plus",
+		"Visible": true,
+		"Control": "ctrlAddToShortlist.html",
+		"FullScreen": true,
+		"Entities": [
+			"Contact"
+		],
+		"HideOnSpecificMenus": [ "requirementShortlistActionsMenu", "requirementRejectedActionsMenu" ],
+		"FinishFunction": "ctrlAddToShortlist.Finish",
+		"AllowInvocationWithNoRecords": false,
+		"FinishCaption": "Add Contact"
+	},
+	{
+		"ID": "Call",
+		"Caption": "Call",
+		"ImagePath": "gi-phone_alt",
+		"Visible": true,
+		"Control": "ctrlCall.html",
+		"MaximumHeight": 610,
+		"Entities": [
+			"Contact",
+			"Company",
+			"Requirement",
+			"Placement"
+		],
+		"FinishFunction": "ctrlCall.Finish",
+		"ConfigureFunction": "ctrlCall.Configure",
+		"AllowInvocationWithNoRecords": false
+	},
+	{
+		"ID": "ColdCall",
+		"Caption": "Cold Call",
+		"ImagePath": "fa-phone-square",
+		"Visible": true,
+		"Control": "ctrlColdCall.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Contact"
+		],
+		"FinishFunction": "ctrlColdCall.Completed",
+		"FinishCaption": "Completed",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "CVSend",
+		"Caption": "CV Send",
+		"ImagePath": "fa-send-o",
+		"Visible": true,
+		"Control": "ctrlCVSend.html",
+		"MaximumHeight": 600,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [
+			"requirementShortlistActionsMenu",
+			"contactForm-ActionsMenu",
+			"contactActionsMenu",
+			"ctrlEntitySearch-search-ActionsMenu-Contact",
+			"ctrlEntitySearch-favourites-ActionsMenu-Contact"
+		],
+		"FinishFunction": "ctrlCVSend.Finish",
+		"ConfigureFunction": "ctrlCVSend.Configure",
+		"MailMergeDataFunction": "ctrlCVSend.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "EMail",
+		"Caption": "E-Mail",
+		"ImagePath": "fa-envelope-o",
+		"Visible": true,
+		"Control": "ctrlSendEMail.html",
+		"MaximumHeight": 725,
+		"Entities": [
+			"Contact", "Requirement"
+		],
+		"FinishFunction": "ctrlSendEMail.SendAdHocEMail",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true,
+		"FinishCaption": "Send"
+	},
+	{
+		"ID": "Interested",
+		"Caption": "Interested",
+		"ImagePath": "fa-smile-o",
+		"Visible": true,
+		"Control": "ctrlInterested.html",
+		"MaximumHeight": 550,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlInterested.Finish",
+		"ConfigureFunction": "ctrlInterested.Configure",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "Interview",
+		"Caption": "Interview",
+		"ImagePath": "gi-group",
+		"Visible": true,
+		"Control": "ctrlInterview.html",
+		"MaximumHeight": 615,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlInterview.Finish",
+		"ConfigureFunction": "ctrlInterview.Configure",
+		"MailMergeDataFunction": "ctrlInterview.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "MailMerge",
+		"Caption": "Mail Merge",
+		"ImagePath": "gi-envelope",
+		"Visible": true,
+		"Control": "ctrlMailMerge.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Contact",
+			"Company",
+			"Requirement",
+			"Placement"
+		],
+		"FinishFunction": "ctrlMailMerge.Finish",
+		"ConfigureFunction": "ctrlMailMerge.Configure",
+		"MailMergeDataFunction": "ctrlMailMerge.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "MarketingCampaign",
+		"Caption": "Marketing Campaign",
+		"ImagePath": "fa-send-o",
+		"Visible": true,
+		"Control": "ctrlMarketingCampaign.html",
+		"MaximumHeight": 615,
+		"Entities": [
+			"Contact"
+		],
+		"FinishFunction": "ctrlMarketingCampaign.Finish",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "Meeting",
+		"Caption": "Meeting",
+		"ImagePath": "gi-group",
+		"Visible": true,
+		"Control": "ctrlMeeting.html",
+		"MaximumHeight": 615,
+		"Entities": [
+			"Contact",
+			"Company",
+			"Requirement",
+			"Placement"
+		],
+		"FinishFunction": "ctrlMeeting.Finish",
+		"ConfigureFunction": "ctrlMeeting.Configure",
+		"MailMergeDataFunction": "ctrlMeeting.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "Note",
+		"Caption": "Note",
+		"ImagePath": "gi-notes_2",
+		"Visible": true,
+		"Control": "ctrlNote.html",
+		"MaximumHeight": 450,
+		"Entities": [
+			"Contact",
+			"Company",
+			"Requirement",
+			"Placement"
+		],
+		"FinishFunction": "ctrlNote.Finish",
+		"ConfigureFunction": "ctrlNote.Configure",
+		"AllowInvocationWithNoRecords": false
+	},
+	{
+		"ID": "Offer",
+		"Caption": "Offer",
+		"ImagePath": "gi-gbp",
+		"Visible": true,
+		"Control": "ctrlOffer.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlOffer.Finish",
+		"ConfigureFunction": "ctrlOffer.Configure",
+		"MailMergeDataFunction": "ctrlOffer.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "OfferAccepted",
+		"Caption": "Offer Accepted",
+		"ImagePath": "gi-thumbs_up",
+		"Visible": true,
+		"Control": "ctrlOfferAccepted.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlOfferAccepted.Finish",
+		"ConfigureFunction": "ctrlOfferAccepted.Configure",
+		"MailMergeDataFunction": "ctrlOfferAccepted.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "OfferRejected",
+		"Caption": "Offer Rejected",
+		"ImagePath": "gi-thumbs_down",
+		"Visible": true,
+		"Control": "ctrlOfferRejected.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlOfferRejected.Finish",
+		"ConfigureFunction": "ctrlOfferRejected.Configure",
+		"MailMergeDataFunction": "ctrlOfferRejected.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "Placement",
+		"Caption": "Placement",
+		"ImagePath": "gi-gbp",
+		"Visible": true,
+		"Control": "ctrlPlacement.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlPlacement.Finish",
+		"ConfigureFunction": "ctrlPlacement.Configure",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "PlacementDocumentation",
+		"Caption": "Contract/Documents",
+		"ImagePath": "gi-file",
+		"Visible": true,
+		"Control": "ctrlPlacementDocumentation.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Placement"
+		],
+		"FinishFunction": "ctrlPlacementDocumentation.Finish",
+		"ConfigureFunction": "ctrlPlacementDocumentation.Configure",
+		"MailMergeDataFunction": "ctrlPlacementDocumentation.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "Reject",
+		"Caption": "Reject",
+		"ImagePath": "gi-hand_down",
+		"Visible": true,
+		"Control": "ctrlReject.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlReject.Finish",
+		"ConfigureFunction": "ctrlReject.Configure",
+		"MailMergeDataFunction": "ctrlReject.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "ScreeningInterview",
+		"Caption": "Screening Interview",
+		"ImagePath": "gi-group",
+		"Visible": true,
+		"Control": "ctrlScreeningInterview.html",
+		"MaximumHeight": 615,
+		"Entities": [
+			"Contact"
+		],
+		"FinishFunction": "ctrlScreeningInterview.Finish",
+		"ConfigureFunction": "ctrlScreeningInterview.Configure",
+		"MailMergeDataFunction": "ctrlScreeningInterview.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "SendJobSpecification",
+		"Caption": "Send Job Specification",
+		"ImagePath": "gi-file_export",
+		"Visible": true,
+		"Control": "ctrlSendJobSpecification.html",
+		"MaximumHeight": 600,
+		"Entities": [
+			"Contact",
+			"Requirement"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlSendJobSpecification.Finish",
+		"ConfigureFunction": "ctrlSendJobSpecification.Configure",
+		"MailMergeDataFunction": "ctrlSendJobSpecification.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true,
+		"FinishCaption": "Send"
+	},
+	{
+		"ID": "SendSMSText",
+		"Caption": "Send SMS Text",
+		"ImagePath": "gi-iphone",
+		"Visible": true,
+		"Control": "ctrlSendSMSText.html",
+		"MaximumHeight": 430,
+		"Entities": [
+			"Contact",
+			"Company",
+			"Requirement",
+			"Placement"
+		],
+		"FinishFunction": "ctrlSendSMSText.Finish",
+		"ConfigureFunction": "ctrlSendSMSText.Configure",
+		"AllowInvocationWithNoRecords": false,
+		"FinishCaption": "Send"
+	},
+	{
+		"ID": "ToDo",
+		"Caption": "ToDo",
+		"ImagePath": "fa-calendar",
+		"Visible": true,
+		"Control": "ctrlToDo.html",
+		"MaximumHeight": 470,
+		"Entities": [
+			"Contact",
+			"Company",
+			"Requirement",
+			"Placement"
+		],
+		"FinishFunction": "ctrlToDo.Finish",
+		"ConfigureFunction": "ctrlToDo.Configure",
+		"AllowInvocationWithNoRecords": true
+	},
+	{
+		"ID": "UploadRequirement",
+		"Caption": "Upload to Web",
+		"ImagePath": "fa-globe",
+		"Visible": true,
+		"Control": "ctrlUploadRequirement.html",
+		"MaximumHeight": 230,
+		"Entities": [
+			"Requirement"
+		],
+		"FinishFunction": "ctrlUploadRequirement.Finish",
+		"ConfigureFunction": "ctrlUploadRequirement.Configure",
+		"AllowInvocationWithNoRecords": false
+	},
+	{
+		"ID": "Withdrawn",
+		"Caption": "Withdrawn",
+		"ImagePath": "fa-frown-o",
+		"Visible": true,
+		"Control": "ctrlWithdrawn.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Requirement",
+			"Contact"
+		],
+		"SpecificMenus": [ "requirementShortlistActionsMenu" ],
+		"FinishFunction": "ctrlWithdrawn.Finish",
+		"ConfigureFunction": "ctrlWithdrawn.Configure",
+		"MailMergeDataFunction": "ctrlWithdrawn.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "PlacementTimesheetMerge",
+		"Caption": "Timesheet Send Out",
+		"ImagePath": "gi-envelope",
+		"Visible": true,
+		"Control": "ctrlPlacementTimesheetMerge.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Placement-Report"
+		],
+		"FinishFunction": "ctrlPlacementTimesheetMerge.Finish",
+		"ConfigureFunction": "ctrlPlacementTimesheetMerge.Configure",
+		"MailMergeDataFunction": "ctrlPlacementTimesheetMerge.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "AuthoriseTimesheet",
+		"Caption": "Authorise Payment",
+		"ImagePath": "gi-gbp",
+		"Visible": false,
+		"Control": "ctrlAuthoriseTimesheet.html",
+		"MaximumHeight": 500,
+		"Entities": [
+			"Timesheet"
+		],
+		"FinishFunction": "ctrlAuthoriseTimesheet.Finish",
+		"AllowInvocationWithNoRecords": false
+	},
+	{
+		"ID": "ExportToPayroll",
+		"Caption": "Export to Payroll",
+		"ImagePath": "gi-file_export",
+		"Visible": true,
+		"Control": "ctrlExportToPayroll.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Timesheet"
+		],
+		"FinishFunction": "ctrlExportToPayroll.Finish",
+		"ConfigureFunction": "ctrlExportToPayroll.Configure",
+		"MailMergeDataFunction": "ctrlExportToPayroll.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "InviteTimesheetCompletion",
+		"Caption": "Invite to Complete",
+		"ImagePath": "gi-envelope",
+		"Visible": true,
+		"Control": "ctrlInviteTimesheetCompletion.html",
+		"MaximumHeight": 545,
+		"Entities": [
+			"Timesheet"
+		],
+		"FinishFunction": "ctrlInviteTimesheetCompletion.Finish",
+		"ConfigureFunction": "ctrlInviteTimesheetCompletion.Configure",
+		"MailMergeDataFunction": "ctrlInviteTimesheetCompletion.MailMergeData",
+		"AllowInvocationWithNoRecords": false,
+		"FullScreen": true,
+		"Draggable": true
+	},
+	{
+		"ID": "StandardWorkingWeek",
+		"Caption": "Standard Hours",
+		"ImagePath": "gi-clock",
+		"Visible": true,
+		"Control": "ctrlStandardWorkingWeek.html",
+		"MaximumHeight": 500,
+		"Entities": [
+			"Timesheet"
+		],
+		"FinishFunction": "ctrlStandardWorkingWeek.Finish",
+		"AllowInvocationWithNoRecords": true
+	},
+	{
+		"ID": "UnAuthoriseTimesheet",
+		"Caption": "Un-Authorise Payment",
+		"ImagePath": "gi-unlock",
+		"Visible": true,
+		"Control": "ctrlUnAuthoriseTimesheet.html",
+		"MaximumHeight": 500,
+		"Entities": [
+			"Timesheet"
+		],
+		"FinishFunction": "ctrlUnAuthoriseTimesheet.Finish",
+		"AllowInvocationWithNoRecords": false
+	}
+]

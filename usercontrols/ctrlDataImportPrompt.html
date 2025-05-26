@@ -1,0 +1,58 @@
+﻿<!--
+  -- ctrlDataImportPrompt.html
+  -- Created on Thursday 07 November 2020 by Garry Lowther, TriSys Business Software
+  -->
+
+<style scoped>
+    .td-label-dataimportprompt {
+        width: 120px;
+    }
+</style>
+
+<div class="block">
+
+    <p id="dataimportprompt-question">
+        
+    </p>
+
+    <p>
+        Please set defaults for new records if a matching field is not available:
+    </p>
+   <table class="table table-borderless">
+       <tbody>
+           <tr>
+               <td class="td-label-dataimportprompt">
+                   <strong>Type</strong>
+               </td>
+               <td>
+                   <input type="text" id="dataimportprompt-EntityType" style="width:100%" />
+               </td>
+           </tr>
+           <tr>
+               <td class="td-label-dataimportprompt">
+                   <strong>Comments</strong>
+               </td>
+               <td>
+                   <textarea class="k-textbox" id="dataimportprompt-comments" rows="3" maxlength="1024" style="width:100%; resize: none;"></textarea>
+               </td>
+           </tr>
+           <tr>
+               <td class="td-label-dataimportprompt">
+                   <strong>Source</strong>
+               </td>
+               <td>
+                   <input type="text" id="dataimportprompt-Source" style="width:100%" />
+               </td>
+           </tr>
+           <tr>
+               <td class="td-label-dataimportprompt">
+                   <strong>Import Attribute(s)</strong>
+               </td>
+               <td>
+                   <input type="text" id="dataimportprompt-ImportSkills" style="width:100%" />
+               </td>
+           </tr>
+       </tbody>
+    </table>
+
+</div>

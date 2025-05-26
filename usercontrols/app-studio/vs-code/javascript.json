@@ -1,0 +1,659 @@
+{
+/*
+	 // TriSys Business Software
+	 // Apex Javascript Snippets
+	 // Version 1: 16 February 2016 @ 10:00
+*/
+	"ShowMessage": 
+	{
+		"prefix": "TriSysApex ShowMessage",
+		"body": [
+			"// Open a modal dialogue box",
+			"TriSysApex.UI.ShowMessage('$1' /*, 'Caption' */);"
+		],
+		"description": "Popup a modal message box"
+	},
+	"LogMessage": 
+	{
+		"prefix": "TriSysApex LogMessage",
+		"body": [
+			"// Log a message to the browser console",
+			"TriSysApex.Logging.LogMessage('$1');"
+		],
+		"description": "Log a message to the browser console"
+	},
+	"Try/Catch": 
+	{
+		"prefix": "TriSysApex Try/Catch",
+		"body": [
+			"// Try an operation which may fail",
+			"try",
+			"{",
+			"	// Your code",
+			"} catch (e)",
+			"{",
+			"	TriSysApex.Logging.LogMessage(TriSysApex.Logging.CatchVariableToText(e));",
+			"}"
+		],
+		"description": "Try/Catch construct with browser console logging for errors"
+	},
+	"Post to Web API": 
+	{
+		"prefix": "TriSysAPI Post",
+		"body": [
+			"// Call a TriSys Web API Function",
+			"var COutboundObject = {",
+			"	Field1: 'value',",
+			"	Field2: 2",
+			"}",
+			"",
+			"var payloadObject = {};",
+			"",
+			"payloadObject.URL = '$1/$2';",
+			"",
+			"payloadObject.OutboundDataPacket = COutboundObject;",
+			"",
+			"payloadObject.InboundDataFunction = function (CInboundObject)",
+			"{",
+			"	TriSysApex.UI.HideWait();",
+			"",
+			"	if (CInboundObject)",
+			"	{",
+			"		if(CInboundObject.Success)",
+			"		{",
+			"			// Handle your data here",
+			"		}",
+			"		else",
+			"			TriSysApex.Logging.LogMessage(CInboundObject.ErrorMessage);",
+			"	}",
+			"	else",
+			"		TriSysApex.Logging.LogMessage('API Call Failed.');",
+			"};",
+			"",
+			"payloadObject.ErrorHandlerFunction = function (request, status, error)",
+			"{",
+			"	TriSysApex.UI.HideWait();",
+			"	TriSysApex.Logging.LogMessage('API Call Error: ' + status + ': ' + error + '. responseText: ' +request.responseText);",
+			"}",
+			"",
+			"TriSysApex.UI.ShowWait(null, 'Reading...');",
+			"TriSysAPI.Data.PostToWebAPI(payloadObject);",
+			""			
+		],
+		"description": "Call the TriSys Web API"
+	},
+	"Question Yes/No": 
+	{
+		"prefix": "TriSysApex Question Yes/No",
+		"body": [
+			"// Prompt the user with a question using modal message box with two buttons",
+			"var sMessage = 'Do you want to do it now?';",
+        	"var sTitle = 'Do-It Question';",
+        	"var yesCallback = function ()",
+        	"{",
+            "	TriSysApex.Toasters.Info('Yes'');",
+            "	return true;    // This will close the popup",
+        	"};",
+        	"TriSysApex.UI.questionYesNo(sMessage, sTitle, 'Yes', yesCallback, 'No');"
+		],
+		"description": "Prompt the user with a question using modal message box with two buttons"
+	},
+	"Toasters": 
+	{
+		"prefix": "TriSysApex Toasters",
+		"body": [
+			"var sMessage = 'Success';",
+        	"TriSysApex.Toasters.Success(sMessage);",
+			"",
+			"sMessage = 'Information';",
+			"TriSysApex.Toasters.Information(sMessage);",
+			"",
+			"sMessage = 'Warning';",
+			"TriSysApex.Toasters.Warning(sMessage);",
+			"",
+			"sMessage = 'Error';",
+			"TriSysApex.Toasters.Error(sMessage);"
+		],
+		"description": "Popup a coloured message panel for a short time"
+	},
+	"Add to History": 
+	{
+		"prefix": "TriSysApex Add to History",
+		"body": [
+			"// Specify the file/form you wish to add to the top of the history menu for historic access",
+        	"var sFileName = 'YourFile.html';    // Your custom .html file",
+        	"var lRecordId = 0;                  // Your record ID (optional)",
+			"",
+        	"TriSysApex.BrowserHistory.Add(sFilePathURL, lRecordId);"
+		],
+		"description": "Add a form to the history drop down menu"
+	},
+	"Array": 
+	{
+		"prefix": "TriSysApex Array",
+		"body": [
+			"// Define and enumerate through an array",
+			"var sMessage = '';",
+			"var myArray = ['Hello', 'World', 'from', 'TriSys', 'Apex'];",
+			"for (var i = 0; i < myArray.length; i++)",
+			"{",
+			"	var arrayItem = myArray[i];",
+			"	sMessage += arrayItem + ' ';",
+			"}",
+			"",
+			"// Display a toaster showing the concatenated message",
+			"TriSysApex.Toasters.Information(sMessage);"
+		],
+		"description": "Define and enumerate through an array"
+	},
+	"Check Box Field": 
+	{
+		"prefix": "TriSysApex Check Box Field",
+		"body": [
+			"// SET",
+        	"//var bValue = true;",
+        	"//TriSysSDK.CShowForm.SetCheckBoxValue(sFieldID, bValue);",
+			"",
+        	"// Get",
+        	"var bValue = TriSysSDK.CShowForm.GetCheckBoxValue(sFieldID);"
+		],
+		"description": "Set and Get a check box boolean value"
+	},
+	"Numeric Field": 
+	{
+		"prefix": "TriSysApex Numeric Field",
+		"body": [
+			"// Set a numeric value",
+			"var sNumericField = 'ctrlDataFields-Numeric';",
+			"var fieldDescription = { MinValue: 0, MaxValue: 24, SpinIncrement: 0.25 };",
+			"TriSysSDK.Controls.NumericSpinner.Initialise(sNumericField, fieldDescription);",
+			"TriSysSDK.Controls.NumericSpinner.SetValue(sNumericField, 7.5);",
+			"",
+			"// Get a numeric value",
+			"var fValue = TriSysSDK.Controls.NumericSpinner.GetValue(sNumericField);"
+		],
+		"description": "Instantiation and operation of a numeric field"
+	},
+	"Date Field": 
+	{
+		"prefix": "TriSysApex Date Field",
+		"body": [
+			"// Instantiate Date Field",
+			"var sDateField = 'ctrlDataFields-Date';",
+			"TriSysSDK.CShowForm.datePicker(sDateField);",
+			"",
+			"// Set the date",
+			"var dtSet = new Date();",
+			"TriSysSDK.CShowForm.setDatePickerValue(sDateField, dtSet);",
+			"",
+			"// Get the date",
+			"var dtGet = TriSysSDK.CShowForm.getDatePickerValue(sDateField);"
+		],
+		"description": "Instantiation and operation of a date field"
+	},
+	"Date/Time Field": 
+	{
+		"prefix": "TriSysApex Date/Time Field",
+		"body": [
+			"// Instantiate Date/Time Field",
+			"var sDateTimeField = 'ctrlDataFields-DateTime';",
+			"TriSysSDK.CShowForm.dateTimePicker(sDateTimeField);",
+			"",
+			"// Set the date and time",
+			"var dtSet = new Date();",
+			"TriSysSDK.CShowForm.setDateTimePickerValue(sDateTimeField, dtSet);",
+			"",
+			"// Get the date",
+			"var dtGet = TriSysSDK.CShowForm.getDateTimePickerValue(sDateTimeField);"
+		],
+		"description": "Instantiation and operation of a date/time field"
+	},
+	"Combo Box Field": 
+	{
+		"prefix": "TriSysApex Combo Box Field",
+		"body": [
+			"// Instantiate and populate a Combo Box Field with a callback function",
+			"",
+			"// Lord of the Rings Characters used in combo",
+			"var lstCharacters = [",
+			"	{ text: 'Gandalf', value: 1 },",
+			"	{ text: 'Aragorn', value: 2 },",
+			"	{ text: 'Frodo', value: 3 },",
+			"	{ text: 'Legolas', value: 4 },",
+			"	{ text: 'Gollum', value: 5 }",
+			"];",
+			"",
+			"// Single-Select Combo",
+			"var sSingleSelectComboField = 'ctrlDataFields-SingleSelectCombo';",
+			"var fnSingleSelect = function (value, sText)",
+			"{",
+			"	var sCharacter = sText;",
+			"	TriSysApex.Toasters.Info(sCharacter);",
+			"};",
+			"TriSysSDK.CShowForm.populateComboFromDataSource(sSingleSelectComboField, lstCharacters, 0, fnSingleSelect);",
+			"",
+			"// Set selected item",
+			"var sSelectedItem = 'Frodo';",
+			"TriSysSDK.CShowForm.SetTextInCombo(sSingleSelectComboField, sSelectedItem);",
+			"",
+			"// Get selected item",
+			"sSelectedItem = TriSysSDK.CShowForm.GetTextFromCombo(sSingleSelectComboField);",
+			""
+		],
+		"description": "Instantiation and operation of a single selection combo box field with callback function"
+	},
+	"Combo Box Multi-Select Field": 
+	{
+		"prefix": "TriSysApex Combo Box Multi-Select Field",
+		"body": [
+			"// Instantiate and populate a Multi-Select Combo Box Field with a callback function",
+			"",
+			"// Lord of the Rings Characters used in combo",
+			"var lstCharacters = [",
+			"	{ text: 'Gandalf', value: 1 },",
+			"	{ text: 'Aragorn', value: 2 },",
+			"	{ text: 'Frodo', value: 3 },",
+			"	{ text: 'Legolas', value: 4 },",
+			"	{ text: 'Gollum', value: 5 }",
+			"];",
+			"",
+			"// Multi-Select Combo",
+			"var sMultiSelectComboField = 'ctrlDataFields-MultiSelectCombo';",
+			"var fnMultiSelect = function (value, sText)",
+			"{",
+			"	var lstSelectedCharacters = TriSysSDK.CShowForm.GetSelectedSkillsFromListAsArray(sMultiSelectComboField);",
+			"	TriSysApex.Toasters.Info(JSON.stringify(lstSelectedCharacters));",
+			"};",
+			"TriSysSDK.CShowForm.populateMultiSelectComboFromDataSource(sMultiSelectComboField, lstCharacters);",
+			"",
+			"// Set selected items",
+			"TriSysSDK.CShowForm.SetSkillsInList(sMultiSelectComboField, 'Gollum, Gandalf');",
+			"",
+			"// Get selected items",
+			"var sValuesFromCombo = TriSysSDK.CShowForm.GetSelectedSkillsFromList(sMultiSelectComboField);",
+			"TriSysApex.Toasters.Info(sValuesFromCombo);"
+		],
+		"description": "Instantiation and operation of a multi-select combo box field with callback function"
+	},
+	"Currency Amount Period Field": 
+	{
+		"prefix": "TriSysApex Currency Amount Period Field",
+		"body": [
+			"// Instantiate and populate a Currency Amount Period",
+			"",
+			"var sCurrencyAmountPeriodField = 'ctrlDataFields-CurrencyAmountPeriod';",
+			"TriSysSDK.Controls.CurrencyAmountPeriod.Load(sCurrencyAmountPeriodField);",
+			"",
+			"// Set",
+			"var sValue = '£1,234.56 per Day';",
+			"TriSysSDK.Controls.CurrencyAmountPeriod.SetCurrencyAmountPeriod(sCurrencyAmountPeriodField, sValue);",
+			"",
+			"// Get",
+			"sValue = TriSysSDK.Controls.CurrencyAmountPeriod.GetCurrencyAmountPeriod(sCurrencyAmountPeriodField);",
+			""
+		],
+		"description": "Instantiate and populate a Currency Amount Period"
+	},
+	"Grid Population by JSON": 
+	{
+		"prefix": "TriSysApex Grid Population by JSON",
+		"body": [
+			"/*",
+			" * Populate a grid with a JSON dataset.",
+			" * You should use the Grid tool in your .html file to generate the markup for a data grid.",
+			"*/",
+			"",
+			"// The data can be any data set populated from a file or code or database or web service",
+			"var jsonObjects = [",
+			"",
+			"	{",
+			"		Author: 'Dr. Seuss',",
+			"		Quote: 'Be who you are and say what you feel, because those who mind don\\'t matter and those who matter don\\'t mind.'",
+			"	},",
+			"	{",
+			"		Author: 'Ralph Waldo Emerson',",
+			"		Quote: 'Imitation is suicide.'",
+			"	},",
+			"	{",
+			"		Author: 'Oliver James',",
+			"		Quote: 'Do your own thing on your own terms and get what you came here for.'",
+			"	},",
+			"	{",
+			"		Author: 'Eleanor Roosevelt',",
+			"		Quote: 'Do what you feel in your heart to be right, for you\\'ll be criticized anyway.'",
+			"	},",
+			"	{",
+			"		Author: 'Mark Twain',",
+			"		Quote: 'Whenever you find yourself on the side of the majority, it is time to pause and reflect.'",
+			"	}",
+			"];",
+			"",
+			"// Make sure your columns correlate with",
+			"var columns = [",
+			"	{",
+			"		field: 'Author',",
+			"		title: 'Author Name',",
+			"		type: 'string',",
+			"		width: 220,",
+			"		hidden: false",
+			"	},",
+			"	{",
+			"		field: 'Quote',",
+			"		title: 'Quote Text',",
+			"		type: 'string'",
+			"	}",
+			"];",
+            "",
+			"// The grid ID as defined in the HTML page",
+			"var sGridID = 'divCustomGrid';",
+            "",
+			"// Virtual grid",
+			"var sGridName = sGridID - '-GridInstance';",
+            "",
+			"TriSysSDK.Grid.VirtualMode({",
+			"	Div: sGridID,",
+			"	ID: sGridName,",
+			"	Title: 'Grid Title',",
+			"	RecordsPerPage: TriSysApex.UserOptions.RecordsPerPage(),",
+			"	SQL: null,",
+			"	PopulationByObject: jsonObjects,",
+			"	Columns: columns,",
+            "",
+			"	MultiRowSelect: false,",
+			"	Grouping: true,",
+			"	ColumnFilters: true,",
+            "",
+			"	DrillDownFunction: function (rowData)",
+			"	{",
+			"		var sSelectedField = rowData.Author;",
+			"		TriSysApex.UI.ShowMessage(sSelectedField);",
+			"	}",
+            "});",
+            ""
+		],
+		"description": "Grid Population by JSON Object"
+	},
+	"Grid Population by SQL": 
+	{
+		"prefix": "TriSysApex Grid Population by SQL",
+		"body": [
+			"/*",
+			" * Populate a grid with a SQL statement.",
+			" * You should use the Grid tool in your .html file to generate the markup for a data grid.",
+			"*/",
+			"",
+			"// This query is used to simply identify the columns in the table/view",
+            "var sSQLColumns = 'Select Top 1 * From Users';",
+            "",
+            "// This query gets all data from the table/view for display",
+            "var sSQL = 'Select * From Users Order by LoginName';",
+            "",
+            "// The grid ID as defined in the HTML page",
+            "var sGridID = 'divCustomGrid';",
+			"",
+			"// Declare a function to populate the grid",
+            "var fnPopulateSQLGrid = function (CSQLDatabaseSearchResults)",
+            "{",
+            "    if (CSQLDatabaseSearchResults)",
+            "    {",
+            "        if (CSQLDatabaseSearchResults.DataTable)",
+            "        {",
+            "            // Read all columns after initial query",
+            "            var searchColumns = CSQLDatabaseSearchResults.Columns;",
+            "            if (searchColumns)",
+            "            {",
+            "                var columns = [];",
+            "                for (var i = 0; i < searchColumns.length; i++)",
+            "                {",
+            "                    var searchColumn = searchColumns[i];",
+            "                    var column = { field: searchColumn, title: searchColumn, type: 'string' };",
+            "                    columns.push(column);",
+            "                }",
+            "",
+            "                // Virtual grid",
+            "                var sGridName = sGridID - '-GridInstance';",
+            "",
+            "                TriSysSDK.Grid.VirtualMode({",
+            "                    Div: sGridID,",
+            "                    ID: sGridName,",
+            "                    Title: 'Grid Title',",
+            "                    RecordsPerPage: TriSysApex.UserOptions.RecordsPerPage(),",
+            "                    SQL: sSQL,",
+            "                    Columns: columns,",
+            "",
+            "                    MultiRowSelect: false,",
+            "                    Grouping: true,",
+            "                    ColumnFilters: true,",
+            "",
+            "                    DrillDownFunction: function (rowData)",
+            "                    {",
+            "                        var sSelectedField = rowData.Name;",
+            "                        TriSysApex.UI.ShowMessage(sSelectedField);",
+            "                    }",
+            "                });",
+            "            }",
+            "        }",
+            "    }",
+            "};",
+            "",
+            "// Ask the database to read the data and populate the grid",
+            "TriSysSDK.Database.GetDataSet(sSQLColumns, fnPopulateSQLGrid);",
+            ""
+		],
+		"description": "Grid Population by SQL Statement"
+	},
+	"Load Javascript from File": 
+	{
+		"prefix": "TriSysApex Load Javascript from File",
+		"body": [
+			"var sFileName = 'MyModule.js';",
+            "",
+            "var sFilePathURL = TriSysApex.CustomFormsAndComponents.CustomCodeFolderURL() + sFileName;",
+            "",
+            "LazyLoad.js(sFilePathURL, function ()",
+            "{",
+            "   // You can now access your module code as it is now loaded",
+            "   // MyModule.Load();",
+            "});"
+		],
+		"description": "Load Javascript from File"
+	},
+	"Modal Form": 
+	{
+		"prefix": "TriSysApex Modal Form",
+		"body": [
+			"// Open a file as a modal form",
+            "var parametersObject = new TriSysApex.UI.ShowMessageParameters();",
+            "parametersObject.Title = 'My Modal Form';",
+            "parametersObject.Image = 'fa-file-code-o';",
+            "parametersObject.Maximize = true;",
+            "parametersObject.FullScreen = false;",
+            "",
+            "// Change the name of your file here",
+            "var sFile = 'yourfile.html';",
+            "",
+            "parametersObject.ContentURL = TriSysApex.CustomFormsAndComponents.CustomCodeFolderURL() + sFile;",
+            "",
+            "// Buttons",
+            "parametersObject.ButtonLeftVisible = true;",
+            "parametersObject.ButtonLeftText = 'Save';",
+            "parametersObject.ButtonLeftFunction = function ()",
+            "{",
+            "    var sField1 = $('#ctrlModalForm-Field1').val();",
+            "    var sField2 = $('#ctrlModalForm-Field2').val();",
+            "",
+            "    // Display values as toasters",
+            "    TriSysApex.Toasters.Information('Field values: ' + sField1 + ', ' + sField2);",
+            "",
+            "    // Return true to force the dialogue to close",
+            "    return true;",
+            "};",
+            "",
+            "parametersObject.ButtonRightVisible = true;",
+            "parametersObject.ButtonRightText = 'Cancel';",
+            "parametersObject.ButtonRightFunction = function ()",
+            "{",
+            "    return true;",
+            "};",
+            "",
+            "// Callback",
+            "parametersObject.OnLoadCallback = function ()",
+            "{",
+            "    // Write data to screen",
+            "    $('#ctrlModalForm-Field1').val('Field 1 Value');",
+            "    $('#ctrlModalForm-Field2').val('Field 2 Value');",
+            "};",
+            "",
+            "TriSysApex.UI.PopupMessage(parametersObject);"
+		],
+		"description": "Load Modal Form"
+	},
+	"Hide Navigation Bar Activities": 
+	{
+		"prefix": "TriSysApex Hide Navigation Bar Activities",
+		"body": [
+			"// Hide the navigation bar activities such as task alarms, post-it notes etc..",
+            "$('#nav-bar-activities').hide();",
+            "$('#nav-bar-activities-title').hide();"
+		],
+		"description": "Hide Navigation Bar Activities"
+	},
+	"Navigation Bar Reload": 
+	{
+		"prefix": "TriSysApex Navigation Bar Reload with Custom Settings",
+		"body": [
+			"// Read customer specific NavBar.json and Forms.json",
+            "// to redraw the navigation bar with the groups and forms",
+            "// required in this custom app.",
+            "// This code should typically be placed inside CustomerModule.js",
+            "",
+            "// Wipe out existing nav bar with default Apex menu structure",
+            "$('#scrollNavBar').empty();",
+            "",
+            "// Load our own customised NavBar.json and Forms.json",
+            "",
+            "// Draw the navigation bar and menu items using HTML templates",
+            "TriSysApex.NavigationBar.Draw('scrollNavBar', true);",
+            "",
+            "// End of Navigation Bar Refresh code snippet"
+		],
+		"description": "Navigation Bar Reload with Custom Settings"
+	},
+	"Open Web Browser Tab": 
+	{
+		"prefix": "TriSysApex Open Web Browser Tab",
+		"body": [
+			"// Open a new web browser tab with a specified URL",
+            "",
+            "var win = window.open(URL, '_blank');",
+            "win.focus();",
+            "",
+            "// End of Open Web Browser Tab snippet"
+		],
+		"description": "Open Web Browser Tab"
+	},
+	"Open Form": 
+	{
+		"prefix": "TriSysApex Open Form",
+		"body": [
+			"// METHOD: 1 - direct access if form not specified in Forms.json",
+            "",
+            "// Specify the name of the file/form you wish to open",
+            "var sFile = 'YourFile.html';",
+            "//TriSysApex.FormsManager.OpenCustomFileInContentRegion(sFile, 'My Form Caption');",
+            "",
+            "// METHOD: 2 - if form specified in Forms.json",
+            "var pageConfig = TriSysApex.FormsManager.getPageConfig('YourFile');",
+            "if (pageConfig)",
+            "{",
+            "    TriSysApex.FormsManager.OpenFormUsingView(pageConfig, 0, true);",
+            "}",
+            "",
+            "// METHOD: 3 - open entity record",
+            "var sEntityName = 'Contact';    // Or 'Company', 'Requirement', 'Placement', 'Timesheet'",
+            "var lRecordId = 1;",
+            "//TriSysApex.FormsManager.OpenForm(sEntityName, lRecordId);"
+		],
+		"description": "Open Form"
+	},
+	"Read JSON File": 
+	{
+		"prefix": "TriSysApex Read JSON File",
+		"body": [
+			"// Read a JSON file and callback with the full JSON object",
+            "",
+            "var fnCallback = function (json)",
+            "{",
+            "    // json is a proper object",
+            "    // Get some properties:",
+            "    var sOrigin = json.Origin;",
+            "    var sDescription = json.Description;",
+            "",
+            "    //Convert it to a string for test display",
+            "    var sJSON = JSON.stringify(json);",
+            "    TriSysApex.UI.ShowMessage('Origin: ' + sOrigin + '<br />' +",
+            "                              'Description: ' + sDescription + '<br />' +",
+            "                              'Raw: ' + '<br />' + sJSON);",
+            "};",
+            "",
+            "// Read the file now - we use a callback because the .json file may be large, or distant",
+            "TriSysSDK.Custom.ReadJSON('test.json', fnCallback);"
+		],
+		"description": "Read JSON File"
+	},
+	"Write JSON File": 
+	{
+		"prefix": "TriSysApex Write JSON File",
+		"body": [
+			"// Write a JSON object to a file and callback when complete",
+            "",
+            "var sFile = 'test.json';",
+            "",
+            "var fnCallbackAfterRead = function (json)",
+            "{",
+            "    // Add a new property",
+            "    json.DynamicSetting = 'Updated by code on ' + (new Date());",
+            "",
+            "    var fnCallbackAfterUpdate = function ()",
+            "    {",
+            "        TriSysApex.UI.ShowMessage('File saved, please re-open ' + sFile);",
+            "    };",
+            "",    
+            "    TriSysSDK.Custom.WriteJSON(sFile, json, fnCallbackAfterUpdate);",
+            "};",
+            "",
+            "// Read the file now - we use a callback because the .json file may be large, or distant",
+            "TriSysSDK.Custom.ReadJSON(sFile, fnCallbackAfterRead);"
+		],
+		"description": "Write JSON File"
+	},
+	"IP Address via Web API": 
+	{
+		"prefix": "TriSysApex IP Address via Web API",
+		"body": [
+			"// Use the TriSys Web API to get the IP address of the web browser",
+            "// Note that the web API call is asynchronous i.e. the data from the web server may be returned after a few seconds",
+            "",
+            "var payloadObject = {};",
+            "payloadObject.URL = 'Start/IPAddress';",
+            "",
+            "payloadObject.InboundDataFunction = function (sIPAddress)",
+            "{",
+            "    TriSysApex.Toasters.Success('IP Address: ' + sIPAddress);",
+            "};",
+            "",
+            "payloadObject.ErrorHandlerFunction = function (request, status, error)",
+            "{",
+            "    if (TriSysAPI.Operators.isEmpty(bSupressError))",
+            "        TriSysApex.Toasters.Error('IPAddress: ' + status + ': ' + error + '. responseText: ' + request.responseText);",
+            "};",
+            "",
+            "TriSysAPI.Data.PostToWebAPI(payloadObject);",
+            "",
+            "TriSysApex.Toasters.Information('Posted request to web API');",
+            "",
+            "// End of Web API - IP Address Code Snippet"
+		],
+		"description": "IP Address via Web API"
+	}
+}

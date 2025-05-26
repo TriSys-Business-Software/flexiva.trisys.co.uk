@@ -1,0 +1,293 @@
+﻿<div class="block" id="requirement-form-top">
+    <div class="block-title">
+        <div class="block-options pull-left">
+            <a href="javascript:void(0)" onclick="javascript:TriSysApex.Forms.buttonGoBack()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Back"><i class="fa fa-chevron-left"></i> Back</a>
+        </div>
+        <div class="block-options pull-right">
+            <a href="javascript:void(0)" onclick="RequirementPhone.EditRequirement()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Edit"><i class="gi gi-edit"></i> Edit</a>
+        </div>
+        <div class="block-options text-center" style="font-size: medium;">
+            <strong><span id="requirement-phone-type-footer"></span></strong> Requirement
+        </div>
+    </div>
+    <table class="table table-borderless table-vcenter" id="requirement-phone-summary-top">
+        <tbody>
+            <tr>
+                <td style="vertical-align: top;">
+                    <strong><span style="font-size: large;" id="requirement-phone-reference"></span></strong>
+                    <br />
+                    <span style="font-size: medium;" id="requirement-phone-jobtitle"></span>
+                </td>                
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter" id="requirement-phone-summary-dates">
+        <tbody>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top; padding: 4px;">
+                    <i class="fa fa-info text-primary"></i>
+                </td>
+                <td style="padding: 4px;">
+                    <div>
+                        <strong class="text-primary"><span id="requirement-phone-type"></span></strong>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top; padding: 4px;">
+                    <i class="fa fa-calendar text-info"></i>
+                </td>
+                <td style="padding: 4px;">
+                    <div>
+                        <strong class="text-info"><span id="requirement-phone-startdate"></span></strong>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top; padding: 4px;">
+                    <i class="fa fa-user text-success"></i>
+                </td>
+                <td style="padding: 4px;">
+                    <div>
+                        <strong class="text-success"><span id="requirement-phone-consultant"></span></strong>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="requirement-phone-company-tr">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-building" style="color: #e74c3c;"></i>
+                </td>
+                <td>
+                    <div id="requirement-phone-company-hyperlink">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 60px; vertical-align: top;">
+                                    <img id="requirement-phone-companylogourl" width="48" height="48" alt="Logo" class="widget-image" style="border-radius: 5px;">
+                                </td>
+                                <td>
+                                    <h6 style="margin-top: 0px;" class="truncated-contacts-text">
+                                        <strong><span id="requirement-phone-companyname"></span></strong>
+                                    </h6>
+                                    <address class="truncated-contacts-text">
+                                        <span id="requirement-phone-industry"></span>
+                                    </address>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="requirement-phone-contact-tr">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-user" style="color: rebeccapurple;"></i>
+                </td>
+                <td>
+                    <div id="requirement-phone-contact-hyperlink">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 60px; vertical-align: top;">
+                                    <img id="requirement-phone-contactphotourl" width="48" height="48" alt="Avatar" class="img-circle">
+                                </td>
+                                <td>
+                                    <h6 style="margin-top: 0px;" class="truncated-contacts-text">
+                                        <strong><span id="requirement-phone-contactname"></span></strong>  &nbsp; | &nbsp; <span style="color: rebeccapurple;">Client Contact</span>
+                                    </h6>
+                                    <address class="truncated-contacts-text">
+                                        <span id="requirement-phone-contact-jobtitle"></span>
+                                    </address>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="requirement-phone-siteaddress-tr">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="fa fa-map-marker" style="color: #f39c12;"></i>
+                </td>
+                <td>
+                    <div id="requirement-phone-siteaddress-hyperlink">
+                        <strong>Site Address</strong>
+                        <br />
+                        <span id="requirement-phone-siteaddress"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1)">
+        <tbody>
+            <tr id="requirement-phone-salary-tr">
+                <td class="text-center" style="width: 30px;vertical-align: top;">
+                    <i class="gi gi-gbp" style="color: green;"></i>
+                </td>
+                <td>
+                    <div id="requirement-phone-salary-hyperlink">
+                        <strong><span id="requirement-phone-salary-description"></span></strong>
+                        <br />
+                        <span id="requirement-phone-salary"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="requirement-phone-required-tr">
+                <td class="text-center" style="width: 30px;">
+                    <i class="gi gi-parents" style="color: #ffc0cb;"></i>
+                </td>
+                <td>
+                    <div id="requirement-phone-required-hyperlink">
+                        <strong>Number Required</strong>: <span id="requirement-phone-required"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="requirement-phone-status-tr">
+                <td class="text-center" style="width: 30px;">
+                    <i class="fa fa-globe" style="color: #8b4513;"></i>
+                </td>
+                <td>
+                    <div id="requirement-phone-status-hyperlink">
+                        <strong>Status</strong>: <span id="requirement-phone-status"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="requirement-phone-comments-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="fa fa-sticky-note-o" style="color: #800080;"></i>
+                </td>
+                <td>
+                    <strong>Internal Comments</strong>
+                    <br />
+                    <span id="requirement-phone-comments"></span>
+                </td>
+            </tr>
+            <tr id="requirement-phone-jobdescription-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-file" style="color: #dfddb9;"></i>
+                </td>
+                <td id="requirement-phone-jobdescription-hyperlink">
+                    <strong>Job Description Document</strong>
+                    <br />
+                    <span id="requirement-phone-jobdescription"></span>
+                </td>
+            </tr>
+            <tr id="requirement-phone-webtext-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="fa fa-sticky-note" style="color: #ffccff;"></i>
+                </td>
+                <td>
+                    <strong>External/Web Site Job Details</strong>
+                    <br />
+                    <span id="requirement-phone-webtext"></span>
+                </td>
+            </tr>
+            <tr id="requirement-phone-webjobs-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-link" style="color: orange;"></i>
+                </td>
+                <td id="requirement-phone-webjobs-hyperlink">
+                    <strong>Web Jobs Page</strong>
+                    <br />
+                    <span id="requirement-phone-webjobs"></span>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div id="requirement-form-shortlist-container">
+
+    </div>
+
+    <script type="text/x-kendo-template" id="requirement-form-shortlist-template">
+        <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+            <tbody>
+                <tr>
+                    <td class="text-center" style="width: 30px;">
+                        <i class="gi gi-list" style="color: red;"></i>
+                    </td>
+                    <td>
+                        <strong>Candidate Shortlist</strong>
+                    </td>
+                </tr>
+                {{requirement-form-shortlist-contact-list}}
+            </tbody>
+        </table>
+    </script>
+
+    <script type="text/x-kendo-template" id="requirement-form-shortlisted-candidate">
+        <tr>
+            <td class="text-center" style="width: 30px; vertical-align: top;">
+                <i class="gi gi-user" style="color: lightgray;"></i>
+            </td>
+            <td>
+                <div>
+                    <a onclick="TriSysPhoneGap.OpenContact({{requirement-phone-shortlisted-contactid}})" style="text-decoration: none; color: inherit;">
+
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <h6 style="margin-top: 0px;" class="truncated-contacts-text">
+                                        <strong>{{FullName}}</strong>
+                                    </h6>
+                                    <address class="truncated-contacts-text">
+                                        {{JobTitle}}
+                                        <br />
+                                        Source: {{Source}} &nbsp; | &nbsp; {{ShortlistedDate}}
+                                        {{History}}
+                                    </address>
+                                </td>
+                                <td style="width: 60px; vertical-align: top;">
+                                    <img src="{{ContactPhotoURL}}" width="48" height="48" alt="Avatar" class="img-circle">
+                                </td>
+                            </tr>
+                        </table>
+
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </script>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); display: none;" id="requirement-phone-placements-table">
+        <tbody>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-gbp" style="color: green;"></i>
+                </td>
+                <td>
+                    <div id="requirement-phone-placements-hyperlink">
+                        <strong><span id="requirement-phone-placementcount"></span></strong>
+                        &nbsp; | &nbsp; <span style="color: green;">View</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/Requirement-Phone.js"></script>

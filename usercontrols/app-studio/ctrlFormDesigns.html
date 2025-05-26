@@ -1,0 +1,256 @@
+﻿<!-- 05 Nov 2024                                                                    -->
+<!-- Used by ctrlFormDesigns.js                                                     -->
+<!-- Choose the list of form designs and set properties and launch form designer    -->
+<style scoped>
+
+    #ctrlFormDesigns-Root {
+        margin-bottom: 0px;
+    }
+
+    #ctrlFormDesigns-Instructions {
+        margin-top: 0px;
+        margin-left: 10px;
+        padding-top: 10px;
+    }
+
+        #ctrlFormDesigns-Instructions > dl > dt {
+            text-align: left;
+            width: 26px;
+        }
+
+        #ctrlFormDesigns-Instructions > dl > dd {
+            margin-left: 35px;
+            line-height: 1.9;
+            padding-right: 10px;
+            margin-bottom: -10px;
+        }
+
+    /* Target the first <td> in each row and set its width to 150px */
+    .form-properties-table > tbody > tr > td:first-child {
+        width: 130px;
+    }
+
+    #ctrlFormDesigns-Properties-Block {
+        display: none;
+    }
+
+    #ctrlFormDesigns-Properties-SaveButtonRow .btn {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Prevent wrapping of form properties title */
+    /* Fucks up delete button position! */
+    /*#ctrlFormDesigns-Properties-Column > div.block > div.block-title {
+        display: flex;
+        align-items: center;
+        min-width: 0;*/ /* Added this */
+    /*}
+
+        #ctrlFormDesigns-Properties-Column > div.block > div.block-title h2 {
+            flex: 0 1 auto;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 10px;*/ /* Added spacing */
+        /*}
+
+        #ctrlFormDesigns-Properties-Column > div.block > div.block-title .block-options {
+            flex: 0 0 auto;
+            white-space: nowrap;
+            margin-left: auto;*/ /* Added this to push to right */
+        /*}*/
+
+</style>
+
+<div class="block" id="ctrlFormDesigns-Root">
+
+    <div class="block-title" style="margin-bottom: 10px;">
+
+        <div id="ctrlFormDesigns-Instructions">
+            <dl class="dl-horizontal">
+                <dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+                <dd>
+
+                    Manage your forms using this dialogue.
+                    <br />
+                    Forms are typically bound to data sources and can be used to display and edit data.
+                    You can select existing forms to edit, clone, delete, or add new forms.
+
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-7" style="padding-bottom: 10px;">
+
+            <div class="block">
+                <div class="block-title">
+                    <h2>Forms</h2>
+
+                    <div class="block-options pull-right">
+                        <div class="btn-group btn-group-sm show-on-hover">
+                            <a style="cursor: pointer;" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" 
+                                title="Add a new form" onclick="ctrlFormDesigns.AddForm()">
+                                <i class="gi gi-circle_plus"></i><span id="ctrlFormDesigns-Add-Button"> &nbsp; Add </span>
+                            </a>
+                        </div>
+
+                        <span>&nbsp;</span>
+
+                        <a style="cursor: pointer;" onclick="ctrlFormDesigns.CopyForm()"
+                           class="btn btn-sm btn-default enable-tooltip" title="Clone the selected form">
+                            <i class="fa fa-copy"></i><span id="ctrlFormDesigns-Clone-Button"> &nbsp; Clone &nbsp;</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="ctrlFormDesigns-Grid"></div>
+
+            </div>
+        </div>
+        <div class="col-md-5" id="ctrlFormDesigns-Properties-Column">
+
+            <div class="block" id="ctrlFormDesigns-Properties-Block">
+                <div class="block-title" id="ctrlFormDesigns-Properties-Title">
+                    <h2>Form: <span id="ctrlFormDesigns-Properties-SelectedFormName"></span></h2>
+
+                    <div class="block-options pull-right">
+                        <a style="cursor: pointer;" onclick="ctrlFormDesigns.DeleteForm()" class=" btn btn-sm btn-default enable-tooltip" title="Delete form">
+                            <i class="gi gi-circle_remove"></i> &nbsp; Delete &nbsp;
+                        </a>
+                    </div>
+
+                    <div class="block-options pull-right">
+                        <a style="cursor: pointer;" onclick="ctrlFormDesigns.EditForm()" class=" btn btn-sm btn-default enable-tooltip"
+                           title="Edit form properties">
+                            <i class="gi gi-edit"></i> &nbsp; Edit &nbsp;
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="row" id="ctrlFormDesigns-Properties">
+                    <div class="col-md-12" style="padding-left: 0px">
+                        <div class="form-group" style="margin-right: -10px;">
+                            <div class="col-md-12" style="padding-right: 0px;">
+                                <table class="table table-borderless table-striped form-properties-table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <strong>Name</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-Name"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Icon</strong>
+                                            </td>
+                                            <td>
+                                                <i class="fa-2x themed-color" id="ctrlFormDesigns-Properties-Icon"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Type</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-Type"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Purpose</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-Purpose"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Description</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-Description"></span>
+                                            </td>
+                                        </tr>
+                                        <!--<tr>
+                                            <td>
+                                                <strong>Entity Name</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-EntityName">
+                                                    This may only be of interest to TriSys developers.
+                                                </span>
+                                            </td>
+                                        </tr>-->
+                                        <tr>
+                                            <td>
+                                                <strong>Record Summary</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-RecordSummary">
+                                                    
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Data Source(s)</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-DataSource">
+                                                    Select the data source which will service this form.
+                                                    For example the ReST API requests for Create, Read, Update and Delete.
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Size</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-Size"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Date Created</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-DateCreated"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Last Modified</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-DateModified"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Full Path</strong>
+                                            </td>
+                                            <td>
+                                                <span id="ctrlFormDesigns-Properties-FullPath"></span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

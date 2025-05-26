@@ -1,0 +1,77 @@
+﻿<style scoped>
+    .td-label {
+        width: 100px;
+    }
+</style>
+
+<div class="row" style="padding-left: 5px; margin-right: 5px; margin-left: 0px;">
+
+    <div id="enable2FAcontainerDiv" class="col-xs-12 col-sm-12 col-md-12" style="overflow-y: scroll;">
+
+        <div class="block">
+
+            <p style="text-align: center;" id="qr-code-para">
+
+                <img id="qr-code-2fa" style="border: 0;" />
+
+            </p>
+    
+            <p id="login-instructions-para" style="display: none;">
+                Your account has secure two-factor authentication enabled. 
+                Please open your Google Authenticator mobile app and type the current code
+                for <b><span id="login-instructions-AuthenticatorAppName"></span></b>
+                in the field below:
+            </p>
+
+            <table class="table table-borderless" id="auth-code" style="display: none;">
+                <tbody>
+
+                    <tr>
+                        <td class="td-label">
+                            <strong>Code</strong>
+                        </td>
+                        <td>
+                            <input type="number" class="k-textbox" id="unlock-code" required="required" style="width:100%"
+                                oninput="if(value.length>6)value=value.slice(0,6)" title="Please enter a 6-digit code" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p id="app-instructions" style="display: none;">
+                Now open your installed Google Authenticator App on your mobile phone, and press
+                the "+" icon and choose the "Scan a QR code" option. Point your camera at the above
+                QR code until your phone recognises it and displays a 6 digit code.
+            </p>
+
+            <p id="button-instructions" style="display: none;">
+                Click the Authenticate button below to enter this 6 digit code
+                for <b><span id="login-instructions-AuthenticatorAppName2"></span></b>.
+            </p>
+
+            <table style="width: 100%; margin-bottom: 20px; border-top-style: solid; border-top-color: lightgray; border-top-width: 1px;" id="store-instructions">
+                <tr style="height: 36px; vertical-align: top;">
+                    <td colspan="2"  style="padding-top: 10px; padding-bottom: 10px;">
+                        The Google Authenticator app is available for both Android and iOS from these respective stores:  
+                        <br/>              
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;">
+                        <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB" target="_blank">
+                            <img src="https://apex.trisys.co.uk/images/google-play.png" width="128" />
+                        </a>
+                    </td>
+                    <td style="width: 50%; text-align: right;">
+                        <a href="https://apps.apple.com/gb/app/authenticator/id766157276" target="_blank">
+                            <img src="https://apex.trisys.co.uk/images/appstore-logo.png" width="128" />
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

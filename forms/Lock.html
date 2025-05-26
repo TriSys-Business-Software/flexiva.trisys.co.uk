@@ -1,0 +1,50 @@
+﻿<style scoped>
+    .loggedin-user-photo > img {
+        width: 64px;
+        height: 64px;
+        border: 2px solid #fff;
+        border-radius: 32px;
+        vertical-align: top;
+        }
+</style>
+<img src="img/placeholders/backgrounds/apex-lock-2020-background-black.png" alt="Upgrading Background" class="animation-pulseSlow full-bg">
+
+<!-- Login Container -->
+<div id="login-container" class="animation-hatch">
+    <!-- Login Title -->
+    <div class="login-title text-right">
+        <h1 class="text-center">
+            <span class="loggedin-user-photo">
+                <img id="loggedin-user-image" src="https://apex.trisys.co.uk/images/profile-grey.png" alt="avatar" class="img-circle push">
+            </span>
+            <br>
+            <strong><span id="loggedin-user-full-name"></span></strong><br>
+            <span id="loggedin-user-company-name"></span>
+        </h1>
+    </div>
+    <!-- END Login Title -->
+    <!-- Login Block -->
+    <div class="block">
+        <div class="form-horizontal push">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <input type="password" id="lock-password" class="form-control" placeholder="Password" maxlength="100">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-primary" id="unlock-button"><i class="fa fa-unlock-alt"></i> &nbsp; Unlock</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center" style="margin-top: 50px; padding-top: 15px; border-top: 1px dotted lightgray;">
+            <img src="images/t-circle-bw-16x16.png" alt="TriSys" style="width:20px" id="lock-brand-icon" /> &nbsp; <strong id="lock-brand-name">TriSys</strong> <span id="lock-product-name">Flexiva</span>
+        </p>
+    </div>
+    <!-- END Login Block -->
+</div>
+<!-- END Login Container -->
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/lock.js"></script>
+

@@ -1,0 +1,97 @@
+﻿<html>
+<head>
+    <meta charset='utf-8' />
+</head>
+<body>
+    <!--Add a button for the user to click to initiate auth sequence -->
+    <button id="authorize-button" style="visibility: hidden">Authorize</button>
+    <div id="content"></div>
+    <p>Test gmail API.</p>
+    <script type="text/javascript">
+      // Enter a client ID for a web application from the Google Developer Console.
+      // In your Developer Console project, add a JavaScript origin that corresponds to the domain
+      // where you will be running the script.
+        var clientId = '846645542721-28ncraq600rjrohb9ghniujdqi7kqkb6.apps.googleusercontent.com';
+
+      // To enter one or more authentication scopes, refer to the documentation for the API.
+      var scopes = 'https://www.googleapis.com/auth/gmail.readonly';
+
+      // Use a button to handle authentication the first time.
+      function handleClientLoad() {
+        window.setTimeout(checkAuth,1);
+      }
+
+      function checkAuth() {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+      }
+
+      function handleAuthResult(authResult) {
+        var authorizeButton = document.getElementById('authorize-button');
+        if (authResult && !authResult.error) {
+          authorizeButton.style.visibility = 'hidden';
+          makeApiCall();
+        } else {
+          authorizeButton.style.visibility = '';
+          authorizeButton.onclick = handleAuthClick;
+        }
+      }
+
+      function handleAuthClick(event) {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+        return false;
+      }
+
+      // Load the API and make an API call.  Display the results on the screen.
+      function makeApiCall() {
+        gapi.client.load('gmail', 'v1', function() {
+          listLabels();
+          listMessages();
+        });
+      }
+
+      /**
+       * Get all the Labels in the authenticated user's mailbox.
+       */
+      function listLabels() {
+        var userId = "me";
+        var request = gapi.client.gmail.users.labels.list({
+          'userId': userId
+        });
+        request.execute(function(resp) {
+          var labels = resp.labels;
+          var output = ("<br>Query returned " + labels.length + " labels:<br>");
+          for(var i = 0; i < labels.length; i++) {
+            output += labels[i].name + "<br>";
+          }
+          document.getElementById("content").innerHTML += output;
+        });
+      }
+
+      /**
+       * Get all the message IDs in the authenticated user's inbox.
+       */
+      function listMessages() {
+        var userId = "me";
+        var request = gapi.client.gmail.users.messages.list({
+          'userId': userId
+        });
+        request.execute(function(resp) {
+          var messages = resp.messages;
+          var output = "<br>Query returned " + messages.length + " messages:<br>";
+          for (var i = 0; i < messages.length; i++)
+          {
+              var message = messages[i];
+              output += message.id + "<br>";
+
+              // Get the message
+              //output += message.body.data + "<br>";
+
+
+          }
+          document.getElementById("content").innerHTML += output;
+        });
+      }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+</body>
+</html>

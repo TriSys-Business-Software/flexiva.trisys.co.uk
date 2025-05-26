@@ -1,0 +1,234 @@
+﻿<div class="block" id="placement-form-top">
+    <div class="block-title">
+        <div class="block-options pull-left">
+            <a href="javascript:void(0)" onclick="javascript:TriSysApex.Forms.buttonGoBack()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Back"><i class="fa fa-chevron-left"></i> Back</a>
+        </div>
+        <div class="block-options pull-right">
+            <a href="javascript:void(0)" onclick="PlacementPhone.EditPlacement()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Edit"><i class="gi gi-edit"></i> Edit</a>
+        </div>
+        <div class="block-options text-center" style="font-size: medium;">
+            <strong><span id="placement-phone-type-footer"></span></strong> Placement
+        </div>
+    </div>
+    <table class="table table-borderless table-vcenter" id="placement-phone-summary-top">
+        <tbody>
+            <tr>
+                <td style="vertical-align: top;">
+                    <strong><span style="font-size: large;" id="placement-phone-reference"></span></strong>
+                    <br />
+                    <span style="font-size: medium;" id="placement-phone-jobtitle"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter" id="placement-phone-summary-dates">
+        <tbody>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top; padding: 4px;">
+                    <i class="fa fa-info text-primary"></i>
+                </td>
+                <td style="padding: 4px;">
+                    <div>
+                        <strong class="text-primary"><span id="placement-phone-type"></span></strong>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top; padding: 4px;">
+                    <i class="fa fa-calendar text-info"></i>
+                </td>
+                <td style="padding: 4px;">
+                    <div>
+                        <strong class="text-info"><span id="placement-phone-startdate"></span></strong>
+                    </div>
+                </td>
+            </tr>
+            <tr id="placement-phone-enddate-tr">
+                <td class="text-center" style="width: 30px; vertical-align: top; padding: 4px;">
+                    <i class="fa fa-calendar text-danger"></i>
+                </td>
+                <td style="padding: 4px;">
+                    <div>
+                        <strong class="text-danger"><span id="placement-phone-enddate"></span></strong>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center" style="width: 30px; vertical-align: top; padding: 4px;">
+                    <i class="fa fa-user text-success"></i>
+                </td>
+                <td style="padding: 4px;">
+                    <div>
+                        <strong class="text-success"><span id="placement-phone-consultant"></span></strong>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="placement-phone-candidate-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-user" style="color: cornflowerblue;"></i>
+                </td>
+                <td>
+                    <div id="placement-phone-candidate-hyperlink">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 60px; vertical-align: top;">
+                                    <img id="placement-phone-candidatephotourl" width="48" height="48" alt="Avatar" class="img-circle">
+                                </td>
+                                <td>
+                                    <h6 style="margin-top: 0px;" class="truncated-contacts-text">
+                                        <strong><span id="placement-phone-candidatename"></span></strong> &nbsp; | &nbsp; <span style="color: cornflowerblue;">Candidate</span>
+                                    </h6>
+                                    <address class="truncated-contacts-text">
+                                        <span id="placement-phone-candidate-jobtitle"></span>
+                                    </address>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="placement-phone-company-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-building" style="color: #e74c3c;"></i>
+                </td>
+                <td>
+                    <div id="placement-phone-company-hyperlink">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 60px; vertical-align: top;">
+                                    <img id="placement-phone-companylogourl" width="48" height="48" alt="Logo" class="widget-image" style="border-radius: 5px;">
+                                </td>
+                                <td>
+                                    <h6 style="margin-top: 0px;" class="truncated-contacts-text">
+                                        <strong><span id="placement-phone-companyname"></span></strong>
+                                    </h6>
+                                    <address class="truncated-contacts-text">
+                                        <span id="placement-phone-industry"></span>
+                                    </address>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="placement-phone-contact-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-user" style="color: rebeccapurple;"></i>
+                </td>
+                <td>
+                    <div id="placement-phone-contact-hyperlink">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 60px; vertical-align: top;">
+                                    <img id="placement-phone-contactphotourl" width="48" height="48" alt="Avatar" class="img-circle">
+                                </td>
+                                <td>
+                                    <h6 style="margin-top: 0px;" class="truncated-contacts-text">
+                                        <strong><span id="placement-phone-contactname"></span></strong>  &nbsp; | &nbsp; <span style="color: rebeccapurple;">Client Contact</span> 
+                                    </h6>
+                                    <address class="truncated-contacts-text">
+                                        <span id="placement-phone-contact-jobtitle"></span>
+                                    </address>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="placement-phone-siteaddress-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="fa fa-map-marker" style="color: #f39c12;"></i>
+                </td>
+                <td>
+                    <div id="placement-phone-siteaddress-hyperlink">
+                        <strong>Site Address</strong>
+                        <br />
+                        <span id="placement-phone-siteaddress"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1)">
+        <tbody>
+            <tr id="placement-phone-salary-tr" style="display: none;">
+                <td class="text-center" style="width: 30px;vertical-align: top;">
+                    <i class="gi gi-gbp" style="color: green;"></i>
+                </td>
+                <td>
+                    <div id="placement-phone-salary-hyperlink">
+                        <strong><span id="placement-phone-salary-description"></span></strong>
+                        <br />
+                        <span id="placement-phone-salary"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="placement-phone-status-tr" style="display: none;">
+                <td class="text-center" style="width: 30px;">
+                    <i class="fa fa-globe" style="color: #8b4513;"></i>
+                </td>
+                <td>
+                    <div id="placement-phone-status-hyperlink">
+                        <strong>Status</strong>: <span id="placement-phone-status"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="placement-phone-requirement-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="gi gi-link" style="color: orange;"></i>
+                </td>
+                <td>
+                    <div id="placement-phone-requirement-hyperlink">
+                        <strong>Requirement</strong>
+                        <br />
+                        <span id="placement-phone-requirement"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+        <tbody>
+            <tr id="placement-phone-description-tr" style="display: none;">
+                <td class="text-center" style="width: 30px; vertical-align: top;">
+                    <i class="fa fa-sticky-note-o" style="color: #800080;"></i>
+                </td>
+                <td>
+                    <strong>Description</strong>
+                    <br />
+                    <span id="placement-phone-description"></span>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/Placement-Phone.js"></script>

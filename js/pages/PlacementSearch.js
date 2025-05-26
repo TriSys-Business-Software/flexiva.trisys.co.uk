@@ -1,0 +1,1 @@
+var PlacementSearch={'Load':function(){TriSysApex['EntitySearch']['LoadControl']('placement-search-placeholder','Placement');}};$(document)['ready'](function(){PlacementSearch['Load']();});

@@ -1,0 +1,93 @@
+﻿<div class="block" id="contacts-form-top">
+    <div class="block-title">
+        <div class="block-options pull-right" id="contacts-form-top-buttons">
+            <a href="javascript:void(0)" onclick="ContactsPhone.New()" class="btn btn-sm btn-default enable-tooltip" title="Create new contact record">
+                <i class="gi gi-plus"></i> &nbsp; New
+            </a>
+        </div>
+        <h2><strong>Contacts</strong> Lookup</h2>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+            <div class="input-group">
+                <input type="text" id="contacts-form-lookup" name="contacts-form-lookup" class="form-control" placeholder="Enter lookup expression...">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" id="contacts-form-lookup-button"><i class="fa fa-search"></i> Lookup</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+            <span id="contacts-form-lookup-figures">
+                Enter part of a contact name or company name
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="k-content wide" style="width: 100%; background-color: transparent; display: none;" id="contacts-form-listview-container">
+    <div id="contacts-form-listView" style="border: 0; color: black; background-color: transparent;"></div>
+    <div id="contacts-form-pager" class="k-pager-wrap" style="border: 0; border-top: 1px solid lightgrey; padding-top: 15px;"></div>
+</div>
+
+<style>
+    .truncated-contacts-text {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 170px;
+    }
+
+</style>
+
+<script type="text/x-kendo-template" id="contacts-form-template">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="block" style="min-height: 105px;">
+
+                <table style="width: 100%;">
+                    <tr onclick="ContactsPhone.RowClick('#:ContactId#')">
+                        <td style="width: 80px; vertical-align: top;">
+                            <img src="#:ContactPhotoURL#" width="64" height="64" alt="Avatar" class="img-circle">
+                        </td>
+                        <td>
+                            <h5 style="margin-top: 0px;" class="truncated-contacts-text">
+                                <strong>#:FullName#</strong>
+                            </h5>
+                            <address class="truncated-contacts-text">
+                                #:JobTitle#<br>
+                                <span class="text-primary">#:CompanyName#</span>
+                            </address>
+                        </td>
+                        <td style="vertical-align: top;">
+                            <i class="fa fa-chevron-right fa-4x pull-right" style="color: rgba(204,204,204,0.5)"></i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<div class="k-content wide" style="width: 100%; background-color: transparent;" id="contacts-form-paged-list-container">
+</div>
+
+<div class="form-group">
+    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+        <a class="btn btn-default" id="contacts-form-first-page-button" onclick="ContactsPhone.ScrollToTop()" style="display: none;">
+            <i class="fa fa-chevron-up"></i> Top
+        </a>
+        &nbsp;
+        <button type="button" class="btn btn-default pull-right" id="contacts-form-next-page-button" onclick="ContactsPhone.NextPage()" style="display: none;">
+            <i class="fa fa-chevron-down"></i> <span id="contacts-form-next-page-button-text">Next Page</span>
+        </button>
+    </div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/Contacts-Phone.js"></script>

@@ -1,0 +1,369 @@
+[
+    {
+        "ID": "TriSys Apex",
+        "HTML": [
+            "TriSys Apex"
+        ]
+    },
+    {
+        "ID": "About TriSys",
+        "HTML": [
+            "About TriSys"
+        ]
+    },
+    {
+		"ID":	"OK",
+		"HTML": [
+					"OK"
+				]
+	},
+	{
+		"ID":	"Yes",
+		"HTML": [
+					"Yes"
+				]
+	},
+	{
+		"ID":	"No",
+		"HTML": [
+					"No"
+				]
+	},
+	{
+		"ID":	"Cancel",
+		"HTML": [
+					"Cancel"
+				]
+	},
+    {
+        "ID": "TriSysSDK.Countries.SetAppModeAfterLanguageChange",
+        "HTML": [
+            "Your default country/language has been set to '##Country##'."
+        ]
+    },
+    {
+		"ID":	"TriSysWeb.Pages.CandidateRegistration.SubmitToServer",
+		"HTML": [
+					"Thank you for registering your details.",
+					"<br /><br />",
+					"You have been sent a confirmation e-mail to: ##EMail##",
+					"<br /><br />",
+					"Please click the link in this e-mail to verify your e-mail address whereupon you will be able to login."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.CandidateRegistration.ProcessGUIDConfirmation",
+		"HTML": [
+					"Thank you for confirming your registration.",
+					"<br /><br />",
+					"You have been sent a confirmation e-mail to: ##EMail##",
+					"<br /><br />",
+					"Would you like to automatically login now using your e-mail address and password?"
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ClientRegistration.SubmitToServer",
+		"HTML": [
+					"Thank you for registering your details.",
+					"<br /><br />",
+					"You have been sent a confirmation e-mail to: ##EMail##",
+					"<br /><br />",
+					"Please click the link in this e-mail to verify your e-mail address whereupon you will be able to login."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ClientRegistration.ProcessGUIDConfirmation",
+		"HTML": [
+					"Thank you for confirming your registration.",
+					"<br /><br />",
+					"You have been sent a confirmation e-mail to: ##EMail##",
+					"<br /><br />",
+					"Would you like to automatically login now using your e-mail address and password?"
+				]
+	},
+	{
+		"ID":	"LoginButtonClick_EMail",
+		"HTML":	[
+					"Please enter a valid e-mail address."
+				]
+	},
+	{
+		"ID":	"LoginButtonClick_Password",
+		"HTML":	[
+					"Please enter a valid password."
+				]
+	},
+	{
+		"ID":	"LoginButtonClick_Invalid",
+		"HTML":	[
+					"Incorrect login credentials.",
+					"<br /><br />",
+					"Please e-mail <a href=mailto:##EMail##>##EMail##</a>",
+					" if you need help connecting to our service."
+				]
+	},
+	{
+		"ID":	"LogoffButtonClick",
+		"HTML":	[
+					"Are you sure you wish to be logged out of this web site?"
+				]
+	},
+	{
+		"ID":	"fnClearKeysAndShowLogin",
+		"HTML":	[
+					"You have now been logged out.",
+					"<br /><br />",
+					"Your login credentials have been removed from this device.",
+					"<br /><br />",
+					"You will now be redirected to the login page where you will need to re-submit your credentials."
+				]
+	},
+	{
+		"ID":	"Logging Off...",
+		"HTML":	[
+					"Logging Off..."
+				]
+	},
+	{
+		"ID":	"ValidatedLoginCredentialsCallback",
+		"HTML":	[
+					"Loading settings..."
+				]
+	},
+	{
+		"ID":	"AfterCacheingAccountSettings",
+		"HTML":	[
+					"You are now logged in as ##LoginType##"
+				]
+	},
+	{
+		"ID":	"ApplyToVacancyViaServer",
+		"HTML":	[
+					"Thank you for your application to vacancy:",
+                    "<br />",
+					"##Summary##",
+					"<br />",
+					"which has now been registered.",
+                    "<br />",
+					"You should receive a confirmation e-mail shortly."
+				]
+	},
+	{
+		"ID":	"ApplyToMultipleVacanciesViaServer",
+		"HTML":	[
+					"Thank you for your application to ##Summary##",
+                    "<br />",
+					"which has now been registered.",
+                    "<br />",
+					"You should receive a confirmation e-mail for each vacancy shortly."
+				]
+	},
+	{
+		"ID":	"WithdrawFromVacancyViaServer",
+		"HTML":	[
+					"Thank you for withdrawing your application to ##Summary##",
+                    "<br />",
+					"which has now been registered.",
+                    "<br />",
+					"You should receive confirmation e-mail for each vacancy shortly."
+				]
+	},
+	{
+		"ID":	"CandidateLoginSecurity",
+		"HTML":	[
+					"You are not currently logged in.",
+					"<br /><br />",
+                    "Please either login using the e-mail and password fields at the top of this page or register your details",
+                    " by clicking the 'Register' button below."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ForgottenPassword.RequestButtonClick.AlreadyloggedIn",
+		"HTML":	[
+					"You are already logged in, so please change your password by editing your account details."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ForgottenPassword.RequestButtonClick.InvalidEMailAddress",
+		"HTML":	[
+					"Please enter a valid e-mail address."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ForgottenPassword.RequestButtonClick.SuccessfulRequest",
+		"HTML":	[
+					"Your e-mail address was found in our database and you have been sent instructions on how to securely reset your password.",
+					"<br /><br />",
+					"Please also check your junk e-mail folder as it may have been incorrectly flagged as spam by your e-mail provider."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ForgottenPassword.RequestButtonClick.FailedRequest",
+		"HTML":	[
+					"Your e-mail address was not found in our database.",
+					"<br /><br />",
+					"Please use our 'Contact Us' page in order to resolve your login problem",
+					", or register your details using our 'Register/Sign-Up' page."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ForgottenPassword.RequestButtonClick.RequestingPassword",
+		"HTML":	[
+					"Requesting Password..."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ContactUs.SendToAPI.Success",
+		"HTML":	[
+					"Thank you for contacting us.",
+					"<br /><br />",
+					"We have sent you a confirmation e-mail which has been copied to our staff",
+					" who will contact you as soon as possible."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.ContactUs.SendToAPI.Failure",
+		"HTML":	[
+					"We are very sorry, but something appears to have gone wrong whilst processing your request.",
+					"<br /><br />",
+					"Please send an e-mail to ##EMail## to help us to help you as quickly as possible."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.EditProfile.Load.NotLoggedIn",
+		"HTML":	[
+					"Please login before editing your profile."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Placement.Load.NotLoggedIn",
+		"HTML":	[
+					"Please login before viewing a placement."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Placement.Load.NoRequirementId",
+		"HTML":	[
+					"Placement ID not specified."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.Load.NotLoggedIn",
+		"HTML":	[
+					"Please login before viewing a timesheet."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.Load.NoTimesheetId",
+		"HTML":	[
+					"Timesheet ID not specified."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.SendHoursMatrixToServer.SavedTimesheetId",
+		"HTML":	[
+					"Saved timesheet: "
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.SendHoursMatrixToServer.AuthorisationReminder",
+		"HTML":	[
+					"<br />",
+					"If you have completed your hours for all periods of this timesheet, please submit it for authorisation",
+					" using the Request Authorisation button below."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.RequestAuthorisation.PromptCaption",
+		"HTML":	[
+					"Timesheet Authorisation Request"
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.RequestAuthorisation.PromptMessage",
+		"HTML":	[
+					"Are you sure that you wish to request authorisation of this timesheet?",
+					"<br /><br />",
+					"You should only request authorisation if you have completed your hours for all periods of this timesheet.",
+					"<br /><br />",
+					"Once your timesheet has been authorised by your line manager, you will be unable to change it."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.ConfirmedAuthorisationRequest.Message",
+		"HTML":	[
+					"Your timesheet authorisation request has been successfully completed.",
+					"<br /><br />",
+					"Once your timesheet has been authorised by your line manager, you will be unable to change it."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.Authorise.PromptCaption",
+		"HTML":	[
+					"Timesheet Authorisation"
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.Authorise.PromptMessage",
+		"HTML":	[
+					"Are you sure that you wish to authorise this timesheet?",
+					"<br /><br />",
+					"You should only authorise if the candidate has explicitly requested for their timesheet to be authorised,",
+					" and you were alerted by automated e-mail."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Timesheet.ConfirmedAuthorisationCallback.Message",
+		"HTML":	[
+					"You have successfully authorised this timesheet.",
+					"<br /><br />",
+					"Our accounts department will commence the generation of appropriate invoices."
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Login.PersistCredentialsOn",
+		"HTML":	[
+					"Remember login credentials for automatic login next time I visit"
+				]
+	},
+	{
+		"ID":	"TriSysWeb.Pages.Login.PersistCredentialsOff",
+		"HTML":	[
+					"Do not remember login credentials as I will re-enter them on next visit"
+				]
+	},
+	{
+		"ID":	"TriSysApex.LoginCredentials.Logoff.NotLoggedIn",
+		"HTML":	[
+					"You are not yet logged in to the application."
+				]
+	},
+	{
+		"ID":	"TriSysApex.LoginCredentials.Logoff.LogoffMessage",
+		"HTML":	[
+					"Are you sure that you wish to log out of the application?",
+                    "<br />",
+                    "All your open forms will be closed and you will return to the login form if you select the 'Yes' button." ,
+					"<br />",
+                    "If you click the 'No' button, you will remain logged in."
+				]
+	},
+	{
+		"ID":	"TriSysApex.LoginCredentials.Logon.HelpHint",
+		"HTML":	[
+					"Please enter your login credentials into the fields below and click the <b>Login</b> button. <br />",
+					"If you do not know, or have forgotten, your login credentials, ",
+					"then please click on the <b>Forgotten Password</b> button. <br />",
+					"If you do not have an account, but wish to sign-up to this service, then ",
+					"please click the appropriate registration button.<br />"
+				]
+	},
+	{
+		"ID":	"TriSysApex.FormsManager.loadPageIntoContentDiv",
+		"HTML":	[
+					"Opening form: ##PageName##..."
+				]
+	}
+]
+
+

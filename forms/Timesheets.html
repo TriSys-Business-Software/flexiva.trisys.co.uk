@@ -1,0 +1,35 @@
+﻿<div id="Timesheet-lookup-criteria"></div>
+
+<div class="block" id="timesheetsGrid-Container">
+    <div class="block-title">
+        <div class="block-options pull-right" id="timesheets-form-grid-buttons">
+            <div id="TimesheetsFileMenu" style="display: none;">
+            </div>
+            <a id="timesheetsExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('divTimesheetGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+                <i class="fa fa-file-excel-o"></i> &nbsp; Excel
+            </a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)" onclick="TimesheetLookupForm.FileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected timesheet">
+                <i class="gi gi-folder_open"></i> &nbsp; Open
+            </a>
+            <span>&nbsp;</span>
+            <a href="javascript:void(0)" onclick="TimesheetLookupForm.FileMenuCallback('file-delete')" id="timesheets-form-grid-button-delete" class="btn btn-sm btn-default enable-tooltip" title="Delete selected timesheet">
+                <i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+            </a>
+            <span>&nbsp;</span>
+            <div id="TimesheetsGridMenu">
+            </div>
+            <span>&nbsp;</span>
+            <div id="TimesheetsActionsMenu">
+            </div>
+        </div>
+        <h2><strong>Timesheets</strong> Grid <span id="timesheets-form-grid-selected-counter"></span></h2>
+    </div>
+    <!-- The grid populated by JS -->
+    <div id="divTimesheetGrid" style="border-width: 1px; width: 100%; ">
+    </div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/timesheets.js"></script>
+

@@ -1,0 +1,1127 @@
+﻿<style scoped>
+
+    table#form-layout-table {
+        width: 100%;
+        border: 1px dotted black;
+    }
+
+        table#form-layout-table tr {
+            height: 36px;
+        }
+
+        table#form-layout-table td {
+            border: 1px dashed #F8F8F8;
+            padding: 1px;
+        }
+
+
+    table#form-layout-table-dynamicLayout {
+        width: 100%;
+        /*background-color: #F8F8F8;*/
+        border: 1px solid lightgray;
+    }
+
+        table#form-layout-table-dynamicLayout tr {
+            height: 29px;
+        }
+
+        table#form-layout-table-dynamicLayout td {
+            border: 1px dashed #F8F8F8;
+            padding: 4px;
+            width: 100%;
+        }
+
+
+    table#form-layout-table-small-panel {
+        width: 90%;
+        text-align: center;
+        border: 1px dotted lightgray;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #F8F8F8;
+    }
+
+        table#form-layout-table-small-panel tr {
+            height: 18px;
+        }
+
+        table#form-layout-table-small-panel td {
+            border: 1px dashed lightgray;
+            padding: 4px;
+            width: 100%;
+        }
+</style>
+<div class="block" style="overflow-y: scroll;" id="form-layout-main-block">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-Columns" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of columns
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column2-width">
+                    2<br />
+                    <input id="formLayout-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column3-width">
+                    3<br />
+                    <input id="formLayout-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column4-width">
+                    4<br />
+                    <input id="formLayout-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column5-width">
+                    5<br />
+                    <input id="formLayout-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column6-width">
+                    6<br />
+                    <input id="formLayout-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column7-width">
+                    7<br />
+                    <input id="formLayout-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column8-width">
+                    8<br />
+                    <input id="formLayout-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column9-width">
+                    9<br />
+                    <input id="formLayout-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column10-width">
+                    10<br />
+                    <input id="formLayout-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column11-width">
+                    11<br />
+                    <input id="formLayout-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-column12-width">
+                    12<br />
+                    <input id="formLayout-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Rows</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-Rows" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of repeating rows
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Column 1 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn1-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 1 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns1" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #1
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn1-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 1 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns1-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns1-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns1-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns1-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns1-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns1-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns1-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns1-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns1-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns1-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns1-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn1-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns1-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 1 Inner Columns End -->
+    <!-- Column 2 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn2-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 2 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns2" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #2
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn2-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 2 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns2-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns2-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns2-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns2-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns2-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns2-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns2-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns2-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns2-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns2-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns2-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn2-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns2-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 2 Inner Columns End -->
+    <!-- Column 3 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn3-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 3 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns3" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #3
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn3-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 3 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns3-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns3-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns3-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns3-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns3-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns3-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns3-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns3-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns3-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns3-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns3-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn3-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns3-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 3 Inner Columns End -->
+    <!-- Column 4 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn4-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 4 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns4" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #4
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn4-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 4 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns4-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns4-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns4-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns4-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns4-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns4-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns4-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns4-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns4-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns4-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns4-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn4-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns4-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 4 Inner Columns End -->
+    <!-- Column 5 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn5-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 5 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns5" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #5
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn5-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 5 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns5-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns5-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns5-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns5-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns5-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns5-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns5-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns5-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns5-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns5-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns5-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn5-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns5-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 5 Inner Columns End -->
+    <!-- Column 6 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn6-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 6 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns6" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #6
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn6-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 6 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns6-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns6-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns6-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns6-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns6-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns6-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns6-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns6-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns6-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns6-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns6-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn6-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns6-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 6 Inner Columns End -->
+    <!-- Column 7 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn7-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 7 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns7" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #7
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn7-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 7 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns7-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns7-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns7-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns7-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns7-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns7-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns7-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns7-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns7-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns7-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns7-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn7-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns7-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 7 Inner Columns End -->
+    <!-- Column 8 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn8-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 8 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns8" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #8
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn8-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 8 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns8-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns8-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns8-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns8-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns8-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns8-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns8-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns8-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns8-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns8-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns8-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn8-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns8-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 8 Inner Columns End -->
+    <!-- Column 9 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn9-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 9 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns9" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #9
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn9-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 9 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns9-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns9-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns9-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns9-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns9-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns9-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns9-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns9-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns9-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns9-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns9-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn9-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns9-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 9 Inner Columns End -->
+    <!-- Column 10 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn10-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 10 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns10" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #10
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn10-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 10 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns10-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns10-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns10-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns10-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns10-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns10-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns10-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns10-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns10-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns10-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns10-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn10-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns10-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 10 Inner Columns End -->
+    <!-- Column 11 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn11-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 11 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns11" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #11
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn11-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 11 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns11-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns11-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns11-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns11-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns11-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns11-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns11-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns11-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns11-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns11-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns11-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn11-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns11-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 11 Inner Columns End -->
+    <!-- Column 12 Inner Columns Start -->
+    <table class="table table-borderless" id="formLayout-innercolumn12-count" style="border-top: solid 1px lightgrey; margin-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td class="td-label" style="width: 200px;">
+                    <strong>Column 12 Inner Columns</strong>
+                </td>
+                <td style="width: 75px;">
+                    <input id="formLayout-InnerColumns12" style="width:100%;" />
+                </td>
+                <td style="width: 10px">
+                    &nbsp;
+                </td>
+                <td>
+                    Specify the number of inner columns within column #12
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-borderless" style="padding-top: 0px;" id="formLayout-innercolumn12-widths">
+        <tbody>
+            <tr>
+                <td colspan="12">
+                    <strong>Column 12 Inner Column Widths</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 75px; text-align: center;">
+                    1<br />
+                    <input id="formLayout-InnerColumns12-Column1Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-2">
+                    2<br />
+                    <input id="formLayout-InnerColumns12-Column2Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-3">
+                    3<br />
+                    <input id="formLayout-InnerColumns12-Column3Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-4">
+                    4<br />
+                    <input id="formLayout-InnerColumns12-Column4Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-5">
+                    5<br />
+                    <input id="formLayout-InnerColumns12-Column5Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-6">
+                    6<br />
+                    <input id="formLayout-InnerColumns12-Column6Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-7">
+                    7<br />
+                    <input id="formLayout-InnerColumns12-Column7Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-8">
+                    8<br />
+                    <input id="formLayout-InnerColumns12-Column8Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-9">
+                    9<br />
+                    <input id="formLayout-InnerColumns12-Column9Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-10">
+                    10<br />
+                    <input id="formLayout-InnerColumns12-Column10Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-11">
+                    11<br />
+                    <input id="formLayout-InnerColumns12-Column11Width" style="width:100%;" />
+                </td>
+                <td style="width: 75px; text-align: center;" id="formLayout-innercolumn12-width-12">
+                    12<br />
+                    <input id="formLayout-InnerColumns12-Column12Width" style="width:100%;" />
+                </td>
+                <td class="td-label"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Column 12 Inner Columns End -->
+</div>

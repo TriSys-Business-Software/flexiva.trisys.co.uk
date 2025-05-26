@@ -1,0 +1,1 @@
+var ctrlModalGrid={'GridID':'divModalGrid','Load':function(){TriSysApex['ModalDialogue']['Grid']['PopulateGridFunction'](ctrlModalGrid['GridID']);}};$(document)['ready'](function(){ctrlModalGrid['Load']();});

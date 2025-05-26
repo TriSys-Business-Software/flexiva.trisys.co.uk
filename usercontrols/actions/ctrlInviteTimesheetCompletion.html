@@ -1,0 +1,147 @@
+﻿<style scoped>
+    .td-label-itc {
+        width: 120px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+
+                    <tr>
+                        <td class="td-label-itc">
+                            <strong>Placement</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlInviteTimesheetCompletion-Placement"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-itc">
+                            <strong>Candidate</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlInviteTimesheetCompletion-Candidate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-itc">
+                            <strong>Period</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlInviteTimesheetCompletion-Period"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-itc">
+                            <strong>Timesheet ID</strong>
+                        </td>
+                        <td>
+                            <span id="ctrlInviteTimesheetCompletion-TimesheetId"></span>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="block">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td class="td-label-itc">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlInviteTimesheetCompletion-ClientMerge" value="1" checked>
+                                <span></span>
+                            </label>
+                            &nbsp; Send to Client
+                        </td>
+                    </tr>
+                    <tr id="ctrlInviteTimesheetCompletion-ClientTemplate-tr1">
+                        <td class="td-label-itc">
+                            <strong>Client Template</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlInviteTimesheetCompletion-ClientTemplate" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlInviteTimesheetCompletion-EditClientTemplate">
+                                            <i class="gi gi-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="ctrlInviteTimesheetCompletion-ClientTemplate-tr2">
+                        <td class="td-label-itc">
+                            <strong>Client Subject</strong>
+                        </td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlInviteTimesheetCompletion-ClientSubject" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-label-itc">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="ctrlInviteTimesheetCompletion-CandidateMerge" value="1" checked>
+                                <span></span>
+                            </label>
+                            &nbsp; Send to Candidate
+                        </td>
+                    </tr>
+                    <tr id="ctrlInviteTimesheetCompletion-CandidateTemplate-tr1">
+                        <td class="td-label-itc">
+                            <strong>Candidate Template</strong>
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <input id="ctrlInviteTimesheetCompletion-CandidateTemplate" style="width:100%;" />
+                                    </td>
+                                    <td style="width: 40px; text-align: right;">
+                                        <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlInviteTimesheetCompletion-EditCandidateTemplate">
+                                            <i class="gi gi-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="ctrlInviteTimesheetCompletion-CandidateTemplate-tr2">
+                        <td class="td-label-itc">
+                            <strong>Candidate Subject</strong>
+                        </td>
+                        <td>
+                            <input type="text" class="k-textbox" id="ctrlInviteTimesheetCompletion-CandidateSubject" style="width:100%" />
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6">
+
+        <div id="ctrlInviteTimesheetCompletion-NoteHistory">
+        </div>
+
+        <div id="ctrlInviteTimesheetCompletion-FollowUp">
+        </div>
+    </div>
+</div>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlInviteTimesheetCompletion.js"></script>

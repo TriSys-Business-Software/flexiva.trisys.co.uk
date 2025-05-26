@@ -1,0 +1,1 @@
+var TablesDatatables=(function(){return{'init':function(){App['datatables'](),$('#example-datatable')['dataTable']({'columnDefs':[{'orderable':![],'targets':[0x1,0x5]}],'pageLength':0xa,'lengthMenu':[[0xa,0x14,0x1e,-0x1],[0xa,0x14,0x1e,'All']]}),$('.dataTables_filter\x20input')['attr']('placeholder','Search');}};}());
