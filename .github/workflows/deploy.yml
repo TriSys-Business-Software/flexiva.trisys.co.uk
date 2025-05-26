@@ -1,23 +1,21 @@
 name: Deploy Flexiva to TriSys Site
 
 on:
-schedule:
-- cron: '0 2 * * *'    # Daily at 2 AM UTC (was missing one *)
-workflow_dispatch:       # Manual trigger button
+  workflow_dispatch:
 
 jobs:
-deploy-customer:
-runs-on: ubuntu-latest
-
-steps:
-- name: Download Latest Obfuscated Code
-run: |
-git clone --single-branch --branch gh-pages https://github.com/TriSys-Business-Software/Flexiva.git .
-ls -la
-
-- name: Deploy to Customer GitHub Pages
-uses: peaceiris/actions-gh-pages@v3
-with:
-github_token: ${{ secrets.GITHUB_TOKEN }}
-publish_dir: ./
-cname: flexiva.trisys.co.uk
+  deploy-customer:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download Latest Obfuscated Code
+      run: |
+        git clone --single-branch --branch gh-pages https://github.com/TriSys-Business-Software/Flexiva.git .
+        ls -la
+        
+    - name: Deploy to Customer GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        cname: flexiva.trisys.co.uk
