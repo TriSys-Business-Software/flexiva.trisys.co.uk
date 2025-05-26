@@ -9,9 +9,15 @@ jobs:
     
     steps:
     - name: Download Latest Obfuscated Code
-      run: |
-        git clone --single-branch --branch gh-pages https://${{ secrets.GITHUB_TOKEN }}@github.com/TriSys-Business-Software/Flexiva.git .
-        ls -la
+      uses: actions/checkout@v4
+      with:
+        repository: TriSys-Business-Software/Flexiva
+        ref: gh-pages
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: .
+        
+    - name: List Downloaded Files
+      run: ls -la
         
     - name: Deploy to Customer GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
