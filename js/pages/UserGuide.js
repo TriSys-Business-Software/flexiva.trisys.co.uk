@@ -1,1 +1,14 @@
-var UserGuide={'Load':function(){var iFudgeFactor=0x1e,lHeight=TriSysApex['Pages']['Index']['FormHeight']()-iFudgeFactor;$('#user-guide-frame')['height'](lHeight);}};$(document)['ready'](function(){UserGuide['Load']();});
+﻿var UserGuide =
+{
+    Load: function ()
+    {
+        var iFudgeFactor = 30;
+        var lHeight = TriSysApex.Pages.Index.FormHeight() - iFudgeFactor;
+        $('#user-guide-frame').height(lHeight);
+    }
+};
+
+$(document).ready(function ()
+{
+    UserGuide.Load();
+});

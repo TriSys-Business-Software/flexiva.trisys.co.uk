@@ -1,1 +1,7 @@
-$(document)['ready'](function(){$('[data-toggle=\x22tabs\x22]\x20a,\x20.enable-tabs\x20a')['click'](function(e){e['preventDefault'](),$(this)['tab']('show');}),TriSysApex['Toasters']['Error']('$(document).ready(function\x20()\x20in\x20ctrlTestModal.html');});
+﻿$(document).ready(function ()
+{
+    // Initialize tabs
+    $('[data-toggle="tabs"] a, .enable-tabs a').click(function (e) { e.preventDefault(); $(this).tab('show'); });
+
+    TriSysApex.Toasters.Error("$(document).ready(function () in ctrlTestModal.html");
+});

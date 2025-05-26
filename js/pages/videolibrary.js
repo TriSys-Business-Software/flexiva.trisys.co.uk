@@ -1,1 +1,25 @@
-$(document)['ready'](function(){var sVideoURL='//www.trisys.co.uk/video/V10-Product-Video-Library.aspx';$('#objectVideoLibrary')['html']('<object\x20data='+sVideoURL+'\x20id=\x22videoLibraryFrame\x22\x20/>'),DoHeight();});function DoHeight(){TriSysSDK['EntityFormTabs']['ResizeEventManagement'](null,function(lHeight){lHeight=0x1194,$('#videoLibraryFrame')['height'](lHeight);var iFudgeFactor=0xa,lWidth=$('#videoLibraryBlock')['width']()-iFudgeFactor;$('#videoLibraryFrame')['width'](lWidth);},!![]);}
+﻿
+// We are loaded dynamically after main SPA is loaded
+$(document).ready(function ()
+{
+    var sVideoURL = "//www.trisys.co.uk/video/V10-Product-Video-Library.aspx";
+    $("#objectVideoLibrary").html('<object data=' + sVideoURL + ' id="videoLibraryFrame" />');
+    //$("#objectVideoLibrary").load(sVideoURL);
+
+    DoHeight();
+});
+
+function DoHeight()
+{
+    TriSysSDK.EntityFormTabs.ResizeEventManagement(null,
+        function (lHeight)
+        {
+            // Cheat and turn off vertical scrollbar
+            lHeight = 4500;
+            $("#videoLibraryFrame").height(lHeight);
+
+            var iFudgeFactor = 10;
+            var lWidth = $('#videoLibraryBlock').width() - iFudgeFactor;   // TriSysApex.Pages.Index.FormWidth();
+            $("#videoLibraryFrame").width(lWidth);
+        }, true);
+}

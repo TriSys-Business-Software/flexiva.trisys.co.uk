@@ -1,1 +1,96 @@
-var ctrlUserGroup={'Load':function(){if(AdminConsole['EditingUserGroupId']>0x0){var group=TriSysApex['Cache']['UserGroupManager']['GroupFromId'](AdminConsole['EditingUserGroupId']);if(group){$('#user-group-name')['val'](group['Name']),$('#user-group-description')['val'](group['Description']);if(AdminConsole['EditingUserGroupId']==0x1)$('#user-group-name')['attr']('readonly','readonly');}}},'SaveButtonClick':function(){var group={'UserGroupId':AdminConsole['EditingUserGroupId']};group['Name']=$('#user-group-name')['val'](),group['Description']=$('#user-group-description')['val']();var sError=null;if(!group['Name']||!group['Description'])sError='Please\x20enter\x20a\x20group\x20name\x20and\x20description.';else{if(TriSysApex['Cache']['UserGroupManager']['isDuplicate'](group))sError='Group\x20name:\x20'+group['Name']+'\x20already\x20exists.';}if(sError){TriSysApex['UI']['ShowMessage'](sError);return;}ctrlUserGroup['SubmitToAPI'](group);},'SubmitToAPI':function(group){var CUpdateUserGroupRequest={'Group':group},payloadObject={};payloadObject['URL']='UserGroup/Update',payloadObject['OutboundDataPacket']=CUpdateUserGroupRequest,payloadObject['InboundDataFunction']=function(CUpdateUserGroupResponse){TriSysApex['UI']['HideWait']();if(CUpdateUserGroupResponse){if(CUpdateUserGroupResponse['Success']){TriSysApex['Cache']['cachedStandingDataInMemory']['UserGroups']=CUpdateUserGroupResponse['UserGroups'],AdminConsole['PopulateGroupTree'](),TriSysApex['UI']['CloseModalPopup']();return;}else TriSysApex['UI']['ShowMessage'](CUpdateUserGroupResponse['ErrorMessage']);}},payloadObject['ErrorHandlerFunction']=function(request,status,error){TriSysApex['UI']['HideWait'](),TriSysApex['UI']['errorAlert']('ctrlUserGroup.SubmitToAPI:\x20'+status+':\x20'+error+'.\x20responseText:\x20'+request['responseText']);},TriSysApex['UI']['ShowWait'](null,'Saving\x20Group...'),TriSysAPI['Data']['PostToWebAPI'](payloadObject);}};$(document)['ready'](function(){ctrlUserGroup['Load']();});
+﻿var ctrlUserGroup =
+{
+    Load: function()
+    {
+        if (AdminConsole.EditingUserGroupId > 0)
+        {
+            var group = TriSysApex.Cache.UserGroupManager.GroupFromId(AdminConsole.EditingUserGroupId);
+            if (group)
+            {
+                $('#user-group-name').val(group.Name);
+				$('#user-group-description').val(group.Description);
+
+				// Do not allow the name of the admin group to change!
+				if (AdminConsole.EditingUserGroupId == 1)
+					$('#user-group-name').attr('readonly', 'readonly');
+            }
+        }
+    },
+
+    SaveButtonClick: function()
+    {
+        var group = { UserGroupId: AdminConsole.EditingUserGroupId };
+        group.Name = $('#user-group-name').val();
+        group.Description = $('#user-group-description').val();
+
+        // Validation
+        var sError = null;
+        if (!group.Name || !group.Description)
+        {
+            sError = "Please enter a group name and description.";
+        }
+        else
+        {
+            if(TriSysApex.Cache.UserGroupManager.isDuplicate(group))
+                sError = "Group name: " + group.Name + " already exists.";
+        }
+
+        if(sError)
+        {
+            TriSysApex.UI.ShowMessage(sError);
+            return;
+        }
+
+        // Submission
+        ctrlUserGroup.SubmitToAPI(group);
+    },
+
+    SubmitToAPI: function (group)
+    {
+        var CUpdateUserGroupRequest = { Group: group };
+
+        var payloadObject = {};
+
+        payloadObject.URL = "UserGroup/Update";
+
+        payloadObject.OutboundDataPacket = CUpdateUserGroupRequest;
+
+        payloadObject.InboundDataFunction = function (CUpdateUserGroupResponse)
+        {
+            TriSysApex.UI.HideWait();
+
+            if (CUpdateUserGroupResponse)
+            {
+                if (CUpdateUserGroupResponse.Success)
+                {
+                    // Repoint cache
+                    TriSysApex.Cache.cachedStandingDataInMemory.UserGroups = CUpdateUserGroupResponse.UserGroups;
+
+                    // Redraw from updated cache
+                    AdminConsole.PopulateGroupTree();
+
+                    // Close this modal dialogue
+                    TriSysApex.UI.CloseModalPopup();
+
+                    return;
+                }
+                else
+                    TriSysApex.UI.ShowMessage(CUpdateUserGroupResponse.ErrorMessage);
+            }
+        };
+
+        payloadObject.ErrorHandlerFunction = function (request, status, error)
+        {
+            TriSysApex.UI.HideWait();
+            TriSysApex.UI.errorAlert('ctrlUserGroup.SubmitToAPI: ' + status + ": " + error + ". responseText: " + request.responseText);
+        };
+
+        TriSysApex.UI.ShowWait(null, "Saving Group...");
+        TriSysAPI.Data.PostToWebAPI(payloadObject);
+    }
+};
+
+$(document).ready(function ()
+{    
+    ctrlUserGroup.Load();
+});

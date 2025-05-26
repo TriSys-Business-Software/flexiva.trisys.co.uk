@@ -1,1 +1,53 @@
-var ctrlHelpVideo={'Load':function(){var elem=$('#ctrlHelpVideo-iFrame'),lHeight=TriSysApex['TourGuide']['VideoDialogueHeight'](),lWidth=TriSysApex['TourGuide']['VideoDialogueWidth']()-0x64,bPhone=TriSysApex['Device']['isPhone']();if(bPhone)lWidth=$(window)['width']()-0x28;elem['width'](lWidth);var iFrameHeight=lHeight-0x12c;elem['height'](iFrameHeight);!bPhone&&(lHeight=iFrameHeight*0.9,lWidth-=0xc8);lHeight=0x0;var sURL=TriSysApex['TourGuide']['CurrentVideo']+'&height='+lHeight+'&width='+lWidth;elem['attr']('src',sURL),ctrlHelpVideo['HideBackgroundDimColour']();},'HideBackgroundDimColour':function(){TriSysSDK['Browser']['Chrome']()&&$('.modal-backdrop')['css']('opacity',0x0);}};$(document)['ready'](function(){ctrlHelpVideo['Load']();});
+﻿var ctrlHelpVideo =
+{
+    Load: function()
+    {
+        var elem = $('#ctrlHelpVideo-iFrame');
+
+        var lHeight = TriSysApex.TourGuide.VideoDialogueHeight();
+
+        var lWidth = TriSysApex.TourGuide.VideoDialogueWidth() - 100;
+
+        var bPhone = TriSysApex.Device.isPhone();
+        if (bPhone)
+            lWidth = $(window).width() - 40;
+
+        elem.width(lWidth);
+
+        var iFrameHeight = lHeight - 300;
+        elem.height(iFrameHeight);
+
+        if (!bPhone)
+        {
+            // Reduce size of video to prevent scroll bars
+            lHeight = iFrameHeight * 0.9;
+            lWidth -= 200;
+        }
+
+        // Send the size parameters into the URL also
+        lHeight = 0;
+        var sURL = TriSysApex.TourGuide.CurrentVideo + "&height=" + lHeight + "&width=" + lWidth;
+
+        // Load the video for the current form
+        elem.attr('src', sURL);
+
+        // Tweak for certain browsers
+        ctrlHelpVideo.HideBackgroundDimColour();
+    },
+
+    // The <video> tag buggers up the modal background on Chrome
+    // This is a fix
+    HideBackgroundDimColour: function()
+    {
+        if (TriSysSDK.Browser.Chrome())
+        {
+            //$('.modal-backdrop').css('background-color', 'pink');
+            $('.modal-backdrop').css('opacity', 0);
+        }
+    }
+};
+
+$(document).ready(function ()
+{
+    ctrlHelpVideo.Load();
+});
