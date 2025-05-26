@@ -3,5 +3,5 @@
     "NewReleaseComments": "To prepare for a new release, set .Upgrading to true. Once all files are copied, set .Upgrading to false",
     "StartOfService": "2015/06/30 12:00:00",
     "Upgrading": false,
-    "NextVersion": "2025.05.26.1745"
+    "NextVersion": "2025.05.26.1940"
 }
