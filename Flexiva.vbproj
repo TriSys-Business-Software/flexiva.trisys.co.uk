@@ -182,13 +182,8 @@
     <Content Include="build-index-html.js" />
     <Content Include="build.js" />
     <Content Include="config.xml" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\JobSeekers.html" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\JobSeekers.js" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\main.js" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\Timesheets.html" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\Vacancy.html" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\Vacancy.js" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\Welcome.html" />
+    <Content Include="configuration\custom\custom.js" />
+    <Content Include="configuration\custom\flexiva.trisys.co.uk\custom.js" />
     <Content Include="configuration\custom\ReadMe.txt" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\company-organigram.css" />
@@ -3730,8 +3725,6 @@
     <Content Include="data\titles.json" />
     <Content Include="configuration\device-zoom-factors.json" />
     <Content Include="configuration\white-label.json" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\NavBar.json" />
-    <Content Include="configuration\custom\opus-laboris-recruitment-app\Forms.json" />
     <Content Include="css\icons_mobiscroll.ttf" />
     <Content Include="css\icons_mobiscroll.woff" />
     <Content Include="configuration\chart-api.json" />

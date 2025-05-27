@@ -1,4 +1,4 @@
 {
     "Comments": "The version of TriSys. This used to be TriSysApex.Constants.Version but is now centralised to ease upgrades.",
-    "Version": "2025.05.27.1200"
+    "Version": "2025.05.27.1520"
 }

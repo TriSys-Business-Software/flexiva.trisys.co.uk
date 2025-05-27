@@ -28,3 +28,12 @@ This will allow us to test the whole Configurator publish process.
 3rd parties such as Upwork contractors or web designers could be given access to this
 server so that they could configure, code, design or publish to app stores.
 This would be our 'factory': app factory or software factory.
+
+27 May 2025
+-----------
+
+We are now automatically building this app on GitHub at https://github.com/TriSys-Business-Software/Flexiva
+after we COMMIT and PUSH this to the master branch.
+This custom folder is now used to replace files and settings for the numerous custom apps we have.
+See C:\Users\garry\source\repos\flexiva.trisys.co.uk and https://github.com/TriSys-Business-Software/flexiva.trisys.co.uk
+which is the first Flexiva site to use this custom folder.
