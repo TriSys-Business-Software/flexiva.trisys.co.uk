@@ -179,6 +179,7 @@
     <Content Include="audio\voices\male\william\you-have-three-scheduled-task-alarms.mp3" />
     <Content Include="audio\voices\male\william\you-have-two-scheduled-task-alarms.mp3" />
     <Content Include="audio\Woosh.wav" />
+    <Content Include="build-index-html.js" />
     <Content Include="build.js" />
     <Content Include="config.xml" />
     <Content Include="configuration\custom\opus-laboris-recruitment-app\JobSeekers.html" />
