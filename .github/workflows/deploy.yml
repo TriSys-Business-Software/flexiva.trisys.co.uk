@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    # Download the obfuscated code from first repo: https://github.com/TriSys-Business-Software/Flexiva
     - name: Download Latest Obfuscated Code
       uses: actions/checkout@v4
       with:
@@ -16,19 +17,22 @@ jobs:
         token: ${{ secrets.MAIN_REPO_TOKEN }}
         path: .
         
-    # ADD THIS NEW STEP HERE - Apply TriSys Branding
-    - name: Apply TriSys Branding
+    # Get files from THIS repo (second repo) to overwrite 
+    - name: Get Branding Files from This Repo
+      uses: actions/checkout@v4
+      with:
+        path: temp-branding
+        
+    # Copy OUR custom files over the downloaded files
+    - name: Overwrite with this web site files
       run: |
-        # Replace files with TriSys-branded versions
-        if [ -f "configuration/custom/flexiva.trisys.co.uk/custom.js" ]; then
-          cp configuration/custom/flexiva.trisys.co.uk/custom.js ./configuration/custom/custom.js
-          echo "✅ Replaced custom.js with flexiva.trisys.co.uk version"
-        fi
-        
+        cp temp-branding/configuration/custom/custom.js ./configuration/custom/custom.js
+        rm -rf temp-branding
+
         # We can also copy images/logos and CSS if we wish
-        
-        echo "🎨 Custom branding applied successfully"
-        
+
+        echo "✅ Custom Files overwritten with TriSys versions"
+                
     - name: Deploy to Customer GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
