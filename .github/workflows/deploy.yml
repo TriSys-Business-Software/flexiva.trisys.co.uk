@@ -27,7 +27,7 @@ jobs:
     - name: Overwrite with this web site files
       run: |
         cp temp-branding/configuration/custom/custom.js ./configuration/custom/custom.js
-        cp temp-branding/configuration/forms.json ./configuration/forrms.json
+        cp temp-branding/configuration/forms.json ./configuration/forms.json
         rm -rf temp-branding
 
         # We can also copy images/logos and CSS if we wish
