@@ -1,10 +1,8 @@
 name: Deploy Flexiva to TriSys Site
-
 on:
   workflow_dispatch:       # Manual trigger (keep this)
   repository_dispatch:     # NEW - Automatic trigger from main repo
     types: [main-updated]
-
 jobs:
   deploy-customer:
     runs-on: ubuntu-latest
@@ -17,6 +15,19 @@ jobs:
         ref: gh-pages
         token: ${{ secrets.MAIN_REPO_TOKEN }}
         path: .
+        
+    # ADD THIS NEW STEP HERE - Apply TriSys Branding
+    - name: Apply TriSys Branding
+      run: |
+        # Replace files with TriSys-branded versions
+        if [ -f "configuration/custom/flexiva.trisys.co.uk/custom.js" ]; then
+          cp configuration/custom/flexiva.trisys.co.uk/custom.js ./configuration/custom/custom.js
+          echo "✅ Replaced custom.js with flexiva.trisys.co.uk version"
+        fi
+        
+        # We can also copy images/logos and CSS if we wish
+        
+        echo "🎨 Custom branding applied successfully"
         
     - name: Deploy to Customer GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
