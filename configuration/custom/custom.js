@@ -13,7 +13,9 @@ var FlexivaCustomDeployment =
 		TriSysApex.Constants.URL = 'https://flexiva.trisys.co.uk';
 		TriSysApex.Constants.WhiteLabelled = true;
 		TriSysApex.Constants.AboutImage = 'https://apex.trisys.co.uk/images/trisys/acme-splash-screen.png';
+
 		TriSysApex.Constants.DefaultTheme = 'Fire';
+		TriSysProUI.ApplyThemeColour(TriSysApex.Constants.DefaultTheme);
 
 		// Custom nav bar logo
 		var fnChangeSidebarLogo = function (elem)
@@ -24,7 +26,7 @@ var FlexivaCustomDeployment =
 			elemSidebar.css('background-repeat', 'no-repeat');
 			elemSidebar.css('background-position', 'bottom');
 		};
-		setTimeout(fnChangeSidebarLogo, 1000);
+		setTimeout(fnChangeSidebarLogo, 100);
 
 		// TODO: Custom pre-login pages and nav bar 
 		var config = TriSysApex.Forms.Configuration;
