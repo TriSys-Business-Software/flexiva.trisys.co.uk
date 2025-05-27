@@ -12,7 +12,7 @@ var FlexivaCustomDeployment =
 		TriSysApex.Constants.ApplicationName = 'TriSys Flexiva';
 		TriSysApex.Constants.URL = 'https://flexiva.trisys.co.uk';
 		TriSysApex.Constants.WhiteLabelled = true;
-		TriSysApex.Constants.AboutImage = 'images/trisys/acme-Splash-Screen.png';
+		TriSysApex.Constants.AboutImage = 'https://apex.trisys.co.uk/images/trisys/acme-splash-screen.png';
 
 		// TODO: Custom pre-login pages and nav bar 
 		var config = TriSysApex.Forms.Configuration;
