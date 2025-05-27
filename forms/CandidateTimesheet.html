@@ -1,1 +1,245 @@
-<style scoped> .RatesNumberColumn { text-align: right; width: 130px; } .form-bordered .form-group { padding: 0px; } </style> <div class="block full"> <div class="row"> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2>Timesheet</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label">ID</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-id"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Period</label> <div class="col-md-9"> <input id="trisys-timesheet-period" style="width:100%" /> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Input Date</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-inputdate"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Status</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-status"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Line Manager</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-linemanager"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Authorisation Requested</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-authorisationrequested"></p> </div> </div> <div class="form-group" id="trisys-timesheet-authorised-form-group" style="display: none;"> <label class="col-md-3 control-label">Authorised</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-authorised"></p> </div> </div> <div class="form-group" id="trisys-timesheet-authorisedby-form-group" style="display: none;"> <label class="col-md-3 control-label">Authorised By</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-authorisedby"></p> </div> </div> <div class="form-group" id="trisys-timesheet-paid-form-group" style="display: none;"> <label class="col-md-3 control-label">Paid</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-paid"></p> </div> </div> </div> </div> </div> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2>Placement</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label">Reference</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-reference"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Contractor</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-candidate"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Type</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-type"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Job Title</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-jobtitle"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Company</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-company"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Location</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-location"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Start Date</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-startdate"></p> </div> </div> <div class="form-group" id="trisys-timesheet-enddate-formgroup"> <label class="col-md-3 control-label">End Date</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-enddate"></p> </div> </div> </div> </div> </div> </div> </div> <div class="block full"> <div class="block-title"> <h2>Working Hours</h2> <div class="block-options pull-right" id="timesheet-form-grid-buttons"> <a href="javascript:void(0)" onclick="CandidateTimesheet.Save()" class=" btn btn-sm btn-default enable-tooltip" title="Save timesheet" id="CandidateTimesheet-Menu-Save" style="display: none;"> <i class="gi gi-floppy_save"></i> &nbsp; Save &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="CandidateTimesheet.RequestAuthorisation()" class=" btn btn-sm btn-default enable-tooltip" title="Request timesheet authorisation by line manager" id="CandidateTimesheet-Menu-RequestAuthorisation" style="display: none;"> <i class="gi gi-envelope"></i> &nbsp; <span id="CandidateTimesheet-Menu-RequestAuthorisation-Text">Request Authorisation</span> &nbsp; </a> </div> </div> <div class="form-horizontal form-bordered" style="padding-top: 15px; padding-bottom: 20px;"> <div class="form-group"> <div class="col-xs-12"> <div id="trisys-timesheet-hours-grid" style="border-width: 1px;  width: 100%;"> </div> </div> </div> <div class="form-group" id="trisys-timesheet-miscellaneous-hours-reason-block" style="display: none; padding-top: 20px; "> <div class="col-xs-3"> Reason for Miscellaneous Hours </div> <div class="col-xs-9"> <textarea class="k-textbox" id="trisys-timesheet-miscellaneous-hours-reason" rows="2" style="width:100%; resize: vertical;"></textarea> </div> </div> </div> </div> <div class="block full"> <div class="row"> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2>Hours, Rates &amp; Amounts</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-xs-12"> <table class="table table-bordered table-striped" id="amountsTable" style="width: 100%; margin-top: 10px;"> <tbody id="tbodyAmounts"> <tr> <th></th> <td style="text-align:right; width: 110px;"><b>Total Hours</b></td> <td class="RatesNumberColumn"><b>Pay Rate</b></td> <td class="RatesNumberColumn"><b>Charge Rate</b></td> <td class="RatesNumberColumn"><b>Pay Amount</b></td> <td class="RatesNumberColumn"><b>Charge Amount</b></td> </tr> </tbody> </table> </div> </div> </div> </div> </div> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2>Timesheet Summary</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-xs-12"> <table class="table table-bordered table-striped" id="summaryTable" style="width: 100%; margin-top: 10px;"> <tbody> <tr> <th></th> <td class="RatesNumberColumn"><b>Pay</b></td> <td class="RatesNumberColumn"><b>Charge</b></td> </tr> <tr> <th class="text-nowrap">Currency</th> <td class="RatesNumberColumn"><div id="summaryPayCurrency"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeCurrency"></div></td> </tr> <tr> <th class="text-nowrap">Total Net Amount</th> <td class="RatesNumberColumn"><div id="summaryTotalNetPay"></div></td> <td class="RatesNumberColumn"><div id="summaryTotalNetCharge"></div></td> </tr> <tr> <th class="text-nowrap">VAT % Rate</th> <td class="RatesNumberColumn"><div id="summaryPayVATPercentage"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeVATPercentage"></div></td> </tr> <tr> <th class="text-nowrap">Total VAT Amount</th> <td class="RatesNumberColumn"><div id="summaryPayVATAmount"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeVATAmount"></div></td> </tr> <tr> <th class="text-nowrap">Grand Total</th> <td class="RatesNumberColumn"><div id="summaryPayGrandTotal"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeGrandTotal"></div></td> </tr> </tbody> </table> </div> </div> </div> </div> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/CandidateTimesheet.js"></script>
+<style scoped>
+.RatesNumberColumn
+{
+text-align: right;
+width: 130px;
+}
+.form-bordered .form-group
+{
+padding: 0px;
+}
+</style>
+<div class="block full">
+<div class="row">
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2>Timesheet</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label">ID</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-id"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Period</label>
+<div class="col-md-9">
+<input id="trisys-timesheet-period" style="width:100%" />
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Input Date</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-inputdate"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Status</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-status"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Line Manager</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-linemanager"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Authorisation Requested</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-authorisationrequested"></p>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-authorised-form-group" style="display: none;">
+<label class="col-md-3 control-label">Authorised</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-authorised"></p>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-authorisedby-form-group" style="display: none;">
+<label class="col-md-3 control-label">Authorised By</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-authorisedby"></p>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-paid-form-group" style="display: none;">
+<label class="col-md-3 control-label">Paid</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-paid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2>Placement</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label">Reference</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-reference"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Contractor</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-candidate"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Type</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-type"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Job Title</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-jobtitle"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Company</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-company"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Location</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-location"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Start Date</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-startdate"></p>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-enddate-formgroup">
+<label class="col-md-3 control-label">End Date</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-enddate"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="block full">
+<div class="block-title">
+<h2>Working Hours</h2>
+<div class="block-options pull-right" id="timesheet-form-grid-buttons">
+<a href="javascript:void(0)" onclick="CandidateTimesheet.Save()" class=" btn btn-sm btn-default enable-tooltip" title="Save timesheet"
+id="CandidateTimesheet-Menu-Save" style="display: none;">
+<i class="gi gi-floppy_save"></i> &nbsp; Save &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="CandidateTimesheet.RequestAuthorisation()" class=" btn btn-sm btn-default enable-tooltip" title="Request timesheet authorisation by line manager"
+id="CandidateTimesheet-Menu-RequestAuthorisation" style="display: none;">
+<i class="gi gi-envelope"></i> &nbsp; <span id="CandidateTimesheet-Menu-RequestAuthorisation-Text">Request Authorisation</span> &nbsp;
+</a>
+</div>
+</div>
+<div class="form-horizontal form-bordered" style="padding-top: 15px; padding-bottom: 20px;">
+<div class="form-group">
+<div class="col-xs-12">
+<div id="trisys-timesheet-hours-grid" style="border-width: 1px;  width: 100%;">
+</div>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-miscellaneous-hours-reason-block" style="display: none; padding-top: 20px; ">
+<div class="col-xs-3">
+Reason for Miscellaneous Hours
+</div>
+<div class="col-xs-9">
+<textarea class="k-textbox" id="trisys-timesheet-miscellaneous-hours-reason" rows="2" style="width:100%; resize: vertical;"></textarea>
+</div>
+</div>
+</div>
+</div>
+<div class="block full">
+<div class="row">
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2>Hours, Rates &amp; Amounts</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-xs-12">
+<table class="table table-bordered table-striped" id="amountsTable" style="width: 100%; margin-top: 10px;">
+<tbody id="tbodyAmounts">
+<tr>
+<th></th>
+<td style="text-align:right; width: 110px;"><b>Total Hours</b></td>
+<td class="RatesNumberColumn"><b>Pay Rate</b></td>
+<td class="RatesNumberColumn"><b>Charge Rate</b></td>
+<td class="RatesNumberColumn"><b>Pay Amount</b></td>
+<td class="RatesNumberColumn"><b>Charge Amount</b></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2>Timesheet Summary</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-xs-12">
+<table class="table table-bordered table-striped" id="summaryTable" style="width: 100%; margin-top: 10px;">
+<tbody>
+<tr>
+<th></th>
+<td class="RatesNumberColumn"><b>Pay</b></td>
+<td class="RatesNumberColumn"><b>Charge</b></td>
+</tr>
+<tr>
+<th class="text-nowrap">Currency</th>
+<td class="RatesNumberColumn"><div id="summaryPayCurrency"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeCurrency"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Total Net Amount</th>
+<td class="RatesNumberColumn"><div id="summaryTotalNetPay"></div></td>
+<td class="RatesNumberColumn"><div id="summaryTotalNetCharge"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">VAT % Rate</th>
+<td class="RatesNumberColumn"><div id="summaryPayVATPercentage"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeVATPercentage"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Total VAT Amount</th>
+<td class="RatesNumberColumn"><div id="summaryPayVATAmount"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeVATAmount"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Grand Total</th>
+<td class="RatesNumberColumn"><div id="summaryPayGrandTotal"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeGrandTotal"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/CandidateTimesheet.js"></script>

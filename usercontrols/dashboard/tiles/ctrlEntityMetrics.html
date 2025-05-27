@@ -1,1 +1,128 @@
-<!-- Entity Metrics --> <div class="row text-center"> <div class="col-sm-6 col-lg-3"> <div class="widget widget-hover-effect2"> <div class="widget-extra themed-background-success"> <h4 class="widget-content-light"> <i class="gi gi-parents pull-left"></i> <strong>Contacts</strong> </h4> </div> <div class="widget-extra-full themed-background-dark" style="color: white; line-height: 26px;"> <span class="h2 animation-expandOpen" id="ContactCount"> <span class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10" style="width: 32px; width: 32px;"></span> </span> <br /> <p style="display: none;"> Contacts are people whose records are held in your database. A contact can be a client or a candidate or a user. A client contact is someone with whom you do business by placing candidate contacts. You and your recruitment agency colleagues are user contacts. </p> </div> <br /> <a onclick="ctrlEntityMetrics.ContactSearch()" class="btn btn-sm btn-success enable-tooltip pull-left" title="View the list of all contacts"> <i class="gi gi-search"></i> &nbsp; Search </a> <span>&nbsp;</span> <span>&nbsp;</span> <a onclick="ctrlEntityMetrics.NewContact()" class="btn btn-sm btn-success enable-tooltip pull-right" title="Add a new contact record"> <i class="gi gi-plus"></i> &nbsp; New </a> <br /> </div> </div> <div class="col-sm-6 col-lg-3"> <div class="widget widget-hover-effect2"> <div class="widget-extra themed-background-danger"> <h4 class="widget-content-light"> <i class="gi gi-building pull-left"></i> <strong>Companies</strong> </h4> </div> <div class="widget-extra-full themed-background-dark" style="color: white; line-height: 26px;"> <span class="h2 animation-expandOpen" id="CompanyCount"> <span class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10" style="width: 32px; width: 32px;"></span> </span> <br /> <p style="display: none;"> Each company record may have multiple addresses with each client contact working at each address. All business of placing candidates us conducted between your recruitment agency and the client company. </p> </div> <br /> <a onclick="ctrlEntityMetrics.CompanySearch()" class="btn btn-sm btn-success enable-tooltip pull-left" title="View the list of all companies"> <i class="gi gi-search"></i> &nbsp; Search </a> &nbsp; &nbsp; <a onclick="ctrlEntityMetrics.NewCompany()" class="btn btn-sm btn-success enable-tooltip pull-right" title="Add a new company record"> <i class="gi gi-plus"></i> &nbsp; New </a> <br /> </div> </div> <div class="col-sm-6 col-lg-3"> <div class="widget widget-hover-effect2"> <div class="widget-extra themed-background-info"> <h4 class="widget-content-light"> <i class="gi gi-user_add pull-left"></i> <strong>Requirements</strong> </h4> </div> <div class="widget-extra-full themed-background-dark" style="color: white; line-height: 26px;"> <span class="h2 animation-expandOpen" id="RequirementCount"> <span class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10" style="width: 32px; width: 32px;"></span> </span> <br /> <p style="display: none;"> Requirements are vacancies in which your clients request the placement of one or more candidates. Each requirement is linked to a client contact and company and owned by a recruitment agency consultant. Sophisticated workflow exists within the requirement to advertise to, search and shortlist candidates. </p> </div> <br /> <a onclick="ctrlEntityMetrics.RequirementSearch()" class="btn btn-sm btn-success enable-tooltip pull-left" title="View the list of all requirements"> <i class="gi gi-search"></i> &nbsp; Search </a> <span>&nbsp;</span> <span>&nbsp;</span> <a onclick="ctrlEntityMetrics.NewRequirement()" class="btn btn-sm btn-success enable-tooltip pull-right" title="Add a new requirement record"> <i class="gi gi-plus"></i> &nbsp; New </a> <br /> </div> </div> <div class="col-sm-6 col-lg-3"> <div class="widget widget-hover-effect2"> <div class="widget-extra themed-background-warning"> <h4 class="widget-content-light"> <i class="gi gi-gbp pull-left"></i> <strong>Placements</strong> </h4> </div> <div class="widget-extra-full themed-background-dark" style="color: white; line-height: 26px;"> <span class="h2 animation-expandOpen" id="PlacementCount"> <span class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10" style="width: 32px; width: 32px;"></span> </span> <br /> <p style="display: none;"> Placements are filled requirements in which a candidate has been successfully placed at your client company. Each placement is linked to a client contact and company and candidate and owned by a recruitment agency consultant. </p> </div> <br /> <a onclick="ctrlEntityMetrics.PlacementSearch()" class="btn btn-sm btn-success enable-tooltip pull-left" title="View the list of all placements"> <i class="gi gi-search"></i> &nbsp; Search </a> &nbsp; &nbsp; <a onclick="ctrlEntityMetrics.NewPlacement()" class="btn btn-sm btn-success enable-tooltip pull-right" title="Add a new placement record"> <i class="gi gi-plus"></i> &nbsp; New </a> <br /> </div> </div> </div> <!-- END Entity Metrics --> <!-- This javascript is in the tiles folder for ease of maintenance --> <script src="usercontrols/dashboard/tiles/ctrlEntityMetrics.js"></script>
+<!-- Entity Metrics -->
+<div class="row text-center">
+<div class="col-sm-6 col-lg-3">
+<div class="widget widget-hover-effect2">
+<div class="widget-extra themed-background-success">
+<h4 class="widget-content-light">
+<i class="gi gi-parents pull-left"></i>
+<strong>Contacts</strong>
+</h4>
+</div>
+<div class="widget-extra-full themed-background-dark" style="color: white; line-height: 26px;">
+<span class="h2 animation-expandOpen" id="ContactCount">
+<span class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10" style="width: 32px; width: 32px;"></span>
+</span>
+<br />
+<p style="display: none;">
+Contacts are people whose records are held in your database.
+A contact can be a client or a candidate or a user.
+A client contact is someone with whom you do business by placing candidate contacts.
+You and your recruitment agency colleagues are user contacts.
+</p>
+</div>
+<br />
+<a onclick="ctrlEntityMetrics.ContactSearch()" class="btn btn-sm btn-success enable-tooltip pull-left" title="View the list of all contacts">
+<i class="gi gi-search"></i> &nbsp; Search
+</a>
+<span>&nbsp;</span>
+<span>&nbsp;</span>
+<a onclick="ctrlEntityMetrics.NewContact()" class="btn btn-sm btn-success enable-tooltip pull-right" title="Add a new contact record">
+<i class="gi gi-plus"></i> &nbsp; New
+</a>
+<br />
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="widget widget-hover-effect2">
+<div class="widget-extra themed-background-danger">
+<h4 class="widget-content-light">
+<i class="gi gi-building pull-left"></i>
+<strong>Companies</strong>
+</h4>
+</div>
+<div class="widget-extra-full themed-background-dark" style="color: white; line-height: 26px;">
+<span class="h2 animation-expandOpen" id="CompanyCount">
+<span class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10" style="width: 32px; width: 32px;"></span>
+</span>
+<br />
+<p style="display: none;">
+Each company record may have multiple addresses with each client contact working at each address.
+All business of placing candidates us conducted between your recruitment agency and the client company.
+</p>
+</div>
+<br />
+<a onclick="ctrlEntityMetrics.CompanySearch()" class="btn btn-sm btn-success enable-tooltip pull-left" title="View the list of all companies">
+<i class="gi gi-search"></i> &nbsp; Search
+</a>
+&nbsp; &nbsp;
+<a onclick="ctrlEntityMetrics.NewCompany()" class="btn btn-sm btn-success enable-tooltip pull-right" title="Add a new company record">
+<i class="gi gi-plus"></i> &nbsp; New
+</a>
+<br />
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="widget widget-hover-effect2">
+<div class="widget-extra themed-background-info">
+<h4 class="widget-content-light">
+<i class="gi gi-user_add pull-left"></i>
+<strong>Requirements</strong>
+</h4>
+</div>
+<div class="widget-extra-full themed-background-dark" style="color: white; line-height: 26px;">
+<span class="h2 animation-expandOpen" id="RequirementCount">
+<span class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10" style="width: 32px; width: 32px;"></span>
+</span>
+<br />
+<p style="display: none;">
+Requirements are vacancies in which your clients request the placement of one or more candidates.
+Each requirement is linked to a client contact and company and owned by a recruitment agency consultant.
+Sophisticated workflow exists within the requirement to advertise to, search and shortlist candidates.
+</p>
+</div>
+<br />
+<a onclick="ctrlEntityMetrics.RequirementSearch()" class="btn btn-sm btn-success enable-tooltip pull-left" title="View the list of all requirements">
+<i class="gi gi-search"></i> &nbsp; Search
+</a>
+<span>&nbsp;</span>
+<span>&nbsp;</span>
+<a onclick="ctrlEntityMetrics.NewRequirement()" class="btn btn-sm btn-success enable-tooltip pull-right" title="Add a new requirement record">
+<i class="gi gi-plus"></i> &nbsp; New
+</a>
+<br />
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="widget widget-hover-effect2">
+<div class="widget-extra themed-background-warning">
+<h4 class="widget-content-light">
+<i class="gi gi-gbp pull-left"></i>
+<strong>Placements</strong>
+</h4>
+</div>
+<div class="widget-extra-full themed-background-dark" style="color: white; line-height: 26px;">
+<span class="h2 animation-expandOpen" id="PlacementCount">
+<span class="preloader-spinner hidden-lt-ie9 hidden-lt-ie10" style="width: 32px; width: 32px;"></span>
+</span>
+<br />
+<p style="display: none;">
+Placements are filled requirements in which a candidate has been successfully placed at your
+client company.
+Each placement is linked to a client contact and company and candidate and owned by a recruitment agency consultant.
+</p>
+</div>
+<br />
+<a onclick="ctrlEntityMetrics.PlacementSearch()" class="btn btn-sm btn-success enable-tooltip pull-left" title="View the list of all placements">
+<i class="gi gi-search"></i> &nbsp; Search
+</a>
+&nbsp; &nbsp;
+<a onclick="ctrlEntityMetrics.NewPlacement()" class="btn btn-sm btn-success enable-tooltip pull-right" title="Add a new placement record">
+<i class="gi gi-plus"></i> &nbsp; New
+</a>
+<br />
+</div>
+</div>
+</div>
+<!-- END Entity Metrics -->
+<!-- This javascript is in the tiles folder for ease of maintenance -->
+<script src="usercontrols/dashboard/tiles/ctrlEntityMetrics.js"></script>

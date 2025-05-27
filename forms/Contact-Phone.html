@@ -1,1 +1,310 @@
-<div class="block" id="contact-form-top"> <div class="block-title"> <div class="block-options pull-left"> <a href="javascript:void(0)" onclick="javascript:TriSysApex.Forms.buttonGoBack()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Back"><i class="fa fa-chevron-left"></i> Back</a> </div> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="ContactPhone.EditContact()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Edit"><i class="gi gi-edit"></i> Edit</a> </div> <div class="block-options text-center" style="font-size: medium;"> <strong><span id="contact-phone-type"></span></strong> Contact </div> </div> <table class="table table-borderless table-vcenter" id="contact-phone-summary-top"> <tbody> <tr> <td style="vertical-align: top;"> <strong><span style="font-size: large;" id="contact-phone-fullname"></span></strong> <br /> <span style="font-size: medium;" id="contact-phone-jobtitle"></span> <br /> <span id="contact-phone-companyname" style="display: none;"></span> <br /> <a id="contact-phone-linkedin-hyperlink" target="_blank"> <i class="fa fa-linkedin-square fa-2x text-primary" id="contact-phone-linkedin" style="display: none; color: #0077b5;"></i> </a> <span id="contact-phone-facebook-separator" target="_blank" style="display: none;">&nbsp;</span> <a id="contact-phone-facebook-hyperlink"> <i class="fa fa-facebook-square fa-2x" id="contact-phone-facebook" style="display: none; color: #3b5998;"></i> </a> <span id="contact-phone-twitter-separator" target="_blank" style="display: none;">&nbsp;</span> <a id="contact-phone-twitter-hyperlink"> <i class="fa fa-twitter-square fa-2x text-info" id="contact-phone-twitter" style="display: none; color: #4099ff;"></i> </a> </td> <td class="text-right" style="width: 100px;"> <img id="contact-phone-photourl" height="96" width="96" alt="avatar" class="widget-image img-circle pull-right"> </td> </tr> </tbody> </table> <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1)"> <tbody> <tr id="contact-phone-worktelno-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-earphone" style="color: #e74c3c;"></i> </td> <td> <div id="contact-phone-worktelno-hyperlink"> <strong>Work Phone</strong> <br /> <span id="contact-phone-worktelno"></span> </div> </td> </tr> <tr id="contact-phone-workmobiletelno-call-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-iphone" style="color: #f39c12;"></i> </td> <td> <div id="contact-phone-workmobiletelno-call-hyperlink"> <strong>Call Work Mobile</strong> <br /> <span id="contact-phone-workmobiletelno-call"></span> </div> </td> </tr> <tr id="contact-phone-workmobiletelno-sms-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-iphone" style="color: #3498db;"></i> </td> <td> <div id="contact-phone-workmobiletelno-sms-hyperlink"> <strong>Text Work Mobile</strong> <br /> <span id="contact-phone-workmobiletelno-sms"></span> </div> </td> </tr> <tr id="contact-phone-workemail-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="fa fa-envelope-o" style="color: #ffc0cb;"></i> </td> <td> <div id="contact-phone-workemail-hyperlink"> <strong>Work E-Mail</strong> <br /> <span id="contact-phone-workemail"></span> </div> </td> </tr> <tr id="contact-phone-company-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-building" style="color: #45AE53;"></i> </td> <td> <div id="contact-phone-company-hyperlink"> <table style="width: 100%;"> <tr> <td> <strong><span id="contact-phone-company"></span></strong> <br /> <span id="contact-phone-company-industry"></span> </td> <td style="width: 60px; vertical-align: top;"> <img id="contact-phone-companylogourl" width="48" height="48" alt="Logo" class="widget-image" style="border-radius: 5px;"> </td> </tr> </table> </div> </td> </tr> <tr id="contact-phone-workaddress-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="fa fa-map-marker" style="color: #8b4513;"></i> </td> <td> <div id="contact-phone-workaddress-hyperlink"> <strong>Work Address</strong> <br /> <span id="contact-phone-workaddress"></span> </div> </td> </tr> </tbody> </table> <table class="table table-borderless table-vcenter table-bordered" id="contact-phone-skype-table" style="background-color: rgba(234, 237, 241, 0.1);"> <tbody> <tr id="contact-phone-skype-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="fa fa-skype" style="color: #12a5f4;"></i> </td> <td> <div id="contact-phone-skype-hyperlink"> <strong>Skype</strong> <br /> <span id="contact-phone-skype"></span> </div> </td> </tr> </tbody> </table> <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);"> <tbody> <tr id="contact-phone-hometelno-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-earphone" style="color: #800080;"></i> </td> <td> <div id="contact-phone-hometelno-hyperlink"> <strong>Home Phone</strong> <br /> <span id="contact-phone-hometelno"></span> </div> </td> </tr> <tr id="contact-phone-personalmobiletelno-call-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-iphone" style="color: #556b2f;"></i> </td> <td> <div id="contact-phone-personalmobiletelno-call-hyperlink"> <strong>Call Personal Mobile</strong> <br /> <span id="contact-phone-personalmobiletelno-call"></span> </div> </td> </tr> <tr id="contact-phone-personalmobiletelno-sms-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-iphone" style="color: #87ceeb;"></i> </td> <td> <div id="contact-phone-personalmobiletelno-sms-hyperlink"> <strong>Text Personal Mobile</strong> <br /> <span id="contact-phone-personalmobiletelno-sms"></span> </div> </td> </tr> <tr id="contact-phone-personalemail-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="fa fa-envelope-o" style="color: #de4819;"></i> </td> <td> <div id="contact-phone-personalemail-hyperlink"> <strong>Personal E-Mail</strong> <br /> <span id="contact-phone-personalemail"></span> </div> </td> </tr> <tr id="contact-phone-homeaddress-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="fa fa-map-marker" style="color: #ded719;"></i> </td> <td> <div id="contact-phone-homeaddress-hyperlink"> <strong>Home Address</strong> <br /> <span id="contact-phone-homeaddress"></span> </div> </td> </tr> </tbody> </table> <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);"> <tbody> <tr id="contact-phone-cvfileref-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="fa fa-newspaper-o" style="color: gray;"></i> </td> <td> <div id="contact-phone-cvfileref-hyperlink"> <strong>Original CV</strong> <br /> Last Updated: <span id="contact-phone-cvfileref-lastupdated"></span> </div> </td> </tr> <tr id="contact-phone-formattedcvfileref1-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-file text-primary"></i> </td> <td> <div id="contact-phone-formattedcvfileref1-hyperlink"> Formatted CV #<span id="contact-phone-formattedcvfileref1-number"></span>: <strong><span id="contact-phone-formattedcvfileref1-label"></span></strong> <br /> Last Updated: <span id="contact-phone-formattedcvfileref1-lastupdated"></span> </div> </td> </tr> <tr id="contact-phone-formattedcvfileref2-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-file text-warning"></i> </td> <td> <div id="contact-phone-formattedcvfileref2-hyperlink"> Formatted CV #<span id="contact-phone-formattedcvfileref2-number"></span>: <strong><span id="contact-phone-formattedcvfileref2-label"></span></strong> <br /> Last Updated: <span id="contact-phone-formattedcvfileref2-lastupdated"></span> </div> </td> </tr> <tr id="contact-phone-formattedcvfileref3-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-file text-info"></i> </td> <td> <div id="contact-phone-formattedcvfileref3-hyperlink"> Formatted CV #<span id="contact-phone-formattedcvfileref3-number"></span>: <strong><span id="contact-phone-formattedcvfileref3-label"></span></strong> <br /> Last Updated: <span id="contact-phone-formattedcvfileref3-lastupdated"></span> </div> </td> </tr> <tr id="contact-phone-formattedcvfileref4-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="gi gi-file text-danger"></i> </td> <td> <div id="contact-phone-formattedcvfileref4-hyperlink"> Formatted CV #<span id="contact-phone-formattedcvfileref4-number"></span>: <strong><span id="contact-phone-formattedcvfileref4-label"></span></strong> <br /> Last Updated: <span id="contact-phone-formattedcvfileref4-lastupdated"></span> </div> </td> </tr> <tr id="contact-phone-availabilitydate-tr" style="display: none;"> <td class="text-center" style="width: 30px;"> <i class="fa fa-calendar-check-o" style="color: orange;"></i> </td> <td> <strong>Availability Date</strong>: <span id="contact-phone-availabilitydate"></span> </td> </tr> </tbody> </table> <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); display: none;" id="contact-phone-requirements-table"> <tbody> <tr> <td class="text-center" style="width: 30px; vertical-align: top;"> <i class="gi gi-user_add" style="color: purple;"></i> </td> <td> <div id="contact-phone-requirements-hyperlink"> <strong><span id="contact-phone-requirementcount"></span></strong> &nbsp; | &nbsp; <span style="color: purple;">View</span> </div> </td> </tr> </tbody> </table> <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); display: none;" id="contact-phone-placements-table"> <tbody> <tr> <td class="text-center" style="width: 30px; vertical-align: top;"> <i class="gi gi-gbp" style="color: green;"></i> </td> <td> <div id="contact-phone-placements-hyperlink"> <strong><span id="contact-phone-placementcount"></span></strong> &nbsp; | &nbsp; <span style="color: green;">View</span> </div> </td> </tr> </tbody> </table> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/Contact-Phone.js"></script>
+<div class="block" id="contact-form-top">
+<div class="block-title">
+<div class="block-options pull-left">
+<a href="javascript:void(0)" onclick="javascript:TriSysApex.Forms.buttonGoBack()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Back"><i class="fa fa-chevron-left"></i> Back</a>
+</div>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="ContactPhone.EditContact()" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Edit"><i class="gi gi-edit"></i> Edit</a>
+</div>
+<div class="block-options text-center" style="font-size: medium;">
+<strong><span id="contact-phone-type"></span></strong> Contact
+</div>
+</div>
+<table class="table table-borderless table-vcenter" id="contact-phone-summary-top">
+<tbody>
+<tr>
+<td style="vertical-align: top;">
+<strong><span style="font-size: large;" id="contact-phone-fullname"></span></strong>
+<br />
+<span style="font-size: medium;" id="contact-phone-jobtitle"></span>
+<br />
+<span id="contact-phone-companyname" style="display: none;"></span>
+<br />
+<a id="contact-phone-linkedin-hyperlink" target="_blank">
+<i class="fa fa-linkedin-square fa-2x text-primary" id="contact-phone-linkedin" style="display: none; color: #0077b5;"></i>
+</a>
+<span id="contact-phone-facebook-separator" target="_blank" style="display: none;">&nbsp;</span>
+<a id="contact-phone-facebook-hyperlink">
+<i class="fa fa-facebook-square fa-2x" id="contact-phone-facebook" style="display: none; color: #3b5998;"></i>
+</a>
+<span id="contact-phone-twitter-separator" target="_blank" style="display: none;">&nbsp;</span>
+<a id="contact-phone-twitter-hyperlink">
+<i class="fa fa-twitter-square fa-2x text-info" id="contact-phone-twitter" style="display: none; color: #4099ff;"></i>
+</a>
+</td>
+<td class="text-right" style="width: 100px;">
+<img id="contact-phone-photourl" height="96" width="96" alt="avatar" class="widget-image img-circle pull-right">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1)">
+<tbody>
+<tr id="contact-phone-worktelno-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-earphone" style="color: #e74c3c;"></i>
+</td>
+<td>
+<div id="contact-phone-worktelno-hyperlink">
+<strong>Work Phone</strong>
+<br />
+<span id="contact-phone-worktelno"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-workmobiletelno-call-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-iphone" style="color: #f39c12;"></i>
+</td>
+<td>
+<div id="contact-phone-workmobiletelno-call-hyperlink">
+<strong>Call Work Mobile</strong>
+<br />
+<span id="contact-phone-workmobiletelno-call"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-workmobiletelno-sms-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-iphone" style="color: #3498db;"></i>
+</td>
+<td>
+<div id="contact-phone-workmobiletelno-sms-hyperlink">
+<strong>Text Work Mobile</strong>
+<br />
+<span id="contact-phone-workmobiletelno-sms"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-workemail-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-envelope-o" style="color: #ffc0cb;"></i>
+</td>
+<td>
+<div id="contact-phone-workemail-hyperlink">
+<strong>Work E-Mail</strong>
+<br />
+<span id="contact-phone-workemail"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-company-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-building" style="color: #45AE53;"></i>
+</td>
+<td>
+<div id="contact-phone-company-hyperlink">
+<table style="width: 100%;">
+<tr>
+<td>
+<strong><span id="contact-phone-company"></span></strong>
+<br />
+<span id="contact-phone-company-industry"></span>
+</td>
+<td style="width: 60px; vertical-align: top;">
+<img id="contact-phone-companylogourl" width="48" height="48" alt="Logo" class="widget-image" style="border-radius: 5px;">
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-workaddress-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-map-marker" style="color: #8b4513;"></i>
+</td>
+<td>
+<div id="contact-phone-workaddress-hyperlink">
+<strong>Work Address</strong>
+<br />
+<span id="contact-phone-workaddress"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless table-vcenter table-bordered" id="contact-phone-skype-table" style="background-color: rgba(234, 237, 241, 0.1);">
+<tbody>
+<tr id="contact-phone-skype-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-skype" style="color: #12a5f4;"></i>
+</td>
+<td>
+<div id="contact-phone-skype-hyperlink">
+<strong>Skype</strong>
+<br />
+<span id="contact-phone-skype"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+<tbody>
+<tr id="contact-phone-hometelno-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-earphone" style="color: #800080;"></i>
+</td>
+<td>
+<div id="contact-phone-hometelno-hyperlink">
+<strong>Home Phone</strong>
+<br />
+<span id="contact-phone-hometelno"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-personalmobiletelno-call-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-iphone" style="color: #556b2f;"></i>
+</td>
+<td>
+<div id="contact-phone-personalmobiletelno-call-hyperlink">
+<strong>Call Personal Mobile</strong>
+<br />
+<span id="contact-phone-personalmobiletelno-call"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-personalmobiletelno-sms-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-iphone" style="color: #87ceeb;"></i>
+</td>
+<td>
+<div id="contact-phone-personalmobiletelno-sms-hyperlink">
+<strong>Text Personal Mobile</strong>
+<br />
+<span id="contact-phone-personalmobiletelno-sms"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-personalemail-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-envelope-o" style="color: #de4819;"></i>
+</td>
+<td>
+<div id="contact-phone-personalemail-hyperlink">
+<strong>Personal E-Mail</strong>
+<br />
+<span id="contact-phone-personalemail"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-homeaddress-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-map-marker" style="color: #ded719;"></i>
+</td>
+<td>
+<div id="contact-phone-homeaddress-hyperlink">
+<strong>Home Address</strong>
+<br />
+<span id="contact-phone-homeaddress"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1);">
+<tbody>
+<tr id="contact-phone-cvfileref-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-newspaper-o" style="color: gray;"></i>
+</td>
+<td>
+<div id="contact-phone-cvfileref-hyperlink">
+<strong>Original CV</strong>
+<br />
+Last Updated: <span id="contact-phone-cvfileref-lastupdated"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-formattedcvfileref1-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-file text-primary"></i>
+</td>
+<td>
+<div id="contact-phone-formattedcvfileref1-hyperlink">
+Formatted CV #<span id="contact-phone-formattedcvfileref1-number"></span>: <strong><span id="contact-phone-formattedcvfileref1-label"></span></strong>
+<br />
+Last Updated: <span id="contact-phone-formattedcvfileref1-lastupdated"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-formattedcvfileref2-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-file text-warning"></i>
+</td>
+<td>
+<div id="contact-phone-formattedcvfileref2-hyperlink">
+Formatted CV #<span id="contact-phone-formattedcvfileref2-number"></span>: <strong><span id="contact-phone-formattedcvfileref2-label"></span></strong>
+<br />
+Last Updated: <span id="contact-phone-formattedcvfileref2-lastupdated"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-formattedcvfileref3-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-file text-info"></i>
+</td>
+<td>
+<div id="contact-phone-formattedcvfileref3-hyperlink">
+Formatted CV #<span id="contact-phone-formattedcvfileref3-number"></span>: <strong><span id="contact-phone-formattedcvfileref3-label"></span></strong>
+<br />
+Last Updated: <span id="contact-phone-formattedcvfileref3-lastupdated"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-formattedcvfileref4-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-file text-danger"></i>
+</td>
+<td>
+<div id="contact-phone-formattedcvfileref4-hyperlink">
+Formatted CV #<span id="contact-phone-formattedcvfileref4-number"></span>: <strong><span id="contact-phone-formattedcvfileref4-label"></span></strong>
+<br />
+Last Updated: <span id="contact-phone-formattedcvfileref4-lastupdated"></span>
+</div>
+</td>
+</tr>
+<tr id="contact-phone-availabilitydate-tr" style="display: none;">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-calendar-check-o" style="color: orange;"></i>
+</td>
+<td>
+<strong>Availability Date</strong>: <span id="contact-phone-availabilitydate"></span>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); display: none;" id="contact-phone-requirements-table">
+<tbody>
+<tr>
+<td class="text-center" style="width: 30px; vertical-align: top;">
+<i class="gi gi-user_add" style="color: purple;"></i>
+</td>
+<td>
+<div id="contact-phone-requirements-hyperlink">
+<strong><span id="contact-phone-requirementcount"></span></strong>
+&nbsp; | &nbsp; <span style="color: purple;">View</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); display: none;" id="contact-phone-placements-table">
+<tbody>
+<tr>
+<td class="text-center" style="width: 30px; vertical-align: top;">
+<i class="gi gi-gbp" style="color: green;"></i>
+</td>
+<td>
+<div id="contact-phone-placements-hyperlink">
+<strong><span id="contact-phone-placementcount"></span></strong>
+&nbsp; | &nbsp; <span style="color: green;">View</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/Contact-Phone.js"></script>

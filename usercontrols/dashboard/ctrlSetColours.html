@@ -1,1 +1,48 @@
-<style scoped> .k-colorpicker .k-selected-color { width: 230px; } </style> <div class="block" id="dashboard-tile-set-colour-block"> <table class="table table-borderless"> <tbody> <tr> <td colspan="2"> <div class="block"> <div class="block-title" id="dashboard-tile-set-colour-colours"> <h6>Tile Caption</h6> </div> </div> </td> </tr> <tr> <td class="td-label" style="width: 150px;"> <strong>Foreground Colour</strong> </td> <td> <input type="color" id="dashboard-tile-set-colour-foreground-picker" data-role="colorpicker" style="width: 200px;"> </td> </tr> <tr> <td class="td-label" style="width: 150px;"> <strong>Background Colour</strong> </td> <td> <input type="color" id="dashboard-tile-set-colour-background-picker" data-role="colorpicker" style="width: 200px;"> </td> </tr> </tbody> </table> </div> <script> $(document).ready(function () { try { ctrlDashboard.SetColoursModal.Load(); } catch (e) { } }); </script>
+<style scoped>
+.k-colorpicker .k-selected-color
+{
+width: 230px;
+}
+</style>
+<div class="block" id="dashboard-tile-set-colour-block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td colspan="2">
+<div class="block">
+<div class="block-title" id="dashboard-tile-set-colour-colours">
+<h6>Tile Caption</h6>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="td-label" style="width: 150px;">
+<strong>Foreground Colour</strong>
+</td>
+<td>
+<input type="color" id="dashboard-tile-set-colour-foreground-picker" data-role="colorpicker" style="width: 200px;">
+</td>
+</tr>
+<tr>
+<td class="td-label" style="width: 150px;">
+<strong>Background Colour</strong>
+</td>
+<td>
+<input type="color" id="dashboard-tile-set-colour-background-picker" data-role="colorpicker" style="width: 200px;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script>
+$(document).ready(function ()
+{
+try
+{
+ctrlDashboard.SetColoursModal.Load();
+} catch (e)
+{
+}
+});
+</script>

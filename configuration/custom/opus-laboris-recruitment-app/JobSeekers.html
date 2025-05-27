@@ -1,1 +1,107 @@
-<!-- -- JobSeekers.html -- Created on Tuesday 11 July 2017 by Garry Lowther, TriSys Business Software --> <div class="content-header animation-fadeIn"> <div class="header-section"> <h1> <i class="gi gi-spade"></i>Job Seekers <br /> <small> Find your next job right here using our advanced search </small> </h1> </div> </div> <div class="block" id="vacancies-form-top" style="height: 135px;"> <div class="block-title"> <div class="block-options pull-right" id="vacancies-form-top-buttons" style="display: none;"> <a href="javascript:void(0)" onclick="JobSeekers.New()" class="btn btn-sm btn-default enable-tooltip" title="Create new requirement record"> <i class="gi gi-plus"></i> &nbsp; New </a> </div> <h2><strong>Live Vacancies</strong> Lookup</h2> </div> <div class="form-group"> <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;"> <div class="input-group"> <input type="text" id="vacancies-form-lookup" name="vacancies-form-lookup" class="form-control" placeholder="Enter lookup expression..."> <span class="input-group-btn"> <button type="button" class="btn btn-primary" id="vacancies-form-lookup-button"> <i class="fa fa-search"></i> Lookup </button> </span> </div> </div> <div class="col-md-12" style="padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px;"> <span id="vacancies-form-lookup-figures"> Enter a job title or location </span> </div> </div> </div> <div class="k-content wide" style="width: 100%; background-color: transparent; display: none;" id="vacancies-form-listview-container"> <div id="vacancies-form-listView" style="border: 0; color: black; background-color: transparent;"></div> <div id="vacancies-form-pager" class="k-pager-wrap" style="border: 0; border-top: 1px solid lightgrey; padding-top: 15px;"></div> </div> <style> .truncated-vacancies-text { text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 250px; } </style> <script type="text/x-kendo-template" id="vacancies-form-template"> <div class="row"> <div class="col-sm-12"> <div class="block" style="min-height: 105px;"> <table style="width: 100%;"> <tr> <td> <div style="width: 100%;" onclick="JobSeekers.RowClick(#:RequirementId#)"> <h5 style="margin-top: 0px;" class="truncated-vacancies-text"> <strong>#:JobTitle#</strong>: #:Location# </h5> <address class="truncated-vacancies-text" style="margin-bottom: 5px;"> #:Reference#: <i>#:Type#</i> <br> #:Salary# <br> Start: #:StartDate# </address> <p style="margin-bottom: 10px;"> #:WebText# </p> </div> <p> <a onclick="CandidateFunctions.Apply(#:RequirementId#, '#:Reference#', '#:JobTitle#')" style="cursor: pointer;" class="btn btn-xs btn-success"><i class="fa fa-thumbs-up"></i> Apply</a> <a onclick="CandidateFunctions.AddToFavourites(#:RequirementId#)" style="cursor: pointer;" class="btn btn-xs btn-primary"><i class="fa fa-check"></i> Favourite</a> <a onclick="CandidateFunctions.SendToFriend(#:RequirementId#, '#:Reference#', '#:JobTitle#')" style="cursor: pointer;" class="btn btn-xs btn-warning"><i class="fa fa-share-square-o"></i> Share</a> </p> </td> <td style="vertical-align: top;"> <i class="fa fa-chevron-right fa-4x pull-right" style="color: rgba(204,204,204,0.5)"></i> </td> </tr> </table> </div> </div> </div> </script> <div class="k-content wide" style="width: 100%; background-color: transparent;" id="vacancies-form-paged-list-container"> </div> <div class="form-group"> <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;"> <a class="btn btn-default" id="vacancies-form-first-page-button" onclick="JobSeekers.ScrollToTop()" style="display: none;"> <i class="fa fa-chevron-up"></i> Top </a> &nbsp; <button type="button" class="btn btn-default pull-right" id="vacancies-form-next-page-button" onclick="JobSeekers.NextPage()" style="display: none;"> <i class="fa fa-chevron-down"></i> <span id="vacancies-form-next-page-button-text">Next Page</span> </button> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="configuration/custom/opus-laboris-recruitment-app/JobSeekers.js"></script>
+<!--
+-- JobSeekers.html
+-- Created on Tuesday 11 July 2017 by Garry Lowther, TriSys Business Software
+-->
+<div class="content-header animation-fadeIn">
+<div class="header-section">
+<h1>
+<i class="gi gi-spade"></i>Job Seekers
+<br />
+<small>
+Find your next job right here using our advanced search
+</small>
+</h1>
+</div>
+</div>
+<div class="block" id="vacancies-form-top" style="height: 135px;">
+<div class="block-title">
+<div class="block-options pull-right" id="vacancies-form-top-buttons" style="display: none;">
+<a href="javascript:void(0)" onclick="JobSeekers.New()" class="btn btn-sm btn-default enable-tooltip" title="Create new requirement record">
+<i class="gi gi-plus"></i> &nbsp; New
+</a>
+</div>
+<h2><strong>Live Vacancies</strong> Lookup</h2>
+</div>
+<div class="form-group">
+<div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+<div class="input-group">
+<input type="text" id="vacancies-form-lookup" name="vacancies-form-lookup" class="form-control"
+placeholder="Enter lookup expression...">
+<span class="input-group-btn">
+<button type="button" class="btn btn-primary" id="vacancies-form-lookup-button">
+<i class="fa fa-search"></i> Lookup
+</button>
+</span>
+</div>
+</div>
+<div class="col-md-12" style="padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px;">
+<span id="vacancies-form-lookup-figures">
+Enter a job title or location
+</span>
+</div>
+</div>
+</div>
+<div class="k-content wide" style="width: 100%; background-color: transparent; display: none;" id="vacancies-form-listview-container">
+<div id="vacancies-form-listView" style="border: 0; color: black; background-color: transparent;"></div>
+<div id="vacancies-form-pager" class="k-pager-wrap" style="border: 0; border-top: 1px solid lightgrey; padding-top: 15px;"></div>
+</div>
+<style>
+.truncated-vacancies-text {
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+width: 250px;
+}
+</style>
+<script type="text/x-kendo-template" id="vacancies-form-template">
+<div class="row">
+<div class="col-sm-12">
+<div class="block" style="min-height: 105px;">
+<table style="width: 100%;">
+<tr>
+<td>
+<div style="width: 100%;" onclick="JobSeekers.RowClick(#:RequirementId#)">
+<h5 style="margin-top: 0px;" class="truncated-vacancies-text">
+<strong>#:JobTitle#</strong>: #:Location#
+</h5>
+<address class="truncated-vacancies-text" style="margin-bottom: 5px;">
+#:Reference#: <i>#:Type#</i>
+<br>
+#:Salary#
+<br>
+Start: #:StartDate#
+</address>
+<p style="margin-bottom: 10px;">
+#:WebText#
+</p>
+</div>
+<p>
+<a onclick="CandidateFunctions.Apply(#:RequirementId#, '#:Reference#', '#:JobTitle#')" style="cursor: pointer;" class="btn btn-xs btn-success"><i class="fa fa-thumbs-up"></i> Apply</a>
+<a onclick="CandidateFunctions.AddToFavourites(#:RequirementId#)" style="cursor: pointer;" class="btn btn-xs btn-primary"><i class="fa fa-check"></i> Favourite</a>
+<a onclick="CandidateFunctions.SendToFriend(#:RequirementId#, '#:Reference#', '#:JobTitle#')" style="cursor: pointer;" class="btn btn-xs btn-warning"><i class="fa fa-share-square-o"></i> Share</a>
+</p>
+</td>
+<td style="vertical-align: top;">
+<i class="fa fa-chevron-right fa-4x pull-right" style="color: rgba(204,204,204,0.5)"></i>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</script>
+<div class="k-content wide" style="width: 100%; background-color: transparent;" id="vacancies-form-paged-list-container">
+</div>
+<div class="form-group">
+<div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+<a class="btn btn-default" id="vacancies-form-first-page-button" onclick="JobSeekers.ScrollToTop()" style="display: none;">
+<i class="fa fa-chevron-up"></i> Top
+</a>
+&nbsp;
+<button type="button" class="btn btn-default pull-right" id="vacancies-form-next-page-button" onclick="JobSeekers.NextPage()" style="display: none;">
+<i class="fa fa-chevron-down"></i> <span id="vacancies-form-next-page-button-text">Next Page</span>
+</button>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="configuration/custom/opus-laboris-recruitment-app/JobSeekers.js"></script>

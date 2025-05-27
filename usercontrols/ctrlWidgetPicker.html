@@ -1,1 +1,81 @@
-<!-- Allow the user/administrator to choose a widget (field, block, image, icon etc..) when using form/page designer. March 2019 --> <div class="row"> <div class="col-md-4 col-lg-3"> <div class="block full"> <div class="block-title"> <h2>Categories</h2> </div> <ul class="nav nav-pills nav-stacked nav-icons" id="widget-picker-categories-list"> <li class="active" id="widget-picker-category-blocks"> <a href="javascript:void(0)"> <i class="gi gi-embed themed-color icon-push"></i> <strong>Blocks</strong> </a> </li> <li id="widget-picker-category-clipboard"> <a href="javascript:void(0)"> <i class="fa fa-clipboard themed-color icon-push"></i> <strong>Clipboard</strong> </a> </li> <li id="widget-picker-category-fields"> <a href="javascript:void(0)"> <i class="fa fa-database themed-color icon-push"></i> <strong>Fields</strong> </a> </li> <li id="widget-picker-category-images"> <a href="javascript:void(0)"> <i class="gi gi-picture themed-color icon-push"></i> <strong>Images</strong> </a> </li> <li id="widget-picker-category-icons"> <a href="javascript:void(0)"> <i class="fa fa-file-image-o themed-color icon-push"></i> <strong>Icons</strong> </a> </li> </ul> </div> </div> <div class="col-md-8 col-lg-9"> <div class="block"> <div class="block-title"> <i class="gi gi-embed pull-left themed-color" style="margin-top: 5px;" id="widget-picker-category-icon"></i> <h4> <span id="widget-picker-category">Block</span> Widgets </h4> </div> <div id="widget-picker-list" style="overflow-y: scroll; height:510px;"> <table class="table table-borderless" id="widget-picker-category-widget-table"> <tbody> <!-- First Item --> <tr style="padding-bottom: 0px; margin-bottom: 0px; display:none;" id="widget-picker-category-widget-table-row"> <td class="text-center" style="width: 12%;"> <div class="push-bit" style="display:##install-image-display##;"> <a href="javascript:void(-1)" ##image-viewer##> <img src="##ImagePath##" alt="widget image" style="width:256px; border-radius: 15px; border: 1px solid lightgray;"> </a> </div> <button type="button" class="btn btn-success ##install-enabled##" ##install-click##>Select</button> </td> <td> <strong>##Caption##</strong> <br /> <p style="margin-bottom: 0px;"> ##Description## </p> </td> </tr> <tr style="display:none;" id="widget-picker-category-widget-table-row-divider"> <td colspan="2"> <hr style="margin-top: 0px;" /> </td> </tr> </tbody> </table> </div> <div id="widget-picker-grid" style="border-width: 1px; width: 100%; display: none;"> </div> </div> </div> </div>
+<!-- Allow the user/administrator to choose a widget (field, block, image, icon etc..)
+when using form/page designer.
+March 2019
+-->
+<div class="row">
+<div class="col-md-4 col-lg-3">
+<div class="block full">
+<div class="block-title">
+<h2>Categories</h2>
+</div>
+<ul class="nav nav-pills nav-stacked nav-icons" id="widget-picker-categories-list">
+<li class="active" id="widget-picker-category-blocks">
+<a href="javascript:void(0)">
+<i class="gi gi-embed themed-color icon-push"></i> <strong>Blocks</strong>
+</a>
+</li>
+<li id="widget-picker-category-clipboard">
+<a href="javascript:void(0)">
+<i class="fa fa-clipboard themed-color icon-push"></i> <strong>Clipboard</strong>
+</a>
+</li>
+<li id="widget-picker-category-fields">
+<a href="javascript:void(0)">
+<i class="fa fa-database themed-color icon-push"></i> <strong>Fields</strong>
+</a>
+</li>
+<li id="widget-picker-category-images">
+<a href="javascript:void(0)">
+<i class="gi gi-picture themed-color icon-push"></i> <strong>Images</strong>
+</a>
+</li>
+<li id="widget-picker-category-icons">
+<a href="javascript:void(0)">
+<i class="fa fa-file-image-o themed-color icon-push"></i> <strong>Icons</strong>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-md-8 col-lg-9">
+<div class="block">
+<div class="block-title">
+<i class="gi gi-embed pull-left themed-color" style="margin-top: 5px;" id="widget-picker-category-icon"></i>
+<h4>
+<span id="widget-picker-category">Block</span> Widgets
+</h4>
+</div>
+<div id="widget-picker-list" style="overflow-y: scroll; height:510px;">
+<table class="table table-borderless" id="widget-picker-category-widget-table">
+<tbody>
+<!-- First Item -->
+<tr style="padding-bottom: 0px; margin-bottom: 0px; display:none;" id="widget-picker-category-widget-table-row">
+<td class="text-center" style="width: 12%;">
+<div class="push-bit" style="display:##install-image-display##;">
+<a href="javascript:void(-1)" ##image-viewer##>
+<img src="##ImagePath##" alt="widget image" style="width:256px; border-radius: 15px; border: 1px solid lightgray;">
+</a>
+</div>
+<button type="button" class="btn btn-success ##install-enabled##" ##install-click##>Select</button>
+</td>
+<td>
+<strong>##Caption##</strong>
+<br />
+<p style="margin-bottom: 0px;">
+##Description##
+</p>
+</td>
+</tr>
+<tr style="display:none;" id="widget-picker-category-widget-table-row-divider">
+<td colspan="2">
+<hr style="margin-top: 0px;" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="widget-picker-grid" style="border-width: 1px; width: 100%; display: none;">
+</div>
+</div>
+</div>
+</div>

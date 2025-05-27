@@ -1,1 +1,595 @@
-<!-- 14 Apr 2021: ctrlFormDesignerModal -- New version of ctrlFormDesignerModal based upon Dashboard style drag/drop --> <style scoped> .gray-theme.fr-toolbar { border-top-width: 1px; /* Ignored! - Edit X:\inetpub\apex.trisys.co.uk\javascript\froala\css\themes\gray.css line 1095 */ } .editor-canvas { margin-top: 0px; margin-left: 0px; margin-right: 0px; margin-bottom: 20px; padding-right: 20px; overflow-y: scroll; } .preview-canvas { display: none; text-align: center; margin-top: 0px; margin-left: 0px; margin-right: 0px; margin-bottom: 20px; } .form-property { padding: 4px !important; padding-bottom: 22px !important; } .component-tool, .field-tool { height: 30px; opacity: 1; margin-bottom: 0px; font-size: 12px; /*border-radius: 4px !important;*/ } /*div.component-tool:hover { background-color: pink; font-weight: bold; }*/ .component-tool-caption, .field-tool-caption { font-size: 12px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 170px; padding: 4px !important; padding-top: 6px !important; } .component-tool-form-group, .field-tool-form-group { padding: 10px !important; border-bottom: none !important; padding-top: 5px !important; padding-bottom: 5px !important; } .toolbox-help-icon { text-align: center; font-size: 24px; border-top: solid 1px lightgray; padding-top: 20px; } .toolbox-filter { height: 28px; } .components-hyperlink:hover, .components-hyperlink:focus { color: #3498db; /* text-info */ text-decoration: underline; } .fields-hyperlink:hover, .fields-hyperlink:focus { color: #e67e22; /* text-warning */ text-decoration: underline; } .design-time-row { border: 1px solid #dbe1e8; padding: 12px; margin-left: 0px; margin-bottom: 20px; margin-right: 20px; } .design-time-column { /*padding-left: 6px; padding-right: 6px;*/ padding: 10px; /*margin: 8px;*/ margin-bottom: -20px; } </style> <div class="row"> <div class="col-md-2 col-lg-2" id="ctrlFormDesignerModal-LeftBlock"> <div class="block" id="ctrlFormDesignerModal-ToolsBlock"> <div class="block-title" style="overflow: auto;"> <h2 id="ctrlFormDesignerModal-LeftBlock-Title">Tools</h2> <div class="block-options pull-right"> </div> </div> <div id="ctrlFormDesignerModal-Tools-group-panel" class="panel-group"> <div class="panel panel-default"> <div class="panel-heading" style="padding-top: 8px; padding-bottom: 8px;"> <h4 class="panel-title themed-color"> <i class="gi gi-check"></i> &nbsp; <a class="accordion-toggle" data-toggle="collapse" data-parent="#ctrlFormDesignerModal-Tools-group-panel" href="#ctrlFormDesignerModal-properties"> Form Properties </a> </h4> </div> <div id="ctrlFormDesignerModal-properties" class="panel-collapse collapse"> <div class="panel-body" style="padding: unset;"> <div class="block-section" style="padding-top: 6px; padding-bottom: 6px; margin-bottom: 0px; text-align: center; border-bottom: 1px solid lightgray;"> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.EditFormProperties()" class="btn btn-sm btn-default enable-tooltip" title="Edit form properties" id="ctrlFormDesignerModal-edit-tab" style="margin: 2px;"> <i class="gi gi-cogwheel"></i> &nbsp; Edit &nbsp; </a> </div> <div class="block" id="ctrlFormDesignerModal-properties-list" style="border-color: transparent; overflow-y: scroll; margin-bottom: 0px; height:430px;" "> <div class="form-bordered"> <div class="form-group" data-children-count="1"> <label>Caption</label> <span id="ctrlFormDesignerModal-Tools-Property-Caption" class="form-control form-property"></span> </div> <div class="form-group" data-children-count="1"> <label>Entity</label> <span id="ctrlFormDesignerModal-Tools-Property-Entity" class="form-control form-property"></span> </div> <div class="form-group" data-children-count="1"> <label>Icon</label> <div id="ctrlFormDesignerModal-Tools-Property-Icon" class="form-control form-property" style="font-size: 18px; height: 36px;"></div> </div> <div class="form-group" data-children-count="1"> <label>Type</label> <span id="ctrlFormDesignerModal-Tools-Property-Type" class="form-control form-property"></span> </div> </div> </div> </div> </div> </div> <div class="panel panel-default"> <div class="panel-heading" style="padding-top: 8px; padding-bottom: 8px;"> <h4 class="panel-title themed-color"> <i class="fa fa-sitemap"></i> &nbsp; <a class="accordion-toggle" data-toggle="collapse" data-parent="#ctrlFormDesignerModal-Tools-group-panel" href="#ctrlFormDesignerModal-tabs"> Tabs </a> </h4> </div> <div id="ctrlFormDesignerModal-tabs" class="panel-collapse collapse in"> <div class="panel-body" style="padding: unset;"> <div class="block-section" style="padding-top: 6px; padding-bottom: 6px; margin-bottom: 0px; text-align: center; border-bottom: 1px solid lightgray;"> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabAdd()" class="btn btn-sm btn-default enable-tooltip" title="Add a new tab" id="ctrlFormDesignerModal-add-tab" style="margin: 2px;"> <i class="gi gi-plus"></i> <span style="display: none;">&nbsp; Add &nbsp;</span> </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabEdit()" class="btn btn-sm btn-default enable-tooltip" title="Edit tab properties" id="ctrlFormDesignerModal-edit-tab" style="margin: 2px;"> <i class="gi gi-edit"></i> <span style="display: none;">&nbsp; Edit &nbsp;</span> </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabMove(true)" class="btn btn-sm btn-default enable-tooltip" title="Move tab order upwards" id="ctrlFormDesignerModal-up-tab" style="margin: 2px;"> <i class="fa fa-arrow-up"></i> <span style="display: none;">&nbsp; Up &nbsp;</span> </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabMove(false)" class="btn btn-sm btn-default enable-tooltip" title="Move tab order downwards" id="ctrlFormDesignerModal-down-tab" style="margin: 2px;"> <i class="fa fa-arrow-down"></i> <span style="display: none;">&nbsp; Down &nbsp;</span> </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabDelete()" class="btn btn-sm btn-default enable-tooltip" title="Delete selected tab" id="ctrlFormDesignerModal-delete-tab" style="margin: 2px;"> <i class="gi gi-remove"></i> <span style="display: none;">&nbsp; Delete &nbsp;</span> </a> </div> <ul class="nav nav-pills nav-stacked nav-icons" id="ctrlFormDesignerModal-tab-list" style="overflow-y: scroll; height:430px;"> <li id="ctrlFormDesignerModal-tab-list-item-template" style="display:none; margin-left: 6px; margin-right: 4px;"> <a href="javascript:void(0)" onclick="##tab-click-event##"> <i class="##tab-icon## themed-color icon-push"></i> <strong>##tab-caption##</strong> </a> </li> </ul> </div> </div> </div> <div class="panel panel-default"> <div class="panel-heading" style="padding-top: 8px; padding-bottom: 8px;"> <h4 class="panel-title text-info"> <i class="gi gi-magic"></i> &nbsp; <a class="accordion-toggle components-hyperlink" data-toggle="collapse" data-parent="#ctrlFormDesignerModal-Tools-group-panel" href="#ctrlFormDesignerModal-components"> Components </a> </h4> </div> <div id="ctrlFormDesignerModal-components" class="panel-collapse collapse"> <div class="panel-body" style="padding: 0;"> <div class="block-section" style="padding-top: 6px; padding-bottom: 6px; margin-bottom: 0px; text-align: center; border-bottom: 1px solid lightgray;"> <div class="input-group" data-children-count="1" style="padding-left: 10px; padding-right: 10px; "> <span class="input-group-addon"><i class="fa fa-search text-info" data-children-count="0" style="padding: 0px;"></i></span> <input type="text" id="ctrlFormDesignerModal-component-filter" class="form-control toolbox-filter" placeholder="Filter..."> </div> </div> <div id="ctrlFormDesignerModal-components-list" style="overflow-y: scroll;"> <div class="block" style="border-color: transparent;"> <div class="form-bordered" id="ctrlFormDesignerModal-component-list-items"> <!-- See ctrlFormDesignerModal-toolbox-component-html --> </div> </div> <div class="block" style="border-color: transparent;"> <div class="row"> <div class="col-sm-12"> <p class="toolbox-help-icon"> <i class="fa fa-question-circle text-info"></i> </p> <p> Components can be either standard or custom allowing customers to build their own. A component is a combination of HTML, CSS and JavaScript which can contains other components, or SDK controls. At run-time (including preview) these underlying controls are rendered. Example components are labels, panels, spinners, date widgets, grids etc.. </p> </div> </div> </div> </div> </div> </div> </div> <div class="panel panel-default" id="ctrlFormDesignerModal-Tools-Fields-Panel"> <div class="panel-heading" style="padding-top: 8px; padding-bottom: 8px;"> <h4 class="panel-title text-warning"> <i class="gi gi-wrench"></i> &nbsp; <a class="accordion-toggle fields-hyperlink" data-toggle="collapse" data-parent="#ctrlFormDesignerModal-Tools-group-panel" href="#ctrlFormDesignerModal-fields"> Fields </a> </h4> </div> <div id="ctrlFormDesignerModal-fields" class="panel-collapse collapse"> <div class="panel-body" style="padding: 0;"> <div class="block-section" style="padding-top: 6px; padding-bottom: 6px; margin-bottom: 0px; text-align: center; border-bottom: 1px solid lightgray;"> <div class="input-group" data-children-count="1" style="padding-left: 10px; padding-right: 10px; "> <span class="input-group-addon"><i class="fa fa-search text-warning" data-children-count="0" style="padding: 0px;"></i></span> <input type="text" id="ctrlFormDesignerModal-field-filter" class="form-control toolbox-filter" placeholder="Filter..."> </div> </div> <div id="ctrlFormDesignerModal-fields-list" style="overflow-y: scroll;"> <div class="block" style="border-color: transparent;"> <div class="form-bordered" id="ctrlFormDesignerModal-field-list-items"> <!-- See ctrlFormDesignerModal-toolbox-field-html --> </div> </div> <div class="block" style="border-color: transparent;"> <div class="row"> <div class="col-sm-12"> <p class="toolbox-help-icon"> <i class="fa fa-question-circle text-warning"></i> </p> <p> These are (mainly config) fields from the database for the entity associated with this form. Only fields not already on the form are displayed here. When the field is dropped onto the form, it disappaers this list. Both of these prevent the designer creating duplicate fields. </p> </div> </div> </div> </div> </div> </div> </div> </div> </div> </div> <div class="col-md-10 col-lg-10" id="ctrlFormDesignerModal-RightBlock"> <div class="block"> <div class="block-title"> <h2> <span id="ctrlFormDesignerModal-TabCaption"></span> </h2> <div class="block-options pull-right"> <a href="javascript:void(0)" id="ctrlFormDesignerModal-edit-menu" class="btn btn-sm btn-default enable-tooltip" onclick="ctrlFormDesignerModal.PreviewMode()" title="Back to edit mode" style="display: none;"><i class="gi gi-eye_close"></i>&nbsp; Edit Mode</a> <div class="btn-group show-on-hover"> <a href="javascript:void(0)" id="ctrlFormDesignerModal-preview-menu" data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle" aria-expanded="true"><i class="gi gi-eye_open"></i> &nbsp; Preview</a> <ul class="dropdown-menu text-left"> <li class="dropdown-header">Device Type</li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Desktop')"><i class="gi gi-imac"></i> &nbsp; Desktop</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Laptop')"><i class="fa fa-laptop"></i> &nbsp; Laptop</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Tablet')"><i class="gi gi-ipad"></i> &nbsp; Tablet</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Phone')"><i class="gi gi-iphone"></i> &nbsp; Phone</a> </li> <li class="dropdown-header">Live Data</li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Live Data')"><i class="gi gi-flash"></i> &nbsp; Open Record</a> </li> </ul> </div> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Configure layout of tab" id="ctrlFormDesignerModal-configure-layout"> <i class="gi gi-adjust_alt"></i> &nbsp; Configure Layout &nbsp; </a> <div class="btn-group show-on-hover"> <a href="javascript:void(0)" id="ctrlFormDesignerModal-add-row-button" title="Add one or more rows" data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle" aria-expanded="true"> <i class="gi gi-plus"></i> &nbsp; Add Row </a> <ul class="dropdown-menu text-left"> <li class="dropdown-header">Number of Columns</li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(1)">1</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(2)">2</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(3)">3</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(4)">4</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(5)">5</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(6)">6</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(7)">7</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(8)">8</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(9)">9</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(10)">10</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(11)">11</a> </li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(12)">12</a> </li> </ul> </div> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Undo last edit" id="ctrlFormDesignerModal-undo-layout"> <i class="gi gi-undo"></i> &nbsp; Undo </a> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Redo last edit" id="ctrlFormDesignerModal-redo-layout"> <i class="gi gi-redo"></i> &nbsp; Redo </a> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Minimise Tools and Maximise Designer" id="ctrlFormDesignerModal-MinimizeTools"> <i class="gi gi-fullscreen"></i> </a> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open Tools" id="ctrlFormDesignerModal-MaximizeTools" style="display: none;"> <i class="gi gi-more_windows"></i> </a> </div> </div> <div id="ctrlFormDesignerModal-EditorCanvas" class="editor-canvas"> <!-- JSON parsed content editor placed in here, and editor canvas enabled --> </div> <div id="ctrlFormDesignerModal-PreviewCanvas" class="preview-canvas"> <!-- JSON parsed content preview placed in here --> </div> </div> </div> </div> <script type="text/template" id="ctrlFormDesignerModal-tab-layout-html"> <!-- This is the template for all form tab views --> <!-- All layout, components and fields are drawn dynamically --> <div class="row design-time-row" id="draggable-blocks-row-" style="display:none;"> </div> <div class="col-sm-{{ColWidth}} column design-time-column" id="formdesigner-block-row-template" style="display:none;"> {{EmptyBlockPlaceholder}} </div> </script> <script type="text/template" id="ctrlFormDesignerModal-empty-block-html"> <div class="block empty-design-block" id="formdesigner-block-empty-{{GUID}}"> <!-- Empty placeholder to allow drag/drop into this column --> <div class="block-section text-center" style="padding-top: 5px;"> <div class="btn-group"> <button class="btn btn-xs btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-cogs"></i> <span id="formdesigner-column-edit-tool-menu-{{ComponentID}}-{{GUID}}"> &nbsp; Column</span> </button> <ul class="dropdown-menu dropdown-custom"> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Component', this)" title="Add component to column"> <i class="fa fa-plus-square-o"></i> &nbsp; Add Component </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Field', this)" title="Add field to column"> <i class="fa fa-plus"></i> &nbsp; Add Field </a> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Decrease Width', this)" title="Decrease width of column"> <i class="fa fa-minus-circle"></i> &nbsp; Decrease Width </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Increase Width', this)" title="Increase width of column"> <i class="fa fa-plus-circle"></i> &nbsp; Increase Width </a> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Column', this)" title="Add another column to the right"> <i class="fa fa-plus-square"></i> &nbsp; Add Column </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Column', this)" title="Delete this column"> <i class="fa fa-remove"></i> &nbsp; Delete Column </a> <!--<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Move Column Right', this)" title="Move this column to the right"> <i class="fa fa-arrow-right"></i> &nbsp; Move Column Right </a>--> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Column Row', this)" title="Add a row inside the current column"> <i class="fa fa-plus-square"></i> &nbsp; Add Column Row </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Row', this)" title="Delete this row"> <i class="fa fa-remove"></i> &nbsp; Delete Row </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Duplicate Row', this)" title="Duplicate this row beneath"> <i class="gi gi-more_windows"></i> &nbsp; Duplicate Row </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Move Row Up', this)" title="Move this row up"> <i class="fa fa-arrow-up"></i> &nbsp; Move Row Up </a> </li> </ul> </div> </div> </div> </script> <!-- The device preview HTML template --> <script type="text/template" id="ctrlFormDesignerModal-preview-device-html"> <div style="width: {{DivWidth}}px; height: {{DivHeight}}px; text-align: center; margin: 0 auto; background-image:url({{BackgroundImageURL}}); background-size: {{BackgroundWidth}}px {{BackgroundHeight}}px; background-repeat: no-repeat;"> <div style="padding-top: {{PaddingTop}}px; padding-left: {{PaddingLeft}}px; padding-right: {{PaddingRight}}px;"> <div class="block full" id="ctrlFormDesignerModal-preview-device-renderer" style="height: {{RendererHeight}}px; overflow-y:auto;"></div> </div> </div> </script> <!-- To be relocated to index.html. Used by ctrlFormDesignerModal.FormRenderer --> <script type="text/template" id="ctrlFormDesignerModal-renderer-form-html"> <div class="block full" style="padding-bottom: 0px; text-align: left;{{ZoomFactor}}"> <div class="block-title"> <i class="{{FormIcon}} fa-2x pull-left themed-color"></i> <h2 id="first-form-caption">{{FormCaption}}</h2> <div class="block-options pull-right"> {{FormButtons}} </div> </div> <!--Form Top Master Start--> {{FormTopMaster}} <!--Form Top Master End--> <div class="block full" id="{{FormID}}-form-tab-block"> <div class="block-title" style="padding-left: 10px; padding-right: 10px;"> <ul class="nav nav-tabs" data-toggle="tabs" id="{{FormID}}-form-tab-navigation" style="margin-bottom: -8px;"> {{FormTabs}} </ul> </div> <div class="tab-content"> {{FormTabsContent}} </div> </div> </div> </script> <script type="text/template" id="ctrlFormDesignerModal-renderer-form-tab-html"> <li id="{{FormID}}-form-first-tab" {{ActiveTab}} {{TabVisibility}}> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), '{{FormID}}-form-{{TabID}}-tab-pane', null);"> <i class="{{TabIcon}}"></i>&nbsp; {{TabCaption}} </a> </li> </script> <script type="text/template" id="ctrlFormDesignerModal-renderer-form-tab-pane-html"> <div class="tab-pane{{TabActive}}" id="{{FormID}}-form-{{TabID}}-tab-pane" {{TabPaneStyle}}> {{TabPaneContent}} </div> </script> <script type="text/template" id="ctrlFormDesignerModal-toolbox-component-html"> <div class="form-group component-tool-form-group" data-children-count="1"> <div class="column" id="formdesigner-component-tool-{{ComponentID}}" trisys-component-id="{{ComponentID}}" trisys-component-guid="{{GUID}}"> <div class="block component-tool" id="component-name-{{ComponentID}}-{{GUID}}" trisys-component-id="{{ComponentID}}" trisys-component-guid="{{GUID}}"> <div class="block-title ui-sortable-handle" title="{{ComponentDescription}}"> <h5 class="component-tool-caption"> <i class="{{ComponentIcon}} text-info"></i>&nbsp; {{ComponentName}} </h5> </div> <div class="block-section text-center" style="margin-top: -10px; display: none;" id="formdesigner-component-edit-tool-{{ComponentID}}-{{GUID}}"> <div class="btn-group"> <button class="btn btn-xs btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-cogs"></i> <span id="formdesigner-component-edit-tool-menu-{{ComponentID}}-{{GUID}}"> &nbsp; Component</span> </button> <ul class="dropdown-menu dropdown-custom"> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Configure Component', this)" title="Configure this component"> <i class="gi gi-magic"></i> &nbsp; Configure Component </a> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Decrease Width', this)" title="Decrease width of column"> <i class="fa fa-minus-circle"></i> &nbsp; Decrease Width </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Increase Width', this)" title="Increase width of column"> <i class="fa fa-plus-circle"></i> &nbsp; Increase Width </a> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Column', this)" title="Add another column to the right"> <i class="fa fa-plus-square"></i> &nbsp; Add Column </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Column', this)" title="Delete this component and the underlying column"> <i class="fa fa-remove"></i> &nbsp; Delete Component &amp; Column </a> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Row', this)" title="Delete this row"> <i class="fa fa-remove"></i> &nbsp; Delete Row </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Duplicate Row', this)" title="Duplicate this row beneath"> <i class="gi gi-more_windows"></i> &nbsp; Duplicate Row </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Move Row Up', this)" title="Move this row up"> <i class="fa fa-arrow-up"></i> &nbsp; Move Row Up </a> </li> </ul> </div> </div> </div> </div> </div> </script> <script type="text/template" id="ctrlFormDesignerModal-toolbox-field-html"> <div class="form-group field-tool-form-group" data-children-count="1"> <div class="column" id="formdesigner-field-tool-{{FieldID}}" trisys-field-id="{{FieldID}}" trisys-field-guid="{{GUID}}"> <div class="block field-tool" id="field-name-{{FieldID}}-{{GUID}}" trisys-field-id="{{FieldID}}" trisys-field-guid="{{GUID}}"> <div class="block-title ui-sortable-handle" title="{{FieldDescription}}"> <h5 class="field-tool-caption"> <i class="{{FieldIcon}} text-warning"></i>&nbsp; {{FieldName}} </h5> </div> <div class="block-section text-center" style="margin-top: -10px; display: none;" id="formdesigner-field-edit-tool-{{FieldID}}-{{GUID}}"> <div class="btn-group"> <button class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-cogs"></i> <span id="formdesigner-field-edit-tool-menu-{{ComponentID}}-{{GUID}}"> &nbsp; Field</span> </button> <ul class="dropdown-menu dropdown-custom"> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Configure Field', this)" title="Configure this field"> <i class="fa fa-wrench"></i> &nbsp; Configure Field </a> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Decrease Width', this)" title="Decrease width of column"> <i class="fa fa-minus-circle"></i> &nbsp; Decrease Width </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Increase Width', this)" title="Increase width of column"> <i class="fa fa-plus-circle"></i> &nbsp; Increase Width </a> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Column', this)" title="Add another column to the right"> <i class="fa fa-plus-square"></i> &nbsp; Add Column </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Column', this)" title="Delete this field and underlying column"> <i class="fa fa-remove"></i> &nbsp; Delete Field &amp; Column </a> </li> <li class="divider"></li> <li> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Row', this)" title="Delete this row"> <i class="fa fa-remove"></i> &nbsp; Delete Row </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Duplicate Row', this)" title="Duplicate this row beneath"> <i class="gi gi-more_windows"></i> &nbsp; Duplicate Row </a> <a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Move Row Up', this)" title="Move this row up"> <i class="fa fa-arrow-up"></i> &nbsp; Move Row Up </a> </li> </ul> </div> </div> </div> </div> </div> </script>
+<!-- 14 Apr 2021: ctrlFormDesignerModal
+-- New version of ctrlFormDesignerModal based upon Dashboard style drag/drop
+-->
+<style scoped>
+.gray-theme.fr-toolbar {
+border-top-width: 1px; /* Ignored! - Edit X:\inetpub\apex.trisys.co.uk\javascript\froala\css\themes\gray.css line 1095 */
+}
+.editor-canvas {
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-bottom: 20px;
+padding-right: 20px;
+overflow-y: scroll;
+}
+.preview-canvas {
+display: none;
+text-align: center;
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-bottom: 20px;
+}
+.form-property {
+padding: 4px !important;
+padding-bottom: 22px !important;
+}
+.component-tool, .field-tool {
+height: 30px;
+opacity: 1;
+margin-bottom: 0px;
+font-size: 12px;
+/*border-radius: 4px !important;*/
+}
+/*div.component-tool:hover {
+background-color: pink;
+font-weight: bold;
+}*/
+.component-tool-caption, .field-tool-caption {
+font-size: 12px !important;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+width: 170px;
+padding: 4px !important;
+padding-top: 6px !important;
+}
+.component-tool-form-group, .field-tool-form-group {
+padding: 10px !important;
+border-bottom: none !important;
+padding-top: 5px !important;
+padding-bottom: 5px !important;
+}
+.toolbox-help-icon {
+text-align: center;
+font-size: 24px;
+border-top: solid 1px lightgray;
+padding-top: 20px;
+}
+.toolbox-filter {
+height: 28px;
+}
+.components-hyperlink:hover, .components-hyperlink:focus {
+color: #3498db; /* text-info */
+text-decoration: underline;
+}
+.fields-hyperlink:hover, .fields-hyperlink:focus {
+color: #e67e22; /* text-warning */
+text-decoration: underline;
+}
+.design-time-row {
+border: 1px solid #dbe1e8;
+padding: 12px;
+margin-left: 0px;
+margin-bottom: 20px;
+margin-right: 20px;
+}
+.design-time-column {
+/*padding-left: 6px;
+padding-right: 6px;*/
+padding: 10px;
+/*margin: 8px;*/
+margin-bottom: -20px;
+}
+</style>
+<div class="row">
+<div class="col-md-2 col-lg-2" id="ctrlFormDesignerModal-LeftBlock">
+<div class="block" id="ctrlFormDesignerModal-ToolsBlock">
+<div class="block-title" style="overflow: auto;">
+<h2 id="ctrlFormDesignerModal-LeftBlock-Title">Tools</h2>
+<div class="block-options pull-right">
+</div>
+</div>
+<div id="ctrlFormDesignerModal-Tools-group-panel" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading" style="padding-top: 8px; padding-bottom: 8px;">
+<h4 class="panel-title themed-color">
+<i class="gi gi-check"></i>
+&nbsp;
+<a class="accordion-toggle" data-toggle="collapse" data-parent="#ctrlFormDesignerModal-Tools-group-panel" href="#ctrlFormDesignerModal-properties">
+Form Properties
+</a>
+</h4>
+</div>
+<div id="ctrlFormDesignerModal-properties" class="panel-collapse collapse">
+<div class="panel-body" style="padding: unset;">
+<div class="block-section" style="padding-top: 6px; padding-bottom: 6px; margin-bottom: 0px; text-align: center; border-bottom: 1px solid lightgray;">
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.EditFormProperties()" class="btn btn-sm btn-default enable-tooltip" title="Edit form properties" id="ctrlFormDesignerModal-edit-tab" style="margin: 2px;">
+<i class="gi gi-cogwheel"></i> &nbsp; Edit &nbsp;
+</a>
+</div>
+<div class="block" id="ctrlFormDesignerModal-properties-list" style="border-color: transparent; overflow-y: scroll; margin-bottom: 0px; height:430px;" ">
+<div class="form-bordered">
+<div class="form-group" data-children-count="1">
+<label>Caption</label>
+<span id="ctrlFormDesignerModal-Tools-Property-Caption" class="form-control form-property"></span>
+</div>
+<div class="form-group" data-children-count="1">
+<label>Entity</label>
+<span id="ctrlFormDesignerModal-Tools-Property-Entity" class="form-control form-property"></span>
+</div>
+<div class="form-group" data-children-count="1">
+<label>Icon</label>
+<div id="ctrlFormDesignerModal-Tools-Property-Icon" class="form-control form-property" style="font-size: 18px; height: 36px;"></div>
+</div>
+<div class="form-group" data-children-count="1">
+<label>Type</label>
+<span id="ctrlFormDesignerModal-Tools-Property-Type" class="form-control form-property"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" style="padding-top: 8px; padding-bottom: 8px;">
+<h4 class="panel-title themed-color">
+<i class="fa fa-sitemap"></i>
+&nbsp;
+<a class="accordion-toggle" data-toggle="collapse" data-parent="#ctrlFormDesignerModal-Tools-group-panel" href="#ctrlFormDesignerModal-tabs">
+Tabs
+</a>
+</h4>
+</div>
+<div id="ctrlFormDesignerModal-tabs" class="panel-collapse collapse in">
+<div class="panel-body" style="padding: unset;">
+<div class="block-section" style="padding-top: 6px; padding-bottom: 6px; margin-bottom: 0px; text-align: center; border-bottom: 1px solid lightgray;">
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabAdd()" class="btn btn-sm btn-default enable-tooltip" title="Add a new tab" id="ctrlFormDesignerModal-add-tab" style="margin: 2px;">
+<i class="gi gi-plus"></i> <span style="display: none;">&nbsp; Add &nbsp;</span>
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabEdit()" class="btn btn-sm btn-default enable-tooltip" title="Edit tab properties" id="ctrlFormDesignerModal-edit-tab" style="margin: 2px;">
+<i class="gi gi-edit"></i> <span style="display: none;">&nbsp; Edit &nbsp;</span>
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabMove(true)" class="btn btn-sm btn-default enable-tooltip" title="Move tab order upwards" id="ctrlFormDesignerModal-up-tab" style="margin: 2px;">
+<i class="fa fa-arrow-up"></i> <span style="display: none;">&nbsp; Up &nbsp;</span>
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabMove(false)" class="btn btn-sm btn-default enable-tooltip" title="Move tab order downwards" id="ctrlFormDesignerModal-down-tab" style="margin: 2px;">
+<i class="fa fa-arrow-down"></i> <span style="display: none;">&nbsp; Down &nbsp;</span>
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.TabDelete()" class="btn btn-sm btn-default enable-tooltip" title="Delete selected tab" id="ctrlFormDesignerModal-delete-tab" style="margin: 2px;">
+<i class="gi gi-remove"></i> <span style="display: none;">&nbsp; Delete &nbsp;</span>
+</a>
+</div>
+<ul class="nav nav-pills nav-stacked nav-icons" id="ctrlFormDesignerModal-tab-list" style="overflow-y: scroll; height:430px;">
+<li id="ctrlFormDesignerModal-tab-list-item-template" style="display:none; margin-left: 6px; margin-right: 4px;">
+<a href="javascript:void(0)" onclick="##tab-click-event##">
+<i class="##tab-icon## themed-color icon-push"></i> <strong>##tab-caption##</strong>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" style="padding-top: 8px; padding-bottom: 8px;">
+<h4 class="panel-title text-info">
+<i class="gi gi-magic"></i>
+&nbsp;
+<a class="accordion-toggle components-hyperlink" data-toggle="collapse" data-parent="#ctrlFormDesignerModal-Tools-group-panel" href="#ctrlFormDesignerModal-components">
+Components
+</a>
+</h4>
+</div>
+<div id="ctrlFormDesignerModal-components" class="panel-collapse collapse">
+<div class="panel-body" style="padding: 0;">
+<div class="block-section" style="padding-top: 6px; padding-bottom: 6px; margin-bottom: 0px; text-align: center; border-bottom: 1px solid lightgray;">
+<div class="input-group" data-children-count="1" style="padding-left: 10px; padding-right: 10px; ">
+<span class="input-group-addon"><i class="fa fa-search text-info" data-children-count="0" style="padding: 0px;"></i></span>
+<input type="text" id="ctrlFormDesignerModal-component-filter" class="form-control toolbox-filter" placeholder="Filter...">
+</div>
+</div>
+<div id="ctrlFormDesignerModal-components-list" style="overflow-y: scroll;">
+<div class="block" style="border-color: transparent;">
+<div class="form-bordered" id="ctrlFormDesignerModal-component-list-items">
+<!-- See ctrlFormDesignerModal-toolbox-component-html -->
+</div>
+</div>
+<div class="block" style="border-color: transparent;">
+<div class="row">
+<div class="col-sm-12">
+<p class="toolbox-help-icon">
+<i class="fa fa-question-circle text-info"></i>
+</p>
+<p>
+Components can be either standard or custom allowing customers to build their own.
+A component is a combination of HTML, CSS and JavaScript which can contains other
+components, or SDK controls.
+At run-time (including preview) these underlying controls are rendered.
+Example components are labels, panels, spinners, date widgets, grids etc..
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default" id="ctrlFormDesignerModal-Tools-Fields-Panel">
+<div class="panel-heading" style="padding-top: 8px; padding-bottom: 8px;">
+<h4 class="panel-title text-warning">
+<i class="gi gi-wrench"></i>
+&nbsp;
+<a class="accordion-toggle fields-hyperlink" data-toggle="collapse" data-parent="#ctrlFormDesignerModal-Tools-group-panel" href="#ctrlFormDesignerModal-fields">
+Fields
+</a>
+</h4>
+</div>
+<div id="ctrlFormDesignerModal-fields" class="panel-collapse collapse">
+<div class="panel-body" style="padding: 0;">
+<div class="block-section" style="padding-top: 6px; padding-bottom: 6px; margin-bottom: 0px; text-align: center; border-bottom: 1px solid lightgray;">
+<div class="input-group" data-children-count="1" style="padding-left: 10px; padding-right: 10px; ">
+<span class="input-group-addon"><i class="fa fa-search text-warning" data-children-count="0" style="padding: 0px;"></i></span>
+<input type="text" id="ctrlFormDesignerModal-field-filter" class="form-control toolbox-filter" placeholder="Filter...">
+</div>
+</div>
+<div id="ctrlFormDesignerModal-fields-list" style="overflow-y: scroll;">
+<div class="block" style="border-color: transparent;">
+<div class="form-bordered" id="ctrlFormDesignerModal-field-list-items">
+<!-- See ctrlFormDesignerModal-toolbox-field-html -->
+</div>
+</div>
+<div class="block" style="border-color: transparent;">
+<div class="row">
+<div class="col-sm-12">
+<p class="toolbox-help-icon">
+<i class="fa fa-question-circle text-warning"></i>
+</p>
+<p>
+These are (mainly config) fields from the database for the entity associated with this form.
+Only fields not already on the form are displayed here.
+When the field is dropped onto the form, it disappaers this list.
+Both of these prevent the designer creating duplicate fields.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-10 col-lg-10" id="ctrlFormDesignerModal-RightBlock">
+<div class="block">
+<div class="block-title">
+<h2>
+<span id="ctrlFormDesignerModal-TabCaption"></span>
+</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" id="ctrlFormDesignerModal-edit-menu" class="btn btn-sm btn-default enable-tooltip"
+onclick="ctrlFormDesignerModal.PreviewMode()"
+title="Back to edit mode" style="display: none;"><i class="gi gi-eye_close"></i>&nbsp; Edit Mode</a>
+<div class="btn-group show-on-hover">
+<a href="javascript:void(0)" id="ctrlFormDesignerModal-preview-menu" data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle" aria-expanded="true"><i class="gi gi-eye_open"></i> &nbsp; Preview</a>
+<ul class="dropdown-menu text-left">
+<li class="dropdown-header">Device Type</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Desktop')"><i class="gi gi-imac"></i> &nbsp; Desktop</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Laptop')"><i class="fa fa-laptop"></i> &nbsp; Laptop</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Tablet')"><i class="gi gi-ipad"></i> &nbsp; Tablet</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Phone')"><i class="gi gi-iphone"></i> &nbsp; Phone</a>
+</li>
+<li class="dropdown-header">Live Data</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.PreviewMode('Live Data')"><i class="gi gi-flash"></i> &nbsp; Open Record</a>
+</li>
+</ul>
+</div>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Configure layout of tab"
+id="ctrlFormDesignerModal-configure-layout">
+<i class="gi gi-adjust_alt"></i> &nbsp; Configure Layout &nbsp;
+</a>
+<div class="btn-group show-on-hover">
+<a href="javascript:void(0)" id="ctrlFormDesignerModal-add-row-button" title="Add one or more rows" data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle" aria-expanded="true">
+<i class="gi gi-plus"></i> &nbsp; Add Row
+</a>
+<ul class="dropdown-menu text-left">
+<li class="dropdown-header">Number of Columns</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(1)">1</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(2)">2</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(3)">3</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(4)">4</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(5)">5</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(6)">6</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(7)">7</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(8)">8</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(9)">9</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(10)">10</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(11)">11</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.AddNewRow(12)">12</a>
+</li>
+</ul>
+</div>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Undo last edit" id="ctrlFormDesignerModal-undo-layout">
+<i class="gi gi-undo"></i> &nbsp; Undo
+</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Redo last edit" id="ctrlFormDesignerModal-redo-layout">
+<i class="gi gi-redo"></i> &nbsp; Redo
+</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Minimise Tools and Maximise Designer" id="ctrlFormDesignerModal-MinimizeTools">
+<i class="gi gi-fullscreen"></i>
+</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open Tools" id="ctrlFormDesignerModal-MaximizeTools" style="display: none;">
+<i class="gi gi-more_windows"></i>
+</a>
+</div>
+</div>
+<div id="ctrlFormDesignerModal-EditorCanvas" class="editor-canvas">
+<!-- JSON parsed content editor placed in here, and editor canvas enabled -->
+</div>
+<div id="ctrlFormDesignerModal-PreviewCanvas" class="preview-canvas">
+<!-- JSON parsed content preview placed in here -->
+</div>
+</div>
+</div>
+</div>
+<script type="text/template" id="ctrlFormDesignerModal-tab-layout-html">
+<!-- This is the template for all form tab views -->
+<!-- All layout, components and fields are drawn dynamically -->
+<div class="row design-time-row" id="draggable-blocks-row-" style="display:none;">
+</div>
+<div class="col-sm-{{ColWidth}} column design-time-column" id="formdesigner-block-row-template" style="display:none;">
+{{EmptyBlockPlaceholder}}
+</div>
+</script>
+<script type="text/template" id="ctrlFormDesignerModal-empty-block-html">
+<div class="block empty-design-block" id="formdesigner-block-empty-{{GUID}}">
+<!-- Empty placeholder to allow drag/drop into this column -->
+<div class="block-section text-center" style="padding-top: 5px;">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+<i class="fa fa-cogs"></i>
+<span id="formdesigner-column-edit-tool-menu-{{ComponentID}}-{{GUID}}"> &nbsp; Column</span>
+</button>
+<ul class="dropdown-menu dropdown-custom">
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Component', this)" title="Add component to column">
+<i class="fa fa-plus-square-o"></i> &nbsp; Add Component
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Field', this)" title="Add field to column">
+<i class="fa fa-plus"></i> &nbsp; Add Field
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Decrease Width', this)" title="Decrease width of column">
+<i class="fa fa-minus-circle"></i> &nbsp; Decrease Width
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Increase Width', this)" title="Increase width of column">
+<i class="fa fa-plus-circle"></i> &nbsp; Increase Width
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Column', this)" title="Add another column to the right">
+<i class="fa fa-plus-square"></i> &nbsp; Add Column
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Column', this)" title="Delete this column">
+<i class="fa fa-remove"></i> &nbsp; Delete Column
+</a>
+<!--<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Move Column Right', this)" title="Move this column to the right">
+<i class="fa fa-arrow-right"></i> &nbsp; Move Column Right
+</a>-->
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Column Row', this)" title="Add a row inside the current column">
+<i class="fa fa-plus-square"></i> &nbsp; Add Column Row
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Row', this)" title="Delete this row">
+<i class="fa fa-remove"></i> &nbsp; Delete Row
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Duplicate Row', this)" title="Duplicate this row beneath">
+<i class="gi gi-more_windows"></i> &nbsp; Duplicate Row
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Move Row Up', this)" title="Move this row up">
+<i class="fa fa-arrow-up"></i> &nbsp; Move Row Up
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</script>
+<!-- The device preview HTML template -->
+<script type="text/template" id="ctrlFormDesignerModal-preview-device-html">
+<div style="width: {{DivWidth}}px; height: {{DivHeight}}px; text-align: center; margin: 0 auto; background-image:url({{BackgroundImageURL}}); background-size: {{BackgroundWidth}}px {{BackgroundHeight}}px; background-repeat: no-repeat;">
+<div style="padding-top: {{PaddingTop}}px; padding-left: {{PaddingLeft}}px; padding-right: {{PaddingRight}}px;">
+<div class="block full" id="ctrlFormDesignerModal-preview-device-renderer" style="height: {{RendererHeight}}px; overflow-y:auto;"></div>
+</div>
+</div>
+</script>
+<!-- To be relocated to index.html. Used by ctrlFormDesignerModal.FormRenderer -->
+<script type="text/template" id="ctrlFormDesignerModal-renderer-form-html">
+<div class="block full" style="padding-bottom: 0px; text-align: left;{{ZoomFactor}}">
+<div class="block-title">
+<i class="{{FormIcon}} fa-2x pull-left themed-color"></i>
+<h2 id="first-form-caption">{{FormCaption}}</h2>
+<div class="block-options pull-right">
+{{FormButtons}}
+</div>
+</div>
+<!--Form Top Master Start-->
+{{FormTopMaster}}
+<!--Form Top Master End-->
+<div class="block full" id="{{FormID}}-form-tab-block">
+<div class="block-title" style="padding-left: 10px; padding-right: 10px;">
+<ul class="nav nav-tabs" data-toggle="tabs" id="{{FormID}}-form-tab-navigation" style="margin-bottom: -8px;">
+{{FormTabs}}
+</ul>
+</div>
+<div class="tab-content">
+{{FormTabsContent}}
+</div>
+</div>
+</div>
+</script>
+<script type="text/template" id="ctrlFormDesignerModal-renderer-form-tab-html">
+<li id="{{FormID}}-form-first-tab" {{ActiveTab}} {{TabVisibility}}>
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), '{{FormID}}-form-{{TabID}}-tab-pane', null);">
+<i class="{{TabIcon}}"></i>&nbsp; {{TabCaption}}
+</a>
+</li>
+</script>
+<script type="text/template" id="ctrlFormDesignerModal-renderer-form-tab-pane-html">
+<div class="tab-pane{{TabActive}}" id="{{FormID}}-form-{{TabID}}-tab-pane" {{TabPaneStyle}}>
+{{TabPaneContent}}
+</div>
+</script>
+<script type="text/template" id="ctrlFormDesignerModal-toolbox-component-html">
+<div class="form-group component-tool-form-group" data-children-count="1">
+<div class="column" id="formdesigner-component-tool-{{ComponentID}}" trisys-component-id="{{ComponentID}}" trisys-component-guid="{{GUID}}">
+<div class="block component-tool" id="component-name-{{ComponentID}}-{{GUID}}" trisys-component-id="{{ComponentID}}" trisys-component-guid="{{GUID}}">
+<div class="block-title ui-sortable-handle" title="{{ComponentDescription}}">
+<h5 class="component-tool-caption">
+<i class="{{ComponentIcon}} text-info"></i>&nbsp; {{ComponentName}}
+</h5>
+</div>
+<div class="block-section text-center" style="margin-top: -10px; display: none;" id="formdesigner-component-edit-tool-{{ComponentID}}-{{GUID}}">
+<div class="btn-group">
+<button class="btn btn-xs btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+<i class="fa fa-cogs"></i>
+<span id="formdesigner-component-edit-tool-menu-{{ComponentID}}-{{GUID}}"> &nbsp; Component</span>
+</button>
+<ul class="dropdown-menu dropdown-custom">
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Configure Component', this)" title="Configure this component">
+<i class="gi gi-magic"></i> &nbsp; Configure Component
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Decrease Width', this)" title="Decrease width of column">
+<i class="fa fa-minus-circle"></i> &nbsp; Decrease Width
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Increase Width', this)" title="Increase width of column">
+<i class="fa fa-plus-circle"></i> &nbsp; Increase Width
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Column', this)" title="Add another column to the right">
+<i class="fa fa-plus-square"></i> &nbsp; Add Column
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Column', this)" title="Delete this component and the underlying column">
+<i class="fa fa-remove"></i> &nbsp; Delete Component &amp; Column
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Row', this)" title="Delete this row">
+<i class="fa fa-remove"></i> &nbsp; Delete Row
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Duplicate Row', this)" title="Duplicate this row beneath">
+<i class="gi gi-more_windows"></i> &nbsp; Duplicate Row
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Move Row Up', this)" title="Move this row up">
+<i class="fa fa-arrow-up"></i> &nbsp; Move Row Up
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</script>
+<script type="text/template" id="ctrlFormDesignerModal-toolbox-field-html">
+<div class="form-group field-tool-form-group" data-children-count="1">
+<div class="column" id="formdesigner-field-tool-{{FieldID}}" trisys-field-id="{{FieldID}}" trisys-field-guid="{{GUID}}">
+<div class="block field-tool" id="field-name-{{FieldID}}-{{GUID}}" trisys-field-id="{{FieldID}}" trisys-field-guid="{{GUID}}">
+<div class="block-title ui-sortable-handle" title="{{FieldDescription}}">
+<h5 class="field-tool-caption">
+<i class="{{FieldIcon}} text-warning"></i>&nbsp; {{FieldName}}
+</h5>
+</div>
+<div class="block-section text-center" style="margin-top: -10px; display: none;" id="formdesigner-field-edit-tool-{{FieldID}}-{{GUID}}">
+<div class="btn-group">
+<button class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+<i class="fa fa-cogs"></i>
+<span id="formdesigner-field-edit-tool-menu-{{ComponentID}}-{{GUID}}"> &nbsp; Field</span>
+</button>
+<ul class="dropdown-menu dropdown-custom">
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Configure Field', this)" title="Configure this field">
+<i class="fa fa-wrench"></i> &nbsp; Configure Field
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Decrease Width', this)" title="Decrease width of column">
+<i class="fa fa-minus-circle"></i> &nbsp; Decrease Width
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Increase Width', this)" title="Increase width of column">
+<i class="fa fa-plus-circle"></i> &nbsp; Increase Width
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Add Column', this)" title="Add another column to the right">
+<i class="fa fa-plus-square"></i> &nbsp; Add Column
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Column', this)" title="Delete this field and underlying column">
+<i class="fa fa-remove"></i> &nbsp; Delete Field &amp; Column
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Delete Row', this)" title="Delete this row">
+<i class="fa fa-remove"></i> &nbsp; Delete Row
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Duplicate Row', this)" title="Duplicate this row beneath">
+<i class="gi gi-more_windows"></i> &nbsp; Duplicate Row
+</a>
+<a href="javascript:void(0)" onclick="ctrlFormDesignerModal.ConfigureBlock('Move Row Up', this)" title="Move this row up">
+<i class="fa fa-arrow-up"></i> &nbsp; Move Row Up
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</script>

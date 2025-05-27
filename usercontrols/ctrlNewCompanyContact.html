@@ -1,1 +1,135 @@
-<style scoped> .td-label { width: 150px; } </style> <div class="block" id="newCompanyContact-block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label"><strong>Title/Gender</strong></td> <td> <table style="width: 100%"> <tr> <td style="width: 40%;"> <input type="text" id="newCompanyContact-Title" style="width:100%" /> </td> <td style="width: 20%;">&nbsp;</td> <td style="width: 40%;"> <input type="text" id="newCompanyContact-Gender" style="width:100%" /> </td> </tr> </table> </td> </tr> <tr> <td class="td-label"><strong>Forename(s)</strong></td> <td> <input type="text" class="k-textbox" id="newCompanyContact-Forenames" required="required" style="width:100%" /> </td> </tr> <tr> <td class="td-label"><strong>Surname</strong></td> <td> <input type="text" class="k-textbox" id="newCompanyContact-Surname" style="width:100%" /> </td> </tr> <tr> <td class="td-label"><strong>Job Title</strong></td> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input id="newCompanyContact-JobTitle" class="k-textbox" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px; display: none;" id="tr-newCompanyContact-JobTitle"> <button type="submit" class="btn btn-sm btn-default" onclick="ctrlNewCompanyContact.JobTitleLookup()" title="Lookup Job Title" style="right:0px;"> <i class="gi gi-search"></i> </button> </td> </tr> </table> </td> </tr> <tr id="newCompanyContact-Type-row" style="display: none;"> <td class="td-label"><strong>Type</strong></td> <td> <input type="text" id="newCompanyContact-Type" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" /> </td> </tr> <tr id="newCompanyContact-Company-row" style="display: none;"> <td class="td-label"><strong>Company</strong></td> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input id="newCompanyContact-Company" class="k-textbox" style="width:100%;" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="ctrlNewCompanyContact.CompanyLookup()" title="Lookup Company" style="right:0px;"> <i class="gi gi-search"></i> </button> </td> </tr> </table> </td> </tr> <tr id="newCompanyContact-CompanyAddress-row" style="display: none;"> <td class="td-label"><strong>Company Address</strong></td> <td> <span type="text" id="newCompanyContact-CompanyAddress" style="width: 100%;"></span> </td> </tr> <tr id="newCompanyContact-Photo-row" style="display: none;"> <td class="td-label"><strong>Photo</strong></td> <td> <img id="newCompanyContact-PhotoURL" style="border-radius: 50%; max-height: 96px;" /> </td> </tr> <tr id="newCompanyContact-WorkAddress-row"> <td class="td-label"><strong>Work Address</strong></td> <td> <input type="text" id="newCompanyContact-Address" style="white-space: nowrap; overflow: hidden;	text-overflow: ellipsis;" /> </td> </tr> <tr> <td class="td-label"><strong>Work E-Mail</strong></td> <td> <input type="text" class="k-textbox" id="newCompanyContact-WorkEMail" style="width:100%" /> </td> </tr> <tr> <td class="td-label"><strong>Work Tel No.</strong></td> <td> <input type="text" class="k-textbox" id="newCompanyContact-WorkTelNo" style="width:100%" /> </td> </tr> <tr> <td class="td-label"><strong>Work Mobile</strong></td> <td> <input type="text" class="k-textbox" id="newCompanyContact-WorkMobileTelNo" style="width:100%" /> </td> </tr> </tbody> </table> </div> <div class="block" style="padding-top:2px;"> <table class="table table-borderless" style="margin-bottom: 1px;"> <tbody> <tr> <td style="width: 120px;"> <label class="switch switch-primary"> <input type="checkbox" id="newCompanyContact-edit-contact-after-save" value="1" checked> <span></span> </label> </td> <td style="vertical-align: middle"> <strong>Edit New Contact on Save</strong> </td> </tr> </tbody> </table> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/ctrlNewCompanyContact.js"></script>
+<style scoped>
+.td-label
+{
+width: 150px;
+}
+</style>
+<div class="block" id="newCompanyContact-block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label"><strong>Title/Gender</strong></td>
+<td>
+<table style="width: 100%">
+<tr>
+<td style="width: 40%;">
+<input type="text" id="newCompanyContact-Title" style="width:100%" />
+</td>
+<td style="width: 20%;">&nbsp;</td>
+<td style="width: 40%;">
+<input type="text" id="newCompanyContact-Gender" style="width:100%" />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Forename(s)</strong></td>
+<td>
+<input type="text" class="k-textbox" id="newCompanyContact-Forenames" required="required" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Surname</strong></td>
+<td>
+<input type="text" class="k-textbox" id="newCompanyContact-Surname" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Job Title</strong></td>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input id="newCompanyContact-JobTitle" class="k-textbox" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px; display: none;" id="tr-newCompanyContact-JobTitle">
+<button type="submit" class="btn btn-sm btn-default" onclick="ctrlNewCompanyContact.JobTitleLookup()" title="Lookup Job Title" style="right:0px;">
+<i class="gi gi-search"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr id="newCompanyContact-Type-row" style="display: none;">
+<td class="td-label"><strong>Type</strong></td>
+<td>
+<input type="text" id="newCompanyContact-Type" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" />
+</td>
+</tr>
+<tr id="newCompanyContact-Company-row" style="display: none;">
+<td class="td-label"><strong>Company</strong></td>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input id="newCompanyContact-Company" class="k-textbox" style="width:100%;" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="ctrlNewCompanyContact.CompanyLookup()" title="Lookup Company" style="right:0px;">
+<i class="gi gi-search"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr id="newCompanyContact-CompanyAddress-row" style="display: none;">
+<td class="td-label"><strong>Company Address</strong></td>
+<td>
+<span type="text" id="newCompanyContact-CompanyAddress" style="width: 100%;"></span>
+</td>
+</tr>
+<tr id="newCompanyContact-Photo-row" style="display: none;">
+<td class="td-label"><strong>Photo</strong></td>
+<td>
+<img id="newCompanyContact-PhotoURL" style="border-radius: 50%; max-height: 96px;" />
+</td>
+</tr>
+<tr id="newCompanyContact-WorkAddress-row">
+<td class="td-label"><strong>Work Address</strong></td>
+<td>
+<input type="text" id="newCompanyContact-Address" style="white-space: nowrap; overflow: hidden;	text-overflow: ellipsis;" />
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Work E-Mail</strong></td>
+<td>
+<input type="text" class="k-textbox" id="newCompanyContact-WorkEMail" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Work Tel No.</strong></td>
+<td>
+<input type="text" class="k-textbox" id="newCompanyContact-WorkTelNo" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Work Mobile</strong></td>
+<td>
+<input type="text" class="k-textbox" id="newCompanyContact-WorkMobileTelNo" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="block" style="padding-top:2px;">
+<table class="table table-borderless" style="margin-bottom: 1px;">
+<tbody>
+<tr>
+<td style="width: 120px;">
+<label class="switch switch-primary">
+<input type="checkbox" id="newCompanyContact-edit-contact-after-save" value="1" checked>
+<span></span>
+</label>
+</td>
+<td style="vertical-align: middle">
+<strong>Edit New Contact on Save</strong>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlNewCompanyContact.js"></script>

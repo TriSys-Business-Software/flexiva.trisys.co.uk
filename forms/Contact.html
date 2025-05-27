@@ -1,1 +1,1656 @@
-<style scoped> .block-title > i { padding-top: 10px; padding-left: 15px; } .remove-radius-right { border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; } .remove-radius-left { border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important; } </style> <!-- START Form --> <div class="block full" style="padding-bottom: 0px;"> <!-- Block Caption Title --> <div class="block-title"> <i class="gi gi-parents fa-2x pull-left themed-color"></i> <h2 id="contactForm-caption">Contact Form</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="TriSysApex.Pages.ContactForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the contact record" id="contactForm-save-button"> <i class="gi gi-floppy_save"></i> &nbsp; Save </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="TriSysApex.Pages.ContactForm.DeleteRecord();" class="btn btn-sm btn-default enable-tooltip" title="Delete the contact record" id="contactForm-delete-button"> <i class="fa fa-remove"></i> &nbsp; Delete </a> <div id="contactForm-FileMenu" style="display: none;"> </div> <!-- 31 May 2023 --> <!-- Custom Daxtra Menu: Start--> <span>&nbsp;</span> <div class="btn-group btn-group-sm show-on-hover" id="contactForm-DaxtraMenu"> <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Daxtra" style="color: rgb(255, 107, 107); background-color: white;"> <img src="https://api.trisys.co.uk/apex/custom/daxtra/images/daxtra-logo-rounded-2.png" width="64"> &nbsp; <span class="caret"></span> </a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li id="daxtra-menu-li-Contact"> <a href="javascript:void(0)" onclick="TriSysApex.Forms.Daxtra.ContactMatchToRequirements();" id="contactForm-DaxtraMenu-MatchRequirements"><i class="gi gi-user_add pull-right"></i>Match Requirements</a> <a href="javascript:void(0)" onclick="TriSysApex.Forms.Daxtra.ContactMatchToCandidates();" id="contactForm-DaxtraMenu-MatchCandidates"><i class="gi gi-parents pull-right"></i>Match Candidates</a> </li> </ul> </div> <!-- Custom Daxtra Menu: End --> <span>&nbsp;</span> <div id="contactForm-ActionsMenu"> </div> <span>&nbsp;&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the LinkedIn social network profile" id="contactForm-view-linkedin-profile"> <i class="fa fa-linkedin-square"></i> </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the Facebook social network profile" id="contactForm-view-facebook-profile"> <i class="fa fa-facebook-square"></i> </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the Twitter social network profile" id="contactForm-view-twitter-profile"> <i class="fa fa-twitter"></i> </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the contact preview" id="contactForm-view-preview"> <i class="fa fa-eye"></i> </a> </div> </div> <!-- END Block Caption Title --> <!-- Master Record Fields --> <div class="row"> <div class="col-md-7" style="padding-left: 0px"> <div class="form-group"> <div class="col-md-6"> <table class="table table-borderless table-striped"> <tbody> <tr> <td style="width: 120px;" class="remove-radius-right"><strong>Forename(s)</strong></td> <td class="remove-radius-left"> <input type="text" class="k-textbox" id="Contact_Forenames" required="required" style="width:100%" /> </td> </tr> <tr> <td><strong>Surname</strong></td> <td> <input type="text" class="k-textbox" id="Contact_Surname" required="required" style="width:100%" /> </td> </tr> <tr> <td><strong>Type</strong></td> <td> <input id="Contact_Type" style="width:100%" /> </td> </tr> <tr> <td><strong>Job Title</strong></td> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input id="Contact_JobTitle" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px; display: none;" id="tr-Contact_JobTitle"> <button type="submit" class="btn btn-sm btn-default" onclick="contactForm.JobTitleLookup()" title="Lookup Job Title" style="right:0px;"> <i class="gi gi-search"></i> </button> </td> </tr> </table> </td> </tr> </tbody> </table> </div> <div class="col-md-6"> <table class="table table-borderless table-striped"> <tbody> <tr> <td style="width: 120px;"><strong>Title</strong></td> <td> <input type="text" id="Contact_ContactTitle" style="width:100%" /> </td> </tr> <tr> <td><strong>Marital Status</strong></td> <td> <input type="text" id="Contact_ContactMarried" style="width:100%" /> </td> </tr> <tr> <td><strong>Gender</strong></td> <td> <input type="text" id="ContactConfigFields_Gender" style="width:100%" /> </td> </tr> <tr> <td><strong>Status</strong></td> <td> <input id="ContactConfigFields_Status" style="width:100%" /> </td> </tr> </tbody> </table> </div> </div> </div> <div class="col-md-3" style="vertical-align: top"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <strong>Comments</strong> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="contactForm.EditComments()" title="Edit comments" style="right:0px;"> <i class="gi gi-pen"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td> <textarea class="k-textbox" id="Contact_Comments" rows="5" style="width:100%; resize: vertical;"></textarea> </td> </tr> </tbody> </table> </div> <div class="col-md-2" style="vertical-align: top" id="contact-form-photo-column"> <table class="table table-borderless" style="text-align: center"> <tbody> <tr> <td> <img id="ContactConfigFields_ContactPhoto-Thumbnail2" style="height: 150px; width: 150px; border-radius: 50%; cursor: pointer;" /> </td> </tr> <tr id="contact-form-photo-hovered-buttons-table-row" style="display: none;"> <td> <div id="contact-form-photo-hovered-buttons-widget"> <!-- Attributes photo file widget will be placed here during hover event --> </div> </td> </tr> </tbody> </table> </div> </div> <!-- END Master Record Fields --> <!-- START FORM TABS --> <div class="block full" id="contact-form-tab-panel-buttons"> <div class="block-title"> <ul class="nav nav-tabs" data-toggle="tabs" id="contact-form-tab-nav-horizontal"> <li id="contact-form-tab-personal"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-personal', contactForm.TabButtonCallback);" id="contactform-form-tab-panel-personal-hyperlink"> <i class="gi gi-user"></i>&nbsp; Personal </a> </li> <li id="contact-form-tab-employment"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-employment', contactForm.TabButtonCallback);"> <i class="gi gi-building"></i>&nbsp;  Employment </a> </li> <li id="contact-form-tab-attributes"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-attributes', contactForm.TabButtonCallback);"> <i class="gi gi-settings"></i>&nbsp;  Attributes </a> </li> <li id="contact-form-tab-relationships" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-relationships', contactForm.TabButtonCallback);"> <i class="gi gi-random"></i>&nbsp;  Relationships </a> </li> <li id="contact-form-tab-social-networks"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-social-networks', contactForm.TabButtonCallback);"> <i class="fa fa-facebook"></i>&nbsp;  Social </a> </li> <li id="contact-form-tab-back-office" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-back-office', contactForm.TabButtonCallback);"> <i class="fa fa-bank"></i>&nbsp;  Back Office </a> </li> <li id="contact-form-tab-requirements"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-requirements', contactForm.TabButtonCallback);"> <i class="gi gi-user_add"></i>&nbsp;  Requirements </a> </li> <li id="contact-form-tab-placements"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-placements', contactForm.TabButtonCallback);"> <i class="gi gi-gbp"></i>&nbsp;  Placements </a> </li> <li id="contact-form-tab-timesheets"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-timesheets', contactForm.TabButtonCallback);"> <i class="gi gi-stopwatch"></i>&nbsp;  Timesheets </a> </li> <li id="contact-form-tab-documentlibrary"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-documentlibrary', contactForm.TabButtonCallback);"> <i class="fa fa-folder-o"></i>&nbsp;  Documents </a> </li> <li id="contact-form-tab-noteshistory"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-noteshistory', contactForm.TabButtonCallback);"> <i class="gi gi-notes"></i>&nbsp;  Notes </a> </li> <li id="contact-form-tab-scheduledtasks"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-scheduledtasks', contactForm.TabButtonCallback);"> <i class="gi gi-alarm"></i>&nbsp;  Tasks </a> </li> <li id="contact-form-tab-privacy"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-privacy', contactForm.TabButtonCallback);"> <i class="fa fa-lock"></i>&nbsp;  Privacy/GDPR </a> </li> <li id="contact-form-tab-amendments" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-amendments', contactForm.TabButtonCallback);"> <i class="gi gi-git_compare"></i>&nbsp;  Amendments </a> </li> <li id="contact-form-tab-custom" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-custom', contactForm.TabButtonCallback);"> <i class="gi gi-cargo"></i>&nbsp;  <span id="contact-form-tab-custom-caption">Custom</span> </a> </li> <li id="contact-form-tab-master-detail-notes" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-master-detail-notes', contactForm.TabButtonCallback);"> <i class="gi gi-magic"></i>&nbsp; Master/Detail Dev </a> </li> </ul> </div> <div class="tab-content"> <div class="tab-pane" id="contact-form-panel-personal"> <!-- Personal Row #1 --> <div class="row"> <div class="col-xs-12 col-sm-6 col-md-4"> <!-- Home Address Block --> <div class="block"> <div class="block-title"> <h2>Home Address</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Street</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <textarea class="k-textbox" name="Street" id="Contact_HomeAddressStreet" rows="3" style="width:100%; resize: none"></textarea> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>City/Town</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" class="k-textbox" name="City" id="Contact_HomeAddressCity" style="width:100%" /> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>County</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" class="k-textbox" name="County" id="Contact_HomeAddressCounty" style="width:100%" /> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Post Code</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <div class="col-xs-11 col-sm-10 col-md-9" style="padding-left:0px; padding-right:0px; height:30px;"> <input class="k-textbox" id="Contact_HomeAddressPostCode" style="width:100%; height:100%; margin-top:1px; text-transform: uppercase;" /> </div> <div class="col-xs-1 col-sm-2 col-md-3" style="padding-right:0px; padding-left:0px;"> <button type="submit" class="btn btn-sm btn-default" onclick="contactForm.PostCodeLookup()" title="Lookup Post Code" style="position:absolute; right:0px;"> <i class="gi gi-search"></i> </button> </div> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Country</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" id="Contact_HomeAddressCountry" style="width:100%" /> </div> </td> </tr> </tbody> </table> </div> <!-- END Home Address Block --> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <!-- Contact Details Block --> <div class="block"> <div class="block-title"> <h2>Contact Details</h2> </div> <!-- Input Groups - Buttons Content --> <table class="table table-borderless table-striped"> <tbody> <tr> <td style="width: 120px;"> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Home Phone</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input type="text" class="k-textbox" name="HomeTelNo" id="Contact_HomeAddressTelNo" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.TelNo('Contact_HomeAddressTelNo')" title="Call home tel. no" style="right:0px;"> <i class="gi gi-phone_alt"></i> </button> </td> </tr> </table> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Personal E-Mail</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input type="text" class="k-textbox" name="Enail" id="ContactConfigFields_AlternativeEMailAddress1" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AlternativeEMailAddress1')" title="Send personal e-mail" style="right:0px;"> <i class="gi gi-envelope"></i> </button> </td> </tr> </table> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Personal Mobile</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input type="text" class="k-textbox" name="Mobile" id="Contact_MobileTelNo" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.TelNo('Contact_MobileTelNo')" title="Call personal mobile" style="right:0px;"> <i class="gi gi-iphone"></i> </button> </td> </tr> </table> </div> </td> </tr> <tr style="display: none;"> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Home Fax</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" class="k-textbox" name="Fax" id="Contact_HomeAddressFaxNo" style="width:100%" /> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Skype</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input type="text" class="k-textbox" name="Skype" id="ContactConfigFields_SkypeNumber" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.Skype('ContactConfigFields_SkypeNumber')" title="Call via Skype" style="right:0px;"> <i class="fa fa-skype"></i> </button> </td> </tr> </table> </div> </td> </tr> </tbody> </table> <!-- END Input Groups - Buttons Content --> </div> <!-- END Contact Details Block --> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <!-- Miscellaneous Block --> <div class="block"> <div class="block-title"> <h2>Miscellaneous</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td style="width: 120px;"> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Date of Birth</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" id="Contact_DateOfBirth" style="width:100%" /> </div> </td> </tr> <tr> <td style="width: 120px;"> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Age</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" id="Contact_Age" class="k-textbox" style="width:50px" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Availability Date</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" id="ContactConfigFields_AvailabilityDate" style="width:100%" /> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Type of Work</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" id="ContactConfigFields_TypeOfWorkRequired" style="width:100%" /> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Payroll Company</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" id="ContactConfigFields_UmbrellaReference" style="width:100%" /> </div> </td> </tr> <tr id="contact-form-limited-company-tr" style="display: none;"> <td> <div class="col-xs-12 col-sm-6 col-md-4"> <strong>Limited Company Name</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8"> <input type="text" class="k-textbox" id="ContactConfigFields_LimitedCompany" style="width:100%" /> </div> </td> </tr> </tbody> </table> </div> <!-- END Miscellaneous Block --> </div> </div> <!-- END Personal Row #1 --> <!-- Personal Row #2 --> <div class="row"> <div class="col-xs-12 col-sm-12 col-md-7"> <!-- CV Manager Block --> <div class="block" id="contact-form-block-cv-manager"> <div class="block-title"> <h2>CV Manager</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-md-8"></div> <div class="col-md-4"> <strong>Last Updated Date</strong> </div> </td> </tr> <tr> <td> <div class="col-md-2"><strong>Original</strong></div> <div class="col-md-6"> <div id="ContactConfigFields_CVFileRef" style="width:100%;"></div> </div> <div class="col-md-4"> <input id="ContactConfigFields_CVLastUpdated" style="width:100%;" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-md-2"><strong><span id="ClientCV1Label">Client CV</span></strong></div> <div class="col-md-6"> <div id="ContactConfigFields_FormattedCVFileRef1" style="width:100%;"></div> </div> <div class="col-md-4"> <input id="ContactConfigFields_FormattedCV1LastUpdated" style="width:100%;" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-md-2"><strong><span id="ClientCV2Label">Client CV #2</span></strong></div> <div class="col-md-6"> <div id="ContactConfigFields_FormattedCVFileRef2" style="width:100%;"></div> </div> <div class="col-md-4"> <input id="ContactConfigFields_FormattedCV2LastUpdated" style="width:100%;" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-md-2"><strong><span id="ClientCV3Label">Client CV #3</span></strong></div> <div class="col-md-6"> <div id="ContactConfigFields_FormattedCVFileRef3" style="width:100%;"></div> </div> <div class="col-md-4"> <input id="ContactConfigFields_FormattedCV3LastUpdated" style="width:100%;" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-md-2"><strong><span id="ClientCV4Label">Client CV #4</span></strong></div> <div class="col-md-6"> <div id="ContactConfigFields_FormattedCVFileRef4" style="width:100%;"></div> </div> <div class="col-md-4"> <input id="ContactConfigFields_FormattedCV4LastUpdated" style="width:100%;" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-md-2"> <strong>Candidate Summary</strong> </div> <div class="col-md-10"> <textarea class="k-textbox" id="ContactConfigFields_AdditionalInformation" rows="3" style="width:100%; resize: vertical;"></textarea> </div> </td> </tr> </tbody> </table> </div> <!-- END CV Manager Block --> </div> <div class="col-xs-12 col-sm-12 col-md-5"> <!-- Remuneration Block --> <div class="block"> <div class="block-title"> <h2>Remuneration</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-12" style="padding-bottom: 10px;"> <strong>Current</strong> </div> <div class="col-xs-12" style="padding-left: 15px;"> <div id="ContactConfigFields_CurrentRemuneration"></div> </div> </td> </tr> <tr> <td> <div class="col-xs-12" style="padding-bottom: 10px;"> <strong>Required Permanent</strong> </div> <div class="col-xs-12" style="padding-left: 15px;"> <div id="ContactConfigFields_RequiredRemunerationPermanent"></div> </div> </td> </tr> <tr> <td> <div class="col-xs-12" style="padding-bottom: 10px;"> <strong>Required Contract/Temp</strong> </div> <div class="col-xs-12" style="padding-left: 15px;"> <div id="ContactConfigFields_RequiredRemunerationContract"></div> </div> </td> </tr> </tbody> </table> </div> <!-- END Remuneration Block --> </div> </div> <!-- END Personal Row #2 --> <!-- Personal Row #3 --> <div class="row"> <div class="col-xs-12 col-sm-12 col-md-8"> <!-- Identification/Right to Work Block --> <div class="block"> <div class="block-title"> <h2>Identification/Right to Work</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-md-2"> <strong>Proof</strong> </div> <div class="col-md-4"> <div id="ContactConfigFields_Identification" style="width:100%;"></div> </div> <div class="col-md-2"> <strong>Comments</strong> </div> <div class="col-md-4"> <div id="ContactConfigFields_IdentificationComments" style="width:100%;"></div> </div> </td> </tr> <tr> <td> <div class="col-md-2"> <strong>Expiry</strong> </div> <div class="col-md-4"> <input id="ContactConfigFields_Expiry" style="width:100%;" /> </div> <div class="col-md-2"> <strong>Nationality</strong> </div> <div class="col-md-4"> <div id="ContactConfigFields_Nationality" style="width:100%;"></div> </div> </td> </tr> <tr> <td> <div class="col-md-2"> <strong>Link 1</strong> </div> <div class="col-md-4"> <div id="ContactConfigFields_IdentificationLink" style="width:100%;"></div> </div> <div class="col-md-2"><strong>Link 2</strong></div> <div class="col-md-4"> <div id="ContactConfigFields_IdentificationLink2" style="width:100%;"></div> </div> </td> </tr> <tr> <td> <div class="col-md-2"> <strong>Link 3</strong> </div> <div class="col-md-4"> <div id="ContactConfigFields_Link3" style="width:100%;"></div> </div> <div class="col-md-2"> <strong>Link 4</strong> </div> <div class="col-md-4"> <div id="ContactConfigFields_Link4" style="width:100%;"></div> </div> </td> </tr> <tr> <td> <div class="col-md-2"> <strong>Link 5</strong> </div> <div class="col-md-4"> <div id="ContactConfigFields_Link5" style="width:100%;"></div> </div> <div class="col-md-2"> <strong>Link 6</strong> </div> <div class="col-md-4"> <div id="ContactConfigFields_Link6" style="width:100%;"></div> </div> </td> </tr> <tr> <td> <div class="col-md-2"> <strong>National Insurance No.</strong> </div> <div class="col-md-4"> <input type="text" class="k-textbox" id="ContactConfigFields_NationalInsuranceNumber" style="width:100%" /> </div> <div class="col-md-2"> &nbsp; </div> <div class="col-md-4"> &nbsp; </div> </td> </tr> </tbody> </table> </div> <!-- END Identification/Right to Work Block --> </div> <div class="col-xs-12 col-sm-12 col-md-4"> <!-- Dates Block --> <div class="block"> <div class="block-title"> <h2>Dates</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:7px; padding:0;"> <strong>Registered</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8" style="margin-top:7px;"> <input type="text" id="Contact_DateFirstRegistered" style="width:100%; " readonly="readonly" /> </div> </td> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:7px; padding:0;"> <strong>Next Contact</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8" style="margin-top:7px;"> <input type="text" id="Contact_DateOfNextContact" style="width:100%;" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:7px; padding:0;"> <strong>Last Updated</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8" style="margin-top:7px;"> <input type="text" id="Contact_DateLastUpdated" style="width:100%;" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:7px; padding:0;"> <strong>Last Contacted</strong> </div> <div class="col-xs-12 col-sm-6 col-md-8" style="margin-top:7px;"> <input type="text" id="Contact_DateLastContacted" style="width:100%;" readonly="readonly" /> </div> </td> </tr> </tbody> </table> </div> <!-- END Dates Block --> </div> </div> <!-- END Personal Row #3 --> </div> <div class="tab-pane" id="contact-form-panel-employment"> <!-- Employment Row --> <div class="row"> <div class="col-xs-12 col-sm-6 col-md-4"> <div class="block"> <div class="block-title"> <h2>Current Employer</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td style="width: 120px;"> <div id="contactForm-CompanyMenu"> </div> <td> <table style="width: 100%;"> <tr> <td> <input class="k-textbox" id="Contact_CompanyName" style="width:100%" readonly="readonly" /> </td> <td style="width: 4px;"></td> <td style="width: 28px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.ContactForm.OpenCompanyLink()" title="Open Company"> <i class="gi gi-building"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.ContactForm.OpenCompanyMap('Contact_CompanyAddress')" title="Open Maps" id="contactForm-OpenMaps"> <i class="gi gi-globe"></i> &nbsp; <strong>Map Directions</strong> </button> </td> <td> <textarea class="k-textbox" rows="5" cols="30" id="Contact_CompanyAddress" style="width:100%; resize: none" readonly="readonly"></textarea> </td> </tr> <tr> <td><strong>Department</strong></td> <td> <input class="k-textbox" id="Contact_Department" style="width:100%" /> </td> </tr> <tr> <td><strong>Employer</strong></td> <td> <input type="text" class="k-textbox" id="ContactConfigFields_CurrentEmployer" style="width:100%" /> </td> </tr> </tbody> </table> </div> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <div class="block"> <div class="block-title"> <h2>Telephone / Contact Details</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Work Phone</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input type="text" class="k-textbox" id="Contact_WorkTelNo" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.TelNo('Contact_WorkTelNo')" title="Call work tel. no" style="right:0px;"> <i class="gi gi-phone_alt"></i> </button> </td> </tr> </table> </div> </td> </tr> <tr style="display: none;"> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Work Fax No</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <input type="text" class="k-textbox" id="Contact_FaxNo" style="width:100%" /> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Work Mobile</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input type="text" class="k-textbox" id="ContactConfigFields_WorkMobile" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.TelNo('ContactConfigFields_WorkMobile')" title="Call work mobile" style="right:0px;"> <i class="gi gi-iphone"></i> </button> </td> </tr> </table> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Work E-Mail</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input class="k-textbox" id="Contact_EMail" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('Contact_EMail')" title="Send work e-mail" style="right:0px;"> <i class="gi gi-envelope"></i> </button> </td> </tr> </table> </div> </td> </tr> </tbody> </table> </div> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <div class="block"> <div class="block-title"> <h2>Additional E-Mail</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>E-Mail #1</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input class="k-textbox" id="ContactConfigFields_AdditionalEMail1" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AdditionalEMail1')" title="Send e-mail #1" style="right:0px;"> <i class="gi gi-envelope"></i> </button> </td> </tr> </table> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>E-Mail #2</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input class="k-textbox" id="ContactConfigFields_AdditionalEMail2" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AdditionalEMail2')" title="Send e-mail #2" style="right:0px;"> <i class="gi gi-envelope"></i> </button> </td> </tr> </table> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>E-Mail #3</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input class="k-textbox" id="ContactConfigFields_AdditionalEMail3" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AdditionalEMail3')" title="Send e-mail #3" style="right:0px;"> <i class="gi gi-envelope"></i> </button> </td> </tr> </table> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>E-Mail #4</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input class="k-textbox" id="ContactConfigFields_AdditionalEMail4" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AdditionalEMail4')" title="Send e-mail #4" style="right:0px;"> <i class="gi gi-envelope"></i> </button> </td> </tr> </table> </div> </td> </tr> </tbody> </table> </div> <!-- END Input Groups - Dropdowns Block --> </div> </div> <!-- END Employment Row --> </div> <div class="tab-pane" id="contact-form-panel-attributes"> <!-- 3 Columns Row #1 of 2: Code Fields Users Attributes Criminal Records Bureau Photo --> <div class="row"> <!-- Moved here 22 Nov 2021--> <div class="col-xs-12 col-sm-12 col-md-12"> <div id="contact-form-attributes"></div> </div> <div class="col-xs-12 col-sm-4 col-md-4"> <!-- Code Fields Block --> <div class="block"> <div class="block-title"> <h2>Code Fields</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Priority</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <input id="Contact_Priority" style="width:100%" /> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Added by</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <input id="ContactConfigFields_AddedBy" style="width:100%" readonly="readonly" /> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Source</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <input type="text" id="ContactConfigFields_ContactSource" style="width:100%" /> </div> </td> </tr> </tbody> </table> </div> </div> <!-- END Code Fields Block --> <!-- Criminal Records Bureau Block --> <div class="col-xs-12 col-sm-4 col-md-4"> <div class="block"> <div class="block-title"> <h2>Criminal Records Bureau</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-4 col-sm-12 col-md-4"> <strong>CRB Check</strong> </div> <div class="col-xs-8 col-sm-12 col-md-8"> <input id="ContactConfigFields_CRBCheck" style="width:100%;" /> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Details</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <textarea class="k-textbox" id="ContactConfigFields_CRBDetails" rows="3" style="width:100%; resize: none"></textarea> </div> </td> </tr> </tbody> </table> </div> </div> <!-- END Criminal Records Bureau Block --> <!-- Users Block --> <div class="col-xs-12 col-sm-4 col-md-4"> <div class="block"> <div class="block-title"> <h2>Users</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Owner</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <input id="Contact_OwnerUser" style="width:100%" /> </div> </td> </tr> <tr> <td> <div class="col-xs-4 col-sm-4 col-md-4"> <strong>Others</strong> </div> <div class="col-xs-8 col-sm-8 col-md-8"> <select id="Contact_Users" style="width:100%;"></select> </div> </td> </tr> </tbody> </table> </div> </div> <!-- END Users Block --> <!-- Photo Block --> <div class="col-xs-12 col-sm-12 col-md-12"> <div class="block"> <div class="block-title"> <h2>Photo</h2> </div> <table class="table table-borderless" style="text-align: center"> <tbody> <tr> <td> <img id="ContactConfigFields_ContactPhoto-Thumbnail" style="height: 100px; width: 100px; border-radius: 50%; cursor: pointer;" /> </td> </tr> <tr> <td id="contact-form-photo-file-tr"> <div id="ContactConfigFields_ContactPhoto" style="width:100%;"></div> </td> </tr> </tbody> </table> </div> </div> <!-- END Photo Block --> </div> <!-- END 3 Columns Row #1 of 2: Row --> <!-- 2 Columns Row #2 of 2: Education History Work History --> <div class="row"> <div class="col-xs-12 col-sm-12 col-md-6"> <div class="block"> <div class="block-title"> <div class="block-options pull-right"> <div id="contactEducationHistoryFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="contactForm.EducationHistoryGridFileMenuCallback('file-new')" class="btn btn-sm btn-default enable-tooltip" title="Add education history"> <i class="gi gi-plus"></i> &nbsp; Add </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.EducationHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected education history"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.EducationHistoryGridFileMenuCallback('file-delete')" id="contactForm-EducationHistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected education history"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="contactEducationHistoryGridMenu"> </div> </div> <h2>Education History</h2> </div> <div id="contactForm-EducationHistoryGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="col-xs-12 col-sm-12 col-md-6"> <div class="block"> <div class="block-title"> <div class="block-options pull-right"> <div id="contactWorkHistoryFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="contactForm.WorkHistoryGridFileMenuCallback('file-new')" class="btn btn-sm btn-default enable-tooltip" title="Add work history"> <i class="gi gi-plus"></i> &nbsp; Add </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.WorkHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected work history"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.WorkHistoryGridFileMenuCallback('file-delete')" id="contactForm-WorkHistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected work history"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="contactWorkHistoryGridMenu"> </div> </div> <h2>Work History</h2> </div> <div id="contactForm-WorkHistoryGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <!-- END of 2 Columns Row #2 of 2 --> </div> <div class="tab-pane" id="contact-form-panel-social-networks"> <!-- Social Network Row #1 --> <div class="row"> <div class="col-xs-12 col-sm-6 col-md-4"> <div id="contact-form-social-linkedin"></div> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <div id="contact-form-social-facebook"></div> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <div id="contact-form-social-twitter"></div> </div> </div> <!-- END Social Network #1 --> <!-- Social Network Row #2 --> <div class="row"> <div class="col-xs-12 col-sm-6 col-md-4"> <div id="contact-form-social-youtube"></div> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <div id="contact-form-social-instagram"></div> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <div id="contact-form-social-pinterest"></div> </div> </div> <!-- END Social Network #2 --> </div> <div class="tab-pane" id="contact-form-panel-back-office"> <!-- Back Office Row #1 --> <div class="row"> <div class="col-xs-12 col-sm-6 col-md-4"> <div id="contact-form-bank-details"></div> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <!-- TODO --> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <!-- TODO --> </div> </div> <!-- END Back Office #1 --> </div> <div class="tab-pane" id="contact-form-panel-relationships"> <div class="block" id="contact-relationships-grid-container"> </div> <div class="row"> <div class="col-xs-12 col-sm-12 col-md-12"> <div class="block"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="contactForm.AddNewReference()" class="btn btn-sm btn-default enable-tooltip" title="Add New Reference"> <i class="gi gi-plus"></i> &nbsp; Add </a> </div> <h2>References</h2> </div> <div id="contactForm-References" style="border: 1px solid lightgray; margin-bottom: 20px;"> </div> </div> </div> </div> </div> <div class="tab-pane" id="contact-form-panel-requirements"> <div class="block" id="contact-requirements-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="contactRequirementsFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="contactForm.RequirementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected requirement"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.RequirementGridFileMenuCallback('file-delete')" id="contactForm-requirements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected requirement"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="contactRequirementsGridMenu"> </div> <span>&nbsp;</span> <div id="contactRequirementsActionsMenu"> </div> </div> <h3>Contact Requirements</h3> </div> <!-- The grid populated by JS --> <div id="contactForm-RequirementsGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="contact-form-panel-placements"> <div class="block" id="contact-placements-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="contactPlacementsFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="contactForm.PlacementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected placement"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.PlacementGridFileMenuCallback('file-delete')" id="contactForm-placements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected placement"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="contactPlacementsGridMenu"> </div> <span>&nbsp;</span> <div id="contactPlacementsActionsMenu"> </div> </div> <h3>Contact Placements</h3> </div> <!-- The contact placements grid populated by JS --> <div id="contactForm-PlacementsGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="contact-form-panel-timesheets"> <div class="block" id="contact-timesheets-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="contactTimesheetsFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="contactForm.TimesheetGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected timesheet"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.TimesheetGridFileMenuCallback('file-delete')" id="contactForm-timesheets-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected timesheet"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="contactTimesheetsGridMenu"> </div> <span>&nbsp;</span> <div id="contactTimesheetsActionsMenu"> </div> </div> <h3>Contact Timesheets</h3> </div> <!-- The contact timesheets grid populated by JS --> <div id="contactForm-TimesheetsGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="contact-form-panel-documentlibrary"> <div id="contact-form-documentlibrary"></div> </div> <div class="tab-pane" id="contact-form-panel-noteshistory"> <div class="block" id="contact-noteshistory-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="contactNotesHistoryFileMenu" style="display: none;"> </div> <a id="contact-noteshistory-ExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('contactForm-NotesHistoryGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet"> <i class="fa fa-file-excel-o"></i> &nbsp; Excel </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.NotesHistoryGridFileMenuCallback('file-delete')" id="contactForm-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="contactNotesHistoryGridMenu"> </div> </div> <h3>Contact Notes/History</h3> </div> <!-- The contact notes/history grid populated by JS --> <div id="contactForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="contact-form-panel-scheduledtasks"> <div class="block" id="contact-scheduledtasks-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="contactScheduledTasksFileMenu" style="display: none;"> </div> <a id="contact-scheduledtasks-ExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('contactForm-ScheduledTasksGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet"> <i class="fa fa-file-excel-o"></i> &nbsp; Excel </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="contactForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="contactForm-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="contactScheduledTasksGridMenu"> </div> </div> <h3>Contact Scheduled Tasks</h3> </div> <!-- The contact Scheduled Tasks grid populated by JS --> <div id="contactForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="contact-form-panel-privacy"> <div class="row"> <div class="col-xs-12 col-sm-12 col-md-12"> <div class="block"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="contactForm.EditGDPR()" class="btn btn-sm btn-default enable-tooltip" title="Edit privacy/GDPR" id="contactForm-EditGDPRButton" style="display: none;"> <i class="gi gi-edit"></i> &nbsp; Edit </a> </div> <h2>Privacy Preferences / General Data Protection Regulation</h2> </div> <div class="row"> <div class="col-xs-6 col-sm-6 col-md-6"> <div class="block"> <div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;"> <table style="width: 100%;"> <tr> <td style="width: 70px;"> <label class="switch switch-primary"> <input type="checkbox" id="contactForm-GDPRAutomatedNotificationEMailSent" value="0" unchecked disabled="disabled"> <span></span> </label> </td> <td> GDPR Automated Notification E-Mail Sent </td> </tr> <tr> <td style="width: 70px;"></td> <td> <span id="contactForm-DateGDPRAutomatedNotificationEMailSent"></span> </td> </tr> </table> </div> <div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;"> <table style="width: 100%;"> <tr> <td style="width: 70px;"> <label class="switch switch-primary"> <input type="checkbox" id="contactForm-AgreeToPrivacyPolicy" value="0" unchecked disabled="disabled"> <span></span> </label> </td> <td> Agreed to Privacy Policy </td> </tr> <tr> <td style="width: 70px;"></td> <td> <span id="contactForm-DateAgreedToPrivacyPolicy"></span> </td> </tr> </table> </div> <div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;"> <table style="width: 100%;"> <tr> <td style="width: 70px;"> <label class="switch switch-primary"> <input type="checkbox" id="contactForm-AgreeToMarketingCommunications" value="0" unchecked disabled="disabled"> <span></span> </label> </td> <td> Agreed to Marketing Communications </td> </tr> <tr> <td style="width: 70px;"></td> <td> <span id="contactForm-DateAgreedToMarketingCommunications"></span> </td> </tr> </table> </div> </div> </div> <div class="col-xs-6 col-sm-6 col-md-6"> <div class="block"> <div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;"> <table style="width: 100%;"> <tr> <td style="width: 70px;"> <label class="switch switch-primary"> <input type="checkbox" id="contactForm-GDPRRestrictDataProcessing" value="0" unchecked disabled="disabled"> <span></span> </label> </td> <td> Restrict Data Processing Requested </td> </tr> <tr> <td style="width: 70px;"></td> <td> <span id="contactForm-DateSignedGDPRRestrictDataProcessing"></span> </td> </tr> </table> </div> <div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;"> <table style="width: 100%;"> <tr> <td style="width: 70px;"> <label class="switch switch-primary"> <input type="checkbox" id="contactForm-GDPRDeletionRequestReceived" value="0" unchecked disabled="disabled"> <span></span> </label> </td> <td> Data Deletion Requested </td> </tr> <tr> <td style="width: 70px;"></td> <td> <span id="contactForm-DateGDPRDeletionRequestReceived"></span> </td> </tr> </table> </div> <div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;"> <table style="width: 100%;"> <tr> <td style="width: 70px;"> <label class="switch switch-primary"> <input type="checkbox" id="contactForm-GDPRDataPortabilityRequestReceived" value="0" unchecked disabled="disabled"> <span></span> </label> </td> <td> Data Portability Requested </td> </tr> <tr> <td style="width: 70px;"></td> <td> <span id="contactForm-DateGDPRDataPortabilityRequestReceived"></span> </td> </tr> </table> </div> </div> </div> </div> </div> </div> </div> </div> <div class="tab-pane" id="contact-form-panel-amendments"> <div class="block" id="contact-amendments-grid-container"> <div class="block-title"> <h3>Contact Amendments</h3> </div> <div id="contactForm-AmendmentsGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="contact-form-panel-custom"> <div id="contact-form-customfields"></div> </div> <div class="tab-pane" id="contact-form-panel-master-detail-notes"> <div id="contact-form-master-detail-notes"></div> </div> </div> </div> <!-- END FORM TABS --> </div> <!-- END Form  --> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/contact.js?ts=202411221338"></script>
+<style scoped>
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+.remove-radius-right {
+border-top-right-radius: 0 !important;
+border-bottom-right-radius: 0 !important;
+}
+.remove-radius-left {
+border-top-left-radius: 0 !important;
+border-bottom-left-radius: 0 !important;
+}
+</style>
+<!-- START Form -->
+<div class="block full" style="padding-bottom: 0px;">
+<!-- Block Caption Title -->
+<div class="block-title">
+<i class="gi gi-parents fa-2x pull-left themed-color"></i>
+<h2 id="contactForm-caption">Contact Form</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="TriSysApex.Pages.ContactForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the contact record" id="contactForm-save-button">
+<i class="gi gi-floppy_save"></i> &nbsp; Save
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="TriSysApex.Pages.ContactForm.DeleteRecord();" class="btn btn-sm btn-default enable-tooltip" title="Delete the contact record" id="contactForm-delete-button">
+<i class="fa fa-remove"></i> &nbsp; Delete
+</a>
+<div id="contactForm-FileMenu" style="display: none;">
+</div>
+<!-- 31 May 2023 -->
+<!-- Custom Daxtra Menu: Start-->
+<span>&nbsp;</span>
+<div class="btn-group btn-group-sm show-on-hover" id="contactForm-DaxtraMenu">
+<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Daxtra" style="color: rgb(255, 107, 107); background-color: white;">
+<img src="https://api.trisys.co.uk/apex/custom/daxtra/images/daxtra-logo-rounded-2.png" width="64"> &nbsp; <span class="caret"></span>
+</a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li id="daxtra-menu-li-Contact">
+<a href="javascript:void(0)" onclick="TriSysApex.Forms.Daxtra.ContactMatchToRequirements();"
+id="contactForm-DaxtraMenu-MatchRequirements"><i class="gi gi-user_add pull-right"></i>Match Requirements</a>
+<a href="javascript:void(0)" onclick="TriSysApex.Forms.Daxtra.ContactMatchToCandidates();"
+id="contactForm-DaxtraMenu-MatchCandidates"><i class="gi gi-parents pull-right"></i>Match Candidates</a>
+</li>
+</ul>
+</div>
+<!-- Custom Daxtra Menu: End -->
+<span>&nbsp;</span>
+<div id="contactForm-ActionsMenu">
+</div>
+<span>&nbsp;&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the LinkedIn social network profile" id="contactForm-view-linkedin-profile">
+<i class="fa fa-linkedin-square"></i>
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the Facebook social network profile" id="contactForm-view-facebook-profile">
+<i class="fa fa-facebook-square"></i>
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the Twitter social network profile" id="contactForm-view-twitter-profile">
+<i class="fa fa-twitter"></i>
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="View the contact preview" id="contactForm-view-preview">
+<i class="fa fa-eye"></i>
+</a>
+</div>
+</div>
+<!-- END Block Caption Title -->
+<!-- Master Record Fields -->
+<div class="row">
+<div class="col-md-7" style="padding-left: 0px">
+<div class="form-group">
+<div class="col-md-6">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td style="width: 120px;" class="remove-radius-right"><strong>Forename(s)</strong></td>
+<td class="remove-radius-left">
+<input type="text" class="k-textbox" id="Contact_Forenames" required="required" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Surname</strong></td>
+<td>
+<input type="text" class="k-textbox" id="Contact_Surname" required="required" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>
+<input id="Contact_Type" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Job Title</strong></td>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input id="Contact_JobTitle" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px; display: none;" id="tr-Contact_JobTitle">
+<button type="submit" class="btn btn-sm btn-default" onclick="contactForm.JobTitleLookup()" title="Lookup Job Title" style="right:0px;">
+<i class="gi gi-search"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-6">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td style="width: 120px;"><strong>Title</strong></td>
+<td>
+<input type="text" id="Contact_ContactTitle" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Marital Status</strong></td>
+<td>
+<input type="text" id="Contact_ContactMarried" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Gender</strong></td>
+<td>
+<input type="text" id="ContactConfigFields_Gender" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>
+<input id="ContactConfigFields_Status" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-md-3" style="vertical-align: top">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<strong>Comments</strong>
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="contactForm.EditComments()" title="Edit comments" style="right:0px;">
+<i class="gi gi-pen"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<textarea class="k-textbox" id="Contact_Comments" rows="5" style="width:100%; resize: vertical;"></textarea>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-2" style="vertical-align: top" id="contact-form-photo-column">
+<table class="table table-borderless" style="text-align: center">
+<tbody>
+<tr>
+<td>
+<img id="ContactConfigFields_ContactPhoto-Thumbnail2" style="height: 150px; width: 150px; border-radius: 50%; cursor: pointer;" />
+</td>
+</tr>
+<tr id="contact-form-photo-hovered-buttons-table-row" style="display: none;">
+<td>
+<div id="contact-form-photo-hovered-buttons-widget">
+<!-- Attributes photo file widget will be placed here during hover event -->
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END Master Record Fields -->
+<!-- START FORM TABS -->
+<div class="block full" id="contact-form-tab-panel-buttons">
+<div class="block-title">
+<ul class="nav nav-tabs" data-toggle="tabs" id="contact-form-tab-nav-horizontal">
+<li id="contact-form-tab-personal">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-personal', contactForm.TabButtonCallback);"
+id="contactform-form-tab-panel-personal-hyperlink">
+<i class="gi gi-user"></i>&nbsp; Personal
+</a>
+</li>
+<li id="contact-form-tab-employment">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-employment', contactForm.TabButtonCallback);">
+<i class="gi gi-building"></i>&nbsp;  Employment
+</a>
+</li>
+<li id="contact-form-tab-attributes">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-attributes', contactForm.TabButtonCallback);">
+<i class="gi gi-settings"></i>&nbsp;  Attributes
+</a>
+</li>
+<li id="contact-form-tab-relationships" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-relationships', contactForm.TabButtonCallback);">
+<i class="gi gi-random"></i>&nbsp;  Relationships
+</a>
+</li>
+<li id="contact-form-tab-social-networks">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-social-networks', contactForm.TabButtonCallback);">
+<i class="fa fa-facebook"></i>&nbsp;  Social
+</a>
+</li>
+<li id="contact-form-tab-back-office" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-back-office', contactForm.TabButtonCallback);">
+<i class="fa fa-bank"></i>&nbsp;  Back Office
+</a>
+</li>
+<li id="contact-form-tab-requirements">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-requirements', contactForm.TabButtonCallback);">
+<i class="gi gi-user_add"></i>&nbsp;  Requirements
+</a>
+</li>
+<li id="contact-form-tab-placements">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-placements', contactForm.TabButtonCallback);">
+<i class="gi gi-gbp"></i>&nbsp;  Placements
+</a>
+</li>
+<li id="contact-form-tab-timesheets">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-timesheets', contactForm.TabButtonCallback);">
+<i class="gi gi-stopwatch"></i>&nbsp;  Timesheets
+</a>
+</li>
+<li id="contact-form-tab-documentlibrary">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-documentlibrary', contactForm.TabButtonCallback);">
+<i class="fa fa-folder-o"></i>&nbsp;  Documents
+</a>
+</li>
+<li id="contact-form-tab-noteshistory">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-noteshistory', contactForm.TabButtonCallback);">
+<i class="gi gi-notes"></i>&nbsp;  Notes
+</a>
+</li>
+<li id="contact-form-tab-scheduledtasks">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-scheduledtasks', contactForm.TabButtonCallback);">
+<i class="gi gi-alarm"></i>&nbsp;  Tasks
+</a>
+</li>
+<li id="contact-form-tab-privacy">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-privacy', contactForm.TabButtonCallback);">
+<i class="fa fa-lock"></i>&nbsp;  Privacy/GDPR
+</a>
+</li>
+<li id="contact-form-tab-amendments" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-amendments', contactForm.TabButtonCallback);">
+<i class="gi gi-git_compare"></i>&nbsp;  Amendments
+</a>
+</li>
+<li id="contact-form-tab-custom" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-custom', contactForm.TabButtonCallback);">
+<i class="gi gi-cargo"></i>&nbsp;  <span id="contact-form-tab-custom-caption">Custom</span>
+</a>
+</li>
+<li id="contact-form-tab-master-detail-notes" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'contact-form-panel-master-detail-notes', contactForm.TabButtonCallback);">
+<i class="gi gi-magic"></i>&nbsp; Master/Detail Dev
+</a>
+</li>
+</ul>
+</div>
+<div class="tab-content">
+<div class="tab-pane" id="contact-form-panel-personal">
+<!-- Personal Row #1 -->
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<!-- Home Address Block -->
+<div class="block">
+<div class="block-title">
+<h2>Home Address</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Street</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<textarea class="k-textbox" name="Street" id="Contact_HomeAddressStreet" rows="3" style="width:100%; resize: none"></textarea>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>City/Town</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" class="k-textbox" name="City" id="Contact_HomeAddressCity" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>County</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" class="k-textbox" name="County" id="Contact_HomeAddressCounty" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Post Code</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<div class="col-xs-11 col-sm-10 col-md-9" style="padding-left:0px; padding-right:0px; height:30px;">
+<input class="k-textbox" id="Contact_HomeAddressPostCode" style="width:100%; height:100%; margin-top:1px; text-transform: uppercase;" />
+</div>
+<div class="col-xs-1 col-sm-2 col-md-3" style="padding-right:0px; padding-left:0px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="contactForm.PostCodeLookup()" title="Lookup Post Code" style="position:absolute; right:0px;">
+<i class="gi gi-search"></i>
+</button>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Country</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" id="Contact_HomeAddressCountry" style="width:100%" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END Home Address Block -->
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<!-- Contact Details Block -->
+<div class="block">
+<div class="block-title">
+<h2>Contact Details</h2>
+</div>
+<!-- Input Groups - Buttons Content -->
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td style="width: 120px;">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Home Phone</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input type="text" class="k-textbox" name="HomeTelNo" id="Contact_HomeAddressTelNo" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.TelNo('Contact_HomeAddressTelNo')" title="Call home tel. no" style="right:0px;">
+<i class="gi gi-phone_alt"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Personal E-Mail</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input type="text" class="k-textbox" name="Enail" id="ContactConfigFields_AlternativeEMailAddress1" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AlternativeEMailAddress1')" title="Send personal e-mail" style="right:0px;">
+<i class="gi gi-envelope"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Personal Mobile</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input type="text" class="k-textbox" name="Mobile" id="Contact_MobileTelNo" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.TelNo('Contact_MobileTelNo')" title="Call personal mobile" style="right:0px;">
+<i class="gi gi-iphone"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="display: none;">
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Home Fax</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" class="k-textbox" name="Fax" id="Contact_HomeAddressFaxNo" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Skype</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input type="text" class="k-textbox" name="Skype" id="ContactConfigFields_SkypeNumber" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.Skype('ContactConfigFields_SkypeNumber')" title="Call via Skype" style="right:0px;">
+<i class="fa fa-skype"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- END Input Groups - Buttons Content -->
+</div>
+<!-- END Contact Details Block -->
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<!-- Miscellaneous Block -->
+<div class="block">
+<div class="block-title">
+<h2>Miscellaneous</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td style="width: 120px;">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Date of Birth</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" id="Contact_DateOfBirth" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td style="width: 120px;">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Age</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" id="Contact_Age" class="k-textbox" style="width:50px" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Availability Date</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" id="ContactConfigFields_AvailabilityDate" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Type of Work</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" id="ContactConfigFields_TypeOfWorkRequired" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Payroll Company</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" id="ContactConfigFields_UmbrellaReference" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr id="contact-form-limited-company-tr" style="display: none;">
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<strong>Limited Company Name</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+<input type="text" class="k-textbox" id="ContactConfigFields_LimitedCompany" style="width:100%" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END Miscellaneous Block -->
+</div>
+</div>
+<!-- END Personal Row #1 -->
+<!-- Personal Row #2 -->
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-7">
+<!-- CV Manager Block -->
+<div class="block" id="contact-form-block-cv-manager">
+<div class="block-title">
+<h2>CV Manager</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-md-8"></div>
+<div class="col-md-4">
+<strong>Last Updated Date</strong>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2"><strong>Original</strong></div>
+<div class="col-md-6">
+<div id="ContactConfigFields_CVFileRef" style="width:100%;"></div>
+</div>
+<div class="col-md-4">
+<input id="ContactConfigFields_CVLastUpdated" style="width:100%;" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2"><strong><span id="ClientCV1Label">Client CV</span></strong></div>
+<div class="col-md-6">
+<div id="ContactConfigFields_FormattedCVFileRef1" style="width:100%;"></div>
+</div>
+<div class="col-md-4">
+<input id="ContactConfigFields_FormattedCV1LastUpdated" style="width:100%;" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2"><strong><span id="ClientCV2Label">Client CV #2</span></strong></div>
+<div class="col-md-6">
+<div id="ContactConfigFields_FormattedCVFileRef2" style="width:100%;"></div>
+</div>
+<div class="col-md-4">
+<input id="ContactConfigFields_FormattedCV2LastUpdated" style="width:100%;" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2"><strong><span id="ClientCV3Label">Client CV #3</span></strong></div>
+<div class="col-md-6">
+<div id="ContactConfigFields_FormattedCVFileRef3" style="width:100%;"></div>
+</div>
+<div class="col-md-4">
+<input id="ContactConfigFields_FormattedCV3LastUpdated" style="width:100%;" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2"><strong><span id="ClientCV4Label">Client CV #4</span></strong></div>
+<div class="col-md-6">
+<div id="ContactConfigFields_FormattedCVFileRef4" style="width:100%;"></div>
+</div>
+<div class="col-md-4">
+<input id="ContactConfigFields_FormattedCV4LastUpdated" style="width:100%;" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2">
+<strong>Candidate Summary</strong>
+</div>
+<div class="col-md-10">
+<textarea class="k-textbox" id="ContactConfigFields_AdditionalInformation" rows="3" style="width:100%; resize: vertical;"></textarea>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END CV Manager Block -->
+</div>
+<div class="col-xs-12 col-sm-12 col-md-5">
+<!-- Remuneration Block -->
+<div class="block">
+<div class="block-title">
+<h2>Remuneration</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-12" style="padding-bottom: 10px;">
+<strong>Current</strong>
+</div>
+<div class="col-xs-12" style="padding-left: 15px;">
+<div id="ContactConfigFields_CurrentRemuneration"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12" style="padding-bottom: 10px;">
+<strong>Required Permanent</strong>
+</div>
+<div class="col-xs-12" style="padding-left: 15px;">
+<div id="ContactConfigFields_RequiredRemunerationPermanent"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12" style="padding-bottom: 10px;">
+<strong>Required Contract/Temp</strong>
+</div>
+<div class="col-xs-12" style="padding-left: 15px;">
+<div id="ContactConfigFields_RequiredRemunerationContract"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END Remuneration Block -->
+</div>
+</div>
+<!-- END Personal Row #2 -->
+<!-- Personal Row #3 -->
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-8">
+<!-- Identification/Right to Work Block -->
+<div class="block">
+<div class="block-title">
+<h2>Identification/Right to Work</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-md-2">
+<strong>Proof</strong>
+</div>
+<div class="col-md-4">
+<div id="ContactConfigFields_Identification" style="width:100%;"></div>
+</div>
+<div class="col-md-2">
+<strong>Comments</strong>
+</div>
+<div class="col-md-4">
+<div id="ContactConfigFields_IdentificationComments" style="width:100%;"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2">
+<strong>Expiry</strong>
+</div>
+<div class="col-md-4">
+<input id="ContactConfigFields_Expiry" style="width:100%;" />
+</div>
+<div class="col-md-2">
+<strong>Nationality</strong>
+</div>
+<div class="col-md-4">
+<div id="ContactConfigFields_Nationality" style="width:100%;"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2">
+<strong>Link 1</strong>
+</div>
+<div class="col-md-4">
+<div id="ContactConfigFields_IdentificationLink" style="width:100%;"></div>
+</div>
+<div class="col-md-2"><strong>Link 2</strong></div>
+<div class="col-md-4">
+<div id="ContactConfigFields_IdentificationLink2" style="width:100%;"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2">
+<strong>Link 3</strong>
+</div>
+<div class="col-md-4">
+<div id="ContactConfigFields_Link3" style="width:100%;"></div>
+</div>
+<div class="col-md-2">
+<strong>Link 4</strong>
+</div>
+<div class="col-md-4">
+<div id="ContactConfigFields_Link4" style="width:100%;"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2">
+<strong>Link 5</strong>
+</div>
+<div class="col-md-4">
+<div id="ContactConfigFields_Link5" style="width:100%;"></div>
+</div>
+<div class="col-md-2">
+<strong>Link 6</strong>
+</div>
+<div class="col-md-4">
+<div id="ContactConfigFields_Link6" style="width:100%;"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-md-2">
+<strong>National Insurance No.</strong>
+</div>
+<div class="col-md-4">
+<input type="text" class="k-textbox" id="ContactConfigFields_NationalInsuranceNumber" style="width:100%" />
+</div>
+<div class="col-md-2">
+&nbsp;
+</div>
+<div class="col-md-4">
+&nbsp;
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END Identification/Right to Work Block -->
+</div>
+<div class="col-xs-12 col-sm-12 col-md-4">
+<!-- Dates Block -->
+<div class="block">
+<div class="block-title">
+<h2>Dates</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:7px; padding:0;">
+<strong>Registered</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8" style="margin-top:7px;">
+<input type="text" id="Contact_DateFirstRegistered" style="width:100%; " readonly="readonly" />
+</div>
+</td>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:7px; padding:0;">
+<strong>Next Contact</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8" style="margin-top:7px;">
+<input type="text" id="Contact_DateOfNextContact" style="width:100%;" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:7px; padding:0;">
+<strong>Last Updated</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8" style="margin-top:7px;">
+<input type="text" id="Contact_DateLastUpdated" style="width:100%;" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-4" style="margin-top:7px; padding:0;">
+<strong>Last Contacted</strong>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8" style="margin-top:7px;">
+<input type="text" id="Contact_DateLastContacted" style="width:100%;" readonly="readonly" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END Dates Block -->
+</div>
+</div>
+<!-- END Personal Row #3 -->
+</div>
+<div class="tab-pane" id="contact-form-panel-employment">
+<!-- Employment Row -->
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div class="block">
+<div class="block-title">
+<h2>Current Employer</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td style="width: 120px;">
+<div id="contactForm-CompanyMenu">
+</div>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input class="k-textbox" id="Contact_CompanyName" style="width:100%" readonly="readonly" />
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.ContactForm.OpenCompanyLink()" title="Open Company">
+<i class="gi gi-building"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.ContactForm.OpenCompanyMap('Contact_CompanyAddress')" title="Open Maps" id="contactForm-OpenMaps">
+<i class="gi gi-globe"></i> &nbsp; <strong>Map Directions</strong>
+</button>
+</td>
+<td>
+<textarea class="k-textbox" rows="5" cols="30" id="Contact_CompanyAddress" style="width:100%; resize: none" readonly="readonly"></textarea>
+</td>
+</tr>
+<tr>
+<td><strong>Department</strong></td>
+<td>
+<input class="k-textbox" id="Contact_Department" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Employer</strong></td>
+<td>
+<input type="text" class="k-textbox" id="ContactConfigFields_CurrentEmployer" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div class="block">
+<div class="block-title">
+<h2>Telephone / Contact Details</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Work Phone</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input type="text" class="k-textbox" id="Contact_WorkTelNo" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.TelNo('Contact_WorkTelNo')" title="Call work tel. no" style="right:0px;">
+<i class="gi gi-phone_alt"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="display: none;">
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Work Fax No</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<input type="text" class="k-textbox" id="Contact_FaxNo" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Work Mobile</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input type="text" class="k-textbox" id="ContactConfigFields_WorkMobile" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.TelNo('ContactConfigFields_WorkMobile')" title="Call work mobile" style="right:0px;">
+<i class="gi gi-iphone"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Work E-Mail</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input class="k-textbox" id="Contact_EMail" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('Contact_EMail')" title="Send work e-mail" style="right:0px;">
+<i class="gi gi-envelope"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div class="block">
+<div class="block-title">
+<h2>Additional E-Mail</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>E-Mail #1</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input class="k-textbox" id="ContactConfigFields_AdditionalEMail1" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AdditionalEMail1')" title="Send e-mail #1" style="right:0px;">
+<i class="gi gi-envelope"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>E-Mail #2</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input class="k-textbox" id="ContactConfigFields_AdditionalEMail2" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AdditionalEMail2')" title="Send e-mail #2" style="right:0px;">
+<i class="gi gi-envelope"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>E-Mail #3</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input class="k-textbox" id="ContactConfigFields_AdditionalEMail3" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AdditionalEMail3')" title="Send e-mail #3" style="right:0px;">
+<i class="gi gi-envelope"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>E-Mail #4</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input class="k-textbox" id="ContactConfigFields_AdditionalEMail4" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysSDK.Controls.FieldHyperlinks.EMail('ContactConfigFields_AdditionalEMail4')" title="Send e-mail #4" style="right:0px;">
+<i class="gi gi-envelope"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END Input Groups - Dropdowns Block -->
+</div>
+</div>
+<!-- END Employment Row -->
+</div>
+<div class="tab-pane" id="contact-form-panel-attributes">
+<!-- 3 Columns Row #1 of 2:
+Code Fields Users Attributes
+Criminal Records Bureau Photo
+-->
+<div class="row">
+<!-- Moved here 22 Nov 2021-->
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div id="contact-form-attributes"></div>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4">
+<!-- Code Fields Block -->
+<div class="block">
+<div class="block-title">
+<h2>Code Fields</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Priority</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<input id="Contact_Priority" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Added by</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<input id="ContactConfigFields_AddedBy" style="width:100%" readonly="readonly" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Source</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<input type="text" id="ContactConfigFields_ContactSource" style="width:100%" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END Code Fields Block -->
+<!-- Criminal Records Bureau Block -->
+<div class="col-xs-12 col-sm-4 col-md-4">
+<div class="block">
+<div class="block-title">
+<h2>Criminal Records Bureau</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-12 col-md-4">
+<strong>CRB Check</strong>
+</div>
+<div class="col-xs-8 col-sm-12 col-md-8">
+<input id="ContactConfigFields_CRBCheck" style="width:100%;" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Details</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<textarea class="k-textbox" id="ContactConfigFields_CRBDetails" rows="3" style="width:100%; resize: none"></textarea>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END Criminal Records Bureau Block -->
+<!-- Users Block -->
+<div class="col-xs-12 col-sm-4 col-md-4">
+<div class="block">
+<div class="block-title">
+<h2>Users</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Owner</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<input id="Contact_OwnerUser" style="width:100%" />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-4 col-sm-4 col-md-4">
+<strong>Others</strong>
+</div>
+<div class="col-xs-8 col-sm-8 col-md-8">
+<select id="Contact_Users" style="width:100%;"></select>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END Users Block -->
+<!-- Photo Block -->
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="block">
+<div class="block-title">
+<h2>Photo</h2>
+</div>
+<table class="table table-borderless" style="text-align: center">
+<tbody>
+<tr>
+<td>
+<img id="ContactConfigFields_ContactPhoto-Thumbnail" style="height: 100px; width: 100px; border-radius: 50%; cursor: pointer;" />
+</td>
+</tr>
+<tr>
+<td id="contact-form-photo-file-tr">
+<div id="ContactConfigFields_ContactPhoto" style="width:100%;"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END Photo Block -->
+</div>
+<!-- END 3 Columns Row #1 of 2: Row -->
+<!-- 2 Columns Row #2 of 2: Education History Work History -->
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-6">
+<div class="block">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="contactEducationHistoryFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="contactForm.EducationHistoryGridFileMenuCallback('file-new')" class="btn btn-sm btn-default enable-tooltip" title="Add education history">
+<i class="gi gi-plus"></i> &nbsp; Add
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.EducationHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected education history">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.EducationHistoryGridFileMenuCallback('file-delete')" id="contactForm-EducationHistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected education history">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="contactEducationHistoryGridMenu">
+</div>
+</div>
+<h2>Education History</h2>
+</div>
+<div id="contactForm-EducationHistoryGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-6">
+<div class="block">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="contactWorkHistoryFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="contactForm.WorkHistoryGridFileMenuCallback('file-new')" class="btn btn-sm btn-default enable-tooltip" title="Add work history">
+<i class="gi gi-plus"></i> &nbsp; Add
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.WorkHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected work history">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.WorkHistoryGridFileMenuCallback('file-delete')" id="contactForm-WorkHistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected work history">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="contactWorkHistoryGridMenu">
+</div>
+</div>
+<h2>Work History</h2>
+</div>
+<div id="contactForm-WorkHistoryGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<!-- END of 2 Columns Row #2 of 2 -->
+</div>
+<div class="tab-pane" id="contact-form-panel-social-networks">
+<!-- Social Network Row #1 -->
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div id="contact-form-social-linkedin"></div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div id="contact-form-social-facebook"></div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div id="contact-form-social-twitter"></div>
+</div>
+</div>
+<!-- END Social Network #1 -->
+<!-- Social Network Row #2 -->
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div id="contact-form-social-youtube"></div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div id="contact-form-social-instagram"></div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div id="contact-form-social-pinterest"></div>
+</div>
+</div>
+<!-- END Social Network #2 -->
+</div>
+<div class="tab-pane" id="contact-form-panel-back-office">
+<!-- Back Office Row #1 -->
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div id="contact-form-bank-details"></div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<!-- TODO -->
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<!-- TODO -->
+</div>
+</div>
+<!-- END Back Office #1 -->
+</div>
+<div class="tab-pane" id="contact-form-panel-relationships">
+<div class="block" id="contact-relationships-grid-container">
+</div>
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="block">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="contactForm.AddNewReference()" class="btn btn-sm btn-default enable-tooltip"
+title="Add New Reference">
+<i class="gi gi-plus"></i> &nbsp; Add
+</a>
+</div>
+<h2>References</h2>
+</div>
+<div id="contactForm-References" style="border: 1px solid lightgray; margin-bottom: 20px;">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="contact-form-panel-requirements">
+<div class="block" id="contact-requirements-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="contactRequirementsFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="contactForm.RequirementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected requirement">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.RequirementGridFileMenuCallback('file-delete')" id="contactForm-requirements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected requirement">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="contactRequirementsGridMenu">
+</div>
+<span>&nbsp;</span>
+<div id="contactRequirementsActionsMenu">
+</div>
+</div>
+<h3>Contact Requirements</h3>
+</div>
+<!-- The grid populated by JS -->
+<div id="contactForm-RequirementsGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="contact-form-panel-placements">
+<div class="block" id="contact-placements-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="contactPlacementsFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="contactForm.PlacementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected placement">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.PlacementGridFileMenuCallback('file-delete')" id="contactForm-placements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected placement">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="contactPlacementsGridMenu">
+</div>
+<span>&nbsp;</span>
+<div id="contactPlacementsActionsMenu">
+</div>
+</div>
+<h3>Contact Placements</h3>
+</div>
+<!-- The contact placements grid populated by JS -->
+<div id="contactForm-PlacementsGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="contact-form-panel-timesheets">
+<div class="block" id="contact-timesheets-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="contactTimesheetsFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="contactForm.TimesheetGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected timesheet">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.TimesheetGridFileMenuCallback('file-delete')" id="contactForm-timesheets-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected timesheet">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="contactTimesheetsGridMenu">
+</div>
+<span>&nbsp;</span>
+<div id="contactTimesheetsActionsMenu">
+</div>
+</div>
+<h3>Contact Timesheets</h3>
+</div>
+<!-- The contact timesheets grid populated by JS -->
+<div id="contactForm-TimesheetsGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="contact-form-panel-documentlibrary">
+<div id="contact-form-documentlibrary"></div>
+</div>
+<div class="tab-pane" id="contact-form-panel-noteshistory">
+<div class="block" id="contact-noteshistory-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="contactNotesHistoryFileMenu" style="display: none;">
+</div>
+<a id="contact-noteshistory-ExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('contactForm-NotesHistoryGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+<i class="fa fa-file-excel-o"></i> &nbsp; Excel
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.NotesHistoryGridFileMenuCallback('file-delete')" id="contactForm-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="contactNotesHistoryGridMenu">
+</div>
+</div>
+<h3>Contact Notes/History</h3>
+</div>
+<!-- The contact notes/history grid populated by JS -->
+<div id="contactForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="contact-form-panel-scheduledtasks">
+<div class="block" id="contact-scheduledtasks-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="contactScheduledTasksFileMenu" style="display: none;">
+</div>
+<a id="contact-scheduledtasks-ExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('contactForm-ScheduledTasksGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+<i class="fa fa-file-excel-o"></i> &nbsp; Excel
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="contactForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="contactForm-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="contactScheduledTasksGridMenu">
+</div>
+</div>
+<h3>Contact Scheduled Tasks</h3>
+</div>
+<!-- The contact Scheduled Tasks grid populated by JS -->
+<div id="contactForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="contact-form-panel-privacy">
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="block">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="contactForm.EditGDPR()" class="btn btn-sm btn-default enable-tooltip"
+title="Edit privacy/GDPR" id="contactForm-EditGDPRButton" style="display: none;">
+<i class="gi gi-edit"></i> &nbsp; Edit
+</a>
+</div>
+<h2>Privacy Preferences / General Data Protection Regulation</h2>
+</div>
+<div class="row">
+<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="block">
+<div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;">
+<table style="width: 100%;">
+<tr>
+<td style="width: 70px;">
+<label class="switch switch-primary">
+<input type="checkbox" id="contactForm-GDPRAutomatedNotificationEMailSent" value="0" unchecked disabled="disabled">
+<span></span>
+</label>
+</td>
+<td>
+GDPR Automated Notification E-Mail Sent
+</td>
+</tr>
+<tr>
+<td style="width: 70px;"></td>
+<td>
+<span id="contactForm-DateGDPRAutomatedNotificationEMailSent"></span>
+</td>
+</tr>
+</table>
+</div>
+<div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;">
+<table style="width: 100%;">
+<tr>
+<td style="width: 70px;">
+<label class="switch switch-primary">
+<input type="checkbox" id="contactForm-AgreeToPrivacyPolicy" value="0" unchecked disabled="disabled">
+<span></span>
+</label>
+</td>
+<td>
+Agreed to Privacy Policy
+</td>
+</tr>
+<tr>
+<td style="width: 70px;"></td>
+<td>
+<span id="contactForm-DateAgreedToPrivacyPolicy"></span>
+</td>
+</tr>
+</table>
+</div>
+<div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;">
+<table style="width: 100%;">
+<tr>
+<td style="width: 70px;">
+<label class="switch switch-primary">
+<input type="checkbox" id="contactForm-AgreeToMarketingCommunications" value="0" unchecked disabled="disabled">
+<span></span>
+</label>
+</td>
+<td>
+Agreed to Marketing Communications
+</td>
+</tr>
+<tr>
+<td style="width: 70px;"></td>
+<td>
+<span id="contactForm-DateAgreedToMarketingCommunications"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="block">
+<div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;">
+<table style="width: 100%;">
+<tr>
+<td style="width: 70px;">
+<label class="switch switch-primary">
+<input type="checkbox" id="contactForm-GDPRRestrictDataProcessing" value="0" unchecked disabled="disabled">
+<span></span>
+</label>
+</td>
+<td>
+Restrict Data Processing Requested
+</td>
+</tr>
+<tr>
+<td style="width: 70px;"></td>
+<td>
+<span id="contactForm-DateSignedGDPRRestrictDataProcessing"></span>
+</td>
+</tr>
+</table>
+</div>
+<div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;">
+<table style="width: 100%;">
+<tr>
+<td style="width: 70px;">
+<label class="switch switch-primary">
+<input type="checkbox" id="contactForm-GDPRDeletionRequestReceived" value="0" unchecked disabled="disabled">
+<span></span>
+</label>
+</td>
+<td>
+Data Deletion Requested
+</td>
+</tr>
+<tr>
+<td style="width: 70px;"></td>
+<td>
+<span id="contactForm-DateGDPRDeletionRequestReceived"></span>
+</td>
+</tr>
+</table>
+</div>
+<div class="form-group" style="padding-top: 10px; padding-bottom: 10px; height: 60px;">
+<table style="width: 100%;">
+<tr>
+<td style="width: 70px;">
+<label class="switch switch-primary">
+<input type="checkbox" id="contactForm-GDPRDataPortabilityRequestReceived" value="0" unchecked disabled="disabled">
+<span></span>
+</label>
+</td>
+<td>
+Data Portability Requested
+</td>
+</tr>
+<tr>
+<td style="width: 70px;"></td>
+<td>
+<span id="contactForm-DateGDPRDataPortabilityRequestReceived"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="contact-form-panel-amendments">
+<div class="block" id="contact-amendments-grid-container">
+<div class="block-title">
+<h3>Contact Amendments</h3>
+</div>
+<div id="contactForm-AmendmentsGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="contact-form-panel-custom">
+<div id="contact-form-customfields"></div>
+</div>
+<div class="tab-pane" id="contact-form-panel-master-detail-notes">
+<div id="contact-form-master-detail-notes"></div>
+</div>
+</div>
+</div>
+<!-- END FORM TABS -->
+</div>
+<!-- END Form  -->
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/contact.js?ts=202411221338"></script>

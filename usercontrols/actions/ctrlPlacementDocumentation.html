@@ -1,1 +1,162 @@
-<style scoped> .td-label-PlacementDocumentation { width: 120px; } </style> <div class="row"> <div class="col-md-6 col-lg-6"> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-PlacementDocumentation"> <strong>Placement</strong> </td> <td> <span id="ctrlPlacementDocumentation-Placement" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-PlacementDocumentation"> <strong>Client</strong> </td> <td> <span id="ctrlPlacementDocumentation-Client" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-PlacementDocumentation"> <strong>Candidate(s)</strong> </td> <td> <span id="ctrlPlacementDocumentation-Candidate" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-PlacementDocumentation"> <strong>Document Type</strong> </td> <td> <input id="ctrlPlacementDocumentation-DocumentType" style="width:100%" /> </td> </tr> </tbody> </table> </div> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-PlacementDocumentation"> &nbsp; </td> <td> <label class="switch switch-primary"> <input type="checkbox" id="ctrlPlacementDocumentation-InsertHeaderAndFooter" value="1" checked> <span></span> </label> &nbsp; Insert Header and Footer </td> </tr> <tr> <td class="td-label-PlacementDocumentation"> <strong>Contract</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="ctrlPlacementDocumentation-Contract" style="width:100%;" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the contract template" id="ctrlPlacementDocumentation-EditContract"> <i class="gi gi-edit"></i> </a> </td> </tr> </table> </td> </tr> <tr> <td class="td-label-PlacementDocumentation"> &nbsp; </td> <td> <label class="switch switch-primary"> <input type="checkbox" id="ctrlPlacementDocumentation-MergeToPDF" value="1" checked> <span></span> </label> &nbsp; Merge Contract to PDF </td> </tr> <tr> <td class="td-label-PlacementDocumentation"> <strong>E-Mail Template</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="ctrlPlacementDocumentation-EMailTemplate" style="width:100%;" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlPlacementDocumentation-EditEMailTemplate"> <i class="gi gi-edit"></i> </a> </td> </tr> </table> </td> </tr> <tr> <td class="td-label-PlacementDocumentation"> <strong>Subject</strong> </td> <td> <input type="text" class="k-textbox" id="ctrlPlacementDocumentation-Subject" style="width:100%" /> </td> </tr> <tr> <td class="td-label-PlacementDocumentation"> &nbsp; </td> <td> <label class="switch switch-primary"> <input type="checkbox" id="ctrlPlacementDocumentation-AttachContract" value="1" checked> <span></span> </label> &nbsp; Attach Contract to E-Mail </td> </tr> <tr> <td class="td-label-mailmerge"> <strong>Attachment(s)</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input type="text" id="ctrlPlacementDocumentation-Attachments" style="width:100%" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="ctrlPlacementDocumentation-ManageAttachmentLibrary"> <i class="gi gi-paperclip"></i> </a> </td> </tr> </table> </td> </tr> </tbody> </table> </div> </div> <div class="col-md-6 col-lg-6"> <div id="ctrlPlacementDocumentation-NoteHistory"> </div> <div id="ctrlPlacementDocumentation-FollowUp"> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="usercontrols/actions/ctrlPlacementDocumentation.js"></script>
+<style scoped>
+.td-label-PlacementDocumentation {
+width: 120px;
+}
+</style>
+<div class="row">
+<div class="col-md-6 col-lg-6">
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-PlacementDocumentation">
+<strong>Placement</strong>
+</td>
+<td>
+<span id="ctrlPlacementDocumentation-Placement" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-PlacementDocumentation">
+<strong>Client</strong>
+</td>
+<td>
+<span id="ctrlPlacementDocumentation-Client" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-PlacementDocumentation">
+<strong>Candidate(s)</strong>
+</td>
+<td>
+<span id="ctrlPlacementDocumentation-Candidate" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-PlacementDocumentation">
+<strong>Document Type</strong>
+</td>
+<td>
+<input id="ctrlPlacementDocumentation-DocumentType" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-PlacementDocumentation">
+&nbsp;
+</td>
+<td>
+<label class="switch switch-primary">
+<input type="checkbox" id="ctrlPlacementDocumentation-InsertHeaderAndFooter" value="1" checked>
+<span></span>
+</label>
+&nbsp; Insert Header and Footer
+</td>
+</tr>
+<tr>
+<td class="td-label-PlacementDocumentation">
+<strong>Contract</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="ctrlPlacementDocumentation-Contract" style="width:100%;" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the contract template" id="ctrlPlacementDocumentation-EditContract">
+<i class="gi gi-edit"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label-PlacementDocumentation">
+&nbsp;
+</td>
+<td>
+<label class="switch switch-primary">
+<input type="checkbox" id="ctrlPlacementDocumentation-MergeToPDF" value="1" checked>
+<span></span>
+</label>
+&nbsp; Merge Contract to PDF
+</td>
+</tr>
+<tr>
+<td class="td-label-PlacementDocumentation">
+<strong>E-Mail Template</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="ctrlPlacementDocumentation-EMailTemplate" style="width:100%;" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlPlacementDocumentation-EditEMailTemplate">
+<i class="gi gi-edit"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label-PlacementDocumentation">
+<strong>Subject</strong>
+</td>
+<td>
+<input type="text" class="k-textbox" id="ctrlPlacementDocumentation-Subject" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label-PlacementDocumentation">
+&nbsp;
+</td>
+<td>
+<label class="switch switch-primary">
+<input type="checkbox" id="ctrlPlacementDocumentation-AttachContract" value="1" checked>
+<span></span>
+</label>
+&nbsp; Attach Contract to E-Mail
+</td>
+</tr>
+<tr>
+<td class="td-label-mailmerge">
+<strong>Attachment(s)</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input type="text" id="ctrlPlacementDocumentation-Attachments" style="width:100%" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="ctrlPlacementDocumentation-ManageAttachmentLibrary">
+<i class="gi gi-paperclip"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="col-md-6 col-lg-6">
+<div id="ctrlPlacementDocumentation-NoteHistory">
+</div>
+<div id="ctrlPlacementDocumentation-FollowUp">
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlPlacementDocumentation.js"></script>

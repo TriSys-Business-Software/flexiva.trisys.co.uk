@@ -1,1 +1,265 @@
-<style scoped> .figure-column { width: 100px; text-align: right; font-weight: bold; } </style> <!-- User list and date range selector --> <div id="consultant-and-date-range"></div> <div id="wait-spinner"></div> <div class="row" style="cursor: pointer;" id="table-data"> <div class="col-xs-6" id="ctrlConsultantSummary-block-1"> <div class="table-responsive"> <table class="table table-striped table-bordered table-hover" id="table-1"> <tbody> <tr id="hyperlink-new-candidates"> <td> <i class="gi gi-user"></i> &nbsp; New Candidates </td> <td class="figure-column"> <span id="NewCandidates"></span> </td> </tr> <tr id="hyperlink-speculative-cvs-sent"> <td> <i class="gi gi-send"></i> &nbsp; Speculative CV's Sent </td> <td class="figure-column"> <span id="SpeculativeCVsSent"></span> </td> </tr> <tr id="hyperlink-candidate-screening-interviews"> <td> <i class="hi hi-edit"></i> &nbsp; Candidate Screening Interviews </td> <td class="figure-column"> <span id="CandidateScreeningInterviews"></span> </td> </tr> <tr id="hyperlink-candidate-meetings"> <td> <i class="fa fa-users"></i> &nbsp; Candidate Meetings </td> <td class="figure-column"> <span id="CandidateMeetings"></span> </td> </tr> <tr id="hyperlink-candidate-calls"> <td> <i class="fa fa-phone"></i> &nbsp; Candidate Calls </td> <td class="figure-column"> <span id="CandidateCalls"></span> </td> </tr> <tr id="hyperlink-client-meetings"> <td> <i class="gi gi-group"></i> &nbsp; Client Meetings </td> <td class="figure-column"> <span id="ClientMeetings"></span> </td> </tr> <tr id="hyperlink-client-calls"> <td> <i class="fa fa-phone"></i> &nbsp; Client Calls </td> <td class="figure-column"> <span id="ClientCalls"></span> </td> </tr> </tbody> </table> </div> <div class="table-responsive"> <table class="table table-striped table-bordered table-hover"> <tbody> <tr id="hyperlink-jobs-added"> <td> <i class="gi gi-user_add"></i> &nbsp; Jobs Added </td> <td class="figure-column"> <span id="JobsAdded"></span> </td> </tr> <tr id="hyperlink-live-jobs"> <td> <i class="fa fa-bank"></i> &nbsp; Live Jobs </td> <td class="figure-column"> <span id="LiveJobs"></span> </td> </tr> <tr id="hyperlink-cvs-sent"> <td> <i class="gi gi-envelope"></i> &nbsp; CV's Sent </td> <td class="figure-column"> <span id="CVsSent"></span> </td> </tr> <tr id="hyperlink-total-cvs-sent"> <td> <i class="gi gi-file_export"></i> &nbsp; Total CV's Sent (All Consultants) </td> <td class="figure-column"> <span id="TotalCVsSent"></span> </td> </tr> <tr id="hyperlink-1st-interviews"> <td> <i class="gi gi-train"></i> &nbsp; 1st Interviews </td> <td class="figure-column"> <span id="FirstInterviews"></span> </td> </tr> <tr id="hyperlink-further-interviews"> <td> <i class="gi gi-bank"></i> &nbsp; Further Interviews </td> <td class="figure-column"> <span id="FurtherInterviews"></span> </td> </tr> <tr id="hyperlink-interviews-pending"> <td> <i class="gi gi-alarm"></i> &nbsp; Interviews Pending </td> <td class="figure-column"> <span id="InterviewsPending"></span> </td> </tr> </tbody> </table> </div> </div> <div class="col-xs-6" id="ctrlConsultantSummary-block-2"> <div class="table-responsive"> <table class="table table-striped table-bordered table-hover"> <tbody> <tr id="hyperlink-perm-placements"> <td> <i class="gi gi-wallet"></i> &nbsp; Permanent Placements Added </td> <td class="figure-column"> <span id="PermPlacements"></span> </td> </tr> <tr id="hyperlink-perm-placements-started"> <td> <i class="gi gi-clock"></i> &nbsp; Permanent Placements Started </td> <td class="figure-column"> <span id="PermPlacementsStarted"></span> </td> </tr> <tr id="hyperlink-perm-sales"> <td> <i class="gi gi-money"></i> &nbsp; Permanent Sales </td> <td class="figure-column"> <span id="PermSales"></span> </td> </tr> <tr id="hyperlink-avg-deal-perm"> <td> <i class="gi gi-gbp"></i> &nbsp; Average Salary - Permanent </td> <td class="figure-column"> <span id="AvgDealPerm"></span> </td> </tr> <tr id="hyperlink-avg-margin-perm"> <td> <i class="gi gi-euro"></i> &nbsp; Average Fee - Permanent </td> <td class="figure-column"> <span id="AvgMarginPerm"></span> </td> </tr> </tbody> </table> </div> <div class="table-responsive"> <table class="table table-striped table-bordered table-hover"> <tbody> <tr id="hyperlink-contracts-added"> <td> <i class="gi gi-circle_plus"></i> &nbsp; Contracts Added </td> <td class="figure-column"> <span id="ContractsAdded"></span> </td> </tr> <tr id="hyperlink-contracts-started"> <td> <i class="gi gi-history"></i> &nbsp; Contracts Started </td> <td class="figure-column"> <span id="ContractsStarted"></span> </td> </tr> <tr id="hyperlink-contracts-ended"> <td> <i class="gi gi-exit"></i> &nbsp; Contracts Ended </td> <td class="figure-column"> <span id="ContractsEnded"></span> </td> </tr> <tr id="hyperlink-contractors-out"> <td> <i class="gi gi-factory"></i> &nbsp; Contractors Working </td> <td class="figure-column"> <span id="ContractorsOut"></span> </td> </tr> <tr id="hyperlink-avg-rate-contract"> <td> <i class="gi gi-credit_card"></i> &nbsp; Average Charge Rate - Contract </td> <td class="figure-column"> <span id="AvgContractRate"></span> </td> </tr> <tr id="hyperlink-avg-margin-contract"> <td> <i class="gi gi-calculator"></i> &nbsp; Average Margin - Contract </td> <td class="figure-column"> <span id="AvgMarginContract"></span> </td> </tr> <tr id="hyperlink-contract-sales"> <td> <i class="fa fa-calculator"></i> &nbsp; Contract Sales </td> <td class="figure-column"> <span id="ContractSales"></span> </td> </tr> </tbody> </table> </div> <div class="table-responsive"> <table class="table table-striped table-bordered table-hover"> <tbody> <tr id="hyperlink-total-sales"> <td> <i class="gi gi-usd"></i> &nbsp; Total Sales (All Consultants) </td> <td class="figure-column"> <span id="TotalSales"></span> </td> </tr> </tbody> </table> </div> </div> </div> <!-- This javascript is in the tiles folder for ease of maintenance --> <script src="usercontrols/dashboard/tiles/ctrlConsultantSummary.js"></script>
+<style scoped>
+.figure-column
+{
+width: 100px;
+text-align: right;
+font-weight: bold;
+}
+</style>
+<!-- User list and date range selector -->
+<div id="consultant-and-date-range"></div>
+<div id="wait-spinner"></div>
+<div class="row" style="cursor: pointer;" id="table-data">
+<div class="col-xs-6" id="ctrlConsultantSummary-block-1">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="table-1">
+<tbody>
+<tr id="hyperlink-new-candidates">
+<td>
+<i class="gi gi-user"></i> &nbsp; New Candidates
+</td>
+<td class="figure-column">
+<span id="NewCandidates"></span>
+</td>
+</tr>
+<tr id="hyperlink-speculative-cvs-sent">
+<td>
+<i class="gi gi-send"></i> &nbsp; Speculative CV's Sent
+</td>
+<td class="figure-column">
+<span id="SpeculativeCVsSent"></span>
+</td>
+</tr>
+<tr id="hyperlink-candidate-screening-interviews">
+<td>
+<i class="hi hi-edit"></i> &nbsp; Candidate Screening Interviews
+</td>
+<td class="figure-column">
+<span id="CandidateScreeningInterviews"></span>
+</td>
+</tr>
+<tr id="hyperlink-candidate-meetings">
+<td>
+<i class="fa fa-users"></i> &nbsp; Candidate Meetings
+</td>
+<td class="figure-column">
+<span id="CandidateMeetings"></span>
+</td>
+</tr>
+<tr id="hyperlink-candidate-calls">
+<td>
+<i class="fa fa-phone"></i> &nbsp; Candidate Calls
+</td>
+<td class="figure-column">
+<span id="CandidateCalls"></span>
+</td>
+</tr>
+<tr id="hyperlink-client-meetings">
+<td>
+<i class="gi gi-group"></i> &nbsp; Client Meetings
+</td>
+<td class="figure-column">
+<span id="ClientMeetings"></span>
+</td>
+</tr>
+<tr id="hyperlink-client-calls">
+<td>
+<i class="fa fa-phone"></i> &nbsp; Client Calls
+</td>
+<td class="figure-column">
+<span id="ClientCalls"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover">
+<tbody>
+<tr id="hyperlink-jobs-added">
+<td>
+<i class="gi gi-user_add"></i> &nbsp; Jobs Added
+</td>
+<td class="figure-column">
+<span id="JobsAdded"></span>
+</td>
+</tr>
+<tr id="hyperlink-live-jobs">
+<td>
+<i class="fa fa-bank"></i> &nbsp; Live Jobs
+</td>
+<td class="figure-column">
+<span id="LiveJobs"></span>
+</td>
+</tr>
+<tr id="hyperlink-cvs-sent">
+<td>
+<i class="gi gi-envelope"></i> &nbsp; CV's Sent
+</td>
+<td class="figure-column">
+<span id="CVsSent"></span>
+</td>
+</tr>
+<tr id="hyperlink-total-cvs-sent">
+<td>
+<i class="gi gi-file_export"></i> &nbsp; Total CV's Sent (All Consultants)
+</td>
+<td class="figure-column">
+<span id="TotalCVsSent"></span>
+</td>
+</tr>
+<tr id="hyperlink-1st-interviews">
+<td>
+<i class="gi gi-train"></i> &nbsp; 1st Interviews
+</td>
+<td class="figure-column">
+<span id="FirstInterviews"></span>
+</td>
+</tr>
+<tr id="hyperlink-further-interviews">
+<td>
+<i class="gi gi-bank"></i> &nbsp; Further Interviews
+</td>
+<td class="figure-column">
+<span id="FurtherInterviews"></span>
+</td>
+</tr>
+<tr id="hyperlink-interviews-pending">
+<td>
+<i class="gi gi-alarm"></i> &nbsp; Interviews Pending
+</td>
+<td class="figure-column">
+<span id="InterviewsPending"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="col-xs-6" id="ctrlConsultantSummary-block-2">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover">
+<tbody>
+<tr id="hyperlink-perm-placements">
+<td>
+<i class="gi gi-wallet"></i> &nbsp; Permanent Placements Added
+</td>
+<td class="figure-column">
+<span id="PermPlacements"></span>
+</td>
+</tr>
+<tr id="hyperlink-perm-placements-started">
+<td>
+<i class="gi gi-clock"></i> &nbsp; Permanent Placements Started
+</td>
+<td class="figure-column">
+<span id="PermPlacementsStarted"></span>
+</td>
+</tr>
+<tr id="hyperlink-perm-sales">
+<td>
+<i class="gi gi-money"></i> &nbsp; Permanent Sales
+</td>
+<td class="figure-column">
+<span id="PermSales"></span>
+</td>
+</tr>
+<tr id="hyperlink-avg-deal-perm">
+<td>
+<i class="gi gi-gbp"></i> &nbsp; Average Salary - Permanent
+</td>
+<td class="figure-column">
+<span id="AvgDealPerm"></span>
+</td>
+</tr>
+<tr id="hyperlink-avg-margin-perm">
+<td>
+<i class="gi gi-euro"></i> &nbsp; Average Fee - Permanent
+</td>
+<td class="figure-column">
+<span id="AvgMarginPerm"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover">
+<tbody>
+<tr id="hyperlink-contracts-added">
+<td>
+<i class="gi gi-circle_plus"></i> &nbsp; Contracts Added
+</td>
+<td class="figure-column">
+<span id="ContractsAdded"></span>
+</td>
+</tr>
+<tr id="hyperlink-contracts-started">
+<td>
+<i class="gi gi-history"></i> &nbsp; Contracts Started
+</td>
+<td class="figure-column">
+<span id="ContractsStarted"></span>
+</td>
+</tr>
+<tr id="hyperlink-contracts-ended">
+<td>
+<i class="gi gi-exit"></i> &nbsp; Contracts Ended
+</td>
+<td class="figure-column">
+<span id="ContractsEnded"></span>
+</td>
+</tr>
+<tr id="hyperlink-contractors-out">
+<td>
+<i class="gi gi-factory"></i> &nbsp; Contractors Working
+</td>
+<td class="figure-column">
+<span id="ContractorsOut"></span>
+</td>
+</tr>
+<tr id="hyperlink-avg-rate-contract">
+<td>
+<i class="gi gi-credit_card"></i> &nbsp; Average Charge Rate - Contract
+</td>
+<td class="figure-column">
+<span id="AvgContractRate"></span>
+</td>
+</tr>
+<tr id="hyperlink-avg-margin-contract">
+<td>
+<i class="gi gi-calculator"></i> &nbsp; Average Margin - Contract
+</td>
+<td class="figure-column">
+<span id="AvgMarginContract"></span>
+</td>
+</tr>
+<tr id="hyperlink-contract-sales">
+<td>
+<i class="fa fa-calculator"></i> &nbsp; Contract Sales
+</td>
+<td class="figure-column">
+<span id="ContractSales"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover">
+<tbody>
+<tr id="hyperlink-total-sales">
+<td>
+<i class="gi gi-usd"></i> &nbsp; Total Sales (All Consultants)
+</td>
+<td class="figure-column">
+<span id="TotalSales"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- This javascript is in the tiles folder for ease of maintenance -->
+<script src="usercontrols/dashboard/tiles/ctrlConsultantSummary.js"></script>

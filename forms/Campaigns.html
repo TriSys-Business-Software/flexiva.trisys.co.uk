@@ -1,1 +1,487 @@
-<style scoped> .block-title > i { padding-top: 10px; padding-left: 15px; } .nav-horizontal i { display: block; height: 32px; margin-right: 0; margin-bottom: 10px; font-size: 24px; padding: 2px; } .nav-horizontal a { text-align: center; min-width: 130px; padding: 4px 4px; } </style> <div class="block"> <div class="block-title"> <i class="fa fa-send-o fa-2x pull-left themed-color"></i> <h2 id="campaigns-Title">Marketing Campaigns<span id="campaigns-campaign-name"></span></h2> <div class="block-options pull-right"> </div> </div> <!-- Tab Buttons --> <div class="content-header" id="campaigns-tab-buttons"> <ul class="nav-horizontal" id="campaigns-tab-nav-horizontal"> <li class="active" id="campaigns-form-tab-campaigns"> <a href="javascript:void(0)" id="campaigns-tab-campaigns" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h4 animation-expandOpen" id="campaigns-tab-campaigns-count" style="font-weight: bold;">0</span> <br /> <span class="h6 animation-expandOpen">&nbsp;</span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Campaign List</span> </div> </a> </li> <li id="campaigns-form-tab-campaignrecord"> <a href="javascript:void(0)" id="campaigns-tab-campaignrecord" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h6 animation-expandOpen" id="campaigns-tab-campaignrecord-name">&nbsp;</span> <br /> <span class="h6 animation-expandOpen">&nbsp;</span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Campaign</span> </div> </a> </li> <li id="campaigns-form-tab-search"> <a href="javascript:void(0)" id="campaigns-tab-search" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h4 animation-expandOpen" id="campaigns-tab-search-count" style="font-weight: bold;">&nbsp;</span> <br /> <span class="h6 animation-expandOpen">&nbsp;</span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Contact Search</span> </div> </a> </li> <li id="campaigns-form-tab-recipients"> <a href="javascript:void(0)" id="campaigns-tab-recipients" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h4 animation-expandOpen" id="campaigns-tab-recipients-count" style="font-weight: bold;">0</span> <br /> <span class="h6 animation-expandOpen" >&nbsp;</span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Recipients</span> </div> </a> </li> <li id="campaigns-form-tab-sent"> <a href="javascript:void(0)" id="campaigns-tab-sent" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h4 animation-expandOpen" id="campaigns-tab-sent-count" style="font-weight: bold;">0</span> <br /> <span class="h6 animation-expandOpen" id="campaigns-tab-sent-percentage" ></span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Sent</span> </div> </a> </li> <li id="campaigns-form-tab-delivered"> <a href="javascript:void(0)" id="campaigns-tab-delivered" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h4 animation-expandOpen" id="campaigns-tab-delivered-count" style="font-weight: bold;">0</span> <br /> <span class="h6 animation-expandOpen" id="campaigns-tab-delivered-percentage" ></span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Delivered</span> </div> </a> </li> <li id="campaigns-form-tab-openread"> <a href="javascript:void(0)" id="campaigns-tab-openread" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h4 animation-expandOpen" id="campaigns-tab-openread-count" style="font-weight: bold;">0</span> <br /> <span class="h6 animation-expandOpen" id="campaigns-tab-openread-percentage" ></span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Open/Read</span> </div> </a> </li> <li id="campaigns-form-tab-clicks"> <a href="javascript:void(0)" id="campaigns-tab-clicks" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h4 animation-expandOpen" id="campaigns-tab-clicks-count" style="font-weight: bold;">0</span> <br /> <span class="h6 animation-expandOpen" id="campaigns-tab-clicks-percentage"></span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Clicks</span> </div> </a> </li> <li id="campaigns-form-tab-undelivered"> <a href="javascript:void(0)" id="campaigns-tab-undelivered" style="border-radius: 8px;"> <div class="widget-extra-full" style="line-height: 20px;"> <span class="h4 animation-expandOpen" id="campaigns-tab-undelivered-count" style="font-weight: bold;">0</span> <br /> <span class="h6 animation-expandOpen" id="campaigns-tab-undelivered-percentage"></span> <br /> <span class="h6 animation-expandOpen" style="font-weight: bold;">Undelivered</span> </div> </a> </li> </ul> </div> <!-- END Tab Buttons --> <div class="row" id="campaigns-panel-campaigns" style="display: none;"> <div class="col-md-1"> User(s) </div> <div class="col-md-11" style="padding-bottom: 30px;"> <select id="campaigns-Users" style="width:100%;"></select> </div> <div class="col-md-12"> <div class="block" id="campaigns-campaigns-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Add a new campaign" id="campaigns-add-campaign-button"> <i class="gi gi-plus"></i> &nbsp; Add </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Clone selected campaign" id="campaigns-clone-campaign-button"> <i class="fa fa-copy"></i> &nbsp; Clone </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the selected campaign" id="campaigns-edit-campaign-button"> <i class="gi gi-pen"></i> &nbsp; Edit </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the campaign" id="campaigns-delete-campaign-button"> <i class="fa fa-remove"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="campaigns-GridMenu"> </div> </div> <h3>Campaigns</h3> </div> <!-- The grid populated by JS --> <div id="campaigns-campaigns-grid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <div class="row" id="campaigns-panel-campaignrecord" style="display: none;"> <div class="col-lg-12"> <div class="block"> <div class="block-title"> <h2 id="campaign-name-block-title">Campaign Name or New Campaign</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Save the marketing campaign settings" id="campaign-save-button"> <i class="gi gi-floppy_save"></i> &nbsp; Save Marketing Campaign </a> </div> </div> <div class="row"> <div class="col-lg-6"> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3" for="campaign-name"> <span>Name</span> </label> <div class="col-md-9"> <input type="text" class="k-textbox" id="campaign-name" required="required" style="width:100%" /> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-description">Description</label> <div class="col-md-9"> <textarea class="k-textbox" id="campaign-description" rows="5" style="width:100%; resize: vertical;"></textarea> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-user">User</label> <div class="col-md-9"> <span id="campaign-user">Owner of campaign</span> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-sender">Sender</label> <div class="col-md-9"> <input type="text" id="campaign-sender" style="width:100%" /> </div> </div> <div class="form-group" style="display: none;"> <label class="col-md-3" for="campaign-sender">Recipient E-Mail Field</label> <div class="col-md-9"> <input type="text" id="campaign-recipient-email-field" style="width:100%" /> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-datecreated">Created</label> <div class="col-md-9"> <span id="campaign-datecreated">12th of Never</span> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-dateupdated">Last Updated</label> <div class="col-md-9"> <span id="campaign-dateupdated"></span> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-Template">Template</label> <div class="col-md-9"> <table style="width: 100%;"> <tr> <td> <input id="campaign-Template" style="width:100%;" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="campaign-EditTemplate"> <i class="gi gi-edit"></i> </a> </td> </tr> </table> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-Attachments">Attachment(s)</label> <div class="col-md-9"> <table style="width: 100%;"> <tr> <td> <input type="text" id="campaign-Attachments" style="width:100%" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="campaign-ManageAttachmentLibrary"> <i class="gi gi-paperclip"></i> </a> </td> </tr> </table> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-Subject">Subject</label> <div class="col-md-9"> <input type="text" class="k-textbox" id="campaign-Subject" style="width:100%" /> </div> </div> <div class="form-group"> <label class="col-md-3" for="campaign-Attributes">Attributes</label> <div class="col-md-9"> <input type="text" id="campaign-Attributes" style="width:100%" /> </div> </div> </div> </div> <div class="col-lg-6"> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-md-12"> <div id="campaign-NoteHistory"> </div> </div> </div> <div class="form-group"> <div class="col-md-12"> <div id="campaign-FollowUp"> </div> </div> </div> </div> </div> </div> </div> </div> </div> <div class="row" id="campaigns-panel-search" style="display: none;"> <div class="col-lg-12"> <div id="campaigns-lookup-criteria"></div> <div class="block" id="campaigns-search-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open record" id="campaigns-open-search-result-button"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; <div class="btn-group btn-group-sm show-on-hover"> <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Add contacts to recipients"><i class="gi gi-plus"></i> &nbsp; Add to Recipients &nbsp;<span class="caret"></span></a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li> <a href="javascript:void(0)" id="campaigns-add-search-recipient-selected"><i class="gi gi-check pull-right"></i>Selected Contacts</a> <a href="javascript:void(0)" id="campaigns-add-search-recipient-all"><i class="gi gi-table pull-right"></i>All Contacts</a> </li> </ul> </div> &nbsp; <div id="campaigns-search-GridMenu"> </div> &nbsp; <div id="campaigns-search-ActionsMenu"> </div> </div> <h3 id="campaigns-search-grid-caption">Search Results</h3> </div> <div id="campaigns-search-grid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <div class="row" id="campaigns-panel-recipients" style="display: none;"> <div class="col-lg-12"> <div class="block" id="campaigns-recipients-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-recipients-button"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Add a selected contact to the list " id="campaigns-add-recipients-button"> <i class="gi gi-plus"></i> &nbsp; Add </a> &nbsp; <div class="btn-group btn-group-sm show-on-hover"> <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Remove recipients from list"><i class="gi gi-minus"></i> &nbsp; Remove Recipients &nbsp;<span class="caret"></span></a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li> <a href="javascript:void(0)" id="campaigns-remove-recipients-menu-selected"><i class="gi gi-check pull-right"></i>Selected Recipients</a> <a href="javascript:void(0)" id="campaigns-remove-recipients-menu-all"><i class="gi gi-table pull-right"></i>All Recipients</a> </li> </ul> </div> &nbsp; <div class="btn-group btn-group-sm show-on-hover"> <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Schedule send to recipients"><i class="fa fa-send-o"></i> &nbsp; Schedule Send &nbsp;<span class="caret"></span></a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li> <a href="javascript:void(0)" id="campaigns-sendto-recipients-menu-selected"><i class="gi gi-check pull-right"></i>Selected Recipients</a> <a href="javascript:void(0)" id="campaigns-sendto-recipients-menu-all"><i class="gi gi-table pull-right"></i>All Recipients</a> </li> </ul> </div> &nbsp; <div id="campaigns-recipients-GridMenu"> </div> &nbsp; <div id="campaigns-recipients-ActionsMenu"> </div> </div> <h3 id="campaigns-recipients-grid-caption">Recipients</h3> </div> <div id="campaigns-recipients-grid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <div class="row" id="campaigns-panel-sent" style="display: none;"> <div class="col-lg-12"> <div class="block" id="campaigns-sent-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-sent-button"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; <div id="campaigns-sent-GridMenu"> </div> &nbsp; <div id="campaigns-sent-ActionsMenu"> </div> </div> <h3 id="campaigns-sent-grid-caption">Sent E-Mail Messages</h3> </div> <div id="campaigns-sent-grid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <div class="row" id="campaigns-panel-delivered" style="display: none;"> <div class="col-lg-12"> <div class="block" id="campaigns-delivered-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-delivered-button"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; <div id="campaigns-delivered-GridMenu"> </div> &nbsp; <div id="campaigns-delivered-ActionsMenu"> </div> </div> <h3 id="campaigns-delivered-grid-caption">Delivered E-Mail Messages</h3> </div> <div id="campaigns-delivered-grid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <div class="row" id="campaigns-panel-openread" style="display: none;"> <div class="col-lg-12"> <div class="block" id="campaigns-openread-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-openread-button"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; <div id="campaigns-openread-GridMenu"> </div> &nbsp; <div id="campaigns-openread-ActionsMenu"> </div> </div> <h3 id="campaigns-openread-grid-caption">Opened/Read E-Mail Messages</h3> </div> <div id="campaigns-openread-grid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <div class="row" id="campaigns-panel-clicks" style="display: none;"> <div class="col-lg-12"> <div class="block" id="campaigns-clicks-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-clicks-button"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; <div id="campaigns-clicks-GridMenu"> </div> &nbsp; <div id="campaigns-clicks-ActionsMenu"> </div> </div> <h3 id="campaigns-clicks-grid-caption">Clicked E-Mail Messages</h3> </div> <div id="campaigns-clicks-grid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <div class="row" id="campaigns-panel-undelivered" style="display: none;"> <div class="col-lg-12"> <div class="block" id="campaigns-undelivered-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-undelivered-button"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; <div id="campaigns-undelivered-GridMenu"> </div> &nbsp; <div id="campaigns-undelivered-ActionsMenu"> </div> </div> <h3 id="campaigns-undelivered-grid-caption">Undelivered E-Mail Messages</h3> </div> <div id="campaigns-undelivered-grid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/Campaigns.js"></script>
+<style scoped>
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+.nav-horizontal i {
+display: block;
+height: 32px;
+margin-right: 0;
+margin-bottom: 10px;
+font-size: 24px;
+padding: 2px;
+}
+.nav-horizontal a {
+text-align: center;
+min-width: 130px;
+padding: 4px 4px;
+}
+</style>
+<div class="block">
+<div class="block-title">
+<i class="fa fa-send-o fa-2x pull-left themed-color"></i>
+<h2 id="campaigns-Title">Marketing Campaigns<span id="campaigns-campaign-name"></span></h2>
+<div class="block-options pull-right">
+</div>
+</div>
+<!-- Tab Buttons -->
+<div class="content-header" id="campaigns-tab-buttons">
+<ul class="nav-horizontal" id="campaigns-tab-nav-horizontal">
+<li class="active" id="campaigns-form-tab-campaigns">
+<a href="javascript:void(0)" id="campaigns-tab-campaigns" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h4 animation-expandOpen" id="campaigns-tab-campaigns-count" style="font-weight: bold;">0</span>
+<br />
+<span class="h6 animation-expandOpen">&nbsp;</span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Campaign List</span>
+</div>
+</a>
+</li>
+<li id="campaigns-form-tab-campaignrecord">
+<a href="javascript:void(0)" id="campaigns-tab-campaignrecord" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h6 animation-expandOpen" id="campaigns-tab-campaignrecord-name">&nbsp;</span>
+<br />
+<span class="h6 animation-expandOpen">&nbsp;</span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Campaign</span>
+</div>
+</a>
+</li>
+<li id="campaigns-form-tab-search">
+<a href="javascript:void(0)" id="campaigns-tab-search" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h4 animation-expandOpen" id="campaigns-tab-search-count" style="font-weight: bold;">&nbsp;</span>
+<br />
+<span class="h6 animation-expandOpen">&nbsp;</span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Contact Search</span>
+</div>
+</a>
+</li>
+<li id="campaigns-form-tab-recipients">
+<a href="javascript:void(0)" id="campaigns-tab-recipients" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h4 animation-expandOpen" id="campaigns-tab-recipients-count" style="font-weight: bold;">0</span>
+<br />
+<span class="h6 animation-expandOpen" >&nbsp;</span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Recipients</span>
+</div>
+</a>
+</li>
+<li id="campaigns-form-tab-sent">
+<a href="javascript:void(0)" id="campaigns-tab-sent" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h4 animation-expandOpen" id="campaigns-tab-sent-count" style="font-weight: bold;">0</span>
+<br />
+<span class="h6 animation-expandOpen" id="campaigns-tab-sent-percentage" ></span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Sent</span>
+</div>
+</a>
+</li>
+<li id="campaigns-form-tab-delivered">
+<a href="javascript:void(0)" id="campaigns-tab-delivered" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h4 animation-expandOpen" id="campaigns-tab-delivered-count" style="font-weight: bold;">0</span>
+<br />
+<span class="h6 animation-expandOpen" id="campaigns-tab-delivered-percentage" ></span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Delivered</span>
+</div>
+</a>
+</li>
+<li id="campaigns-form-tab-openread">
+<a href="javascript:void(0)" id="campaigns-tab-openread" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h4 animation-expandOpen" id="campaigns-tab-openread-count" style="font-weight: bold;">0</span>
+<br />
+<span class="h6 animation-expandOpen" id="campaigns-tab-openread-percentage" ></span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Open/Read</span>
+</div>
+</a>
+</li>
+<li id="campaigns-form-tab-clicks">
+<a href="javascript:void(0)" id="campaigns-tab-clicks" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h4 animation-expandOpen" id="campaigns-tab-clicks-count" style="font-weight: bold;">0</span>
+<br />
+<span class="h6 animation-expandOpen" id="campaigns-tab-clicks-percentage"></span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Clicks</span>
+</div>
+</a>
+</li>
+<li id="campaigns-form-tab-undelivered">
+<a href="javascript:void(0)" id="campaigns-tab-undelivered" style="border-radius: 8px;">
+<div class="widget-extra-full" style="line-height: 20px;">
+<span class="h4 animation-expandOpen" id="campaigns-tab-undelivered-count" style="font-weight: bold;">0</span>
+<br />
+<span class="h6 animation-expandOpen" id="campaigns-tab-undelivered-percentage"></span>
+<br />
+<span class="h6 animation-expandOpen" style="font-weight: bold;">Undelivered</span>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<!-- END Tab Buttons -->
+<div class="row" id="campaigns-panel-campaigns" style="display: none;">
+<div class="col-md-1">
+User(s)
+</div>
+<div class="col-md-11" style="padding-bottom: 30px;">
+<select id="campaigns-Users" style="width:100%;"></select>
+</div>
+<div class="col-md-12">
+<div class="block" id="campaigns-campaigns-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Add a new campaign" id="campaigns-add-campaign-button">
+<i class="gi gi-plus"></i> &nbsp; Add
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Clone selected campaign" id="campaigns-clone-campaign-button">
+<i class="fa fa-copy"></i> &nbsp; Clone
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the selected campaign" id="campaigns-edit-campaign-button">
+<i class="gi gi-pen"></i> &nbsp; Edit
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the campaign" id="campaigns-delete-campaign-button">
+<i class="fa fa-remove"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="campaigns-GridMenu">
+</div>
+</div>
+<h3>Campaigns</h3>
+</div>
+<!-- The grid populated by JS -->
+<div id="campaigns-campaigns-grid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="campaigns-panel-campaignrecord" style="display: none;">
+<div class="col-lg-12">
+<div class="block">
+<div class="block-title">
+<h2 id="campaign-name-block-title">Campaign Name or New Campaign</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Save the marketing campaign settings" id="campaign-save-button">
+<i class="gi gi-floppy_save"></i> &nbsp; Save Marketing Campaign
+</a>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3" for="campaign-name">
+<span>Name</span>
+</label>
+<div class="col-md-9">
+<input type="text" class="k-textbox" id="campaign-name" required="required" style="width:100%" />
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-description">Description</label>
+<div class="col-md-9">
+<textarea class="k-textbox" id="campaign-description" rows="5" style="width:100%; resize: vertical;"></textarea>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-user">User</label>
+<div class="col-md-9">
+<span id="campaign-user">Owner of campaign</span>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-sender">Sender</label>
+<div class="col-md-9">
+<input type="text" id="campaign-sender" style="width:100%" />
+</div>
+</div>
+<div class="form-group" style="display: none;">
+<label class="col-md-3" for="campaign-sender">Recipient E-Mail Field</label>
+<div class="col-md-9">
+<input type="text" id="campaign-recipient-email-field" style="width:100%" />
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-datecreated">Created</label>
+<div class="col-md-9">
+<span id="campaign-datecreated">12th of Never</span>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-dateupdated">Last Updated</label>
+<div class="col-md-9">
+<span id="campaign-dateupdated"></span>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-Template">Template</label>
+<div class="col-md-9">
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="campaign-Template" style="width:100%;" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="campaign-EditTemplate">
+<i class="gi gi-edit"></i>
+</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-Attachments">Attachment(s)</label>
+<div class="col-md-9">
+<table style="width: 100%;">
+<tr>
+<td>
+<input type="text" id="campaign-Attachments" style="width:100%" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="campaign-ManageAttachmentLibrary">
+<i class="gi gi-paperclip"></i>
+</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-Subject">Subject</label>
+<div class="col-md-9">
+<input type="text" class="k-textbox" id="campaign-Subject" style="width:100%" />
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3" for="campaign-Attributes">Attributes</label>
+<div class="col-md-9">
+<input type="text" id="campaign-Attributes" style="width:100%" />
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-md-12">
+<div id="campaign-NoteHistory">
+</div>
+</div>
+</div>
+<div class="form-group">
+<div class="col-md-12">
+<div id="campaign-FollowUp">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="campaigns-panel-search" style="display: none;">
+<div class="col-lg-12">
+<div id="campaigns-lookup-criteria"></div>
+<div class="block" id="campaigns-search-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open record" id="campaigns-open-search-result-button">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp;
+<div class="btn-group btn-group-sm show-on-hover">
+<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Add contacts to recipients"><i class="gi gi-plus"></i> &nbsp; Add to Recipients &nbsp;<span class="caret"></span></a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li>
+<a href="javascript:void(0)" id="campaigns-add-search-recipient-selected"><i class="gi gi-check pull-right"></i>Selected Contacts</a>
+<a href="javascript:void(0)" id="campaigns-add-search-recipient-all"><i class="gi gi-table pull-right"></i>All Contacts</a>
+</li>
+</ul>
+</div>
+&nbsp;
+<div id="campaigns-search-GridMenu">
+</div>
+&nbsp;
+<div id="campaigns-search-ActionsMenu">
+</div>
+</div>
+<h3 id="campaigns-search-grid-caption">Search Results</h3>
+</div>
+<div id="campaigns-search-grid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="campaigns-panel-recipients" style="display: none;">
+<div class="col-lg-12">
+<div class="block" id="campaigns-recipients-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-recipients-button">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp;
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Add a selected contact to the list " id="campaigns-add-recipients-button">
+<i class="gi gi-plus"></i> &nbsp; Add
+</a>
+&nbsp;
+<div class="btn-group btn-group-sm show-on-hover">
+<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Remove recipients from list"><i class="gi gi-minus"></i> &nbsp; Remove Recipients &nbsp;<span class="caret"></span></a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li>
+<a href="javascript:void(0)" id="campaigns-remove-recipients-menu-selected"><i class="gi gi-check pull-right"></i>Selected Recipients</a>
+<a href="javascript:void(0)" id="campaigns-remove-recipients-menu-all"><i class="gi gi-table pull-right"></i>All Recipients</a>
+</li>
+</ul>
+</div>
+&nbsp;
+<div class="btn-group btn-group-sm show-on-hover">
+<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Schedule send to recipients"><i class="fa fa-send-o"></i> &nbsp; Schedule Send &nbsp;<span class="caret"></span></a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li>
+<a href="javascript:void(0)" id="campaigns-sendto-recipients-menu-selected"><i class="gi gi-check pull-right"></i>Selected Recipients</a>
+<a href="javascript:void(0)" id="campaigns-sendto-recipients-menu-all"><i class="gi gi-table pull-right"></i>All Recipients</a>
+</li>
+</ul>
+</div>
+&nbsp;
+<div id="campaigns-recipients-GridMenu">
+</div>
+&nbsp;
+<div id="campaigns-recipients-ActionsMenu">
+</div>
+</div>
+<h3 id="campaigns-recipients-grid-caption">Recipients</h3>
+</div>
+<div id="campaigns-recipients-grid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="campaigns-panel-sent" style="display: none;">
+<div class="col-lg-12">
+<div class="block" id="campaigns-sent-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-sent-button">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp;
+<div id="campaigns-sent-GridMenu">
+</div>
+&nbsp;
+<div id="campaigns-sent-ActionsMenu">
+</div>
+</div>
+<h3 id="campaigns-sent-grid-caption">Sent E-Mail Messages</h3>
+</div>
+<div id="campaigns-sent-grid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="campaigns-panel-delivered" style="display: none;">
+<div class="col-lg-12">
+<div class="block" id="campaigns-delivered-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-delivered-button">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp;
+<div id="campaigns-delivered-GridMenu">
+</div>
+&nbsp;
+<div id="campaigns-delivered-ActionsMenu">
+</div>
+</div>
+<h3 id="campaigns-delivered-grid-caption">Delivered E-Mail Messages</h3>
+</div>
+<div id="campaigns-delivered-grid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="campaigns-panel-openread" style="display: none;">
+<div class="col-lg-12">
+<div class="block" id="campaigns-openread-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-openread-button">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp;
+<div id="campaigns-openread-GridMenu">
+</div>
+&nbsp;
+<div id="campaigns-openread-ActionsMenu">
+</div>
+</div>
+<h3 id="campaigns-openread-grid-caption">Opened/Read E-Mail Messages</h3>
+</div>
+<div id="campaigns-openread-grid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="campaigns-panel-clicks" style="display: none;">
+<div class="col-lg-12">
+<div class="block" id="campaigns-clicks-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-clicks-button">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp;
+<div id="campaigns-clicks-GridMenu">
+</div>
+&nbsp;
+<div id="campaigns-clicks-ActionsMenu">
+</div>
+</div>
+<h3 id="campaigns-clicks-grid-caption">Clicked E-Mail Messages</h3>
+</div>
+<div id="campaigns-clicks-grid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="campaigns-panel-undelivered" style="display: none;">
+<div class="col-lg-12">
+<div class="block" id="campaigns-undelivered-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open contact" id="campaigns-open-undelivered-button">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp;
+<div id="campaigns-undelivered-GridMenu">
+</div>
+&nbsp;
+<div id="campaigns-undelivered-ActionsMenu">
+</div>
+</div>
+<h3 id="campaigns-undelivered-grid-caption">Undelivered E-Mail Messages</h3>
+</div>
+<div id="campaigns-undelivered-grid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/Campaigns.js"></script>

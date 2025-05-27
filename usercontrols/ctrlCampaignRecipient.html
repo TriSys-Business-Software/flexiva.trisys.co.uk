@@ -1,1 +1,89 @@
-<!-- -- ctrlCampaignRecipient.html -- Created on Thursday 05 April 2018 by Garry Lowther, TriSys Business Software --> <style scoped> .td-label-ctrlCampaignRecipient { width: 120px; } </style> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-ctrlCampaignRecipient"> <strong>Campaign Name</strong> </td> <td> <span id="ctrlCampaignRecipient-CampaignName" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-ctrlCampaignRecipient"> <strong>Recipient</strong> </td> <td> <span id="ctrlCampaignRecipient-ContactName" style="width:100%;"></span> </td> </tr> <tr> <td class="td-label-ctrlCampaignRecipient"> <strong>Added</strong> </td> <td> <span id="ctrlCampaignRecipient-Added" style="width:100%;" ></span> </td> </tr> <tr id="ctrlCampaignRecipient-Scheduled-tr"> <td class="td-label-ctrlCampaignRecipient"> <strong>Scheduled</strong> </td> <td> <span id="ctrlCampaignRecipient-Scheduled" style="width:100%;"></span> </td> </tr> <tr id="ctrlCampaignRecipient-Sent-tr"> <td class="td-label-ctrlCampaignRecipient"> <strong>Sent</strong> </td> <td> <span id="ctrlCampaignRecipient-Sent" style="width:100%;" ></span> </td> </tr> <tr id="ctrlCampaignRecipient-Delivered-tr"> <td class="td-label-ctrlCampaignRecipient"> <strong>Delivered</strong> </td> <td> <span id="ctrlCampaignRecipient-Delivered" style="width:100%;"></span> </td> </tr> <tr id="ctrlCampaignRecipient-Undelivered-tr" style="display: none;"> <td class="td-label-ctrlCampaignRecipient"> <strong>Undelivered</strong> </td> <td> <span id="ctrlCampaignRecipient-Undelivered" style="width:100%;"></span> </td> </tr> <tr id="ctrlCampaignRecipient-Opened-tr"> <td class="td-label-ctrlCampaignRecipient"> <strong>Opened/Read</strong> </td> <td> <span id="ctrlCampaignRecipient-Opened" style="width:100%;" ></span> </td> </tr> <tr id="ctrlCampaignRecipient-Clicks-tr"> <td class="td-label-ctrlCampaignRecipient"> <strong>Clicks: <span id="ctrlCampaignRecipient-ClickCount"></span></strong> </td> <td> <div style="overflow-y: scroll; height:200px;"> <span id="ctrlCampaignRecipient-Clicks" style="width:100%;"></span> </div> </td> </tr> </tbody> </table> </div>
+<!--
+-- ctrlCampaignRecipient.html
+-- Created on Thursday 05 April 2018 by Garry Lowther, TriSys Business Software
+-->
+<style scoped>
+.td-label-ctrlCampaignRecipient {
+width: 120px;
+}
+</style>
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Campaign Name</strong>
+</td>
+<td>
+<span id="ctrlCampaignRecipient-CampaignName" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Recipient</strong>
+</td>
+<td>
+<span id="ctrlCampaignRecipient-ContactName" style="width:100%;"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Added</strong>
+</td>
+<td>
+<span id="ctrlCampaignRecipient-Added" style="width:100%;" ></span>
+</td>
+</tr>
+<tr id="ctrlCampaignRecipient-Scheduled-tr">
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Scheduled</strong>
+</td>
+<td>
+<span id="ctrlCampaignRecipient-Scheduled" style="width:100%;"></span>
+</td>
+</tr>
+<tr id="ctrlCampaignRecipient-Sent-tr">
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Sent</strong>
+</td>
+<td>
+<span id="ctrlCampaignRecipient-Sent" style="width:100%;" ></span>
+</td>
+</tr>
+<tr id="ctrlCampaignRecipient-Delivered-tr">
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Delivered</strong>
+</td>
+<td>
+<span id="ctrlCampaignRecipient-Delivered" style="width:100%;"></span>
+</td>
+</tr>
+<tr id="ctrlCampaignRecipient-Undelivered-tr" style="display: none;">
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Undelivered</strong>
+</td>
+<td>
+<span id="ctrlCampaignRecipient-Undelivered" style="width:100%;"></span>
+</td>
+</tr>
+<tr id="ctrlCampaignRecipient-Opened-tr">
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Opened/Read</strong>
+</td>
+<td>
+<span id="ctrlCampaignRecipient-Opened" style="width:100%;" ></span>
+</td>
+</tr>
+<tr id="ctrlCampaignRecipient-Clicks-tr">
+<td class="td-label-ctrlCampaignRecipient">
+<strong>Clicks: <span id="ctrlCampaignRecipient-ClickCount"></span></strong>
+</td>
+<td>
+<div style="overflow-y: scroll; height:200px;">
+<span id="ctrlCampaignRecipient-Clicks" style="width:100%;"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

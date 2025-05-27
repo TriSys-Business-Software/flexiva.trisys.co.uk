@@ -1,1 +1,446 @@
-<style scoped> .td-label-task { width: 120px; } </style> <div class="block" id="taskForm-top-block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-task"> <table style="width: 100%;"> <tr> <td> <strong>Task Type</strong> </td> <td style="width: 30px; text-align: right;"> <img id="taskForm-selected-TaskType-Image" style="width: 24px; height: 24px; border: 0" /> </td> </tr> </table> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="taskForm-TaskType" style="width:100%" /> </td> <td style="width: 20px;">&nbsp;</td> <td style="width: 140px;"> <div id="taskForm-Scheduled-group"> <label class="switch switch-primary"> <input type="checkbox" id="taskForm-scheduled" value="0" unchecked> <span></span> </label> &nbsp; Scheduled </div> </td> </tr> </table> </td> </tr> <tr id="taskForm-TaskTypeContainerForSmallFormFactor-tr" style="display: none;"> <td colspan="2"> <div id="taskForm-TaskTypeContainerForSmallFormFactor"></div> </td> </tr> <tr> <td class="td-label-task"> <strong>Start Date<span id="taskForm-StartTimeLabel"> / Time</span></strong> </td> <td> <table style="width: 100%;"> <tr> <td> <span id="taskForm-StartDateTimeSpan"><input id="taskForm-StartDateTime" style="width:100%;" /></span> <span id="taskForm-StartDateSpan" style="display: none;"><input id="taskForm-StartDate" style="width:100%;" /></span> </td> <td style="width: 20px;">&nbsp;</td> <td style="width: 140px;"> </td> </tr> </table> </td> </tr> <tr id="taskForm-StartDateContainerForSmallFormFactor-tr" style="display: none;"> <td colspan="2"> <div id="taskForm-StartDateContainerForSmallFormFactor"></div> </td> </tr> <tr> <td class="td-label-task"> <strong>End Date<span id="taskForm-EndTimeLabel"> / Time</span></strong> </td> <td> <table style="width: 100%;"> <tr> <td> <span id="taskForm-EndDateTimeSpan"><input id="taskForm-EndDateTime" style="width:100%;" /></span> <span id="taskForm-EndDateSpan" style="display: none;"><input id="taskForm-EndDate" style="width:100%;" /></span> </td> <td style="width: 20px;">&nbsp;</td> <td style="width: 140px;"> <div id="taskForm-AllDayTask-group"> <label class="switch switch-primary"> <input type="checkbox" id="taskForm-all-day-task" value="0" unchecked > <span></span> </label> &nbsp; All Day Task </div> </td> </tr> </table> </td> </tr> <tr id="taskForm-EndDateContainerForSmallFormFactor-tr" style="display: none;"> <td colspan="2"> <div id="taskForm-EndDateContainerForSmallFormFactor"></div> </td> </tr> </tbody> </table> </div> <ul class="nav nav-tabs" data-toggle="tabs" id="taskForm-tabs"> <li id="taskForm-tab-description" class="active"><a href="#task-tabs-description">Description</a></li> <li id="taskForm-tab-alarm"><a href="#task-tabs-alarm" data-toggle="tooltip" title="Task Alarm">Alarm</a></li> <li id="taskForm-tab-contacts"><a href="#task-tabs-contacts" data-toggle="tooltip" title="Task Contacts">Contacts</a></li> <li id="taskForm-tab-users"><a href="#task-tabs-users" data-toggle="tooltip" title="Task Users">Users</a></li> <li id="taskForm-tab-attachments"><a href="#task-tabs-attachments" data-toggle="tooltip" title="Task Attachments">Attachment</a></li> <li id="taskForm-tab-links"><a href="#task-tabs-links" data-toggle="tooltip" title="Task Links">Links</a></li> <li id="taskForm-tab-attributes"><a href="#task-tabs-attributes" data-toggle="tooltip" title="Task Attributes">Attributes</a></li> <li id="taskForm-tab-settings" style="display:none"><a href="#task-tabs-settings" data-toggle="tooltip" title="Task Settings"><i class="fa fa-cogs"></i></a></li> </ul> <div class="tab-content"> <div class="tab-pane active" id="task-tabs-description"> <textarea class="k-textbox" id="taskForm-Description" rows="6" style="width:100%; resize: vertical"></textarea> </div> <div class="tab-pane" id="task-tabs-alarm"> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-task"> <strong>Set Alarm</strong> </td> <td> <label class="switch switch-primary"> <input type="checkbox" id="taskForm-set-alarm" value="1" checked> <span></span> </label> </td> </tr> <tr id="taskForm-alarm-lead-time-tr"> <td class="td-label-task"> <strong>Lead Time</strong> </td> <td> <div id="taskForm-Duration" style="width:100%;"></div> </td> </tr> </tbody> </table> </div> </div> <div class="tab-pane" id="task-tabs-contacts"> <div class="block" id="taskForm-contacts-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="taskForm-contactsGrid-FileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="ctrlTask.ContactsGridMenuCallback('taskForm-contactsGrid-file-menu-add-contact-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Add a contact"> <i class="gi gi-plus"></i> &nbsp; Add </a> <!-- &nbsp; <a href="javascript:void(0)" onclick="ctrlTask.ContactsGridMenuCallback('taskForm-contactsGrid-file-menu-open-contact-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Open selected contact"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; <a href="javascript:void(0)" onclick="ctrlTask.ContactsGridMenuCallback('taskForm-contactsGrid-file-menu-delete-contact-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Delete selected contact"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> &nbsp; <div id="taskForm-contactsGrid-GridMenu"> </div> --> </div> <h3 id="taskForm-contacts-label">Task Contacts</h3> </div> <!-- <div id="taskForm-ContactGrid" style="border-width: 1px; width: 100%; "> </div> <div style="height: 10px"></div> --> <script type="text/x-kendo-template" id="taskForm-contacts-template"> <table style="width: 100%;"> <tr> <td> <table style="width: 95%;"> <tr> <td style="width: 60px; vertical-align: top;"> <a href="#" onclick="ctrlTask.OpenContactFromTaskGrid(#:ContactId#)"> <img src="#:ContactPhotoURL#" width="48" height="48" alt="Avatar" class="img-circle"> </a> </td> <td> <h5 style="margin-top: 0px;" class="truncated-contacts-text" onclick="ctrlTask.OpenContactFromTaskGrid(#:ContactId#)"> <strong><a href="#" onclick="ctrlTask.OpenContactFromTaskGrid(#:ContactId#)">#:FullName#</a></strong> | #:Type# </h5> <address class="truncated-contacts-text"> #:JobTitle#<br> <span class="text-primary"><a href="#" onclick="ctrlTask.OpenCompany(#:CompanyId#)">#:CompanyName#</a></span> </address> </td> <td style="vertical-align: top; " class="pull-right"> <!-- <a href="javascript:void(0)" onclick="ctrlTask.OpenContactFromTaskGrid(#:ContactId#)" class="btn btn-sm btn-default enable-tooltip" title="Open contact"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; &nbsp; --> <a href="javascript:void(0)" onclick="ctrlTask.DeleteContactFromTaskGrid(#:ContactId#)" class="btn btn-sm btn-default enable-tooltip" title="Delete contact"> <i class="fa fa-remove fa-fw"></i> <!--&nbsp; Delete --> </a> </td> </tr> </table> <table class="table table-borderless table-vcenter table-bordered" style="width: 95%;"> <tbody> <tr style="{{taskForm-contacts-worktelno-tr}}"> <td class="text-center" style="width: 30px;"> <i class="gi gi-earphone" style="color: #e74c3c;"></i> </td> <td> <div> <strong>Work Phone</strong> <br /> <a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('tel:{{taskForm-contacts-worktelno}}')">{{taskForm-contacts-worktelno}}</a> </div> </td> </tr> <tr style="{{taskForm-contacts-workmobiletelno-tr}}"> <td class="text-center" style="width: 30px;"> <i class="gi gi-iphone" style="color: #f39c12;"></i> </td> <td> <div> <strong>Work Mobile</strong> <br /> <a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('tel:{{taskForm-contacts-workmobiletelno}}')">{{taskForm-contacts-workmobiletelno}}</a> </div> </td> </tr> <tr style="{{taskForm-contacts-workemail-tr}}"> <td class="text-center" style="width: 30px;"> <i class="fa fa-envelope-o" style="color: #ffc0cb;"></i> </td> <td> <div> <strong>Work E-Mail</strong> <br /> <a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('mailto:{{taskForm-contacts-workemail}}')">{{taskForm-contacts-workemail}}</a> </div> </td> </tr> </tbody> </table> <table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); width: 95%;"> <tbody> <tr style="{{taskForm-contacts-hometelno-tr}}"> <td class="text-center" style="width: 30px;"> <i class="gi gi-earphone" style="color: #800080;"></i> </td> <td> <div> <strong>Home Phone</strong> <br /> <a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('tel:{{taskForm-contacts-hometelno}}')">{{taskForm-contacts-hometelno}}</a> </div> </td> </tr> <tr style="{{taskForm-contacts-personalmobiletelno-tr}}"> <td class="text-center" style="width: 30px;"> <i class="gi gi-iphone" style="color: #556b2f;"></i> </td> <td> <div> <strong>Personal Mobile</strong> <br /> <a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('tel:{{taskForm-contacts-personalmobiletelno}}')">{{taskForm-contacts-personalmobiletelno}}</a> </div> </td> </tr> <tr style="{{taskForm-contacts-personalemail-tr}}"> <td class="text-center" style="width: 30px;"> <i class="fa fa-envelope-o" style="color: #de4819;"></i> </td> <td> <div> <strong>Personal E-Mail</strong> <br /> <a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('mailto:{{taskForm-contacts-personalemail}}')">{{taskForm-contacts-personalemail}}</a> </div> </td> </tr> </tbody> </table> </td> </tr> </table> <hr style="margin-top: -10px; width: 95%;" align="left"> </script> <div class="k-content wide" style="width: 100%; background-color: transparent; overflow-y: scroll; height:400px;" id="taskForm-contacts-list-container"> </div> </div> </div> <div class="tab-pane" id="task-tabs-users"> <div class="block" id="taskForm-users-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="taskForm-usersGrid-FileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="ctrlTask.UsersGridMenuCallback('taskForm-usersGrid-file-menu-add-user-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Add a user"> <i class="gi gi-plus"></i> &nbsp; Add </a> <!-- &nbsp; <a href="javascript:void(0)" onclick="ctrlTask.UsersGridMenuCallback('taskForm-usersGrid-file-menu-delete-user-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Delete selected user"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> &nbsp; <div id="taskForm-usersGrid-GridMenu"> </div> --> </div> <h3 id="taskForm-users-label">Task Users</h3> </div> <script type="text/x-kendo-template" id="taskForm-users-template"> <table style="width: 100%;"> <tr> <td> <table style="width: 95%;"> <tr> <td> <h5 style="margin-top: 0px;" class="truncated-contacts-text"> <strong>#:FullName#</strong> &nbsp; #:OwnerUser# </h5> <address class="truncated-contacts-text"> #:TelNo# </address> </td> <td style="vertical-align: top; " class="pull-right"> <a href="javascript:void(0)" onclick="ctrlTask.DeleteUserFromTaskGrid(#:UserId#)" class="btn btn-sm btn-default enable-tooltip" title="Delete user"> <i class="fa fa-remove fa-fw"></i> <!--&nbsp; Delete --> </a> </td> <td style="width: 10px;" class="pull-right"> &nbsp; </td> <td style="vertical-align: top; " class="pull-right"> <a href="javascript:void(0)" onclick="ctrlTask.SetOwner(#:UserId#)" class="btn btn-sm btn-default enable-tooltip" title="Set Owner"> <i class="gi gi-check fa-fw"></i> &nbsp; Set Owner </a> </td> </tr> </table> </td> </tr> </table> <hr style="margin-top: -10px; width: 95%;" align="left"> </script> <div class="k-content wide" style="width: 100%; background-color: transparent; overflow-y: scroll; height:400px;" id="taskForm-users-list-container"> </div> <!-- <div id="taskForm-UserGrid" style="border-width: 1px; width: 100%; "> </div> <div style="height: 10px"></div> --> </div> </div> <div class="tab-pane" id="task-tabs-attachments"> <div class="block" id="taskForm-attachments-container" > <div class="block-title"> <h3>Attached Document</h3> </div> <div id="taskForm-Attachment-File-Reference" style="width: 100%; "> </div> <table class="table table-borderless" style="margin-top: 20px;"> <tbody> <tr> <td> <strong>Description</strong> </td> </tr> <tr> <td> <textarea class="k-textbox" id="taskForm-Attachment-Description" rows="3" style="width:100%; resize: none"></textarea> </td> </tr> </tbody> </table> </div> </div> <div class="tab-pane" id="task-tabs-links"> <div class="block" id="taskForm-links-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="taskForm-linksGrid-Menu"> </div> <!-- &nbsp; <div id="taskForm-linksGrid-GridMenu"> </div> --> </div> <h3 id="taskForm-links-label">Task Links</h3> </div> <script type="text/x-kendo-template" id="taskForm-links-template"> <table style="width: 100%;"> <tr> <td> <table style="width: 95%;"> <tr> <td> <h5 style="margin-top: 0px;" class="truncated-contacts-text"> <strong>#:Entity#</strong> </h5> <address class="truncated-contacts-text"> <a href="javascript:void(0)" onclick="ctrlTask.OpenLinkFromTaskGrid('#:Entity#', #:RecordId#)">#:Description#</a> </address> </td> <td style="vertical-align: top; " class="pull-right"> <!-- <a href="javascript:void(0)" onclick="ctrlTask.OpenLinkFromTaskGrid('#:Entity#', #:RecordId#)" class="btn btn-sm btn-default enable-tooltip" title="Open entity"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> &nbsp; &nbsp; --> <a href="javascript:void(0)" onclick="ctrlTask.DeleteLinkFromTaskGrid('#:Entity#', #:RecordId#)" class="btn btn-sm btn-default enable-tooltip" title="Delete entity link"> <i class="fa fa-remove fa-fw"></i> <!--&nbsp; Delete --> </a> </td> </tr> </table> </td> </tr> </table> <hr style="margin-top: -10px; width: 95%;" align="left"> </script> <div class="k-content wide" style="width: 100%; background-color: transparent; overflow-y: scroll; height:400px;" id="taskForm-links-list-container"> </div> <!-- <div id="taskForm-LinksGrid" style="border-width: 1px; width: 100%; "> </div> <div style="height: 10px"></div> --> </div> </div> <div class="tab-pane" id="task-tabs-attributes"> <div id="task-form-attributes"></div> </div> <div class="tab-pane" id="task-tabs-settings"> Settings.. </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/ctrlTask.js"></script>
+<style scoped>
+.td-label-task {
+width: 120px;
+}
+</style>
+<div class="block" id="taskForm-top-block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-task">
+<table style="width: 100%;">
+<tr>
+<td>
+<strong>Task Type</strong>
+</td>
+<td style="width: 30px; text-align: right;">
+<img id="taskForm-selected-TaskType-Image" style="width: 24px; height: 24px; border: 0" />
+</td>
+</tr>
+</table>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="taskForm-TaskType" style="width:100%" />
+</td>
+<td style="width: 20px;">&nbsp;</td>
+<td style="width: 140px;">
+<div id="taskForm-Scheduled-group">
+<label class="switch switch-primary">
+<input type="checkbox" id="taskForm-scheduled" value="0" unchecked>
+<span></span>
+</label>
+&nbsp; Scheduled
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr id="taskForm-TaskTypeContainerForSmallFormFactor-tr" style="display: none;">
+<td colspan="2">
+<div id="taskForm-TaskTypeContainerForSmallFormFactor"></div>
+</td>
+</tr>
+<tr>
+<td class="td-label-task">
+<strong>Start Date<span id="taskForm-StartTimeLabel"> / Time</span></strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<span id="taskForm-StartDateTimeSpan"><input id="taskForm-StartDateTime" style="width:100%;" /></span>
+<span id="taskForm-StartDateSpan" style="display: none;"><input id="taskForm-StartDate" style="width:100%;" /></span>
+</td>
+<td style="width: 20px;">&nbsp;</td>
+<td style="width: 140px;">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr id="taskForm-StartDateContainerForSmallFormFactor-tr" style="display: none;">
+<td colspan="2">
+<div id="taskForm-StartDateContainerForSmallFormFactor"></div>
+</td>
+</tr>
+<tr>
+<td class="td-label-task">
+<strong>End Date<span id="taskForm-EndTimeLabel"> / Time</span></strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<span id="taskForm-EndDateTimeSpan"><input id="taskForm-EndDateTime" style="width:100%;" /></span>
+<span id="taskForm-EndDateSpan" style="display: none;"><input id="taskForm-EndDate" style="width:100%;" /></span>
+</td>
+<td style="width: 20px;">&nbsp;</td>
+<td style="width: 140px;">
+<div id="taskForm-AllDayTask-group">
+<label class="switch switch-primary">
+<input type="checkbox" id="taskForm-all-day-task" value="0" unchecked >
+<span></span>
+</label>
+&nbsp; All Day Task
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr id="taskForm-EndDateContainerForSmallFormFactor-tr" style="display: none;">
+<td colspan="2">
+<div id="taskForm-EndDateContainerForSmallFormFactor"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="nav nav-tabs" data-toggle="tabs" id="taskForm-tabs">
+<li id="taskForm-tab-description" class="active"><a href="#task-tabs-description">Description</a></li>
+<li id="taskForm-tab-alarm"><a href="#task-tabs-alarm" data-toggle="tooltip" title="Task Alarm">Alarm</a></li>
+<li id="taskForm-tab-contacts"><a href="#task-tabs-contacts" data-toggle="tooltip" title="Task Contacts">Contacts</a></li>
+<li id="taskForm-tab-users"><a href="#task-tabs-users" data-toggle="tooltip" title="Task Users">Users</a></li>
+<li id="taskForm-tab-attachments"><a href="#task-tabs-attachments" data-toggle="tooltip" title="Task Attachments">Attachment</a></li>
+<li id="taskForm-tab-links"><a href="#task-tabs-links" data-toggle="tooltip" title="Task Links">Links</a></li>
+<li id="taskForm-tab-attributes"><a href="#task-tabs-attributes" data-toggle="tooltip" title="Task Attributes">Attributes</a></li>
+<li id="taskForm-tab-settings" style="display:none"><a href="#task-tabs-settings" data-toggle="tooltip" title="Task Settings"><i class="fa fa-cogs"></i></a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="task-tabs-description">
+<textarea class="k-textbox" id="taskForm-Description" rows="6" style="width:100%; resize: vertical"></textarea>
+</div>
+<div class="tab-pane" id="task-tabs-alarm">
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-task">
+<strong>Set Alarm</strong>
+</td>
+<td>
+<label class="switch switch-primary">
+<input type="checkbox" id="taskForm-set-alarm" value="1" checked>
+<span></span>
+</label>
+</td>
+</tr>
+<tr id="taskForm-alarm-lead-time-tr">
+<td class="td-label-task">
+<strong>Lead Time</strong>
+</td>
+<td>
+<div id="taskForm-Duration" style="width:100%;"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="tab-pane" id="task-tabs-contacts">
+<div class="block" id="taskForm-contacts-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="taskForm-contactsGrid-FileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="ctrlTask.ContactsGridMenuCallback('taskForm-contactsGrid-file-menu-add-contact-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Add a contact">
+<i class="gi gi-plus"></i> &nbsp; Add
+</a>
+<!--
+&nbsp;
+<a href="javascript:void(0)" onclick="ctrlTask.ContactsGridMenuCallback('taskForm-contactsGrid-file-menu-open-contact-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Open selected contact">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp;
+<a href="javascript:void(0)" onclick="ctrlTask.ContactsGridMenuCallback('taskForm-contactsGrid-file-menu-delete-contact-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Delete selected contact">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+&nbsp;
+<div id="taskForm-contactsGrid-GridMenu">
+</div>
+-->
+</div>
+<h3 id="taskForm-contacts-label">Task Contacts</h3>
+</div>
+<!--
+<div id="taskForm-ContactGrid" style="border-width: 1px; width: 100%; ">
+</div>
+<div style="height: 10px"></div>
+-->
+<script type="text/x-kendo-template" id="taskForm-contacts-template">
+<table style="width: 100%;">
+<tr>
+<td>
+<table style="width: 95%;">
+<tr>
+<td style="width: 60px; vertical-align: top;">
+<a href="#" onclick="ctrlTask.OpenContactFromTaskGrid(#:ContactId#)">
+<img src="#:ContactPhotoURL#" width="48" height="48" alt="Avatar" class="img-circle">
+</a>
+</td>
+<td>
+<h5 style="margin-top: 0px;" class="truncated-contacts-text" onclick="ctrlTask.OpenContactFromTaskGrid(#:ContactId#)">
+<strong><a href="#" onclick="ctrlTask.OpenContactFromTaskGrid(#:ContactId#)">#:FullName#</a></strong> | #:Type#
+</h5>
+<address class="truncated-contacts-text">
+#:JobTitle#<br>
+<span class="text-primary"><a href="#" onclick="ctrlTask.OpenCompany(#:CompanyId#)">#:CompanyName#</a></span>
+</address>
+</td>
+<td style="vertical-align: top; " class="pull-right">
+<!--
+<a href="javascript:void(0)" onclick="ctrlTask.OpenContactFromTaskGrid(#:ContactId#)" class="btn btn-sm btn-default enable-tooltip" title="Open contact">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp; &nbsp;
+-->
+<a href="javascript:void(0)" onclick="ctrlTask.DeleteContactFromTaskGrid(#:ContactId#)" class="btn btn-sm btn-default enable-tooltip" title="Delete contact">
+<i class="fa fa-remove fa-fw"></i> <!--&nbsp; Delete -->
+</a>
+</td>
+</tr>
+</table>
+<table class="table table-borderless table-vcenter table-bordered" style="width: 95%;">
+<tbody>
+<tr style="{{taskForm-contacts-worktelno-tr}}">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-earphone" style="color: #e74c3c;"></i>
+</td>
+<td>
+<div>
+<strong>Work Phone</strong>
+<br />
+<a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('tel:{{taskForm-contacts-worktelno}}')">{{taskForm-contacts-worktelno}}</a>
+</div>
+</td>
+</tr>
+<tr style="{{taskForm-contacts-workmobiletelno-tr}}">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-iphone" style="color: #f39c12;"></i>
+</td>
+<td>
+<div>
+<strong>Work Mobile</strong>
+<br />
+<a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('tel:{{taskForm-contacts-workmobiletelno}}')">{{taskForm-contacts-workmobiletelno}}</a>
+</div>
+</td>
+</tr>
+<tr style="{{taskForm-contacts-workemail-tr}}">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-envelope-o" style="color: #ffc0cb;"></i>
+</td>
+<td>
+<div>
+<strong>Work E-Mail</strong>
+<br />
+<a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('mailto:{{taskForm-contacts-workemail}}')">{{taskForm-contacts-workemail}}</a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless table-vcenter table-bordered" style="background-color: rgba(234, 237, 241, 0.1); width: 95%;">
+<tbody>
+<tr style="{{taskForm-contacts-hometelno-tr}}">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-earphone" style="color: #800080;"></i>
+</td>
+<td>
+<div>
+<strong>Home Phone</strong>
+<br />
+<a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('tel:{{taskForm-contacts-hometelno}}')">{{taskForm-contacts-hometelno}}</a>
+</div>
+</td>
+</tr>
+<tr style="{{taskForm-contacts-personalmobiletelno-tr}}">
+<td class="text-center" style="width: 30px;">
+<i class="gi gi-iphone" style="color: #556b2f;"></i>
+</td>
+<td>
+<div>
+<strong>Personal Mobile</strong>
+<br />
+<a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('tel:{{taskForm-contacts-personalmobiletelno}}')">{{taskForm-contacts-personalmobiletelno}}</a>
+</div>
+</td>
+</tr>
+<tr style="{{taskForm-contacts-personalemail-tr}}">
+<td class="text-center" style="width: 30px;">
+<i class="fa fa-envelope-o" style="color: #de4819;"></i>
+</td>
+<td>
+<div>
+<strong>Personal E-Mail</strong>
+<br />
+<a href="#" onclick="TriSysSDK.Controls.FieldHyperlinks.OpenURLUsingiFrame('mailto:{{taskForm-contacts-personalemail}}')">{{taskForm-contacts-personalemail}}</a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+<hr style="margin-top: -10px; width: 95%;" align="left">
+</script>
+<div class="k-content wide" style="width: 100%; background-color: transparent; overflow-y: scroll; height:400px;" id="taskForm-contacts-list-container">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="task-tabs-users">
+<div class="block" id="taskForm-users-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="taskForm-usersGrid-FileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="ctrlTask.UsersGridMenuCallback('taskForm-usersGrid-file-menu-add-user-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Add a user">
+<i class="gi gi-plus"></i> &nbsp; Add
+</a>
+<!--
+&nbsp;
+<a href="javascript:void(0)" onclick="ctrlTask.UsersGridMenuCallback('taskForm-usersGrid-file-menu-delete-user-taskForm')" class="btn btn-sm btn-default enable-tooltip" title="Delete selected user">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+&nbsp;
+<div id="taskForm-usersGrid-GridMenu">
+</div>
+-->
+</div>
+<h3 id="taskForm-users-label">Task Users</h3>
+</div>
+<script type="text/x-kendo-template" id="taskForm-users-template">
+<table style="width: 100%;">
+<tr>
+<td>
+<table style="width: 95%;">
+<tr>
+<td>
+<h5 style="margin-top: 0px;" class="truncated-contacts-text">
+<strong>#:FullName#</strong> &nbsp; #:OwnerUser#
+</h5>
+<address class="truncated-contacts-text">
+#:TelNo#
+</address>
+</td>
+<td style="vertical-align: top; " class="pull-right">
+<a href="javascript:void(0)" onclick="ctrlTask.DeleteUserFromTaskGrid(#:UserId#)" class="btn btn-sm btn-default enable-tooltip" title="Delete user">
+<i class="fa fa-remove fa-fw"></i> <!--&nbsp; Delete -->
+</a>
+</td>
+<td style="width: 10px;" class="pull-right">
+&nbsp;
+</td>
+<td style="vertical-align: top; " class="pull-right">
+<a href="javascript:void(0)" onclick="ctrlTask.SetOwner(#:UserId#)" class="btn btn-sm btn-default enable-tooltip" title="Set Owner">
+<i class="gi gi-check fa-fw"></i> &nbsp; Set Owner
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr style="margin-top: -10px; width: 95%;" align="left">
+</script>
+<div class="k-content wide" style="width: 100%; background-color: transparent; overflow-y: scroll; height:400px;" id="taskForm-users-list-container">
+</div>
+<!--
+<div id="taskForm-UserGrid" style="border-width: 1px; width: 100%; ">
+</div>
+<div style="height: 10px"></div>
+-->
+</div>
+</div>
+<div class="tab-pane" id="task-tabs-attachments">
+<div class="block" id="taskForm-attachments-container" >
+<div class="block-title">
+<h3>Attached Document</h3>
+</div>
+<div id="taskForm-Attachment-File-Reference" style="width: 100%; ">
+</div>
+<table class="table table-borderless" style="margin-top: 20px;">
+<tbody>
+<tr>
+<td>
+<strong>Description</strong>
+</td>
+</tr>
+<tr>
+<td>
+<textarea class="k-textbox" id="taskForm-Attachment-Description" rows="3" style="width:100%; resize: none"></textarea>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="tab-pane" id="task-tabs-links">
+<div class="block" id="taskForm-links-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="taskForm-linksGrid-Menu">
+</div>
+<!--
+&nbsp;
+<div id="taskForm-linksGrid-GridMenu">
+</div>
+-->
+</div>
+<h3 id="taskForm-links-label">Task Links</h3>
+</div>
+<script type="text/x-kendo-template" id="taskForm-links-template">
+<table style="width: 100%;">
+<tr>
+<td>
+<table style="width: 95%;">
+<tr>
+<td>
+<h5 style="margin-top: 0px;" class="truncated-contacts-text">
+<strong>#:Entity#</strong>
+</h5>
+<address class="truncated-contacts-text">
+<a href="javascript:void(0)" onclick="ctrlTask.OpenLinkFromTaskGrid('#:Entity#', #:RecordId#)">#:Description#</a>
+</address>
+</td>
+<td style="vertical-align: top; " class="pull-right">
+<!--
+<a href="javascript:void(0)" onclick="ctrlTask.OpenLinkFromTaskGrid('#:Entity#', #:RecordId#)" class="btn btn-sm btn-default enable-tooltip" title="Open entity">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+&nbsp; &nbsp;
+-->
+<a href="javascript:void(0)" onclick="ctrlTask.DeleteLinkFromTaskGrid('#:Entity#', #:RecordId#)" class="btn btn-sm btn-default enable-tooltip" title="Delete entity link">
+<i class="fa fa-remove fa-fw"></i> <!--&nbsp; Delete -->
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr style="margin-top: -10px; width: 95%;" align="left">
+</script>
+<div class="k-content wide" style="width: 100%; background-color: transparent; overflow-y: scroll; height:400px;" id="taskForm-links-list-container">
+</div>
+<!--
+<div id="taskForm-LinksGrid" style="border-width: 1px; width: 100%; ">
+</div>
+<div style="height: 10px"></div>
+-->
+</div>
+</div>
+<div class="tab-pane" id="task-tabs-attributes">
+<div id="task-form-attributes"></div>
+</div>
+<div class="tab-pane" id="task-tabs-settings">
+Settings..
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlTask.js"></script>

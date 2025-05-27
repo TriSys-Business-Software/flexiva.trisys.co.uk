@@ -1,1 +1,70 @@
-<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <title>accusoft test</title> <script src="../kendoui/js/jquery.min.js"></script> <!--This should be version 1.11.2 --> </head> <body> <!-- The 3rd party document viewer --> <div id="trisys-document-viewer-control"></div> <!-- The iframe version --> <iframe id="trisys-document-viewer-iframe" allowfullscreen="true" width="100%" height="600" frameborder="0" allowtransparency="true"></iframe> <script> // The code which does not work! var ctrlDocumentViewer = { // We are using a service to display the document in an iframe Open: function () { var sURL="https://api.trisys.co.uk/File Viewer/Josie.Musto/20150528_163723_e7021712-5704-494b-a26d-117203995b73/Adams_J_049343.doc"; var bNewCode = false; if (!bNewCode) { // OLD CODE // We will now attempt to load the document var iframe = document.getElementById('trisys-document-viewer-iframe'); var sAPIKey="K5102014151403"; // K2042015100045 var sPrint="&printButton=No"; iframe.src="//api.accusoft.com/v1/viewer/?key=" + sAPIKey + "&viewertype=html5&document=" + sURL + "&viewerheight=600&viewerwidth=100%" + "&upperToolbarColor=dae8f2&lowerToolbarColor=dae8f2&bottomToolbarColor=dae8f2&backgroundColor=ffffff&fontColor=3498db&buttonColor=black" + "&hidden=selectText,panTool,print,download"; } else { // NEW CODE 28 APRIL 2015 WHICH DOES NOT WORK - AWAITING A FIX //// We will now attempt to load the document var viewerParams = { document: sURL, key: "K5102014151403", viewertype: "html5", viewerheight: "600", viewerwidth: "100%", upperToolbarColor: "dae8f2", lowerToolbarColor: "dae8f2", bottomToolbarColor: "dae8f2", backgroundColor: "ffffff", fontColor: "3498db", buttonColor: "black", hidden: "selectText,panTool,thumbnails,print,download" } try { $("#trisys-document-viewer-control").pccViewer(viewerParams); } catch (err) { alert("Document Viewer error: " + err); } } } }; // Now display the document $(document).ready(function () { ctrlDocumentViewer.Open(); }); </script> </body> </html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>accusoft test</title>
+<script src="../kendoui/js/jquery.min.js"></script>
+<!--This should be version 1.11.2 -->
+</head>
+<body>
+<!-- The 3rd party document viewer -->
+<div id="trisys-document-viewer-control"></div>
+<!-- The iframe version -->
+<iframe id="trisys-document-viewer-iframe" allowfullscreen="true" width="100%" height="600" frameborder="0" allowtransparency="true"></iframe>
+<script>
+// The code which does not work!
+var ctrlDocumentViewer =
+{
+// We are using a service to display the document in an iframe
+Open: function ()
+{
+var sURL="https://api.trisys.co.uk/File Viewer/Josie.Musto/20150528_163723_e7021712-5704-494b-a26d-117203995b73/Adams_J_049343.doc";
+var bNewCode = false;
+if (!bNewCode)
+{
+// OLD CODE
+// We will now attempt to load the document
+var iframe = document.getElementById('trisys-document-viewer-iframe');
+var sAPIKey="K5102014151403"; // K2042015100045
+var sPrint="&printButton=No";
+iframe.src="//api.accusoft.com/v1/viewer/?key=" + sAPIKey + "&viewertype=html5&document=" + sURL +
+"&viewerheight=600&viewerwidth=100%" +
+"&upperToolbarColor=dae8f2&lowerToolbarColor=dae8f2&bottomToolbarColor=dae8f2&backgroundColor=ffffff&fontColor=3498db&buttonColor=black" +
+"&hidden=selectText,panTool,print,download";
+}
+else
+{
+// NEW CODE 28 APRIL 2015 WHICH DOES NOT WORK - AWAITING A FIX
+//// We will now attempt to load the document
+var viewerParams = {
+document: sURL,
+key: "K5102014151403",
+viewertype: "html5",
+viewerheight: "600",
+viewerwidth: "100%",
+upperToolbarColor: "dae8f2",
+lowerToolbarColor: "dae8f2",
+bottomToolbarColor: "dae8f2",
+backgroundColor: "ffffff",
+fontColor: "3498db",
+buttonColor: "black",
+hidden: "selectText,panTool,thumbnails,print,download"
+}
+try
+{
+$("#trisys-document-viewer-control").pccViewer(viewerParams);
+}
+catch (err)
+{
+alert("Document Viewer error: " + err);
+}
+}
+}
+};
+// Now display the document
+$(document).ready(function ()
+{
+ctrlDocumentViewer.Open();
+});
+</script>
+</body>
+</html>

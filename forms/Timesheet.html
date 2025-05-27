@@ -1,1 +1,383 @@
-<style scoped> .block-title > i { padding-top: 10px; padding-left: 15px; } .RatesNumberColumn { text-align: right; width: 130px; } .row { padding:8px 0px; } </style> <!-- Form Caption --> <div class="block full" style="padding-bottom: 0px;"> <!-- Block Caption Title --> <div class="block-title"> <i class="gi gi-stopwatch fa-2x pull-left themed-color"></i> <h2 id="timesheetForm-caption">Timesheet Form</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="TriSysApex.Pages.TimesheetForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the timesheet record" id="timesheetForm-save-button"> <i class="gi gi-floppy_save"></i> &nbsp; Save </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlTimesheetForm.FileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete the timesheet record" id="timesheetForm-delete-button"> <i class="fa fa-remove"></i> &nbsp; Delete </a> <div id="timesheetForm-FileMenu" style="display: none;"> </div> <span>&nbsp;</span> <div id="timesheetForm-ActionsMenu"> </div> </div> </div> <!-- END Block Caption Title --> <!-- Master Record Fields --> <div class="row"> <div class="col-xs-12 col-xl-6"> <div class="row"> <div class="col-xs-12 col-sm-6"> <div class="row"> <div class="col-xs-3"> <strong>Candidate</strong> </div> <div class="col-xs-9"> <trisys-field id="Timesheet_Candidate" type="contact" hidefindbutton="true" hidedeletebutton="true"></trisys-field> <!--<table style="width: 100%;"> <tr> <td> <input class="k-textbox" id="Timesheet_Candidate" style="width:100%" readonly="readonly" /> </td> <td style="width: 4px;"></td> <td style="width: 28px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.TimesheetForm.OpenCandidateLink()" title="Open Candidate"> <i class="gi gi-woman"></i> </button> </td> </tr> </table>--> </div> </div> <div class="row"> <div class="col-xs-3"> <strong>Placement</strong> </div> <div class="col-xs-9"> <table style="width: 100%;"> <tr> <td> <textarea class="k-textbox" rows="3" cols="3" id="Timesheet_PlacementId" style="width:100%; resize: none" readonly="readonly"></textarea> </td> <td style="width: 4px;"></td> <td style="width: 28px; vertical-align: top;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.TimesheetForm.OpenPlacementLink()" title="Open Placement"> <i class="gi gi-gbp"></i> </button> </td> </tr> </table> </div> </div> </div> <div class="col-xs-12 col-sm-6"> <div class="row"> <div class="col-xs-3"> <strong>Type</strong> </div> <div class="col-xs-9"> <input id="Timesheet_Type" style="width:100%" /> </div> </div> <div class="row"> <div class="col-xs-3"> <strong>Period</strong> </div> <div class="col-xs-9"> <input id="Timesheet_Period" style="width:100%" /> </div> </div> <div class="row" id="timesheet-form-original-row"> <div class="col-xs-3"> <strong>Original</strong> </div> <div class="col-xs-9"> <div id="TimesheetConfigFields_TimesheetLink" style="width:100%;"></div> </div> </div> </div> </div> </div> <div class="col-xs-12 col-xl-6"> <div class="row"> <div class="col-xs-12 col-sm-6"> <div class="row"> <div class="col-xs-3"> <strong>Input Date</strong> </div> <div class="col-xs-9"> <input type="text" id="TimesheetConfigFields_InputDate" style="width:100%" readonly="readonly" /> </div> </div> <div class="row"> <div class="col-xs-3"> <strong>Frequency</strong> </div> <div class="col-xs-9"> <input class="k-textbox" type="text" id="Timesheet_Frequency" style="width:100%" readonly="readonly" /> </div> </div> </div> <div class="col-xs-12 col-sm-6"> <div class="row"> <div class="col-xs-3"> <strong>Authorisation Requested</strong> </div> <div class="col-xs-9"> <input id="TimesheetConfigFields_AuthorisationRequested" style="width:100%" readonly="readonly" /> </div> </div> <div class="row"> <div class="col-xs-3"> <strong>Payment Authorised</strong> </div> <div class="col-xs-9"> <div style="text-align: right;"> <label class="switch switch-primary"> <input type="checkbox" id="TimesheetConfigFields_PaymentAuthorised" value="0" unchecked disabled> <span></span> </label> </div> </div> </div> <div class="row"> <div class="col-xs-3"> <strong>Date Authorised</strong> </div> <div class="col-xs-9"> <input id="TimesheetConfigFields_AuthorisedDate" style="width:100%" readonly="readonly" /> </div> </div> <div class="row"> <div class="col-xs-3"> <strong>Authorised By</strong> </div> <div class="col-xs-9"> <table style="width: 100%;"> <tr> <td> <input class="k-textbox" type="text" id="TimesheetConfigFields_AuthorisedBy" style="width:100%" readonly="readonly" /> </td> <td style="width: 4px;"></td> <td style="width: 28px;"> <button type="submit" class="btn btn-sm btn-default" onclick="ctrlTimesheetForm.OpenAuthorisedByLink()" title="Open authorising contact"> <i class="gi gi-user"></i> </button> </td> </tr> </table> </div> </div> </div> </div> </div> </div> <!-- END Master Record Fields --> <!-- START FORM TABS --> <div class="block full" id="timesheet-form-tab-panel-buttons"> <div class="block-title"> <ul class="nav nav-tabs" data-toggle="tabs" id="timesheet-form-tab-nav-horizontal"> <li id="timesheet-form-tab-hours"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-hours', ctrlTimesheetForm.TabButtonCallback);"> <i class="gi gi-stopwatch"></i>&nbsp; Hours </a> </li> <li id="timesheet-form-tab-attributes"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-attributes', ctrlTimesheetForm.TabButtonCallback);"> <i class="gi gi-settings"></i>&nbsp; Attributes </a> </li> <li id="timesheet-form-tab-documentlibrary"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-documentlibrary', ctrlTimesheetForm.TabButtonCallback);"> <i class="fa fa-folder-o"></i>&nbsp; Documents </a> </li> <li id="timesheet-form-tab-noteshistory"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-noteshistory', ctrlTimesheetForm.TabButtonCallback);"> <i class="gi gi-notes"></i>&nbsp; Notes </a> </li> <li id="timesheet-form-tab-scheduledtasks"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-scheduledtasks', ctrlTimesheetForm.TabButtonCallback);"> <i class="gi gi-alarm"></i>&nbsp; Tasks </a> </li> <li id="timesheet-form-tab-custom" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-custom', ctrlTimesheetForm.TabButtonCallback);"> <i class="gi gi-cargo"></i>&nbsp;  <span id="timesheet-form-tab-custom-caption">Custom</span> </a> </li> </ul> </div> <div class="tab-content"> <div class="tab-pane" id="timesheet-form-panel-hours"> <div class="block full"> <div class="form-horizontal"> <div class="form-group"> <div class="col-xs-12"> <div id="trisys-timesheet-hours-grid" style="border-width: 1px;  width: 100%;"> </div> </div> </div> <div class="form-group" id="trisys-timesheet-miscellaneous-hours-reason-block" style="display: none;"> <div class="col-xs-3"> Reason for Miscellaneous Hours </div> <div class="col-xs-9"> <textarea class="k-textbox" id="TimesheetConfigFields_MiscellaneousHoursReason" rows="2" readonly style="width:100%; resize: vertical;"></textarea> </div> </div> </div> </div> <div class="block full"> <div class="row"> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2>Hours, Rates &amp; Amounts</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-xs-12"> <table class="table table-bordered table-striped" id="amountsTable" style="width: 100%;"> <tbody id="tbodyAmounts"> <tr> <th></th> <td style="text-align:right; width: 110px;"><b>Total Hours</b></td> <td class="RatesNumberColumn"><b>Pay Rate</b></td> <td class="RatesNumberColumn"><b>Charge Rate</b></td> <td class="RatesNumberColumn"><b>Pay Amount</b></td> <td class="RatesNumberColumn"><b>Charge Amount</b></td> </tr> </tbody> </table> </div> </div> </div> </div> </div> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2>Timesheet Summary</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-xs-12"> <table class="table table-bordered table-striped" id="summaryTable" style="width: 100%;"> <tbody> <tr> <th></th> <td class="RatesNumberColumn"><b>Pay</b></td> <td class="RatesNumberColumn"><b>Charge</b></td> </tr> <tr> <th class="text-nowrap">Currency</th> <td class="RatesNumberColumn"><div id="summaryPayCurrency"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeCurrency"></div></td> </tr> <tr> <th class="text-nowrap">Total Net Amount</th> <td class="RatesNumberColumn"><div id="summaryTotalNetPay"></div></td> <td class="RatesNumberColumn"><div id="summaryTotalNetCharge"></div></td> </tr> <tr> <th class="text-nowrap">VAT % Rate</th> <td class="RatesNumberColumn"><div id="summaryPayVATPercentage"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeVATPercentage"></div></td> </tr> <tr> <th class="text-nowrap">Total VAT Amount</th> <td class="RatesNumberColumn"><div id="summaryPayVATAmount"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeVATAmount"></div></td> </tr> <tr> <th class="text-nowrap">Grand Total</th> <td class="RatesNumberColumn"><div id="summaryPayGrandTotal"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeGrandTotal"></div></td> </tr> </tbody> </table> </div> </div> </div> </div> </div> </div> </div> </div> <div class="tab-pane" id="timesheet-form-panel-attributes"> <div id="timesheet-form-attributes"></div> </div> <div class="tab-pane" id="timesheet-form-panel-timesheets">Timesheets..</div> <div class="tab-pane" id="timesheet-form-panel-documentlibrary"> <div id="timesheet-form-documentlibrary"></div> </div> <div class="tab-pane" id="timesheet-form-panel-noteshistory"> <div class="block" id="timesheet-noteshistory-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="timesheetNotesHistoryFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="ctrlTimesheetForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlTimesheetForm.NotesHistoryGridFileMenuCallback('file-delete')" id="timesheet-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="timesheetNotesHistoryGridMenu"> </div> </div> <h3>Timesheet Notes/History</h3> </div> <!-- The notes/history grid populated by JS --> <div id="timesheetForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="timesheet-form-panel-scheduledtasks"> <div class="block" id="timesheet-scheduledtasks-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="timesheetScheduledTasksFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="ctrlTimesheetForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlTimesheetForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="timesheet-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="timesheetScheduledTasksGridMenu"> </div> </div> <h3>Timesheet Scheduled Tasks</h3> </div> <!-- The Scheduled Tasks grid populated by JS --> <div id="timesheetForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="timesheet-form-panel-custom"> <div id="timesheet-form-customfields"></div> </div> </div> </div> <!-- END FORM TABS --> </div> <!-- END Form Caption --> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/timesheet.js"></script>
+<style scoped>
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+.RatesNumberColumn {
+text-align: right;
+width: 130px;
+}
+.row {
+padding:8px 0px;
+}
+</style>
+<!-- Form Caption -->
+<div class="block full" style="padding-bottom: 0px;">
+<!-- Block Caption Title -->
+<div class="block-title">
+<i class="gi gi-stopwatch fa-2x pull-left themed-color"></i>
+<h2 id="timesheetForm-caption">Timesheet Form</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="TriSysApex.Pages.TimesheetForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the timesheet record" id="timesheetForm-save-button">
+<i class="gi gi-floppy_save"></i> &nbsp; Save
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlTimesheetForm.FileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete the timesheet record" id="timesheetForm-delete-button">
+<i class="fa fa-remove"></i> &nbsp; Delete
+</a>
+<div id="timesheetForm-FileMenu" style="display: none;">
+</div>
+<span>&nbsp;</span>
+<div id="timesheetForm-ActionsMenu">
+</div>
+</div>
+</div>
+<!-- END Block Caption Title -->
+<!-- Master Record Fields -->
+<div class="row">
+<div class="col-xs-12 col-xl-6">
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+<div class="row">
+<div class="col-xs-3">
+<strong>Candidate</strong>
+</div>
+<div class="col-xs-9">
+<trisys-field id="Timesheet_Candidate" type="contact" hidefindbutton="true" hidedeletebutton="true"></trisys-field>
+<!--<table style="width: 100%;">
+<tr>
+<td>
+<input class="k-textbox" id="Timesheet_Candidate" style="width:100%" readonly="readonly" />
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.TimesheetForm.OpenCandidateLink()" title="Open Candidate">
+<i class="gi gi-woman"></i>
+</button>
+</td>
+</tr>
+</table>-->
+</div>
+</div>
+<div class="row">
+<div class="col-xs-3">
+<strong>Placement</strong>
+</div>
+<div class="col-xs-9">
+<table style="width: 100%;">
+<tr>
+<td>
+<textarea class="k-textbox" rows="3" cols="3" id="Timesheet_PlacementId" style="width:100%; resize: none" readonly="readonly"></textarea>
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px; vertical-align: top;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.TimesheetForm.OpenPlacementLink()" title="Open Placement">
+<i class="gi gi-gbp"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6">
+<div class="row">
+<div class="col-xs-3">
+<strong>Type</strong>
+</div>
+<div class="col-xs-9">
+<input id="Timesheet_Type" style="width:100%" />
+</div>
+</div>
+<div class="row">
+<div class="col-xs-3">
+<strong>Period</strong>
+</div>
+<div class="col-xs-9">
+<input id="Timesheet_Period" style="width:100%" />
+</div>
+</div>
+<div class="row" id="timesheet-form-original-row">
+<div class="col-xs-3">
+<strong>Original</strong>
+</div>
+<div class="col-xs-9">
+<div id="TimesheetConfigFields_TimesheetLink" style="width:100%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-xl-6">
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+<div class="row">
+<div class="col-xs-3">
+<strong>Input Date</strong>
+</div>
+<div class="col-xs-9">
+<input type="text" id="TimesheetConfigFields_InputDate" style="width:100%" readonly="readonly" />
+</div>
+</div>
+<div class="row">
+<div class="col-xs-3">
+<strong>Frequency</strong>
+</div>
+<div class="col-xs-9">
+<input class="k-textbox" type="text" id="Timesheet_Frequency" style="width:100%" readonly="readonly" />
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6">
+<div class="row">
+<div class="col-xs-3">
+<strong>Authorisation Requested</strong>
+</div>
+<div class="col-xs-9">
+<input id="TimesheetConfigFields_AuthorisationRequested" style="width:100%" readonly="readonly" />
+</div>
+</div>
+<div class="row">
+<div class="col-xs-3">
+<strong>Payment Authorised</strong>
+</div>
+<div class="col-xs-9">
+<div style="text-align: right;">
+<label class="switch switch-primary">
+<input type="checkbox" id="TimesheetConfigFields_PaymentAuthorised" value="0" unchecked disabled>
+<span></span>
+</label>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-3">
+<strong>Date Authorised</strong>
+</div>
+<div class="col-xs-9">
+<input id="TimesheetConfigFields_AuthorisedDate" style="width:100%" readonly="readonly" />
+</div>
+</div>
+<div class="row">
+<div class="col-xs-3">
+<strong>Authorised By</strong>
+</div>
+<div class="col-xs-9">
+<table style="width: 100%;">
+<tr>
+<td>
+<input class="k-textbox" type="text" id="TimesheetConfigFields_AuthorisedBy" style="width:100%" readonly="readonly" />
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="ctrlTimesheetForm.OpenAuthorisedByLink()" title="Open authorising contact">
+<i class="gi gi-user"></i>
+</button>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END Master Record Fields -->
+<!-- START FORM TABS -->
+<div class="block full" id="timesheet-form-tab-panel-buttons">
+<div class="block-title">
+<ul class="nav nav-tabs" data-toggle="tabs" id="timesheet-form-tab-nav-horizontal">
+<li id="timesheet-form-tab-hours">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-hours', ctrlTimesheetForm.TabButtonCallback);">
+<i class="gi gi-stopwatch"></i>&nbsp; Hours
+</a>
+</li>
+<li id="timesheet-form-tab-attributes">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-attributes', ctrlTimesheetForm.TabButtonCallback);">
+<i class="gi gi-settings"></i>&nbsp; Attributes
+</a>
+</li>
+<li id="timesheet-form-tab-documentlibrary">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-documentlibrary', ctrlTimesheetForm.TabButtonCallback);">
+<i class="fa fa-folder-o"></i>&nbsp; Documents
+</a>
+</li>
+<li id="timesheet-form-tab-noteshistory">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-noteshistory', ctrlTimesheetForm.TabButtonCallback);">
+<i class="gi gi-notes"></i>&nbsp; Notes
+</a>
+</li>
+<li id="timesheet-form-tab-scheduledtasks">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-scheduledtasks', ctrlTimesheetForm.TabButtonCallback);">
+<i class="gi gi-alarm"></i>&nbsp; Tasks
+</a>
+</li>
+<li id="timesheet-form-tab-custom" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'timesheet-form-panel-custom', ctrlTimesheetForm.TabButtonCallback);">
+<i class="gi gi-cargo"></i>&nbsp;  <span id="timesheet-form-tab-custom-caption">Custom</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="tab-content">
+<div class="tab-pane" id="timesheet-form-panel-hours">
+<div class="block full">
+<div class="form-horizontal">
+<div class="form-group">
+<div class="col-xs-12">
+<div id="trisys-timesheet-hours-grid" style="border-width: 1px;  width: 100%;">
+</div>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-miscellaneous-hours-reason-block" style="display: none;">
+<div class="col-xs-3">
+Reason for Miscellaneous Hours
+</div>
+<div class="col-xs-9">
+<textarea class="k-textbox" id="TimesheetConfigFields_MiscellaneousHoursReason" rows="2" readonly style="width:100%; resize: vertical;"></textarea>
+</div>
+</div>
+</div>
+</div>
+<div class="block full">
+<div class="row">
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2>Hours, Rates &amp; Amounts</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-xs-12">
+<table class="table table-bordered table-striped" id="amountsTable" style="width: 100%;">
+<tbody id="tbodyAmounts">
+<tr>
+<th></th>
+<td style="text-align:right; width: 110px;"><b>Total Hours</b></td>
+<td class="RatesNumberColumn"><b>Pay Rate</b></td>
+<td class="RatesNumberColumn"><b>Charge Rate</b></td>
+<td class="RatesNumberColumn"><b>Pay Amount</b></td>
+<td class="RatesNumberColumn"><b>Charge Amount</b></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2>Timesheet Summary</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-xs-12">
+<table class="table table-bordered table-striped" id="summaryTable" style="width: 100%;">
+<tbody>
+<tr>
+<th></th>
+<td class="RatesNumberColumn"><b>Pay</b></td>
+<td class="RatesNumberColumn"><b>Charge</b></td>
+</tr>
+<tr>
+<th class="text-nowrap">Currency</th>
+<td class="RatesNumberColumn"><div id="summaryPayCurrency"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeCurrency"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Total Net Amount</th>
+<td class="RatesNumberColumn"><div id="summaryTotalNetPay"></div></td>
+<td class="RatesNumberColumn"><div id="summaryTotalNetCharge"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">VAT % Rate</th>
+<td class="RatesNumberColumn"><div id="summaryPayVATPercentage"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeVATPercentage"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Total VAT Amount</th>
+<td class="RatesNumberColumn"><div id="summaryPayVATAmount"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeVATAmount"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Grand Total</th>
+<td class="RatesNumberColumn"><div id="summaryPayGrandTotal"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeGrandTotal"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="timesheet-form-panel-attributes">
+<div id="timesheet-form-attributes"></div>
+</div>
+<div class="tab-pane" id="timesheet-form-panel-timesheets">Timesheets..</div>
+<div class="tab-pane" id="timesheet-form-panel-documentlibrary">
+<div id="timesheet-form-documentlibrary"></div>
+</div>
+<div class="tab-pane" id="timesheet-form-panel-noteshistory">
+<div class="block" id="timesheet-noteshistory-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="timesheetNotesHistoryFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="ctrlTimesheetForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlTimesheetForm.NotesHistoryGridFileMenuCallback('file-delete')" id="timesheet-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="timesheetNotesHistoryGridMenu">
+</div>
+</div>
+<h3>Timesheet Notes/History</h3>
+</div>
+<!-- The notes/history grid populated by JS -->
+<div id="timesheetForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="timesheet-form-panel-scheduledtasks">
+<div class="block" id="timesheet-scheduledtasks-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="timesheetScheduledTasksFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="ctrlTimesheetForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlTimesheetForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="timesheet-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="timesheetScheduledTasksGridMenu">
+</div>
+</div>
+<h3>Timesheet Scheduled Tasks</h3>
+</div>
+<!-- The Scheduled Tasks grid populated by JS -->
+<div id="timesheetForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="timesheet-form-panel-custom">
+<div id="timesheet-form-customfields"></div>
+</div>
+</div>
+</div>
+<!-- END FORM TABS -->
+</div>
+<!-- END Form Caption -->
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/timesheet.js"></script>

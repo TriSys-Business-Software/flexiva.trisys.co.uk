@@ -1,1 +1,486 @@
-<style scoped> .block-title > i { padding-top: 10px; padding-left: 15px; } </style> <!-- Form Caption --> <div class="block full" style="padding-bottom: 0px;"> <!-- Block Caption Title --> <div class="block-title"> <i class="gi gi-gbp fa-2x pull-left themed-color"></i> <h2 id="placementForm-caption">Placement Form</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="TriSysApex.Pages.PlacementForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the placement record" id="placementForm-save-button"> <i class="gi gi-floppy_save"></i> &nbsp; Save </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlPlacementForm.FileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete the placement record" id="placementForm-delete-button"> <i class="fa fa-remove"></i> &nbsp; Delete </a> <div id="placementForm-FileMenu" style="display: none;"> </div> <span>&nbsp;</span> <div id="placementForm-ActionsMenu"> </div> </div> </div> <!-- END Block Caption Title --> <!-- Master Record Fields --> <div class="row"> <div class="col-md-9" style="padding-left: 0px"> <div class="form-group"> <div class="col-md-4"> <table class="table table-borderless table-striped"> <tbody> <tr> <td style="width: 120px;"><strong>Reference</strong></td> <td> <input type="text" class="k-textbox" id="PlacementConfigFields_Reference" required="required" readonly="readonly" style="width:100%" /> </td> </tr> <tr> <td><strong>Type</strong></td> <td> <input id="Placement_Type" style="width:100%" /> </td> </tr> <tr> <td><strong>Client Contact</strong></td> <td> <table style="width: 100%;"> <tr> <td> <input class="k-textbox" id="Placement_ContactId" style="width:100%" readonly="readonly" /> </td> <td style="width: 4px;"></td> <td style="width: 28px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.OpenContactLink()" title="Open Contact"> <i class="gi gi-parents"></i> </button> </td> <td style="width: 4px; display: none;" id="placememt-form-find-contact-button-gap-td"></td> <td style="width: 28px; display: none;" id="placememt-form-find-contact-button-td"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.AssignContactLink()" title="Assign Contact"> <i class="gi gi-search"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td><strong>Company</strong></td> <td> <table style="width: 100%;"> <tr> <td> <input class="k-textbox" id="Placement_CompanyId" style="width:100%" readonly="readonly" /> </td> <td style="width: 4px;"></td> <td style="width: 28px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.OpenCompanyLink()" title="Open Company"> <i class="gi gi-building"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td><strong>Address</strong></td> <td> <textarea class="k-textbox" rows="4" cols="3" id="Placement_AddressId" style="width:100%; resize: none" readonly="readonly"></textarea> </td> </tr> </tbody> </table> </div> <div class="col-md-4"> <table class="table table-borderless table-striped"> <tbody> <tr> <td><strong>Job Title</strong></td> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input id="PlacementConfigFields_JobTitle" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px; display: none;" id="tr-PlacementConfigFields_JobTitle"> <button type="submit" class="btn btn-sm btn-default" onclick="ctrlPlacementForm.JobTitleLookup()" title="Lookup Job Title" style="right:0px;"> <i class="gi gi-search"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td><strong>Candidate</strong></td> <td> <table style="width: 100%;"> <tr> <td> <input class="k-textbox" id="PlacementConfigFields_Candidate" style="width:100%" readonly="readonly" /> </td> <td style="width: 4px;"></td> <td style="width: 28px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.OpenCandidateLink()" title="Open Candidate"> <i class="gi gi-woman"></i> </button> </td> <td style="width: 4px; display: none;" id="placememt-form-find-candidate-button-gap-td"></td> <td style="width: 28px; display: none;" id="placememt-form-find-candidate-button-td"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.AssignCandidateLink()" title="Assign Candidate"> <i class="gi gi-search"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td> <strong>Home Address</strong> </td> <td> <textarea class="k-textbox" id="PlacementConfigFields_CandidateAddress" rows="4" style="width:100%; resize: none" readonly="readonly"></textarea> </td> </tr> <tr> <td><strong>Date Initiated</strong></td> <td> <input type="text" id="PlacementConfigFields_DateInitiated" style="width:100%" readonly="readonly" /> </td> </tr> <tr> <td style="width: 120px;"> <strong>User</strong> </td> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input id="Placement_UserId" style="width:100%" readonly="readonly" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="ctrlPlacementForm.ReAssignUser()" title="Re-assign user" style="right:0px;"> <i class="gi gi-user"></i> </button> </td> </tr> </table> </td> </tr> </tbody> </table> </div> <div class="col-md-4"> <table class="table table-borderless"> <tbody> <tr> <td style="width: 120px;"><strong>Status</strong></td> <td> <input type="text" id="PlacementConfigFields_PlacementStatus" style="width:100%" /> </td> </tr> <tr> <td><strong>Start Date</strong></td> <td> <input type="text" id="PlacementConfigFields_StartDate" style="width:100%" /> </td> </tr> <tr> <td><strong>End Date</strong></td> <td> <input type="text" id="PlacementConfigFields_EndDate" style="width:100%" /> </td> </tr> <tr> <td><strong>Duration (Weeks)</strong></td> <td> <input class="k-textbox" id="PlacementConfigFields_DurationInWeeks" style="width:100%" title="Number of weeks contract lasts" readonly="readonly" /> </td> </tr> <tr> <td> <strong>Site Address</strong> </td> <td> <textarea class="k-textbox" id="PlacementConfigFields_Location" rows="4" style="width:100%; resize: none" readonly="readonly"></textarea> </td> </tr> </tbody> </table> </div> </div> </div> <div class="col-md-3" style="vertical-align: top"> <table class="table table-borderless table-striped" style="margin-bottom: 0px;"> <tbody> <tr> <td> <strong>Requirement</strong> </td> </tr> <tr> <td> <table style="width: 100%;"> <tr> <td> <input class="k-textbox" id="Placement_RequirementId" style="width:100%" readonly="readonly" /> </td> <td style="width: 4px;"></td> <td style="width: 28px;"> <button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.OpenRequirementLink()" title="Open Requirement"> <i class="gi gi-user_add"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <strong>Description</strong> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="ctrlPlacementForm.EditDescription()" title="Edit description" style="right:0px;"> <i class="gi gi-pen"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td> <textarea class="k-textbox" id="PlacementConfigFields_Description" rows="5" style="width:100%; resize: vertical;"></textarea> </td> </tr> </tbody> </table> <table class="table table-borderless"> <tbody> <tr> <td style="width: 120px;"><strong>PO Number</strong></td> <td> <input class="k-textbox" id="PlacementConfigFields_PlacementPONumber" style="width:100%" title="Purchase order number" maxlength="50" /> </td> </tr> </tbody> </table> </div> </div> <!-- END Master Record Fields --> <!-- START FORM TABS --> <div class="block full" id="placement-form-tab-panel-buttons"> <div class="block-title"> <ul class="nav nav-tabs" data-toggle="tabs" id="placement-form-tab-nav-horizontal"> <li id="placement-form-tab-contract-li"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-contract', ctrlPlacementForm.TabButtonCallback);"> <i class="gi gi-gbp"></i>&nbsp; Contract/Temp </a> </li> <li id="placement-form-tab-permanent-li"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-permanent', ctrlPlacementForm.TabButtonCallback);"> <i class="gi gi-gbp"></i>&nbsp; Permanent </a> </li> <li id="placement-form-tab-attributes-li"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-attributes', ctrlPlacementForm.TabButtonCallback);"> <i class="gi gi-settings"></i>&nbsp; Attributes </a> </li> <li id="placement-form-tab-backoffice-li"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-backoffice', ctrlPlacementForm.TabButtonCallback);"> <i class="fa fa-bank"></i>&nbsp; Back Office </a> </li> <li id="placement-form-tab-timesheets-li"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-timesheets', ctrlPlacementForm.TabButtonCallback);"> <i class="gi gi-stopwatch"></i>&nbsp; Timesheets </a> </li> <li id="placement-form-tab-documentlibrary-li"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-documentlibrary', ctrlPlacementForm.TabButtonCallback);"> <i class="fa fa-folder-o"></i>&nbsp; Documents </a> </li> <li id="placement-form-tab-noteshistory-li"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-noteshistory', ctrlPlacementForm.TabButtonCallback);"> <i class="gi gi-notes"></i>&nbsp; Notes </a> </li> <li id="placement-form-tab-scheduledtasks-li"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-scheduledtasks', ctrlPlacementForm.TabButtonCallback);"> <i class="gi gi-alarm"></i>&nbsp; Tasks </a> </li> <li id="placement-form-tab-amendments-li" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-amendments', ctrlPlacementForm.TabButtonCallback);"> <i class="gi gi-git_compare"></i>&nbsp;  Amendments </a> </li> <li id="placement-form-tab-custom" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-custom', ctrlPlacementForm.TabButtonCallback);"> <i class="gi gi-cargo"></i>&nbsp;  <span id="placement-form-tab-custom-caption">Custom</span> </a> </li> </ul> </div> <div class="tab-content"> <div class="tab-pane" id="placement-form-panel-contract"> <div id="placement-form-contract-rates"></div> </div> <div class="tab-pane" id="placement-form-panel-permanent"> <div id="placement-form-permanent-salary"></div> </div> <div class="tab-pane" id="placement-form-panel-attributes"> <div id="placement-form-attributes"></div> </div> <div class="tab-pane" id="placement-form-panel-backoffice"> <div class="block" id="placement-timesheet-frequency-container"> <div class="block-title"> <h3>Timesheet Frequency</h3> </div> <table class="table table-borderless"> <tbody> <tr> <td colspan="2"> Any timesheets created against this placement will capture daily hours based upon this frequency i.e. weekly, monthly etc.. </td> </tr> <tr> <td class="td-label"><strong>Frequency</strong></td> <td> <input id="PlacementConfigFields_TimesheetFrequency" style="width:200px;" /> </td> </tr> </tbody> </table> </div> <div class="block" id="placement-linemanager-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="ctrlPlacementForm.LineManagerGridFileMenuCallback('file-new')" class="btn btn-sm btn-default enable-tooltip" title="Add line manager"> <i class="fa fa-plus fa-fw"></i> &nbsp; Add </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlPlacementForm.LineManagerGridFileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete selected line manager"> <i class="fa fa-remove fa-fw"></i> &nbsp; Remove </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlPlacementForm.LineManagerGridFileMenuCallback('set-primary')" class="btn btn-sm btn-default enable-tooltip" title="Set selected line manager as primary"> <i class="fa fa-check-square-o"></i> &nbsp; Set as Primary </a> <span>&nbsp;</span> <div id="placementLineManagerGridMenu"> </div> </div> <h3>Line Managers</h3> </div> <div id="placementForm-LineManagerGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="placement-form-panel-timesheets"> <div class="block" id="placement-timesheet-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="placementTimesheetsFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="ctrlPlacementForm.TimesheetsGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected timesheet"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlPlacementForm.TimesheetsGridFileMenuCallback('file-delete')" id="placement-timesheet-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected timesheet"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="placementTimesheetsGridMenu"> </div> <span>&nbsp;</span> <div id="placementTimesheetsActionsMenu"> </div> </div> <h3>Placement Timesheets</h3> </div> <div id="placementForm-TimesheetGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="placement-form-panel-documentlibrary"> <div id="placement-form-documentlibrary"></div> </div> <div class="tab-pane" id="placement-form-panel-noteshistory"> <div class="block" id="placement-noteshistory-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="placementNotesHistoryFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="ctrlPlacementForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlPlacementForm.NotesHistoryGridFileMenuCallback('file-delete')" id="placement-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="placementNotesHistoryGridMenu"> </div> </div> <h3>Placement Notes/History</h3> </div> <!-- The notes/history grid populated by JS --> <div id="placementForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="placement-form-panel-scheduledtasks"> <div class="block" id="placement-scheduledtasks-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="placementScheduledTasksFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="ctrlPlacementForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlPlacementForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="placement-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="placementScheduledTasksGridMenu"> </div> </div> <h3>Placement Scheduled Tasks</h3> </div> <!-- The Scheduled Tasks grid populated by JS --> <div id="placementForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="placement-form-panel-amendments"> <div class="block" id="placement-amendments-grid-container"> <div class="block-title"> <h3>Placement Amendments</h3> </div> <div id="placementForm-AmendmentsGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="placement-form-panel-custom"> <div id="placement-form-customfields"></div> </div> </div> </div> <!-- END FORM TABS --> </div> <!-- END Form Caption --> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/placement.js"></script>
+<style scoped>
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+</style>
+<!-- Form Caption -->
+<div class="block full" style="padding-bottom: 0px;">
+<!-- Block Caption Title -->
+<div class="block-title">
+<i class="gi gi-gbp fa-2x pull-left themed-color"></i>
+<h2 id="placementForm-caption">Placement Form</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="TriSysApex.Pages.PlacementForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the placement record" id="placementForm-save-button">
+<i class="gi gi-floppy_save"></i> &nbsp; Save
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.FileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete the placement record" id="placementForm-delete-button">
+<i class="fa fa-remove"></i> &nbsp; Delete
+</a>
+<div id="placementForm-FileMenu" style="display: none;">
+</div>
+<span>&nbsp;</span>
+<div id="placementForm-ActionsMenu">
+</div>
+</div>
+</div>
+<!-- END Block Caption Title -->
+<!-- Master Record Fields -->
+<div class="row">
+<div class="col-md-9" style="padding-left: 0px">
+<div class="form-group">
+<div class="col-md-4">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td style="width: 120px;"><strong>Reference</strong></td>
+<td>
+<input type="text" class="k-textbox" id="PlacementConfigFields_Reference" required="required" readonly="readonly" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>
+<input id="Placement_Type" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Client Contact</strong></td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input class="k-textbox" id="Placement_ContactId" style="width:100%" readonly="readonly" />
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.OpenContactLink()" title="Open Contact">
+<i class="gi gi-parents"></i>
+</button>
+</td>
+<td style="width: 4px; display: none;" id="placememt-form-find-contact-button-gap-td"></td>
+<td style="width: 28px; display: none;" id="placememt-form-find-contact-button-td">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.AssignContactLink()" title="Assign Contact">
+<i class="gi gi-search"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><strong>Company</strong></td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input class="k-textbox" id="Placement_CompanyId" style="width:100%" readonly="readonly" />
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.OpenCompanyLink()" title="Open Company">
+<i class="gi gi-building"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><strong>Address</strong></td>
+<td>
+<textarea class="k-textbox" rows="4" cols="3" id="Placement_AddressId" style="width:100%; resize: none" readonly="readonly"></textarea>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-4">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td><strong>Job Title</strong></td>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input id="PlacementConfigFields_JobTitle" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px; display: none;" id="tr-PlacementConfigFields_JobTitle">
+<button type="submit" class="btn btn-sm btn-default" onclick="ctrlPlacementForm.JobTitleLookup()" title="Lookup Job Title" style="right:0px;">
+<i class="gi gi-search"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><strong>Candidate</strong></td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input class="k-textbox" id="PlacementConfigFields_Candidate" style="width:100%" readonly="readonly" />
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.OpenCandidateLink()" title="Open Candidate">
+<i class="gi gi-woman"></i>
+</button>
+</td>
+<td style="width: 4px; display: none;" id="placememt-form-find-candidate-button-gap-td"></td>
+<td style="width: 28px; display: none;" id="placememt-form-find-candidate-button-td">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.AssignCandidateLink()" title="Assign Candidate">
+<i class="gi gi-search"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Home Address</strong>
+</td>
+<td>
+<textarea class="k-textbox" id="PlacementConfigFields_CandidateAddress" rows="4" style="width:100%; resize: none" readonly="readonly"></textarea>
+</td>
+</tr>
+<tr>
+<td><strong>Date Initiated</strong></td>
+<td>
+<input type="text" id="PlacementConfigFields_DateInitiated" style="width:100%" readonly="readonly" />
+</td>
+</tr>
+<tr>
+<td style="width: 120px;">
+<strong>User</strong>
+</td>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input id="Placement_UserId" style="width:100%" readonly="readonly" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="ctrlPlacementForm.ReAssignUser()" title="Re-assign user" style="right:0px;">
+<i class="gi gi-user"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-4">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td style="width: 120px;"><strong>Status</strong></td>
+<td>
+<input type="text" id="PlacementConfigFields_PlacementStatus" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Start Date</strong></td>
+<td>
+<input type="text" id="PlacementConfigFields_StartDate" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>End Date</strong></td>
+<td>
+<input type="text" id="PlacementConfigFields_EndDate" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Duration (Weeks)</strong></td>
+<td>
+<input class="k-textbox" id="PlacementConfigFields_DurationInWeeks" style="width:100%" title="Number of weeks contract lasts" readonly="readonly" />
+</td>
+</tr>
+<tr>
+<td>
+<strong>Site Address</strong>
+</td>
+<td>
+<textarea class="k-textbox" id="PlacementConfigFields_Location" rows="4" style="width:100%; resize: none" readonly="readonly"></textarea>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-md-3" style="vertical-align: top">
+<table class="table table-borderless table-striped" style="margin-bottom: 0px;">
+<tbody>
+<tr>
+<td>
+<strong>Requirement</strong>
+</td>
+</tr>
+<tr>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input class="k-textbox" id="Placement_RequirementId" style="width:100%" readonly="readonly" />
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="TriSysApex.Pages.PlacementForm.OpenRequirementLink()" title="Open Requirement">
+<i class="gi gi-user_add"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<strong>Description</strong>
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="ctrlPlacementForm.EditDescription()" title="Edit description" style="right:0px;">
+<i class="gi gi-pen"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<textarea class="k-textbox" id="PlacementConfigFields_Description" rows="5" style="width:100%; resize: vertical;"></textarea>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td style="width: 120px;"><strong>PO Number</strong></td>
+<td>
+<input class="k-textbox" id="PlacementConfigFields_PlacementPONumber" style="width:100%" title="Purchase order number" maxlength="50" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END Master Record Fields -->
+<!-- START FORM TABS -->
+<div class="block full" id="placement-form-tab-panel-buttons">
+<div class="block-title">
+<ul class="nav nav-tabs" data-toggle="tabs" id="placement-form-tab-nav-horizontal">
+<li id="placement-form-tab-contract-li">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-contract', ctrlPlacementForm.TabButtonCallback);">
+<i class="gi gi-gbp"></i>&nbsp; Contract/Temp
+</a>
+</li>
+<li id="placement-form-tab-permanent-li">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-permanent', ctrlPlacementForm.TabButtonCallback);">
+<i class="gi gi-gbp"></i>&nbsp; Permanent
+</a>
+</li>
+<li id="placement-form-tab-attributes-li">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-attributes', ctrlPlacementForm.TabButtonCallback);">
+<i class="gi gi-settings"></i>&nbsp; Attributes
+</a>
+</li>
+<li id="placement-form-tab-backoffice-li">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-backoffice', ctrlPlacementForm.TabButtonCallback);">
+<i class="fa fa-bank"></i>&nbsp; Back Office
+</a>
+</li>
+<li id="placement-form-tab-timesheets-li">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-timesheets', ctrlPlacementForm.TabButtonCallback);">
+<i class="gi gi-stopwatch"></i>&nbsp; Timesheets
+</a>
+</li>
+<li id="placement-form-tab-documentlibrary-li">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-documentlibrary', ctrlPlacementForm.TabButtonCallback);">
+<i class="fa fa-folder-o"></i>&nbsp; Documents
+</a>
+</li>
+<li id="placement-form-tab-noteshistory-li">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-noteshistory', ctrlPlacementForm.TabButtonCallback);">
+<i class="gi gi-notes"></i>&nbsp; Notes
+</a>
+</li>
+<li id="placement-form-tab-scheduledtasks-li">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-scheduledtasks', ctrlPlacementForm.TabButtonCallback);">
+<i class="gi gi-alarm"></i>&nbsp; Tasks
+</a>
+</li>
+<li id="placement-form-tab-amendments-li" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-amendments', ctrlPlacementForm.TabButtonCallback);">
+<i class="gi gi-git_compare"></i>&nbsp;  Amendments
+</a>
+</li>
+<li id="placement-form-tab-custom" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'placement-form-panel-custom', ctrlPlacementForm.TabButtonCallback);">
+<i class="gi gi-cargo"></i>&nbsp;  <span id="placement-form-tab-custom-caption">Custom</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="tab-content">
+<div class="tab-pane" id="placement-form-panel-contract">
+<div id="placement-form-contract-rates"></div>
+</div>
+<div class="tab-pane" id="placement-form-panel-permanent">
+<div id="placement-form-permanent-salary"></div>
+</div>
+<div class="tab-pane" id="placement-form-panel-attributes">
+<div id="placement-form-attributes"></div>
+</div>
+<div class="tab-pane" id="placement-form-panel-backoffice">
+<div class="block" id="placement-timesheet-frequency-container">
+<div class="block-title">
+<h3>Timesheet Frequency</h3>
+</div>
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td colspan="2">
+Any timesheets created against this placement will capture daily hours based upon this frequency i.e. weekly, monthly etc..
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Frequency</strong></td>
+<td>
+<input id="PlacementConfigFields_TimesheetFrequency" style="width:200px;" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="block" id="placement-linemanager-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.LineManagerGridFileMenuCallback('file-new')" class="btn btn-sm btn-default enable-tooltip" title="Add line manager">
+<i class="fa fa-plus fa-fw"></i> &nbsp; Add
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.LineManagerGridFileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete selected line manager">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Remove
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.LineManagerGridFileMenuCallback('set-primary')" class="btn btn-sm btn-default enable-tooltip" title="Set selected line manager as primary">
+<i class="fa fa-check-square-o"></i> &nbsp; Set as Primary
+</a>
+<span>&nbsp;</span>
+<div id="placementLineManagerGridMenu">
+</div>
+</div>
+<h3>Line Managers</h3>
+</div>
+<div id="placementForm-LineManagerGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="placement-form-panel-timesheets">
+<div class="block" id="placement-timesheet-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="placementTimesheetsFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.TimesheetsGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected timesheet">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.TimesheetsGridFileMenuCallback('file-delete')" id="placement-timesheet-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected timesheet">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="placementTimesheetsGridMenu">
+</div>
+<span>&nbsp;</span>
+<div id="placementTimesheetsActionsMenu">
+</div>
+</div>
+<h3>Placement Timesheets</h3>
+</div>
+<div id="placementForm-TimesheetGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="placement-form-panel-documentlibrary">
+<div id="placement-form-documentlibrary"></div>
+</div>
+<div class="tab-pane" id="placement-form-panel-noteshistory">
+<div class="block" id="placement-noteshistory-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="placementNotesHistoryFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.NotesHistoryGridFileMenuCallback('file-delete')" id="placement-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="placementNotesHistoryGridMenu">
+</div>
+</div>
+<h3>Placement Notes/History</h3>
+</div>
+<!-- The notes/history grid populated by JS -->
+<div id="placementForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="placement-form-panel-scheduledtasks">
+<div class="block" id="placement-scheduledtasks-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="placementScheduledTasksFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlPlacementForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="placement-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="placementScheduledTasksGridMenu">
+</div>
+</div>
+<h3>Placement Scheduled Tasks</h3>
+</div>
+<!-- The Scheduled Tasks grid populated by JS -->
+<div id="placementForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="placement-form-panel-amendments">
+<div class="block" id="placement-amendments-grid-container">
+<div class="block-title">
+<h3>Placement Amendments</h3>
+</div>
+<div id="placementForm-AmendmentsGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="placement-form-panel-custom">
+<div id="placement-form-customfields"></div>
+</div>
+</div>
+</div>
+<!-- END FORM TABS -->
+</div>
+<!-- END Form Caption -->
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/placement.js"></script>

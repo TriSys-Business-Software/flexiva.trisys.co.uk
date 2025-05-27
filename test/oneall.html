@@ -1,1 +1,92 @@
-<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <title>TriSys Social Networks</title> <script src="../kendoui/js/jquery.min.js"></script> </head> <body> <!-- Social Login will be embedded into the following element --> <div id="social_login_demo"></div> <script type="text/javascript"> /* Replace the subdomain with your own subdomain from a Site in your OneAll account */ var oneall_subdomain='trisys'; /* Asynchronously load the library */ var oa = document.createElement('script'); oa.type='text/javascript'; oa.async = true; oa.src='//' + oneall_subdomain + '.api.oneall.com/socialize/library.js' var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(oa, s) /* This is an event */ var my_on_login_redirect = function (args) { debugger; var connection_token = args.connection.connection_token; var user_token = args.connection.user_token; console.log("SUCCESS: You have logged in with " + args.provider.name); console.log("connection_token=" + connection_token); console.log("user_token=" + user_token); /* As this is a demo return false to cancel the redirection to the callback_uri */ return false; // Try calling Rest API to get data // This does not work because CORS is not implemented at oneall.com var sURL="https://trisys.api.oneall.com/connections/" + connection_token + ".json"; //var sURL="https://trisys.api.oneall.com/connections.json"; $.ajax({ crossDomain: true, cache: false, dataType: 'json', type: 'GET', contentType: "application/json", xhrFields: { withCredentials: true }, beforeSend: function (xhr) { // https://app.oneall.com/applications/application/?applicationid=806057 // Public Key : PPrriivvaattee  KKeeyy var sCredentials='1e53bdfd-d9b3-441c-b1a2-256732d3b690:a071450a-106d-46c0-8dc4-d82f90b9586a'; //sCredentials = btoa(sCredentials); xhr.setRequestHeader('Authorization', 'Basic ' + sCredentials); }, url: sURL, success: function (data) { var getSome = data; }, error: function (request, status, error) { console.log("ERROR: " + request + ' ' + status + ' ' + error); } }); /* As this is a demo return false to cancel the redirection to the callback_uri */ return false; } /* Initialise the asynchronous queue */ var _oneall = _oneall || []; /* True: Always force re-authentication */ _oneall.push(['social_login', 'set_force_re_authentication', true]); //return; /* Example: This does a direct connection open to google, but requires a redirector to parse the URL */ //_oneall.push(['social_login', 'set_providers', ['google']]); //_oneall.push(['social_login', 'set_callback_uri', 'http://www.trisys.co.uk/development/test/Apex/hello-redirect.html']); //_oneall.push(['social_login', 'set_event', 'on_login_redirect', my_on_login_redirect]); //_oneall.push(['social_login', 'do_login', 'google']); // When UI is loaded, press the appropriate button var on_widget_loaded = function () { //alert('on_widget_loaded'); $('#button_google').trigger('click'); // Never fires! }; _oneall.push(['social_login', 'add_event', 'on_widget_loaded', on_widget_loaded]); /* Social Login Example - this does the connection from a button click, but does it in Javascript */ _oneall.push(['social_login', 'set_providers', ['linkedin', 'google', 'windowslive']]); _oneall.push(['social_login', 'set_grid_sizes', [3,2]]); //_oneall.push(['social_login', 'set_callback_uri', 'https://trisys.api.oneall.com/socialize/callback.html']); //_oneall.push(['social_login', 'set_callback_uri', 'http://www.trisys.co.uk/development/test/Apex/hello-redirect.html']); _oneall.push(['social_login', 'set_event', 'on_login_redirect', my_on_login_redirect ]); _oneall.push(['social_login', 'do_render_ui', 'social_login_demo']); // This throws an error about a null URL: [Site:TriSys] The callback uri [null] does not seem to be a valid uri: Use the query argument callback_uri to specify it's value //_oneall.push(['social_login', 'do_login', 'google']); </script> </body> </html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TriSys Social Networks</title>
+<script src="../kendoui/js/jquery.min.js"></script>
+</head>
+<body>
+<!-- Social Login will be embedded into the following element -->
+<div id="social_login_demo"></div>
+<script type="text/javascript">
+/* Replace the subdomain with your own subdomain from a Site in your OneAll account */
+var oneall_subdomain='trisys';
+/* Asynchronously load the library */
+var oa = document.createElement('script');
+oa.type='text/javascript'; oa.async = true;
+oa.src='//' + oneall_subdomain + '.api.oneall.com/socialize/library.js'
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(oa, s)
+/* This is an event */
+var my_on_login_redirect = function (args)
+{
+debugger;
+var connection_token = args.connection.connection_token;
+var user_token = args.connection.user_token;
+console.log("SUCCESS: You have logged in with " + args.provider.name);
+console.log("connection_token=" + connection_token);
+console.log("user_token=" + user_token);
+/* As this is a demo return false to cancel the redirection to the callback_uri */
+return false;
+// Try calling Rest API to get data
+// This does not work because CORS is not implemented at oneall.com
+var sURL="https://trisys.api.oneall.com/connections/" + connection_token + ".json";
+//var sURL="https://trisys.api.oneall.com/connections.json";
+$.ajax({
+crossDomain: true,
+cache: false,
+dataType: 'json',
+type: 'GET',
+contentType: "application/json",
+xhrFields: {
+withCredentials: true
+},
+beforeSend: function (xhr)
+{
+// https://app.oneall.com/applications/application/?applicationid=806057
+// Public Key : PPrriivvaattee  KKeeyy
+var sCredentials='1e53bdfd-d9b3-441c-b1a2-256732d3b690:a071450a-106d-46c0-8dc4-d82f90b9586a';
+//sCredentials = btoa(sCredentials);
+xhr.setRequestHeader('Authorization', 'Basic ' + sCredentials);
+},
+url: sURL,
+success: function (data)
+{
+var getSome = data;
+},
+error: function (request, status, error)
+{
+console.log("ERROR: " + request + ' ' + status + ' ' + error);
+}
+});
+/* As this is a demo return false to cancel the redirection to the callback_uri */
+return false;
+}
+/* Initialise the asynchronous queue */
+var _oneall = _oneall || [];
+/* True: Always force re-authentication */
+_oneall.push(['social_login', 'set_force_re_authentication', true]);
+//return;
+/* Example: This does a direct connection open to google, but requires a redirector to parse the URL */
+//_oneall.push(['social_login', 'set_providers', ['google']]);
+//_oneall.push(['social_login', 'set_callback_uri', 'http://www.trisys.co.uk/development/test/Apex/hello-redirect.html']);
+//_oneall.push(['social_login', 'set_event', 'on_login_redirect', my_on_login_redirect]);
+//_oneall.push(['social_login', 'do_login', 'google']);
+// When UI is loaded, press the appropriate button
+var on_widget_loaded = function ()
+{
+//alert('on_widget_loaded');
+$('#button_google').trigger('click'); // Never fires!
+};
+_oneall.push(['social_login', 'add_event', 'on_widget_loaded', on_widget_loaded]);
+/* Social Login Example - this does the connection from a button click, but does it in Javascript */
+_oneall.push(['social_login', 'set_providers', ['linkedin', 'google', 'windowslive']]);
+_oneall.push(['social_login', 'set_grid_sizes', [3,2]]);
+//_oneall.push(['social_login', 'set_callback_uri', 'https://trisys.api.oneall.com/socialize/callback.html']);
+//_oneall.push(['social_login', 'set_callback_uri', 'http://www.trisys.co.uk/development/test/Apex/hello-redirect.html']);
+_oneall.push(['social_login', 'set_event', 'on_login_redirect', my_on_login_redirect ]);
+_oneall.push(['social_login', 'do_render_ui', 'social_login_demo']);
+// This throws an error about a null URL: [Site:TriSys] The callback uri [null] does not seem to be a valid uri: Use the query argument callback_uri to specify it's value
+//_oneall.push(['social_login', 'do_login', 'google']);
+</script>
+</body>
+</html>

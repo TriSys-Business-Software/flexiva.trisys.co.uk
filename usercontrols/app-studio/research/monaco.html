@@ -1,1 +1,139 @@
-<!DOCTYPE html> <html> <head> <title>Monaco Editor Controls</title> <style> #editor-container { height: 400px; border: 1px solid #ccc; margin-bottom: 10px; } .controls { margin-bottom: 10px; } </style> </head> <body> <div class="controls"> <button id="setContent">Set Content</button> <button id="getContent">Get Content</button> <button id="insertText">Insert at Cursor</button> </div> <div id="editor-container"></div> <div id="output"></div> <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <script> let editor; $(document).ready(function () { require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } }); require(['vs/editor/editor.main'], function () { // Define custom themes monaco.editor.defineTheme('customTheme', { base: 'vs-dark', inherit: true, rules: [ { token: 'comment', foreground: '#00FF00' }, { token: 'triSysApex', foreground: '#FF9999' }, { token: 'triSysSDK', foreground: '#9999FF' } ], colors: {} }); // Add token providers monaco.languages.setMonarchTokensProvider('javascript', { tokenizer: { root: [ [/\/\/.*$/, 'comment'], [/\/\*/, 'comment', '@comment'], [/TriSysApex/, 'triSysApex'], [/TriSysSDK/, 'triSysSDK'], [/[a-zA-Z_$][\w$]*/, 'identifier'], [/[{}()\[\]]/, '@brackets'], [/[;,.]/, 'delimiter'], [/"([^"\\]|\\.)*$/, 'string.invalid'], [/'([^'\\]|\\.)*$/, 'string.invalid'], [/"/, 'string', '@string_double'], [/'/, 'string', '@string_single'] ], comment: [ [/[^/*]+/, 'comment'], [/\*\//, 'comment', '@pop'], [/[/*]/, 'comment'] ], string_double: [ [/[^\\"]+/, 'string'], [/"/, 'string', '@pop'] ], string_single: [ [/[^\\']+/, 'string'], [/'/, 'string', '@pop'] ] } }); // Add your actual JS code as a string const jsLibCode1 = ` var TriSysApex = { Stuff: { MyFunc: function(param1, param2) { console.log("Woo hoo"); } } }; `; // Convert JS to TypeScript definitions automatically const tsDefinitions = ` declare var TriSysApex: typeof globalThis.${jsLibCode1} `; // Register multiple custom library definitions monaco.languages.typescript.javascriptDefaults.addExtraLib(jsLibCode1); monaco.languages.typescript.javascriptDefaults.addExtraLib(` declare var TriSysSDK: { Love: { SexAndDrugs(param1: any, param2: any): void; } } `, 'TriSysSDK.d.ts'); // Configure JavaScript defaults monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({ noSemanticValidation: false, noSyntaxValidation: false }); editor = monaco.editor.create(document.getElementById('editor-container'), { value: '// Initial content', language: 'javascript', theme: 'customTheme', automaticLayout: true }); // Set entire content $('#setContent').click(function () { editor.setValue('// New content\nfunction hello() {\n console.log("Hello!");\n}'); }); // Get entire content $('#getContent').click(function () { const content = editor.getValue(); $('#output').html('Current content: <pre>' + content + '</pre>'); }); // Insert at cursor position $('#insertText').click(function () { const position = editor.getPosition(); const insertText='\nconsole.log("Inserted text");\n'; editor.executeEdits('', [{ range: new monaco.Range( position.lineNumber, position.column, position.lineNumber, position.column ), text: insertText }]); }); }); }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script> </body> </html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Monaco Editor Controls</title>
+<style>
+#editor-container {
+height: 400px;
+border: 1px solid #ccc;
+margin-bottom: 10px;
+}
+.controls {
+margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<div class="controls">
+<button id="setContent">Set Content</button>
+<button id="getContent">Get Content</button>
+<button id="insertText">Insert at Cursor</button>
+</div>
+<div id="editor-container"></div>
+<div id="output"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+let editor;
+$(document).ready(function ()
+{
+require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+require(['vs/editor/editor.main'], function ()
+{
+// Define custom themes
+monaco.editor.defineTheme('customTheme', {
+base: 'vs-dark',
+inherit: true,
+rules: [
+{ token: 'comment', foreground: '#00FF00' },
+{ token: 'triSysApex', foreground: '#FF9999' },
+{ token: 'triSysSDK', foreground: '#9999FF' }
+],
+colors: {}
+});
+// Add token providers
+monaco.languages.setMonarchTokensProvider('javascript', {
+tokenizer: {
+root: [
+[/\/\/.*$/, 'comment'],
+[/\/\*/, 'comment', '@comment'],
+[/TriSysApex/, 'triSysApex'],
+[/TriSysSDK/, 'triSysSDK'],
+[/[a-zA-Z_$][\w$]*/, 'identifier'],
+[/[{}()\[\]]/, '@brackets'],
+[/[;,.]/, 'delimiter'],
+[/"([^"\\]|\\.)*$/, 'string.invalid'],
+[/'([^'\\]|\\.)*$/, 'string.invalid'],
+[/"/, 'string', '@string_double'],
+[/'/, 'string', '@string_single']
+],
+comment: [
+[/[^/*]+/, 'comment'],
+[/\*\//, 'comment', '@pop'],
+[/[/*]/, 'comment']
+],
+string_double: [
+[/[^\\"]+/, 'string'],
+[/"/, 'string', '@pop']
+],
+string_single: [
+[/[^\\']+/, 'string'],
+[/'/, 'string', '@pop']
+]
+}
+});
+// Add your actual JS code as a string
+const jsLibCode1 = `
+var TriSysApex = {
+Stuff: {
+MyFunc: function(param1, param2) {
+console.log("Woo hoo");
+}
+}
+};
+`;
+// Convert JS to TypeScript definitions automatically
+const tsDefinitions = `
+declare var TriSysApex: typeof globalThis.${jsLibCode1}
+`;
+// Register multiple custom library definitions
+monaco.languages.typescript.javascriptDefaults.addExtraLib(jsLibCode1);
+monaco.languages.typescript.javascriptDefaults.addExtraLib(`
+declare var TriSysSDK: {
+Love: {
+SexAndDrugs(param1: any, param2: any): void;
+}
+}
+`, 'TriSysSDK.d.ts');
+// Configure JavaScript defaults
+monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
+noSemanticValidation: false,
+noSyntaxValidation: false
+});
+editor = monaco.editor.create(document.getElementById('editor-container'), {
+value: '// Initial content',
+language: 'javascript',
+theme: 'customTheme',
+automaticLayout: true
+});
+// Set entire content
+$('#setContent').click(function ()
+{
+editor.setValue('// New content\nfunction hello() {\n console.log("Hello!");\n}');
+});
+// Get entire content
+$('#getContent').click(function ()
+{
+const content = editor.getValue();
+$('#output').html('Current content: <pre>' + content + '</pre>');
+});
+// Insert at cursor position
+$('#insertText').click(function ()
+{
+const position = editor.getPosition();
+const insertText='\nconsole.log("Inserted text");\n';
+editor.executeEdits('', [{
+range: new monaco.Range(
+position.lineNumber,
+position.column,
+position.lineNumber,
+position.column
+),
+text: insertText
+}]);
+});
+});
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</body>
+</html>

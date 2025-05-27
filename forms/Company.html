@@ -1,1 +1,521 @@
-<style scoped> .block-title > i { padding-top: 10px; padding-left: 15px; } </style> <!-- Form Caption --> <div class="block full" style="padding-bottom: 0px;"> <!-- Block Caption Title --> <div class="block-title"> <i class="gi gi-building fa-2x pull-left themed-color"></i> <h2 id="companyForm-caption">Company Form</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="TriSysApex.Pages.CompanyForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the company record" id="companyForm-save-button"> <i class="gi gi-floppy_save"></i> &nbsp; Save </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="companyForm.FileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete the company record" id="companyForm-delete-button"> <i class="fa fa-remove"></i> &nbsp; Delete </a> <div id="companyForm-FileMenu" style="display: none;"> </div> <span>&nbsp;</span> <div id="companyForm-ActionsMenu"> </div> </div> </div> <!-- END Block Caption Title --> <!-- Master Record Fields --> <div class="row"> <div class="col-md-10" style="padding-left: 0px"> <div class="form-group"> <div class="col-md-6"> <table class="table table-borderless table-striped"> <tbody> <tr> <td style="width: 120px;"><strong>Name</strong></td> <td> <trisys-field id="Company_Name" type="textbox" required="required"></trisys-field> </td> </tr> <tr> <td><strong>Web Site</strong></td> <td> <trisys-field id="Company_WebPage" type="internet" title="Visit company web site"></trisys-field> </td> </tr> <tr> <td><strong>Main Tel. No</strong></td> <td> <trisys-field id="Company_MainTelNo" type="telephone" title="Call main company telephone number"></trisys-field> </td> </tr> <tr> <td><strong>E-Mail</strong></td> <td> <trisys-field id="Company_EMail" type="email" title="Send e-mail"></trisys-field> </td> </tr> <tr> <td><strong>Industry</strong></td> <td> <trisys-field id="Company_IndustryId" type="combo"></trisys-field> </td> </tr> <tr> <td><strong>Registration No.</strong></td> <td> <trisys-field id="Company_RegistrationNumber" type="textbox"></trisys-field> </td> </tr> </tbody> </table> </div> <div class="col-md-6"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <strong>Comments</strong> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="companyForm.EditComments()" title="Edit comments" style="right:0px;"> <i class="gi gi-pen"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td> <trisys-field id="Company_Comments" type="textboxmultiline" rows="10" style="resize: vertical;"></trisys-field> </td> </tr> </tbody> </table> </div> </div> </div> <div class="col-md-2" style="vertical-align: top" id="company-form-logo-column"> <table class="table table-borderless" style="text-align: center"> <tbody> <tr> <td> <img id="CompanyConfigFields_CompanyLogo-Thumbnail2" style="height: 200px; width: 200px; cursor: pointer; /*border-radius: 50%;*/" /> </td> </tr> <tr id="company-form-logo-hovered-buttons-table-row" style="display: none;"> <td> <div id="company-form-logo-hovered-buttons-widget"> <!-- Attributes logo file widget will be placed here during hover event --> </div> </td> </tr> </tbody> </table> </div> </div> <!-- END Master Record Fields --> <!-- START TABS --> <div class="block full" id="company-form-tab-panel-buttons"> <div class="block-title"> <ul class="nav nav-tabs" data-toggle="tabs" id="company-form-tab-nav-horizontal"> <li id="company-form-tab-addresses"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-addresses', companyForm.TabButtonCallback);"> <i class="gi gi-parents"></i>&nbsp; Contacts/Addresses </a> </li> <li id="company-form-tab-organogram"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-organogram', companyForm.TabButtonCallback);"> <i class="gi gi-tree_deciduous"></i>&nbsp; Organogram </a> </li> <li id="company-form-tab-ratecard"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-ratecard', companyForm.TabButtonCallback);"> <i class="gi gi-euro"></i>&nbsp; Rate Card </a> </li> <li id="company-form-tab-attributes"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-attributes', companyForm.TabButtonCallback);"> <i class="gi gi-settings"></i>&nbsp; Attributes </a> </li> <li id="company-form-tab-relationships" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-relationships', companyForm.TabButtonCallback);"> <i class="gi gi-random"></i>&nbsp;  Relationships </a> </li> <li id="company-form-tab-backoffice" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-backoffice', companyForm.TabButtonCallback);"> <i class="fa fa-bank"></i>&nbsp; Back Office </a> </li> <li id="company-form-tab-requirements"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-requirements', companyForm.TabButtonCallback);"> <i class="gi gi-user_add"></i>&nbsp; Requirements </a> </li> <li id="company-form-tab-placements"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-placements', companyForm.TabButtonCallback);"> <i class="gi gi-gbp"></i>&nbsp; Placements </a> </li> <li id="company-form-tab-documentlibrary"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-documentlibrary', companyForm.TabButtonCallback);"> <i class="fa fa-folder-o"></i>&nbsp; Documents </a> </li> <li id="company-form-tab-noteshistory"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-noteshistory', companyForm.TabButtonCallback);"> <i class="gi gi-notes"></i>&nbsp; Notes </a> </li> <li id="company-form-tab-scheduledtasks"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-scheduledtasks', companyForm.TabButtonCallback);"> <i class="gi gi-alarm"></i>&nbsp; Tasks </a> </li> <li id="company-form-tab-custom" style="display: none;"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-custom', companyForm.TabButtonCallback);"> <i class="gi gi-cargo"></i>&nbsp;  <span id="company-form-tab-custom-caption">Custom</span> </a> </li> </ul> </div> <div class="tab-content"> <div class="tab-pane" id="company-form-panel-addresses"> <div class="block" id="company-addresses-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="companyContactMenu"> </div> <span>&nbsp;</span> <div id="companyAddressMenu"> </div> <span>&nbsp;</span> <div id="companyAddressesGridMenu"> </div> <span>&nbsp;</span> <div id="companyAddressesActionsMenu"> </div> </div> <h3>Company Addresses &amp; Contacts</h3> </div> <!-- The companies grid populated by JS --> <div id="companyForm-AddressesGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="company-form-panel-organogram"> <div id="company-form-organogram"></div> </div> <div class="tab-pane" id="company-form-panel-ratecard"> <div id="company-form-contract-rates"></div> </div> <div class="tab-pane" id="company-form-panel-attributes"> <!-- 2 Columns Row #1 Skills Documents Image/Logo --> <div class="row"> <div class="col-xs-12 col-sm-12 col-md-12"> <div id="company-form-attributes"></div> </div> <div class="col-xs-12 col-sm-12 col-md-6"> <!-- Documents Block --> <div class="block"> <div class="block-title"> <h2>Documents</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td style="width: 140px;"><strong>Brochure</strong></td> <td> <trisys-field id="CompanyConfigFields_AdditionalDoc1" type="file"></trisys-field> </td> </tr> <tr> <td style="width: 140px;"><strong>Contract T's &amp; C's</strong></td> <td> <trisys-field id="CompanyConfigFields_AdditionalDoc2" type="file"></trisys-field> </td> </tr> <tr> <td style="width: 140px;"><strong>Perm T's &amp; C's</strong></td> <td> <trisys-field id="CompanyConfigFields_AdditionalDoc3" type="file"></trisys-field> </td> </tr> <tr> <td style="width: 140px;"><strong>Tender Document</strong></td> <td> <trisys-field id="CompanyConfigFields_AdditionalDoc4" type="file"></trisys-field> </td> </tr> </tbody> </table> </div> <!-- END Documents Block --> </div> <div class="col-xs-12 col-sm-12 col-md-6"> <!-- Image/Logo Block --> <div class="block"> <div class="block-title"> <h2>Image/Logo</h2> </div> <table class="table table-borderless" style="text-align: center"> <tbody> <tr> <td> <img id="CompanyConfigFields_CompanyLogo-Thumbnail" style="height: 100px; width: 100px; border-radius: 50%; cursor: pointer;" /> </td> </tr> <tr> <td id="company-form-logo-file-tr"> <div id="CompanyConfigFields_CompanyLogo" style="width:100%;"></div> </td> </tr> </tbody> </table> </div> </div> <!-- END Image/Logo Block --> <div class="col-xs-12 col-sm-12 col-md-12"> <div class="block"> <div class="block-title"> <div class="block-options pull-right"> <div id="Div1"> </div> <div id="Div2"> </div> </div> <h2>Additional</h2> </div> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;"> <div class="col-xs-12 col-sm-4 col-md-4"> <strong>Source</strong> </div> <div class="col-xs-12 col-sm-8 col-md-8"> <trisys-field id="CompanyConfigFields_Source" type="combo"></trisys-field> </div> </div> <div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;"> <div class="col-xs-12 col-sm-4 col-md-4"> <strong>Company Division</strong> </div> <div class="col-xs-12 col-sm-8 col-md-8"> <trisys-field id="CompanyConfigFields_CompanyDivision" type="combo"></trisys-field> </div> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;"> <div class="col-xs-12 col-sm-4 col-md-4"> <strong>Company Type</strong> </div> <div class="col-xs-12 col-sm-8 col-md-8"> <trisys-field id="Company_Type" type="combo"></trisys-field> </div> </div> <div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;"> <div class="col-xs-12 col-sm-4 col-md-4"> <strong>Company Turnover</strong> </div> <div class="col-xs-12 col-sm-8 col-md-8"> <input id="Company_Turnover" style="width:100%" /> </div> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;"> <div class="col-xs-12 col-sm-4 col-md-4"> <strong>Company Employees</strong> </div> <div class="col-xs-12 col-sm-8 col-md-8"> <input id="Company_Employees" style="width:100%" /> </div> </div> <div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;"> <div class="col-xs-12 col-sm-4 col-md-4"> <strong>Company Directors</strong> </div> <div class="col-xs-12 col-sm-8 col-md-8"> <input id="Company_Directors" style="width:100%" /> </div> </div> </td> </tr> <tr> <td> <div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;"> <div class="col-xs-12 col-sm-4 col-md-4"> <strong>Company Status</strong> </div> <div class="col-xs-12 col-sm-8 col-md-8"> <trisys-field id="CompanyConfigFields_CompanyStatus" type="combo"></trisys-field> </div> </div> </td> </tr> </tbody> </table> </div> </div> </div> </div> <div class="tab-pane" id="company-form-panel-backoffice"> <!-- Back Office Row #1 --> <div class="row"> <div class="col-xs-12 col-sm-6 col-md-4"> <div id="company-form-bank-details"></div> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <!-- TODO --> </div> <div class="col-xs-12 col-sm-6 col-md-4"> <!-- TODO --> </div> </div> <!-- END Back Office #1 --> </div> <div class="tab-pane" id="company-form-panel-relationships"> <div class="block" id="company-relationships-grid-container"> </div> </div> <div class="tab-pane" id="company-form-panel-requirements"> <div class="block" id="company-requirements-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="companyRequirementsFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="companyForm.RequirementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected requirement"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="companyForm.RequirementGridFileMenuCallback('file-delete')" id="companyForm-requirements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected requirement"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="companyRequirementsGridMenu"> </div> <span>&nbsp;</span> <div id="companyRequirementsActionsMenu"> </div> </div> <h3>Company Requirements</h3> </div> <!-- The companies grid populated by JS --> <div id="companyForm-RequirementsGrid" style="border-width: 1px; width: 100%; "> </div> <!-- END Block Content --> </div> </div> <div class="tab-pane" id="company-form-panel-placements"> <div class="block" id="company-placements-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="companyPlacementsFileMenu" style="display: none;"> </div> <a href="javascript:void(0)" onclick="companyForm.PlacementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected placement"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="companyForm.PlacementGridFileMenuCallback('file-delete')" id="companyForm-placements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected placement"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="companyPlacementsGridMenu"> </div> <span>&nbsp;</span> <div id="companyPlacementsActionsMenu"> </div> </div> <h3>Company Placements</h3> </div> <!-- The company placements grid populated by JS --> <div id="companyForm-PlacementsGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="company-form-panel-documentlibrary"> <div id="company-form-documentlibrary"></div> </div> <div class="tab-pane" id="company-form-panel-noteshistory"> <div class="block" id="company-noteshistory-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="companyNotesHistoryFileMenu" style="display: none;"> </div> <a id="company-noteshistory-ExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('companyForm-NotesHistoryGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet"> <i class="fa fa-file-excel-o"></i> &nbsp; Excel </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="companyForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="companyForm.NotesHistoryGridFileMenuCallback('file-delete')" id="companyForm-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="companyNotesHistoryGridMenu"> </div> </div> <h3>Company Notes/History</h3> </div> <!-- The company notes/history grid populated by JS --> <div id="companyForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="company-form-panel-scheduledtasks"> <div class="block" id="company-scheduledtasks-grid-container"> <div class="block-title"> <div class="block-options pull-right"> <div id="companyScheduledTasksFileMenu" style="display: none;"> </div> <a id="company-scheduledtasks-ExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('companyForm-ScheduledTasksGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet"> <i class="fa fa-file-excel-o"></i> &nbsp; Excel </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="companyForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task"> <i class="gi gi-folder_open"></i> &nbsp; Open </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="companyForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="companyForm-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task"> <i class="fa fa-remove fa-fw"></i> &nbsp; Delete </a> <span>&nbsp;</span> <div id="companyScheduledTasksGridMenu"> </div> </div> <h3>Company Scheduled Tasks</h3> </div> <!-- The company Scheduled Tasks grid populated by JS --> <div id="companyForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> <div class="tab-pane" id="company-form-panel-custom"> <div id="company-form-customfields"></div> </div> </div> </div> </div> <!-- END Tabs Content --> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/company.js?ts=202411221339"></script>
+<style scoped>
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+</style>
+<!-- Form Caption -->
+<div class="block full" style="padding-bottom: 0px;">
+<!-- Block Caption Title -->
+<div class="block-title">
+<i class="gi gi-building fa-2x pull-left themed-color"></i>
+<h2 id="companyForm-caption">Company Form</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="TriSysApex.Pages.CompanyForm.SaveRecord()" class="btn btn-sm btn-default enable-tooltip" title="Save the company record" id="companyForm-save-button">
+<i class="gi gi-floppy_save"></i> &nbsp; Save
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="companyForm.FileMenuCallback('file-delete')" class="btn btn-sm btn-default enable-tooltip" title="Delete the company record" id="companyForm-delete-button">
+<i class="fa fa-remove"></i> &nbsp; Delete
+</a>
+<div id="companyForm-FileMenu" style="display: none;">
+</div>
+<span>&nbsp;</span>
+<div id="companyForm-ActionsMenu">
+</div>
+</div>
+</div>
+<!-- END Block Caption Title -->
+<!-- Master Record Fields -->
+<div class="row">
+<div class="col-md-10" style="padding-left: 0px">
+<div class="form-group">
+<div class="col-md-6">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td style="width: 120px;"><strong>Name</strong></td>
+<td>
+<trisys-field id="Company_Name" type="textbox" required="required"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Web Site</strong></td>
+<td>
+<trisys-field id="Company_WebPage" type="internet" title="Visit company web site"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Main Tel. No</strong></td>
+<td>
+<trisys-field id="Company_MainTelNo" type="telephone" title="Call main company telephone number"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>E-Mail</strong></td>
+<td>
+<trisys-field id="Company_EMail" type="email" title="Send e-mail"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Industry</strong></td>
+<td>
+<trisys-field id="Company_IndustryId" type="combo"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Registration No.</strong></td>
+<td>
+<trisys-field id="Company_RegistrationNumber" type="textbox"></trisys-field>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-6">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<strong>Comments</strong>
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="companyForm.EditComments()" title="Edit comments" style="right:0px;">
+<i class="gi gi-pen"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<trisys-field id="Company_Comments" type="textboxmultiline" rows="10" style="resize: vertical;"></trisys-field>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-md-2" style="vertical-align: top" id="company-form-logo-column">
+<table class="table table-borderless" style="text-align: center">
+<tbody>
+<tr>
+<td>
+<img id="CompanyConfigFields_CompanyLogo-Thumbnail2" style="height: 200px; width: 200px; cursor: pointer; /*border-radius: 50%;*/" />
+</td>
+</tr>
+<tr id="company-form-logo-hovered-buttons-table-row" style="display: none;">
+<td>
+<div id="company-form-logo-hovered-buttons-widget">
+<!-- Attributes logo file widget will be placed here during hover event -->
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END Master Record Fields -->
+<!-- START TABS -->
+<div class="block full" id="company-form-tab-panel-buttons">
+<div class="block-title">
+<ul class="nav nav-tabs" data-toggle="tabs" id="company-form-tab-nav-horizontal">
+<li id="company-form-tab-addresses">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-addresses', companyForm.TabButtonCallback);">
+<i class="gi gi-parents"></i>&nbsp; Contacts/Addresses
+</a>
+</li>
+<li id="company-form-tab-organogram">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-organogram', companyForm.TabButtonCallback);">
+<i class="gi gi-tree_deciduous"></i>&nbsp; Organogram
+</a>
+</li>
+<li id="company-form-tab-ratecard">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-ratecard', companyForm.TabButtonCallback);">
+<i class="gi gi-euro"></i>&nbsp; Rate Card
+</a>
+</li>
+<li id="company-form-tab-attributes">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-attributes', companyForm.TabButtonCallback);">
+<i class="gi gi-settings"></i>&nbsp; Attributes
+</a>
+</li>
+<li id="company-form-tab-relationships" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-relationships', companyForm.TabButtonCallback);">
+<i class="gi gi-random"></i>&nbsp;  Relationships
+</a>
+</li>
+<li id="company-form-tab-backoffice" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-backoffice', companyForm.TabButtonCallback);">
+<i class="fa fa-bank"></i>&nbsp; Back Office
+</a>
+</li>
+<li id="company-form-tab-requirements">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-requirements', companyForm.TabButtonCallback);">
+<i class="gi gi-user_add"></i>&nbsp; Requirements
+</a>
+</li>
+<li id="company-form-tab-placements">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-placements', companyForm.TabButtonCallback);">
+<i class="gi gi-gbp"></i>&nbsp; Placements
+</a>
+</li>
+<li id="company-form-tab-documentlibrary">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-documentlibrary', companyForm.TabButtonCallback);">
+<i class="fa fa-folder-o"></i>&nbsp; Documents
+</a>
+</li>
+<li id="company-form-tab-noteshistory">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-noteshistory', companyForm.TabButtonCallback);">
+<i class="gi gi-notes"></i>&nbsp; Notes
+</a>
+</li>
+<li id="company-form-tab-scheduledtasks">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-scheduledtasks', companyForm.TabButtonCallback);">
+<i class="gi gi-alarm"></i>&nbsp; Tasks
+</a>
+</li>
+<li id="company-form-tab-custom" style="display: none;">
+<a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'company-form-panel-custom', companyForm.TabButtonCallback);">
+<i class="gi gi-cargo"></i>&nbsp;  <span id="company-form-tab-custom-caption">Custom</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="tab-content">
+<div class="tab-pane" id="company-form-panel-addresses">
+<div class="block" id="company-addresses-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="companyContactMenu">
+</div>
+<span>&nbsp;</span>
+<div id="companyAddressMenu">
+</div>
+<span>&nbsp;</span>
+<div id="companyAddressesGridMenu">
+</div>
+<span>&nbsp;</span>
+<div id="companyAddressesActionsMenu">
+</div>
+</div>
+<h3>Company Addresses &amp; Contacts</h3>
+</div>
+<!-- The companies grid populated by JS -->
+<div id="companyForm-AddressesGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="company-form-panel-organogram">
+<div id="company-form-organogram"></div>
+</div>
+<div class="tab-pane" id="company-form-panel-ratecard">
+<div id="company-form-contract-rates"></div>
+</div>
+<div class="tab-pane" id="company-form-panel-attributes">
+<!-- 2 Columns Row #1
+Skills Documents
+Image/Logo
+-->
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div id="company-form-attributes"></div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-6">
+<!-- Documents Block -->
+<div class="block">
+<div class="block-title">
+<h2>Documents</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td style="width: 140px;"><strong>Brochure</strong></td>
+<td>
+<trisys-field id="CompanyConfigFields_AdditionalDoc1" type="file"></trisys-field>
+</td>
+</tr>
+<tr>
+<td style="width: 140px;"><strong>Contract T's &amp; C's</strong></td>
+<td>
+<trisys-field id="CompanyConfigFields_AdditionalDoc2" type="file"></trisys-field>
+</td>
+</tr>
+<tr>
+<td style="width: 140px;"><strong>Perm T's &amp; C's</strong></td>
+<td>
+<trisys-field id="CompanyConfigFields_AdditionalDoc3" type="file"></trisys-field>
+</td>
+</tr>
+<tr>
+<td style="width: 140px;"><strong>Tender Document</strong></td>
+<td>
+<trisys-field id="CompanyConfigFields_AdditionalDoc4" type="file"></trisys-field>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- END Documents Block -->
+</div>
+<div class="col-xs-12 col-sm-12 col-md-6">
+<!-- Image/Logo Block -->
+<div class="block">
+<div class="block-title">
+<h2>Image/Logo</h2>
+</div>
+<table class="table table-borderless" style="text-align: center">
+<tbody>
+<tr>
+<td>
+<img id="CompanyConfigFields_CompanyLogo-Thumbnail" style="height: 100px; width: 100px; border-radius: 50%; cursor: pointer;" />
+</td>
+</tr>
+<tr>
+<td id="company-form-logo-file-tr">
+<div id="CompanyConfigFields_CompanyLogo" style="width:100%;"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- END Image/Logo Block -->
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="block">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="Div1">
+</div>
+<div id="Div2">
+</div>
+</div>
+<h2>Additional</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;">
+<div class="col-xs-12 col-sm-4 col-md-4">
+<strong>Source</strong>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-8">
+<trisys-field id="CompanyConfigFields_Source" type="combo"></trisys-field>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;">
+<div class="col-xs-12 col-sm-4 col-md-4">
+<strong>Company Division</strong>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-8">
+<trisys-field id="CompanyConfigFields_CompanyDivision" type="combo"></trisys-field>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;">
+<div class="col-xs-12 col-sm-4 col-md-4">
+<strong>Company Type</strong>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-8">
+<trisys-field id="Company_Type" type="combo"></trisys-field>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;">
+<div class="col-xs-12 col-sm-4 col-md-4">
+<strong>Company Turnover</strong>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-8">
+<input id="Company_Turnover" style="width:100%" />
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;">
+<div class="col-xs-12 col-sm-4 col-md-4">
+<strong>Company Employees</strong>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-8">
+<input id="Company_Employees" style="width:100%" />
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;">
+<div class="col-xs-12 col-sm-4 col-md-4">
+<strong>Company Directors</strong>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-8">
+<input id="Company_Directors" style="width:100%" />
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:5px;">
+<div class="col-xs-12 col-sm-4 col-md-4">
+<strong>Company Status</strong>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-8">
+<trisys-field id="CompanyConfigFields_CompanyStatus" type="combo"></trisys-field>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="company-form-panel-backoffice">
+<!-- Back Office Row #1 -->
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-4">
+<div id="company-form-bank-details"></div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<!-- TODO -->
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+<!-- TODO -->
+</div>
+</div>
+<!-- END Back Office #1 -->
+</div>
+<div class="tab-pane" id="company-form-panel-relationships">
+<div class="block" id="company-relationships-grid-container">
+</div>
+</div>
+<div class="tab-pane" id="company-form-panel-requirements">
+<div class="block" id="company-requirements-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="companyRequirementsFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="companyForm.RequirementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected requirement">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="companyForm.RequirementGridFileMenuCallback('file-delete')" id="companyForm-requirements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected requirement">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="companyRequirementsGridMenu">
+</div>
+<span>&nbsp;</span>
+<div id="companyRequirementsActionsMenu">
+</div>
+</div>
+<h3>Company Requirements</h3>
+</div>
+<!-- The companies grid populated by JS -->
+<div id="companyForm-RequirementsGrid" style="border-width: 1px; width: 100%; ">
+</div>
+<!-- END Block Content -->
+</div>
+</div>
+<div class="tab-pane" id="company-form-panel-placements">
+<div class="block" id="company-placements-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="companyPlacementsFileMenu" style="display: none;">
+</div>
+<a href="javascript:void(0)" onclick="companyForm.PlacementGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected placement">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="companyForm.PlacementGridFileMenuCallback('file-delete')" id="companyForm-placements-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected placement">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="companyPlacementsGridMenu">
+</div>
+<span>&nbsp;</span>
+<div id="companyPlacementsActionsMenu">
+</div>
+</div>
+<h3>Company Placements</h3>
+</div>
+<!-- The company placements grid populated by JS -->
+<div id="companyForm-PlacementsGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="company-form-panel-documentlibrary">
+<div id="company-form-documentlibrary"></div>
+</div>
+<div class="tab-pane" id="company-form-panel-noteshistory">
+<div class="block" id="company-noteshistory-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="companyNotesHistoryFileMenu" style="display: none;">
+</div>
+<a id="company-noteshistory-ExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('companyForm-NotesHistoryGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+<i class="fa fa-file-excel-o"></i> &nbsp; Excel
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="companyForm.NotesHistoryGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected note/history">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="companyForm.NotesHistoryGridFileMenuCallback('file-delete')" id="companyForm-noteshistory-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected note/history">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="companyNotesHistoryGridMenu">
+</div>
+</div>
+<h3>Company Notes/History</h3>
+</div>
+<!-- The company notes/history grid populated by JS -->
+<div id="companyForm-NotesHistoryGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="company-form-panel-scheduledtasks">
+<div class="block" id="company-scheduledtasks-grid-container">
+<div class="block-title">
+<div class="block-options pull-right">
+<div id="companyScheduledTasksFileMenu" style="display: none;">
+</div>
+<a id="company-scheduledtasks-ExportToExcel" href="javascript:void(0)" onclick="TriSysSDK.Grid.ExportToExcel('companyForm-ScheduledTasksGrid')" class=" btn btn-sm btn-default enable-tooltip" title="Export grid to Microsoft Excel spreadsheet">
+<i class="fa fa-file-excel-o"></i> &nbsp; Excel
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="companyForm.ScheduledTaskGridFileMenuCallback('file-open')" class="btn btn-sm btn-default enable-tooltip" title="Open selected scheduled task">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="companyForm.ScheduledTaskGridFileMenuCallback('file-delete')" id="companyForm-scheduledtasks-delete-button" class="btn btn-sm btn-default enable-tooltip" title="Delete selected scheduled task">
+<i class="fa fa-remove fa-fw"></i> &nbsp; Delete
+</a>
+<span>&nbsp;</span>
+<div id="companyScheduledTasksGridMenu">
+</div>
+</div>
+<h3>Company Scheduled Tasks</h3>
+</div>
+<!-- The company Scheduled Tasks grid populated by JS -->
+<div id="companyForm-ScheduledTasksGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+<div class="tab-pane" id="company-form-panel-custom">
+<div id="company-form-customfields"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- END Tabs Content -->
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/company.js?ts=202411221339"></script>

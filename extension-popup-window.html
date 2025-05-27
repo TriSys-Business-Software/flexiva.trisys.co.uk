@@ -1,1 +1,1212 @@
-<!DOCTYPE html> <!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]--> <!--[if IE 9]> <html class="no-js lt-ie10"> <![endif]--> <!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]--> <head> <meta charset="utf-8"> <title>TriSys Apex Web Browser Popup Window</title> <meta name="description" content="TriSys Apex is a web browser and mobile app recruiting CRM system for recruitment agencies."> <meta name="author" content="TriSys Business Software"> <meta name="robots" content="noindex, nofollow"> <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0"> <link rel="icon" type="image/x-icon" href="https://apex.trisys.co.uk/images/trisys/16x16/TriSys-16x16.ico"> <!-- COMMENTED MOST OUT AS WE HAVE PLATFORMIX --> <!-- Stylesheets --> <!-- jQuery style for Tooltips --> <!--<link href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />--> <!-- Bootstrap is included in its original form, unaltered --> <!-- There is something in the ProUI version of this which does not exist in general release i.e. https://stackpath.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css --> <!--<link rel="stylesheet" href="css/bootstrap.min.css">--> <!-- Needed for drop down menus! --> <!-- Related styles of various icon packs and plugins --> <!--<link rel="stylesheet" href="css/plugins.css">--> <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here --> <!--<link rel="stylesheet" href="css/main.css">--> <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template --> <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) --> <!--<link rel="stylesheet" href="css/themes.css">--> <!-- END Stylesheets --> <style scoped> .trisys-extension-brand { margin: 0; font-weight: 300; font-size: 18px; display: block; color: #ffffff; } a.trisys-extension-brand a:hover, a:focus, a:link, a:active, a:visited { color: white; text-decoration: none; } .trisys-extension-text { font-weight: 300; font-size: 12px; color: #394263; /*display: block;*/ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } a.trisys-extension-text { color: #394263; text-decoration: none; } .trisys-user-avatar img { /*width: 64px; height: 64px;*/ border-radius: 25px; width: 52px; height: 52px; float: left; padding: 2px; /*margin-left: -78px;*/ border-radius: 34px; background: url('../img/template/ie8_opacity_light_75.png') repeat; background: rgba(255, 255, 255, 0.75); } .panel-heading { padding-left: 5px; } a.panel-title { color: white; text-decoration: none; } .panel-title a:hover, a:focus { /*color: white;*/ text-decoration: none; } .extension-toolbar-buttonmenu-separator { width: 1px; height: 10px; display: inline-block; } .accordion-right-label { color: white; margin-right: 14px; border-radius: 8px; padding: 6px; padding-top: 4px; padding-bottom: 4px; margin-top: 0px; height: 18px; vertical-align: middle; line-height: 20px; font-size: 12px; } .matching-contacts-label { color: white; margin-right: 14px; border-radius: 8px; padding: 6px; padding-top: 0px; margin-top: 8px; height: 20px; vertical-align: middle; line-height: 20px; font-size: 11px; } a.matching-contacts-label { color: white; text-decoration: none; cursor: pointer; } .contact-id-type { background-color: #e74c3c; } .numberof-requirements { background-color: #43a1ad; } .numberof-placements { background-color: #e67e22; } .numberof-note-histories { background-color: #344a3d; } .numberof-scheduled-tasks { background-color: #b14169; } .contact-record-table-field-name { width: 130px; font-size: 11px; padding-left: 8px !important; } .popup-contact-row { max-height: 26px; height: 26px; } .apply-changes-row { font-size: 12px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-bottom: 1px solid #f5f5f5; } .extension-apply-changes-container-div:last-child { /* No workie */ border-bottom: none; } .apply-changes-header-row { line-height: 24px; /*border-top: 1px solid #f3f0f0;*/ border-bottom: 1px solid #f3f0f0; padding-bottom: 2px; margin-bottom: 6px; background-color: #f5f5f5; } .apply-changes-row-field-label { font-size: 10px; color:gray; } .apply-changes-row-field-edit-text { line-height: 1.5em !important; text-indent: .3em !important; width: 180px !important; margin-top: 2px; margin-bottom: 2px; } .apply-changes-row-field-value { white-space: nowrap; width: 180px; overflow: hidden; text-overflow: ellipsis; /*-o-text-overflow: ellipsis;*/ padding-top: 6px; } .apply-changes-row-field-switch { padding-top: 0px; margin-top: -4px; } /* Has stop embed applied input code */ .switch-primary input:checked + span { background-color: #4c5572; } .open-contact-button { padding: 4px !important; padding-left: 8px !important; padding-right: 8px !important; background-color: #5db137 !important; color: white !important; font-size: 11px !important; margin-top: -4px !important; margin-bottom: 6px !important; } /* https://www.telerik.com/account/support-tickets/view-ticket/1455058 */ /* All this just to remove spacing around the contact type combo */ #extension-apply-changes-source-contact-type > div > span > span { height: 22px; } #extension-apply-changes-source-contact-type > div > span > span > span.k-input { padding-left: 4px; padding-top: 0px; margin-top: -4px; } #extension-apply-changes-contact-type-row > div:nth-child(2) > span > span > span.k-input { line-height: 1.5em; margin-left: -5px; } #extension-apply-changes-contact-type-row > div:nth-child(2) > span > span > span.k-select > span { position: initial; } </style> </head> <body style="margin: 0px; padding: 0px; width: 100%; overflow-y: hidden;"> <!-- Toolbar --> <div class="row" style="width: 100%; padding: 0px; margin: 0px; height: 32px; background-color: #4c5572; border-radius: 4px;" id="trisys-extension-popup-toolbar"> <div class="col-2" style="padding-left: 8px; padding-right: 0px; padding-top: 2px; vertical-align: middle;" id="trisys-extension-popup-toolbar-logo"> <a href="https://trisys.co.uk" target="_blank" class="trisys-extension-brand" onmouseover="" style="cursor: pointer;"> <img src="images/t-logo32.png" height="16" width="16" alt="TriSys" style="border-radius: 2px;" /> <span class="sidebar-nav-mini-hide" style="padding-left: 4px;"> <strong style="font-size: 14px; color: white;">TriSys</strong> </span> </a> </div> <div class="col-3" id="trisys-extension-popup-toolbar-advertising" style="padding-right: 0px; padding-top: 4px; text-align: right;"> <!-- Dynamically added --> </div> <div class="col-7" style="padding-left: 0px; padding-right: 0px;" id="trisys-extension-popup-toolbar-menu"> <div class="block-options pull-right" style="min-height: 30px; line-height: 28px; padding-top: 1px; display: none;" id="trisys-extension-popup-toolbar-buttons"> <div id="toolbar-menu"></div> </div> </div> </div> <!-- Toolbar End --> <!-- Show a loading gif whilst we initialise page --> <div class="row" style="width: 100%; padding: 0px; margin: 0px;" id="trisys-extension-popup-spinner"> <div class="col-12" style="text-align: center; padding-top: 4px; height: 554px;"> <table style="width: 100%; margin: 0px; height: 100%; /*border-radius: 4px; border: 1px solid #4c5572;*/"> <tbody> <tr> <td style="height: 300px; vertical-align: middle; text-align: center;"> <!-- Randomly allocated when we are invoked --> <img id="trisys-extension-popup-spinner-image"> </td> </tr> </tbody> </table> </div> </div> <!-- The parsed contact photo, name and job title is displayed before connecting to TriSys as this is the first thing the user will see when opening up the TriSys extension --> <div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-parsed-header"> <div class="col-sm-12" style="padding: 5px; padding-left: 0px; padding-right: 1px;"> <table style="table-layout: fixed; width: 100%; margin-right: 15px; line-height: 1.50;"> <tr style="vertical-align: middle"> <td class="trisys-user-avatar" style="width: 60px;" onclick="TriSysExtension.OpenProfilePicture('parsed-contact-photo', 'parsed-contact-name')"> <img id="parsed-contact-photo" src="https://apex.trisys.co.uk/images/profile-grey.png" alt="&nbsp;" /> </td> <td class="trisys-extension-text"> <a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenContactForm()"> <b><span id="parsed-contact-name"></span></b> </a> <br /> <i><span id="parsed-contact-jobtitle"></span></i> <br /> <a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenCompanyForm()"> <span id="parsed-company-name"></span> </a> </td> <td style="width: 70px; text-align: right; padding-right: 0px;"> <span id="parsed-contact-type" style="text-align: right; padding-right: 2px;"></span> </td> </tr> </table> </div> </div> <div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-popup-header"> <div class="col-sm-12" style="padding: 5px; padding-left: 0px; padding-right: 1px;"> <table style="table-layout: fixed; width: 100%; margin-right: 15px; line-height: 1.50;"> <tr style="vertical-align: middle"> <td class="trisys-user-avatar" style="width: 60px;" onclick="TriSysExtension.OpenProfilePicture('popup-contact-photo', 'popup-contact-name')"> <img id="popup-contact-photo" src="https://apex.trisys.co.uk/images/profile-grey.png" alt="&nbsp;" /> </td> <td class="trisys-extension-text"> <a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenContactForm()"> <b><span id="popup-contact-name"></span></b> </a> <br /> <i><span id="popup-contact-jobtitle"></span></i> <br /> <a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenCompanyForm()"> <span id="popup-company-name"></span> </a> </td> <td style="width: 70px; text-align: right; padding-right: 0px;"> <button class="k-button open-contact-button" onclick="TriSysExtension.OpenContactForm()" title="Open contact record in TriSys"> <i class="gi gi-folder_open"></i> &nbsp; Open </button> <br /> <a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the LinkedIn social network profile" id="popup-contact-linkedin-profile-hyperlink" target="_blank"> <img src="images/linkedin.png" height="16" width="16" /> </a> <div class="extension-toolbar-buttonmenu-separator"></div> <a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the Facebook page" id="popup-contact-facebook-hyperlink" target="_blank"> <img src="images/facebook.png" height="16" width="16" /> </a> <div class="extension-toolbar-buttonmenu-separator"></div> <a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the Twitter feed" id="popup-contact-twitter-hyperlink" target="_blank"> <img src="images/twitter.png" height="16" width="16" /> </a> </td> </tr> </table> </div> </div> <!-- The parsed data panel is displayed before connecting to TriSys as this is the first thing the user will see when opening up the TriSys extension --> <div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-parsed-panel"> <div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;" id="parsed-group-panel"> <div class="panel-group"> <div class="panel panel-default" id="panel-parsed-details"> <div class="panel-heading" style="padding-top: 5px; padding-bottom: 5px; color: #4c5572;"> <h4 class="panel-title" style="font-size: 12px;"> <i class="gi gi-parents" id="parsed-public-profile-image"></i> <span> &nbsp; <span id="parsed-public-profile-text">Public Profile</span> </span> </h4> </div> <div id="parsed-contact-details" class="panel-collapse" style="height: 467px; overflow-y : auto;"> <!--  collapse in--> <div class="panel-body" style="padding: 5px;"> <table class="table table-borderless table-striped" id="parsed-contact-details-table"> <tbody> <tr id="parsed-contact-linkedin-tr"> <td style="width: 110px;"> <img src="images/linkedin.png" height="16" width="16" /> &nbsp; Profile </td> <td> <span id="parsed-contact-profile-url"></span> </td> </tr> <tr> <td style="width: 110px;"> <i class="fa fa-envelope"></i> &nbsp; <span id="parsed-contact-work-email-text">Work</span> </td> <td> <a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-work-email-hyperlink" target="_blank"> <span id="parsed-contact-work-email"></span> </a> &nbsp; <span id="parsed-contact-sender-name"></span> </td> </tr> <tr id="parsed-contact-website-tr"> <td style="width: 110px;"> <i class="fa fa-link"></i> &nbsp; Website </td> <td> <a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-website-hyperlink" target="_blank"> <span id="parsed-contact-website"></span> </a> </td> </tr> <tr id="parsed-contact-personal-email-tr"> <td> <i class="fa fa-envelope-o"></i> &nbsp; Personal </td> <td> <a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-personal-email-hyperlink" target="_blank"> <span id="parsed-contact-personal-email"></span> </a> </td> </tr> <tr id="parsed-contact-work-telno-tr"> <td> <i class="fa fa-phone"></i> &nbsp; Work </td> <td> <!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-work-telno-hyperlink" target="_blank">--> <span id="parsed-contact-work-telno"></span> <!--</a>--> </td> </tr> <tr id="parsed-contact-personal-mobile-tr"> <td> <i class="gi gi-iphone"></i> &nbsp; Personal </td> <td> <!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-mobile-telno-hyperlink" target="_blank">--> <span id="parsed-contact-personal-mobile-telno"></span> <!--</a>--> </td> </tr> <tr id="parsed-contact-work-mobile-tr"> <td> <i class="gi gi-iphone"></i> &nbsp; Work </td> <td> <!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-mobile-telno-hyperlink" target="_blank">--> <span id="parsed-contact-work-mobile-telno"></span> <!--</a>--> </td> </tr> <tr id="parsed-contact-location-tr"> <td> <i class="fa fa-home"></i> &nbsp; Location </td> <td> <span id="parsed-contact-address-summary"></span> </td> </tr> <tr id="parsed-contact-address-tr"> <td> <i class="gi gi-google_maps"></i> &nbsp; Address </td> <td> <a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-address-hyperlink" target="_blank"> <span id="parsed-contact-address"></span> </a> </td> </tr> <tr id="parsed-contact-home-telno-tr"> <td> <i class="gi gi-phone_alt"></i> &nbsp; Home </td> <td> <span id="parsed-contact-home-telno"></span> </td> </tr> <tr id="parsed-contact-twitter-tr"> <td> <img src="images/twitter.png" height="16" width="16" /> &nbsp; Twitter </td> <td> <a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-twitter-hyperlink" target="_blank"> <span id="parsed-contact-twitter"></span> </a> </td> </tr> <tr id="parsed-contact-skype-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="si si-skype"></i> &nbsp; Skype </td> <td> <span id="parsed-contact-skype"></span> </td> </tr> <tr id="looking-up-profile-in-trisys-spinner" style="height: 48px;"> <td> <img src="https://apex.trisys.co.uk/images/trisys/128x128/Camera-1s-128px.gif" style="height: 48px; width: 48px;" id="looking-up-profile-in-trisys-spinner-image"> </td> <td style="vertical-align:middle;"> <strong>Looking up contact in TriSys...</strong> </td> </tr> <tr id="looking-up-profile-nothing-found" style="display: none; border-top: 1px solid rgba(76, 85, 114, 0.15);"> <td> <img src="https://apex.trisys.co.uk/images/trisys/128x128/information-2s-128px.gif" style="height: 48px; width: 48px;"> </td> <td style="vertical-align:middle;"> <strong>Unable to find a matching contact in TriSys</strong> <br /> Use the Add menu to create a new contact record using this profile, or assign this profile to an existing contact record in TriSys. </td> </tr> </tbody> </table> </div> </div> </div> </div> </div> </div> <div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-accordion-panel"> <div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;" id="accordion-group-panel"> <ul id="accordion-panelbar"> <li class="k-state-active"> <span class="k-link k-state-selected"> <table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;"> <tr> <td style="width: 50%"> <i class="gi gi-parents" style="margin-top: -2px; color: #e74c3c;"></i> &nbsp; Contact Details &nbsp; </td> <td style="width: 50%;  padding-right: 10px; text-align: right;"> <span id="popup-contact-details-id" class="accordion-right-label contact-id-type"></span> </td> </tr> </table> </span> <div style="padding: 4px; min-height: 260px; max-height: 260px; overflow-y : auto;" id="accordion-panelbar-contact-details-div"> <table class="table table-bordered table-striped table-condensed" style="height: 260px; min-height: 260px; margin-bottom: 0px; font-size: 12px;" id="accordion-panelbar-contact-details-table"> <tbody> <tr id="popup-contact-work-email-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="fa fa-envelope"></i> &nbsp; Work E-Mail </td> <td> <a href="javascript:void(0)" class="trisys-extension-text" id="popup-contact-work-email-hyperlink" target="_blank"> <span id="popup-contact-work-email"></span> </a> </td> </tr> <tr id="popup-contact-work-phone-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="fa fa-phone" style="padding-left: 2px; padding-right: 1px;"></i> &nbsp; Work Phone </td> <td> <span id="popup-contact-work-telno"></span> </td> </tr> <tr id="popup-contact-work-mobile-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="gi gi-iphone"></i> &nbsp; Work Mobile </td> <td> <!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-mobile-telno-hyperlink" target="_blank">--> <span id="popup-contact-work-mobile-telno"></span> <!--</a>--> </td> </tr> <tr id="popup-contact-personal-email-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="fa fa-envelope-o"></i> &nbsp; Personal E-Mail </td> <td> <a href="javascript:void(0)" class="trisys-extension-text" id="popup-contact-personal-email-hyperlink" target="_blank"> <span id="popup-contact-personal-email"></span> </a> </td> </tr> <tr id="popup-contact-personal-mobile-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="gi gi-iphone"></i> &nbsp; Personal Mobile </td> <td> <!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-mobile-telno-hyperlink" target="_blank">--> <span id="popup-contact-personal-mobile-telno"></span> <!--</a>--> </td> </tr> <tr id="popup-contact-home-phone-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="gi gi-phone_alt"></i> &nbsp; Home Phone </td> <td> <span id="popup-contact-home-telno"></span> </td> </tr> <tr id="popup-contact-address-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="gi gi-google_maps"></i> &nbsp; Address </td> <td> <span id="popup-contact-address-summary"></span> </td> </tr> <tr id="popup-contact-website-tr" class="popup-contact-row" style="display: none;"> <td class="contact-record-table-field-name"> <i class="gi gi-globe_af"></i> &nbsp; Website </td> <td> <a class="trisys-extension-text" id="popup-contact-website-hyperlink" target="_blank"> <span id="popup-contact-website"></span> </a> </td> </tr> <tr id="popup-contact-skype-tr" class="popup-contact-row"> <td class="contact-record-table-field-name"> <i class="si si-skype"></i> &nbsp; Skype </td> <td> <span id="popup-contact-skype"></span> </td> </tr> <tr id="popup-contact-buffer-tr" style="background-color: transparent;"> <td colspan="2"> <!-- Only here so that if we have a small number of fields, this expands to fill space --> </td> </tr> </tbody> </table> </div> </li> <li id="accordion-panelbar-cvpreview-li"> <i class="gi gi-file_export" style="margin-top: -2px; color: #583a63;"></i> &nbsp; CV Preview <div id="cv-preview" style="max-height: 268px; overflow-y : auto;"> <div style="height: 800px; width: 100%;" id="cv-preview-control"></div> </div> </li> <li id="accordion-panelbar-requirements-li"> <table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;"> <tr> <td style="width: 50%"> <i class="gi gi-user_add" style="margin-top: -2px; color: #43a1ad;"></i> &nbsp; Requirements &nbsp; </td> <td style="width: 50%;  padding-right: 10px; text-align: right;"> <span id="popup-requirements-id" class="accordion-right-label numberof-requirements"></span> </td> </tr> </table> <div id="requirements" style="max-height: 268px; overflow-y : auto; font-size: 12px;"> <table class="table table-borderless table-striped" style="min-height: 248px;" id="accordion-panelbar-requirements-table"> <tbody class="trisys-requirements-tbody" style=" display: none;"> <tr style="max-height: 30px; height: 30px;"> <td class="text-center" style="width: 30px; color: #43a1ad;"> <i class="gi gi-user_add"></i> </td> <td> <a class="hyperlink trisys-extension-text" href="javascript:void(0)"> <strong><span class="Reference"></span></strong> </a>: <span class="JobTitle"></span> <br /> <span class="ClientName"></span>, <span class="CompanyName"></span> <div class="text-muted"> Earliest Start: <span class="EarliestStartDate"></span> </div> </td> </tr> </tbody> </table> </div> </li> <li id="accordion-panelbar-placements-li"> <table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;"> <tr> <td style="width: 50%"> <i class="gi gi-gbp" style="margin-top: -2px; color: #e67e22;"></i> &nbsp; Placements &nbsp; </td> <td style="width: 50%;  padding-right: 10px; text-align: right;"> <span id="popup-placements-id" class="accordion-right-label numberof-placements"></span> </td> </tr> </table> <div id="placements" style="max-height: 268px; overflow-y : auto; font-size: 12px;"> <table class="table table-borderless table-striped" style="min-height: 248px;" id="accordion-panelbar-placements-table"> <tbody class="trisys-placements-tbody" style=" display: none;"> <tr style="max-height: 30px; height: 30px;"> <td class="text-center" style="width: 30px; color: #e67e22;"> <i class="gi gi-gbp"></i> </td> <td> <a class="hyperlink trisys-extension-text" href="javascript:void(0)"> <strong><span class="Reference"></span></strong> </a>: <span class="JobTitle"></span> <br /> Client/Company: <span class="ClientName"></span>, <span class="CompanyName"></span> <br /> Candidate: <span class="CandidateName"></span> <div class="text-muted"> Start: <span class="StartDate"></span> </div> </td> </tr> </tbody> </table> </div> </li> <li> <table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;"> <tr> <td style="width: 50%"> <i class="gi gi-notes_2" style="margin-top: -2px; color: #344a3d;"></i> &nbsp; Notes/History &nbsp; </td> <td style="width: 50%;  padding-right: 10px; text-align: right;"> <span id="popup-notes-history-id" class="accordion-right-label numberof-note-histories"></span> </td> </tr> </table> <div style="max-height: 268px; overflow-y : auto; font-size: 12px;" id="accordion-panelbar-noteshistory-div"> <table class="table table-borderless table-striped" style="min-height: 248px;" id="accordion-panelbar-noteshistory-table"> <tbody class="trisys-noteshistory-tbody" style="display: none;"> <tr style="max-height: 30px; height: 30px;"> <td class="text-center" style="width: 30px;"> <img class="TaskType" style="width: 24px; height: 24px;" /> </td> <td> <a class="hyperlink trisys-extension-text" href="javascript:void(0)"> <strong><span class="TaskTypeText"></span></strong> </a> <br /> <span class="DisplayDescription"></span> <br /> <div class="text-muted"> <span class="StartDate"></span> </div> </td> </tr> </tbody> </table> <a class="hyperlink trisys-extension-text" href="javascript:void(0)" id="trisys-noteshistory-more-hyperlink" onclick="TriSysExtension.ViewNoteHistoryTasks()" style="display: none;"> <strong><span id="trisys-noteshistory-more-text"></span></strong> </a> </div> </li> <li> <table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;"> <tr> <td style="width: 50%"> <i class="gi gi-calendar" style="margin-top: -2px; color: #b14169;"></i> &nbsp; Scheduled Tasks &nbsp; </td> <td style="width: 50%;  padding-right: 10px; text-align: right;"> <span id="popup-scheduled-tasks-id" class="accordion-right-label numberof-scheduled-tasks"></span> </td> </tr> </table> <div style="max-height: 268px; overflow-y : auto; font-size: 12px;" id="accordion-panelbar-scheduledtasks-div"> <table class="table table-borderless table-striped" style="min-height: 248px;" id="accordion-panelbar-scheduledtasks-table"> <tbody class="trisys-scheduledtasks-tbody" style="display: none;"> <tr style="max-height: 30px; height: 30px;"> <td class="text-center" style="width: 30px;"> <img class="TaskType" style="width: 24px; height: 24px;" /> </td> <td> <a class="hyperlink trisys-extension-text" href="javascript:void(0)"> <strong><span class="TaskTypeText"></span></strong> </a> <br /> <span class="DisplayDescription"></span> <br /> <div class="text-muted"> <span class="StartDate"></span> </div> </td> </tr> </tbody> </table> <a class="hyperlink trisys-extension-text" href="javascript:void(0)" id="trisys-scheduledtasks-more-hyperlink" onclick="TriSysExtension.ViewScheduledTasks()" style="display: none;"> <strong><span id="trisys-scheduledtasks-more-text"></span></strong> </a> </div> </li> </ul> </div> </div> <div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-popup-information"> <div class="col-sm-12" style="padding-left: 5px; padding-right: 5px;"> <h5> <img src="https://apex.trisys.co.uk/images/trisys/trisys-web-browser-extension-256.png" alt="TriSys Browser Extension" /> </h5> <p style="max-height: 500px; overflow-y : auto;"> This component allows you to connect your web browser to TriSys Cloud. <br /> <br /> TriSys is a suite of sophisticated business sofware tools running in a global cloud computing system allowing you access to your data from any device (mobile phone, tablet, PC, smart speaker), at any time. <br /> <br /> Please click the Connect button below to submit your credentials, or learn more or sign-up to our services. </p> <p> <button class="k-button" onclick="TriSysExtension.Login()" style="margin-right: 5px; background-color: #4c5572; color: white;"> <i class="gi gi-check"></i> &nbsp; Connect </button> &nbsp; <button class="k-button pull-right" onclick="TriSysExtension.SignUp()" style="margin-right: 5px;"> <i class="gi gi-globe"></i> &nbsp; Learn More / Sign-Up </button> </p> </div> </div> <div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-no-parsed-profile"> <div class="col-sm-12" style="padding-left: 5px; padding-right: 5px;"> <h5> TriSys Add-In </h5> <p style="max-height: 500px; overflow-y : auto;"> This web page did not provide any contact profile details to display. <br /> <br /> Please close this popup by clicking the button below, and then refresh the current page or visit another page. </p> <p> <button class="k-button" onclick="TriSysExtension.ClosePopupWindow()" style="margin-right: 5px; background-color: #4c5572; color: white;"> <i class="gi gi-exit"></i> &nbsp; Close Popup </button> </p> </div> </div> <div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-popup-duplicate-contacts"> <div class="col-sm-12" style="padding-left: 5px; padding-right: 5px; max-height: 480px; overflow-y : auto;"> <h5> <span id="matching-contacts-count"></span> Matching Contacts </h5> <table class="table table-borderless table-striped"> <tbody class="trisys-duplicate-contacts-tbody"> <tr> <td class="trisys-user-avatar" style="width: 60px;"> <a class="hyperlink" href="javascript:void(0)"> <img class="Photo" style="width: 48px; height: 48px;" /> </a> </td> <td title="Click on the contact name to compare contact details, or click on the red label showing contact type to open the matching contact in TriSys"> <a class="hyperlink trisys-extension-text" href="javascript:void(0)"> <strong><span class="FullName"></span></strong> </a> <br /> <i><span class="JobTitle"></span></i> <br /> <span class="CompanyName"></span> </td> <td style="padding-right: 0px; width: 150px;"> <a class="pull-right matching-contacts-label contact-id-type ContactTypeAndIdLabel openContactRecord" href="javascript:void(0)" style="color: white;" title="Open contact in TriSys"></a> </td> </tr> </tbody> </table> </div> </div> <!-- PLATFORMIX START --> <!-- This is to be copied into the platformix site settings for Header HTML -- This code instructs the platformix framework to inject the code/widgets/pages/controls -- necessary for providing complex business functionality via the TriSys cloud infrastructure -- -- Change the customerid to the 'hyphenated spaces' lower case company name in CRM -- Change the api if customer has an on-premise Web API -- Change the debug to "true" to load the non-obfuscated .js code --> <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script id="platformix-api" customerid="opus-laboris-recruitment" api="https://api.trisys.co.uk/" debug="true" type="text/javascript" src="https://api.trisys.co.uk/platformix/platformix-loader.js?ts=2021-12-07-1300"> </script> <!-- PLATFORMIX END --> <!-- Remember to include excanvas for IE8 chart support --> <!--[if IE 8]><script src="js/helpers/excanvas.min.js"></script><![endif]--> <!-- Local JQuery to be compatible with KendoUI and ProUI --> <!--<script src="kendoui/js/jquery.min.js"></script>--> <!--This should be version 1.11.2 --> <!-- Bootstrap.js, Jquery plugins and Custom JS code --> <!--<script src="js/vendor/bootstrap.min.js"></script>--> <!--<script src="js/app.js"></script>--> <script src="javascript/jquery-base64.min.js"></script> <script src="signalr/url-parser.js"></script> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/extension.js?ts=202112071300"></script> <!-- TriSys Apex Libraries --> <!--<script src="javascript/TriSysLoad.js?datetime=201908010853"></script>--> <!-- Index-Background.html dynamically loaded into here --> <!--<div id="Index-Background"></div>--> <!-- Load and execute javascript code used only in this extension --> <script src="js/pages/ctrlCVPreview.js"></script> <script type="text/template" id="ctrlCVPreview-html"> <div class="block" id="ctrlCVPreview-cv-block" style="padding: 10px; border: 0;"> <!-- The CV viewer as HTML content  --> <div id="ctrlCVPreview-document-viewer-converted-contents"> </div> <!-- PDF Viewer: data="https://bitcoin.org/bitcoin.pdf" --> <object id="ctrlCVPreview-document-viewer-pdf-viewer" type="application/pdf" style="height: 800px; width: 100%; display: none;"></object> </div> </script> <script type="text/template" id="extension-apply-changes-template"> <div class="row apply-changes-row"> <div class="col-12"> <p style="margin-bottom: 6px;"> Select which fields are to be copied from the public profile into the database record: </p> </div> </div> <div class="row apply-changes-row apply-changes-header-row"> <div class="col-5"> <span id="extension-apply-changes-source-linkedin"> <img src="images/linkedin.png" height="16" width="16" /> &nbsp; <strong>LinkedIn</strong> </span> <span id="extension-apply-changes-source-gmail" style="display: none;"> <img src="images/gmail-87x24.png" height="16" width="58" /> </span> </div> <div class="col-2" style="color: #4c5572;"> <strong>Copy</strong> &nbsp; <i class="gi gi-right_arrow"></i> </div> <div class="col-5"> <img src="images/t-logo32.png" height="16" width="16" /> &nbsp; <strong>TriSys</strong> </div> </div> <div style="width: 100%; max-height: 378px; overflow-y:auto; overflow-x: hidden;" id="extension-apply-changes-container-div"> <div class="row apply-changes-row" id="extension-apply-changes-profile-url-row"> <div class="col-12 apply-changes-row-field-label"> <i class="gi gi-link"></i> &nbsp; Public Profile URL </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-source-public-profile-url" title="{{extension-apply-changes-source-public-profile-url}}"> {{extension-apply-changes-source-public-profile-url}} </div> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-public-profile-url" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-public-profile-url" title="{{extension-apply-changes-trisys-public-profile-url}}"> {{extension-apply-changes-trisys-public-profile-url}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-full-name-row"> <div class="col-12 apply-changes-row-field-label"> <i class="gi gi-nameplate"></i> &nbsp; Full Name </div> <div class="col-5"> <input id="extension-apply-changes-source-full-name" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="121" title="{{extension-apply-changes-source-full-name}}" value="{{extension-apply-changes-source-full-name}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-full-name" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-full-name" title="{{extension-apply-changes-trisys-full-name}}"> {{extension-apply-changes-trisys-full-name}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-photo-row"> <div class="col-2 apply-changes-row-field-label"> <i class="gi gi-picture"></i> &nbsp; Photo </div> <div class="col-3" style="padding-right: 5px;"> <div class="trisys-user-avatar pull-right" style="width: 60px;"> <img id="extension-apply-changes-source-photo" alt="photo" src="{{extension-apply-changes-source-photo}}" /> </div> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary" style="padding-top: 16px;"> <input type="checkbox" id="extension-apply-changes-copy-photo" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="trisys-user-avatar" style="width: 60px;"> <img id="extension-apply-changes-trisys-photo" alt="photo" src="{{extension-apply-changes-trisys-photo}}" /> </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-contact-type-row"> <div class="col-12 apply-changes-row-field-label"> <i class="fa fa-wrench"></i> &nbsp; Contact Type </div> <div class="col-5"> <input id="extension-apply-changes-source-contact-type" style="width:180px;" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-contact-type" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-contact-type"> {{extension-apply-changes-trisys-contact-type}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-job-title-row"> <div class="col-12 apply-changes-row-field-label"> <i class="fa fa-gavel"></i> &nbsp; Job Title <i class="gi gi-search" style="padding-left: 112px;" onclick="TriSysExtension.LookupJobTitle()" title="Lookup a job title"></i> </div> <div class="col-5"> <input id="extension-apply-changes-source-job-title" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100" title="{{extension-apply-changes-source-job-title}}" value="{{extension-apply-changes-source-job-title}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-job-title" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-job-title" title="{{extension-apply-changes-trisys-job-title}}"> {{extension-apply-changes-trisys-job-title}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-company-name-row"> <div class="col-12 apply-changes-row-field-label"> <i class="gi gi-bank"></i> &nbsp; Company <i class="gi gi-search" style="padding-left: 107px;" onclick="TriSysExtension.LookupCompany()" title="Lookup an existing company"></i> </div> <div class="col-5"> <input id="extension-apply-changes-source-company-name" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50" title="{{extension-apply-changes-source-company-name}}" value="{{extension-apply-changes-source-company-name}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-company-name" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-company-name" title="{{extension-apply-changes-trisys-company-name}}"> {{extension-apply-changes-trisys-company-name}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-work-email-row"> <div class="col-12 apply-changes-row-field-label"> <i class="fa fa-envelope"></i> &nbsp; Work E-Mail </div> <div class="col-5"> <input id="extension-apply-changes-source-work-email" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100" title="{{extension-apply-changes-source-work-email}}" value="{{extension-apply-changes-source-work-email}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-work-email" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-work-email" title="{{extension-apply-changes-trisys-work-email}}"> {{extension-apply-changes-trisys-work-email}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-work-phone-row"> <div class="col-12 apply-changes-row-field-label"> <i class="fa fa-phone" style="padding-left: 2px; padding-right: 1px;"></i> &nbsp; Work Phone </div> <div class="col-5"> <input id="extension-apply-changes-source-work-phone" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50" title="{{extension-apply-changes-source-work-phone}}" value="{{extension-apply-changes-source-work-phone}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-work-phone" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-work-phone" title="{{extension-apply-changes-trisys-work-phone}}"> {{extension-apply-changes-trisys-work-phone}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-work-mobile-row"> <div class="col-12 apply-changes-row-field-label"> <i class="gi gi-iphone"></i> &nbsp; Work Mobile </div> <div class="col-5"> <input id="extension-apply-changes-source-work-mobile" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50" title="{{extension-apply-changes-source-work-mobile}}" value="{{extension-apply-changes-source-work-mobile}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-work-mobile" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-work-mobile" title="{{extension-apply-changes-trisys-work-mobile}}"> {{extension-apply-changes-trisys-work-mobile}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-personal-email-row"> <div class="col-12 apply-changes-row-field-label"> <i class="fa fa-envelope-o"></i> &nbsp; Personal E-Mail </div> <div class="col-5"> <input id="extension-apply-changes-source-personal-email" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100" title="{{extension-apply-changes-source-personal-email}}" value="{{extension-apply-changes-source-personal-email}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-personal-email" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-personal-email" title="{{extension-apply-changes-trisys-personal-email}}"> {{extension-apply-changes-trisys-personal-email}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-personal-mobile-row"> <div class="col-12 apply-changes-row-field-label"> <i class="gi gi-iphone"></i> &nbsp; Personal Mobile </div> <div class="col-5"> <input id="extension-apply-changes-source-personal-mobile" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50" title="{{extension-apply-changes-source-personal-mobile}}" value="{{extension-apply-changes-source-personal-mobile}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-personal-mobile" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-personal-mobile" title="{{extension-apply-changes-trisys-personal-mobile}}"> {{extension-apply-changes-trisys-personal-mobile}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-home-phone-row"> <div class="col-12 apply-changes-row-field-label"> <i class="gi gi-phone_alt"></i> &nbsp; Home Phone </div> <div class="col-5"> <input id="extension-apply-changes-source-home-phone" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50" title="{{extension-apply-changes-source-home-phone}}" value="{{extension-apply-changes-source-home-phone}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-home-phone" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-home-phone" title="{{extension-apply-changes-trisys-home-phone}}"> {{extension-apply-changes-trisys-home-phone}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-location-row"> <div class="col-12 apply-changes-row-field-label"> <i class="gi gi-google_maps"></i> &nbsp; Location <i class="gi gi-search" style="padding-left: 112px;" onclick="TriSysExtension.LookupLocation()" title="Lookup a location"></i> </div> <div class="col-5"> <input id="extension-apply-changes-source-location" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="500" title="{{extension-apply-changes-source-location}}" value="{{extension-apply-changes-source-location}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-location" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-location" title="{{extension-apply-changes-trisys-location}}"> {{extension-apply-changes-trisys-location}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-website-row"> <div class="col-12 apply-changes-row-field-label"> <i class="gi gi-globe_af"></i> &nbsp; Website </div> <div class="col-5"> <input id="extension-apply-changes-source-website" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="150" title="{{extension-apply-changes-source-website}}" value="{{extension-apply-changes-source-website}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-website" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-location" title="{{extension-apply-changes-trisys-website}}"> {{extension-apply-changes-trisys-website}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-twitter-row"> <div class="col-12 apply-changes-row-field-label"> <i class="si si-twitter"></i> &nbsp; Twitter </div> <div class="col-5"> <input id="extension-apply-changes-source-twitter" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100" title="{{extension-apply-changes-source-twitter}}" value="{{extension-apply-changes-source-twitter}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-twitter" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-twitter" title="{{extension-apply-changes-trisys-twitter}}"> {{extension-apply-changes-trisys-twitter}} </div> </div> </div> <div class="row apply-changes-row" id="extension-apply-changes-skype-row"> <div class="col-12 apply-changes-row-field-label"> <i class="si si-skype"></i> &nbsp; Skype </div> <div class="col-5"> <input id="extension-apply-changes-source-skype" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100" title="{{extension-apply-changes-source-skype}}" value="{{extension-apply-changes-source-skype}}" /> </div> <div class="col-2 apply-changes-row-field-switch"> <label class="switch switch-primary"> <input type="checkbox" id="extension-apply-changes-copy-skype" value="0" unchecked> <span></span> </label> </div> <div class="col-5"> <div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-skype" title="{{extension-apply-changes-trisys-skype}}"> {{extension-apply-changes-trisys-skype}} </div> </div> </div> </div> </script> </body> </html>
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>TriSys Apex Web Browser Popup Window</title>
+<meta name="description" content="TriSys Apex is a web browser and mobile app recruiting CRM system for recruitment agencies.">
+<meta name="author" content="TriSys Business Software">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+<link rel="icon" type="image/x-icon" href="https://apex.trisys.co.uk/images/trisys/16x16/TriSys-16x16.ico">
+<!-- COMMENTED MOST OUT AS WE HAVE PLATFORMIX -->
+<!-- Stylesheets -->
+<!-- jQuery style for Tooltips -->
+<!--<link href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />-->
+<!-- Bootstrap is included in its original form, unaltered -->
+<!-- There is something in the ProUI version of this which does not exist in general release i.e. https://stackpath.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css -->
+<!--<link rel="stylesheet" href="css/bootstrap.min.css">--> <!-- Needed for drop down menus! -->
+<!-- Related styles of various icon packs and plugins -->
+<!--<link rel="stylesheet" href="css/plugins.css">-->
+<!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+<!--<link rel="stylesheet" href="css/main.css">-->
+<!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+<!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+<!--<link rel="stylesheet" href="css/themes.css">-->
+<!-- END Stylesheets -->
+<style scoped>
+.trisys-extension-brand {
+margin: 0;
+font-weight: 300;
+font-size: 18px;
+display: block;
+color: #ffffff;
+}
+a.trisys-extension-brand a:hover, a:focus, a:link, a:active, a:visited {
+color: white;
+text-decoration: none;
+}
+.trisys-extension-text {
+font-weight: 300;
+font-size: 12px;
+color: #394263;
+/*display: block;*/
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+a.trisys-extension-text {
+color: #394263;
+text-decoration: none;
+}
+.trisys-user-avatar img {
+/*width: 64px;
+height: 64px;*/
+border-radius: 25px;
+width: 52px;
+height: 52px;
+float: left;
+padding: 2px;
+/*margin-left: -78px;*/
+border-radius: 34px;
+background: url('../img/template/ie8_opacity_light_75.png') repeat;
+background: rgba(255, 255, 255, 0.75);
+}
+.panel-heading {
+padding-left: 5px;
+}
+a.panel-title {
+color: white;
+text-decoration: none;
+}
+.panel-title a:hover, a:focus {
+/*color: white;*/
+text-decoration: none;
+}
+.extension-toolbar-buttonmenu-separator {
+width: 1px;
+height: 10px;
+display: inline-block;
+}
+.accordion-right-label {
+color: white;
+margin-right: 14px;
+border-radius: 8px;
+padding: 6px;
+padding-top: 4px;
+padding-bottom: 4px;
+margin-top: 0px;
+height: 18px;
+vertical-align: middle;
+line-height: 20px;
+font-size: 12px;
+}
+.matching-contacts-label {
+color: white;
+margin-right: 14px;
+border-radius: 8px;
+padding: 6px;
+padding-top: 0px;
+margin-top: 8px;
+height: 20px;
+vertical-align: middle;
+line-height: 20px;
+font-size: 11px;
+}
+a.matching-contacts-label {
+color: white;
+text-decoration: none;
+cursor: pointer;
+}
+.contact-id-type {
+background-color: #e74c3c;
+}
+.numberof-requirements {
+background-color: #43a1ad;
+}
+.numberof-placements {
+background-color: #e67e22;
+}
+.numberof-note-histories {
+background-color: #344a3d;
+}
+.numberof-scheduled-tasks {
+background-color: #b14169;
+}
+.contact-record-table-field-name {
+width: 130px;
+font-size: 11px;
+padding-left: 8px !important;
+}
+.popup-contact-row {
+max-height: 26px;
+height: 26px;
+}
+.apply-changes-row {
+font-size: 12px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+border-bottom: 1px solid #f5f5f5;
+}
+.extension-apply-changes-container-div:last-child { /* No workie */
+border-bottom: none;
+}
+.apply-changes-header-row {
+line-height: 24px;
+/*border-top: 1px solid #f3f0f0;*/
+border-bottom: 1px solid #f3f0f0;
+padding-bottom: 2px;
+margin-bottom: 6px;
+background-color: #f5f5f5;
+}
+.apply-changes-row-field-label {
+font-size: 10px;
+color:gray;
+}
+.apply-changes-row-field-edit-text {
+line-height: 1.5em !important;
+text-indent: .3em !important;
+width: 180px !important;
+margin-top: 2px;
+margin-bottom: 2px;
+}
+.apply-changes-row-field-value {
+white-space: nowrap;
+width: 180px;
+overflow: hidden;
+text-overflow: ellipsis;
+/*-o-text-overflow: ellipsis;*/
+padding-top: 6px;
+}
+.apply-changes-row-field-switch {
+padding-top: 0px;
+margin-top: -4px;
+}
+/* Has stop embed applied input code */
+.switch-primary input:checked + span {
+background-color: #4c5572;
+}
+.open-contact-button {
+padding: 4px !important;
+padding-left: 8px !important;
+padding-right: 8px !important;
+background-color: #5db137 !important;
+color: white !important;
+font-size: 11px !important;
+margin-top: -4px !important;
+margin-bottom: 6px !important;
+}
+/* https://www.telerik.com/account/support-tickets/view-ticket/1455058 */
+/* All this just to remove spacing around the contact type combo */
+#extension-apply-changes-source-contact-type > div > span > span {
+height: 22px;
+}
+#extension-apply-changes-source-contact-type > div > span > span > span.k-input {
+padding-left: 4px;
+padding-top: 0px;
+margin-top: -4px;
+}
+#extension-apply-changes-contact-type-row > div:nth-child(2) > span > span > span.k-input {
+line-height: 1.5em;
+margin-left: -5px;
+}
+#extension-apply-changes-contact-type-row > div:nth-child(2) > span > span > span.k-select > span {
+position: initial;
+}
+</style>
+</head>
+<body style="margin: 0px; padding: 0px; width: 100%; overflow-y: hidden;">
+<!-- Toolbar -->
+<div class="row" style="width: 100%; padding: 0px; margin: 0px; height: 32px; background-color: #4c5572; border-radius: 4px;" id="trisys-extension-popup-toolbar">
+<div class="col-2" style="padding-left: 8px; padding-right: 0px; padding-top: 2px; vertical-align: middle;" id="trisys-extension-popup-toolbar-logo">
+<a href="https://trisys.co.uk" target="_blank" class="trisys-extension-brand" onmouseover="" style="cursor: pointer;">
+<img src="images/t-logo32.png" height="16" width="16" alt="TriSys" style="border-radius: 2px;" />
+<span class="sidebar-nav-mini-hide" style="padding-left: 4px;">
+<strong style="font-size: 14px; color: white;">TriSys</strong>
+</span>
+</a>
+</div>
+<div class="col-3" id="trisys-extension-popup-toolbar-advertising" style="padding-right: 0px; padding-top: 4px; text-align: right;">
+<!-- Dynamically added -->
+</div>
+<div class="col-7" style="padding-left: 0px; padding-right: 0px;" id="trisys-extension-popup-toolbar-menu">
+<div class="block-options pull-right" style="min-height: 30px; line-height: 28px; padding-top: 1px; display: none;" id="trisys-extension-popup-toolbar-buttons">
+<div id="toolbar-menu"></div>
+</div>
+</div>
+</div>
+<!-- Toolbar End -->
+<!-- Show a loading gif whilst we initialise page -->
+<div class="row" style="width: 100%; padding: 0px; margin: 0px;" id="trisys-extension-popup-spinner">
+<div class="col-12" style="text-align: center; padding-top: 4px; height: 554px;">
+<table style="width: 100%; margin: 0px; height: 100%; /*border-radius: 4px; border: 1px solid #4c5572;*/">
+<tbody>
+<tr>
+<td style="height: 300px; vertical-align: middle; text-align: center;">
+<!-- Randomly allocated when we are invoked -->
+<img id="trisys-extension-popup-spinner-image">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- The parsed contact photo, name and job title is displayed before connecting to TriSys as this is the first thing the user will see when opening up the TriSys extension -->
+<div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-parsed-header">
+<div class="col-sm-12" style="padding: 5px; padding-left: 0px; padding-right: 1px;">
+<table style="table-layout: fixed; width: 100%; margin-right: 15px; line-height: 1.50;">
+<tr style="vertical-align: middle">
+<td class="trisys-user-avatar" style="width: 60px;" onclick="TriSysExtension.OpenProfilePicture('parsed-contact-photo', 'parsed-contact-name')">
+<img id="parsed-contact-photo" src="https://apex.trisys.co.uk/images/profile-grey.png" alt="&nbsp;" />
+</td>
+<td class="trisys-extension-text">
+<a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenContactForm()">
+<b><span id="parsed-contact-name"></span></b>
+</a>
+<br />
+<i><span id="parsed-contact-jobtitle"></span></i>
+<br />
+<a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenCompanyForm()">
+<span id="parsed-company-name"></span>
+</a>
+</td>
+<td style="width: 70px; text-align: right; padding-right: 0px;">
+<span id="parsed-contact-type" style="text-align: right; padding-right: 2px;"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-popup-header">
+<div class="col-sm-12" style="padding: 5px; padding-left: 0px; padding-right: 1px;">
+<table style="table-layout: fixed; width: 100%; margin-right: 15px; line-height: 1.50;">
+<tr style="vertical-align: middle">
+<td class="trisys-user-avatar" style="width: 60px;" onclick="TriSysExtension.OpenProfilePicture('popup-contact-photo', 'popup-contact-name')">
+<img id="popup-contact-photo" src="https://apex.trisys.co.uk/images/profile-grey.png" alt="&nbsp;" />
+</td>
+<td class="trisys-extension-text">
+<a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenContactForm()">
+<b><span id="popup-contact-name"></span></b>
+</a>
+<br />
+<i><span id="popup-contact-jobtitle"></span></i>
+<br />
+<a href="javascript:void(0)" class="trisys-extension-text" onclick="TriSysExtension.OpenCompanyForm()">
+<span id="popup-company-name"></span>
+</a>
+</td>
+<td style="width: 70px; text-align: right; padding-right: 0px;">
+<button class="k-button open-contact-button" onclick="TriSysExtension.OpenContactForm()" title="Open contact record in TriSys">
+<i class="gi gi-folder_open"></i> &nbsp; Open
+</button>
+<br />
+<a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the LinkedIn social network profile" id="popup-contact-linkedin-profile-hyperlink" target="_blank">
+<img src="images/linkedin.png" height="16" width="16" />
+</a>
+<div class="extension-toolbar-buttonmenu-separator"></div>
+<a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the Facebook page" id="popup-contact-facebook-hyperlink" target="_blank">
+<img src="images/facebook.png" height="16" width="16" />
+</a>
+<div class="extension-toolbar-buttonmenu-separator"></div>
+<a href="javascript:void(0)" class="enable-tooltip trisys-extension-text" title="View the Twitter feed" id="popup-contact-twitter-hyperlink" target="_blank">
+<img src="images/twitter.png" height="16" width="16" />
+</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<!-- The parsed data panel is displayed before connecting to TriSys as this is the first thing the user will see when opening up the TriSys extension -->
+<div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-parsed-panel">
+<div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;" id="parsed-group-panel">
+<div class="panel-group">
+<div class="panel panel-default" id="panel-parsed-details">
+<div class="panel-heading" style="padding-top: 5px; padding-bottom: 5px; color: #4c5572;">
+<h4 class="panel-title" style="font-size: 12px;">
+<i class="gi gi-parents" id="parsed-public-profile-image"></i>
+<span>
+&nbsp; <span id="parsed-public-profile-text">Public Profile</span>
+</span>
+</h4>
+</div>
+<div id="parsed-contact-details" class="panel-collapse" style="height: 467px; overflow-y : auto;"> <!--  collapse in-->
+<div class="panel-body" style="padding: 5px;">
+<table class="table table-borderless table-striped" id="parsed-contact-details-table">
+<tbody>
+<tr id="parsed-contact-linkedin-tr">
+<td style="width: 110px;">
+<img src="images/linkedin.png" height="16" width="16" /> &nbsp; Profile
+</td>
+<td>
+<span id="parsed-contact-profile-url"></span>
+</td>
+</tr>
+<tr>
+<td style="width: 110px;">
+<i class="fa fa-envelope"></i> &nbsp; <span id="parsed-contact-work-email-text">Work</span>
+</td>
+<td>
+<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-work-email-hyperlink" target="_blank">
+<span id="parsed-contact-work-email"></span>
+</a> &nbsp; <span id="parsed-contact-sender-name"></span>
+</td>
+</tr>
+<tr id="parsed-contact-website-tr">
+<td style="width: 110px;">
+<i class="fa fa-link"></i> &nbsp; Website
+</td>
+<td>
+<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-website-hyperlink" target="_blank">
+<span id="parsed-contact-website"></span>
+</a>
+</td>
+</tr>
+<tr id="parsed-contact-personal-email-tr">
+<td>
+<i class="fa fa-envelope-o"></i> &nbsp; Personal
+</td>
+<td>
+<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-personal-email-hyperlink" target="_blank">
+<span id="parsed-contact-personal-email"></span>
+</a>
+</td>
+</tr>
+<tr id="parsed-contact-work-telno-tr">
+<td>
+<i class="fa fa-phone"></i> &nbsp; Work
+</td>
+<td>
+<!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-work-telno-hyperlink" target="_blank">-->
+<span id="parsed-contact-work-telno"></span>
+<!--</a>-->
+</td>
+</tr>
+<tr id="parsed-contact-personal-mobile-tr">
+<td>
+<i class="gi gi-iphone"></i> &nbsp; Personal
+</td>
+<td>
+<!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-mobile-telno-hyperlink" target="_blank">-->
+<span id="parsed-contact-personal-mobile-telno"></span>
+<!--</a>-->
+</td>
+</tr>
+<tr id="parsed-contact-work-mobile-tr">
+<td>
+<i class="gi gi-iphone"></i> &nbsp; Work
+</td>
+<td>
+<!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-mobile-telno-hyperlink" target="_blank">-->
+<span id="parsed-contact-work-mobile-telno"></span>
+<!--</a>-->
+</td>
+</tr>
+<tr id="parsed-contact-location-tr">
+<td>
+<i class="fa fa-home"></i> &nbsp; Location
+</td>
+<td>
+<span id="parsed-contact-address-summary"></span>
+</td>
+</tr>
+<tr id="parsed-contact-address-tr">
+<td>
+<i class="gi gi-google_maps"></i> &nbsp; Address
+</td>
+<td>
+<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-address-hyperlink" target="_blank">
+<span id="parsed-contact-address"></span>
+</a>
+</td>
+</tr>
+<tr id="parsed-contact-home-telno-tr">
+<td>
+<i class="gi gi-phone_alt"></i> &nbsp; Home
+</td>
+<td>
+<span id="parsed-contact-home-telno"></span>
+</td>
+</tr>
+<tr id="parsed-contact-twitter-tr">
+<td>
+<img src="images/twitter.png" height="16" width="16" /> &nbsp; Twitter
+</td>
+<td>
+<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-twitter-hyperlink" target="_blank">
+<span id="parsed-contact-twitter"></span>
+</a>
+</td>
+</tr>
+<tr id="parsed-contact-skype-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="si si-skype"></i> &nbsp; Skype
+</td>
+<td>
+<span id="parsed-contact-skype"></span>
+</td>
+</tr>
+<tr id="looking-up-profile-in-trisys-spinner" style="height: 48px;">
+<td>
+<img src="https://apex.trisys.co.uk/images/trisys/128x128/Camera-1s-128px.gif" style="height: 48px; width: 48px;" id="looking-up-profile-in-trisys-spinner-image">
+</td>
+<td style="vertical-align:middle;">
+<strong>Looking up contact in TriSys...</strong>
+</td>
+</tr>
+<tr id="looking-up-profile-nothing-found" style="display: none; border-top: 1px solid rgba(76, 85, 114, 0.15);">
+<td>
+<img src="https://apex.trisys.co.uk/images/trisys/128x128/information-2s-128px.gif" style="height: 48px; width: 48px;">
+</td>
+<td style="vertical-align:middle;">
+<strong>Unable to find a matching contact in TriSys</strong>
+<br />
+Use the Add menu to create a new contact record using this profile,
+or assign this profile to an existing contact record in TriSys.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-accordion-panel">
+<div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;" id="accordion-group-panel">
+<ul id="accordion-panelbar">
+<li class="k-state-active">
+<span class="k-link k-state-selected">
+<table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;">
+<tr>
+<td style="width: 50%">
+<i class="gi gi-parents" style="margin-top: -2px; color: #e74c3c;"></i> &nbsp; Contact Details &nbsp;
+</td>
+<td style="width: 50%;  padding-right: 10px; text-align: right;">
+<span id="popup-contact-details-id" class="accordion-right-label contact-id-type"></span>
+</td>
+</tr>
+</table>
+</span>
+<div style="padding: 4px; min-height: 260px; max-height: 260px; overflow-y : auto;" id="accordion-panelbar-contact-details-div">
+<table class="table table-bordered table-striped table-condensed" style="height: 260px; min-height: 260px; margin-bottom: 0px; font-size: 12px;" id="accordion-panelbar-contact-details-table">
+<tbody>
+<tr id="popup-contact-work-email-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="fa fa-envelope"></i> &nbsp; Work E-Mail
+</td>
+<td>
+<a href="javascript:void(0)" class="trisys-extension-text" id="popup-contact-work-email-hyperlink" target="_blank">
+<span id="popup-contact-work-email"></span>
+</a>
+</td>
+</tr>
+<tr id="popup-contact-work-phone-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="fa fa-phone" style="padding-left: 2px; padding-right: 1px;"></i> &nbsp; Work Phone
+</td>
+<td>
+<span id="popup-contact-work-telno"></span>
+</td>
+</tr>
+<tr id="popup-contact-work-mobile-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="gi gi-iphone"></i> &nbsp; Work Mobile
+</td>
+<td>
+<!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-mobile-telno-hyperlink" target="_blank">-->
+<span id="popup-contact-work-mobile-telno"></span>
+<!--</a>-->
+</td>
+</tr>
+<tr id="popup-contact-personal-email-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="fa fa-envelope-o"></i> &nbsp; Personal E-Mail
+</td>
+<td>
+<a href="javascript:void(0)" class="trisys-extension-text" id="popup-contact-personal-email-hyperlink" target="_blank">
+<span id="popup-contact-personal-email"></span>
+</a>
+</td>
+</tr>
+<tr id="popup-contact-personal-mobile-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="gi gi-iphone"></i> &nbsp; Personal Mobile
+</td>
+<td>
+<!--<a href="javascript:void(0)" class="trisys-extension-text" id="parsed-contact-mobile-telno-hyperlink" target="_blank">-->
+<span id="popup-contact-personal-mobile-telno"></span>
+<!--</a>-->
+</td>
+</tr>
+<tr id="popup-contact-home-phone-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="gi gi-phone_alt"></i> &nbsp; Home Phone
+</td>
+<td>
+<span id="popup-contact-home-telno"></span>
+</td>
+</tr>
+<tr id="popup-contact-address-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="gi gi-google_maps"></i> &nbsp; Address
+</td>
+<td>
+<span id="popup-contact-address-summary"></span>
+</td>
+</tr>
+<tr id="popup-contact-website-tr" class="popup-contact-row" style="display: none;">
+<td class="contact-record-table-field-name">
+<i class="gi gi-globe_af"></i> &nbsp; Website
+</td>
+<td>
+<a class="trisys-extension-text" id="popup-contact-website-hyperlink" target="_blank">
+<span id="popup-contact-website"></span>
+</a>
+</td>
+</tr>
+<tr id="popup-contact-skype-tr" class="popup-contact-row">
+<td class="contact-record-table-field-name">
+<i class="si si-skype"></i> &nbsp; Skype
+</td>
+<td>
+<span id="popup-contact-skype"></span>
+</td>
+</tr>
+<tr id="popup-contact-buffer-tr" style="background-color: transparent;">
+<td colspan="2">
+<!-- Only here so that if we have a small number of fields, this expands to fill space -->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="accordion-panelbar-cvpreview-li">
+<i class="gi gi-file_export" style="margin-top: -2px; color: #583a63;"></i> &nbsp; CV Preview
+<div id="cv-preview" style="max-height: 268px; overflow-y : auto;">
+<div style="height: 800px; width: 100%;" id="cv-preview-control"></div>
+</div>
+</li>
+<li id="accordion-panelbar-requirements-li">
+<table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;">
+<tr>
+<td style="width: 50%">
+<i class="gi gi-user_add" style="margin-top: -2px; color: #43a1ad;"></i> &nbsp; Requirements &nbsp;
+</td>
+<td style="width: 50%;  padding-right: 10px; text-align: right;">
+<span id="popup-requirements-id" class="accordion-right-label numberof-requirements"></span>
+</td>
+</tr>
+</table>
+<div id="requirements" style="max-height: 268px; overflow-y : auto; font-size: 12px;">
+<table class="table table-borderless table-striped" style="min-height: 248px;" id="accordion-panelbar-requirements-table">
+<tbody class="trisys-requirements-tbody" style=" display: none;">
+<tr style="max-height: 30px; height: 30px;">
+<td class="text-center" style="width: 30px; color: #43a1ad;">
+<i class="gi gi-user_add"></i>
+</td>
+<td>
+<a class="hyperlink trisys-extension-text" href="javascript:void(0)">
+<strong><span class="Reference"></span></strong>
+</a>:
+<span class="JobTitle"></span>
+<br />
+<span class="ClientName"></span>,
+<span class="CompanyName"></span>
+<div class="text-muted">
+Earliest Start:
+<span class="EarliestStartDate"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="accordion-panelbar-placements-li">
+<table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;">
+<tr>
+<td style="width: 50%">
+<i class="gi gi-gbp" style="margin-top: -2px; color: #e67e22;"></i> &nbsp; Placements &nbsp;
+</td>
+<td style="width: 50%;  padding-right: 10px; text-align: right;">
+<span id="popup-placements-id" class="accordion-right-label numberof-placements"></span>
+</td>
+</tr>
+</table>
+<div id="placements" style="max-height: 268px; overflow-y : auto; font-size: 12px;">
+<table class="table table-borderless table-striped" style="min-height: 248px;" id="accordion-panelbar-placements-table">
+<tbody class="trisys-placements-tbody" style=" display: none;">
+<tr style="max-height: 30px; height: 30px;">
+<td class="text-center" style="width: 30px; color: #e67e22;">
+<i class="gi gi-gbp"></i>
+</td>
+<td>
+<a class="hyperlink trisys-extension-text" href="javascript:void(0)">
+<strong><span class="Reference"></span></strong>
+</a>:
+<span class="JobTitle"></span>
+<br />
+Client/Company:
+<span class="ClientName"></span>,
+<span class="CompanyName"></span>
+<br />
+Candidate:
+<span class="CandidateName"></span>
+<div class="text-muted">
+Start:
+<span class="StartDate"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;">
+<tr>
+<td style="width: 50%">
+<i class="gi gi-notes_2" style="margin-top: -2px; color: #344a3d;"></i> &nbsp; Notes/History &nbsp;
+</td>
+<td style="width: 50%;  padding-right: 10px; text-align: right;">
+<span id="popup-notes-history-id" class="accordion-right-label numberof-note-histories"></span>
+</td>
+</tr>
+</table>
+<div style="max-height: 268px; overflow-y : auto; font-size: 12px;" id="accordion-panelbar-noteshistory-div">
+<table class="table table-borderless table-striped" style="min-height: 248px;" id="accordion-panelbar-noteshistory-table">
+<tbody class="trisys-noteshistory-tbody" style="display: none;">
+<tr style="max-height: 30px; height: 30px;">
+<td class="text-center" style="width: 30px;">
+<img class="TaskType" style="width: 24px; height: 24px;" />
+</td>
+<td>
+<a class="hyperlink trisys-extension-text" href="javascript:void(0)">
+<strong><span class="TaskTypeText"></span></strong>
+</a>
+<br />
+<span class="DisplayDescription"></span>
+<br />
+<div class="text-muted">
+<span class="StartDate"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<a class="hyperlink trisys-extension-text" href="javascript:void(0)" id="trisys-noteshistory-more-hyperlink"
+onclick="TriSysExtension.ViewNoteHistoryTasks()" style="display: none;">
+<strong><span id="trisys-noteshistory-more-text"></span></strong>
+</a>
+</div>
+</li>
+<li>
+<table cellpadding="0" cellspacing="0" style="width: 100%; padding: 0px;">
+<tr>
+<td style="width: 50%">
+<i class="gi gi-calendar" style="margin-top: -2px; color: #b14169;"></i> &nbsp; Scheduled Tasks &nbsp;
+</td>
+<td style="width: 50%;  padding-right: 10px; text-align: right;">
+<span id="popup-scheduled-tasks-id" class="accordion-right-label numberof-scheduled-tasks"></span>
+</td>
+</tr>
+</table>
+<div style="max-height: 268px; overflow-y : auto; font-size: 12px;" id="accordion-panelbar-scheduledtasks-div">
+<table class="table table-borderless table-striped" style="min-height: 248px;" id="accordion-panelbar-scheduledtasks-table">
+<tbody class="trisys-scheduledtasks-tbody" style="display: none;">
+<tr style="max-height: 30px; height: 30px;">
+<td class="text-center" style="width: 30px;">
+<img class="TaskType" style="width: 24px; height: 24px;" />
+</td>
+<td>
+<a class="hyperlink trisys-extension-text" href="javascript:void(0)">
+<strong><span class="TaskTypeText"></span></strong>
+</a>
+<br />
+<span class="DisplayDescription"></span>
+<br />
+<div class="text-muted">
+<span class="StartDate"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<a class="hyperlink trisys-extension-text" href="javascript:void(0)" id="trisys-scheduledtasks-more-hyperlink"
+onclick="TriSysExtension.ViewScheduledTasks()" style="display: none;">
+<strong><span id="trisys-scheduledtasks-more-text"></span></strong>
+</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-popup-information">
+<div class="col-sm-12" style="padding-left: 5px; padding-right: 5px;">
+<h5>
+<img src="https://apex.trisys.co.uk/images/trisys/trisys-web-browser-extension-256.png" alt="TriSys Browser Extension" />
+</h5>
+<p style="max-height: 500px; overflow-y : auto;">
+This component allows you to connect your web browser to TriSys Cloud.
+<br />
+<br />
+TriSys is a suite of sophisticated business sofware tools running in a global cloud computing system
+allowing you access to your data from any device (mobile phone, tablet, PC, smart speaker), at any time.
+<br />
+<br />
+Please click the Connect button below to submit your credentials, or learn more or sign-up to our services.
+</p>
+<p>
+<button class="k-button" onclick="TriSysExtension.Login()" style="margin-right: 5px; background-color: #4c5572; color: white;">
+<i class="gi gi-check"></i> &nbsp; Connect
+</button>
+&nbsp;
+<button class="k-button pull-right" onclick="TriSysExtension.SignUp()" style="margin-right: 5px;">
+<i class="gi gi-globe"></i> &nbsp; Learn More / Sign-Up
+</button>
+</p>
+</div>
+</div>
+<div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-no-parsed-profile">
+<div class="col-sm-12" style="padding-left: 5px; padding-right: 5px;">
+<h5>
+TriSys Add-In
+</h5>
+<p style="max-height: 500px; overflow-y : auto;">
+This web page did not provide any contact profile details to display.
+<br />
+<br />
+Please close this popup by clicking the button below, and then refresh the current page
+or visit another page.
+</p>
+<p>
+<button class="k-button" onclick="TriSysExtension.ClosePopupWindow()" style="margin-right: 5px; background-color: #4c5572; color: white;">
+<i class="gi gi-exit"></i> &nbsp; Close Popup
+</button>
+</p>
+</div>
+</div>
+<div class="row" style="width: 100%; padding: 0px; margin: 0px; display: none;" id="trisys-extension-popup-duplicate-contacts">
+<div class="col-sm-12" style="padding-left: 5px; padding-right: 5px; max-height: 480px; overflow-y : auto;">
+<h5>
+<span id="matching-contacts-count"></span> Matching Contacts
+</h5>
+<table class="table table-borderless table-striped">
+<tbody class="trisys-duplicate-contacts-tbody">
+<tr>
+<td class="trisys-user-avatar" style="width: 60px;">
+<a class="hyperlink" href="javascript:void(0)">
+<img class="Photo" style="width: 48px; height: 48px;" />
+</a>
+</td>
+<td title="Click on the contact name to compare contact details, or click on the red label showing contact type to open the matching contact in TriSys">
+<a class="hyperlink trisys-extension-text" href="javascript:void(0)">
+<strong><span class="FullName"></span></strong>
+</a>
+<br />
+<i><span class="JobTitle"></span></i>
+<br />
+<span class="CompanyName"></span>
+</td>
+<td style="padding-right: 0px; width: 150px;">
+<a class="pull-right matching-contacts-label contact-id-type ContactTypeAndIdLabel openContactRecord"
+href="javascript:void(0)" style="color: white;" title="Open contact in TriSys"></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- PLATFORMIX START -->
+<!-- This is to be copied into the platformix site settings for Header HTML
+-- This code instructs the platformix framework to inject the code/widgets/pages/controls
+-- necessary for providing complex business functionality via the TriSys cloud infrastructure
+--
+-- Change the customerid to the 'hyphenated spaces' lower case company name in CRM
+-- Change the api if customer has an on-premise Web API
+-- Change the debug to "true" to load the non-obfuscated .js code
+-->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script id="platformix-api"
+customerid="opus-laboris-recruitment"
+api="https://api.trisys.co.uk/"
+debug="true"
+type="text/javascript"
+src="https://api.trisys.co.uk/platformix/platformix-loader.js?ts=2021-12-07-1300">
+</script>
+<!-- PLATFORMIX END -->
+<!-- Remember to include excanvas for IE8 chart support -->
+<!--[if IE 8]><script src="js/helpers/excanvas.min.js"></script><![endif]-->
+<!-- Local JQuery to be compatible with KendoUI and ProUI -->
+<!--<script src="kendoui/js/jquery.min.js"></script>-->
+<!--This should be version 1.11.2 -->
+<!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+<!--<script src="js/vendor/bootstrap.min.js"></script>-->
+<!--<script src="js/app.js"></script>-->
+<script src="javascript/jquery-base64.min.js"></script>
+<script src="signalr/url-parser.js"></script>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/extension.js?ts=202112071300"></script>
+<!-- TriSys Apex Libraries -->
+<!--<script src="javascript/TriSysLoad.js?datetime=201908010853"></script>-->
+<!-- Index-Background.html dynamically loaded into here -->
+<!--<div id="Index-Background"></div>-->
+<!-- Load and execute javascript code used only in this extension -->
+<script src="js/pages/ctrlCVPreview.js"></script>
+<script type="text/template" id="ctrlCVPreview-html">
+<div class="block" id="ctrlCVPreview-cv-block" style="padding: 10px; border: 0;">
+<!-- The CV viewer as HTML content  -->
+<div id="ctrlCVPreview-document-viewer-converted-contents">
+</div>
+<!-- PDF Viewer: data="https://bitcoin.org/bitcoin.pdf" -->
+<object id="ctrlCVPreview-document-viewer-pdf-viewer" type="application/pdf" style="height: 800px; width: 100%; display: none;"></object>
+</div>
+</script>
+<script type="text/template" id="extension-apply-changes-template">
+<div class="row apply-changes-row">
+<div class="col-12">
+<p style="margin-bottom: 6px;">
+Select which fields are to be copied from the public profile
+into the database record:
+</p>
+</div>
+</div>
+<div class="row apply-changes-row apply-changes-header-row">
+<div class="col-5">
+<span id="extension-apply-changes-source-linkedin">
+<img src="images/linkedin.png" height="16" width="16" /> &nbsp; <strong>LinkedIn</strong>
+</span>
+<span id="extension-apply-changes-source-gmail" style="display: none;">
+<img src="images/gmail-87x24.png" height="16" width="58" />
+</span>
+</div>
+<div class="col-2" style="color: #4c5572;">
+<strong>Copy</strong> &nbsp; <i class="gi gi-right_arrow"></i>
+</div>
+<div class="col-5">
+<img src="images/t-logo32.png" height="16" width="16" /> &nbsp; <strong>TriSys</strong>
+</div>
+</div>
+<div style="width: 100%; max-height: 378px; overflow-y:auto; overflow-x: hidden;" id="extension-apply-changes-container-div">
+<div class="row apply-changes-row" id="extension-apply-changes-profile-url-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="gi gi-link"></i> &nbsp; Public Profile URL
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-source-public-profile-url" title="{{extension-apply-changes-source-public-profile-url}}">
+{{extension-apply-changes-source-public-profile-url}}
+</div>
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-public-profile-url" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-public-profile-url" title="{{extension-apply-changes-trisys-public-profile-url}}">
+{{extension-apply-changes-trisys-public-profile-url}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-full-name-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="gi gi-nameplate"></i> &nbsp; Full Name
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-full-name" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="121"
+title="{{extension-apply-changes-source-full-name}}" value="{{extension-apply-changes-source-full-name}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-full-name" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-full-name" title="{{extension-apply-changes-trisys-full-name}}">
+{{extension-apply-changes-trisys-full-name}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-photo-row">
+<div class="col-2 apply-changes-row-field-label">
+<i class="gi gi-picture"></i> &nbsp; Photo
+</div>
+<div class="col-3" style="padding-right: 5px;">
+<div class="trisys-user-avatar pull-right" style="width: 60px;">
+<img id="extension-apply-changes-source-photo" alt="photo" src="{{extension-apply-changes-source-photo}}" />
+</div>
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary" style="padding-top: 16px;">
+<input type="checkbox" id="extension-apply-changes-copy-photo" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="trisys-user-avatar" style="width: 60px;">
+<img id="extension-apply-changes-trisys-photo" alt="photo" src="{{extension-apply-changes-trisys-photo}}" />
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-contact-type-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="fa fa-wrench"></i> &nbsp; Contact Type
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-contact-type" style="width:180px;" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-contact-type" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-contact-type">
+{{extension-apply-changes-trisys-contact-type}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-job-title-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="fa fa-gavel"></i> &nbsp; Job Title
+<i class="gi gi-search" style="padding-left: 112px;" onclick="TriSysExtension.LookupJobTitle()" title="Lookup a job title"></i>
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-job-title" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100"
+title="{{extension-apply-changes-source-job-title}}" value="{{extension-apply-changes-source-job-title}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-job-title" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-job-title" title="{{extension-apply-changes-trisys-job-title}}">
+{{extension-apply-changes-trisys-job-title}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-company-name-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="gi gi-bank"></i> &nbsp; Company
+<i class="gi gi-search" style="padding-left: 107px;" onclick="TriSysExtension.LookupCompany()" title="Lookup an existing company"></i>
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-company-name" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50"
+title="{{extension-apply-changes-source-company-name}}" value="{{extension-apply-changes-source-company-name}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-company-name" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-company-name" title="{{extension-apply-changes-trisys-company-name}}">
+{{extension-apply-changes-trisys-company-name}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-work-email-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="fa fa-envelope"></i> &nbsp; Work E-Mail
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-work-email" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100"
+title="{{extension-apply-changes-source-work-email}}" value="{{extension-apply-changes-source-work-email}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-work-email" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-work-email" title="{{extension-apply-changes-trisys-work-email}}">
+{{extension-apply-changes-trisys-work-email}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-work-phone-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="fa fa-phone" style="padding-left: 2px; padding-right: 1px;"></i> &nbsp; Work Phone
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-work-phone" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50"
+title="{{extension-apply-changes-source-work-phone}}" value="{{extension-apply-changes-source-work-phone}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-work-phone" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-work-phone" title="{{extension-apply-changes-trisys-work-phone}}">
+{{extension-apply-changes-trisys-work-phone}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-work-mobile-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="gi gi-iphone"></i> &nbsp; Work Mobile
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-work-mobile" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50"
+title="{{extension-apply-changes-source-work-mobile}}" value="{{extension-apply-changes-source-work-mobile}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-work-mobile" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-work-mobile" title="{{extension-apply-changes-trisys-work-mobile}}">
+{{extension-apply-changes-trisys-work-mobile}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-personal-email-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="fa fa-envelope-o"></i> &nbsp; Personal E-Mail
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-personal-email" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100"
+title="{{extension-apply-changes-source-personal-email}}" value="{{extension-apply-changes-source-personal-email}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-personal-email" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-personal-email" title="{{extension-apply-changes-trisys-personal-email}}">
+{{extension-apply-changes-trisys-personal-email}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-personal-mobile-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="gi gi-iphone"></i> &nbsp; Personal Mobile
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-personal-mobile" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50"
+title="{{extension-apply-changes-source-personal-mobile}}" value="{{extension-apply-changes-source-personal-mobile}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-personal-mobile" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-personal-mobile" title="{{extension-apply-changes-trisys-personal-mobile}}">
+{{extension-apply-changes-trisys-personal-mobile}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-home-phone-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="gi gi-phone_alt"></i> &nbsp; Home Phone
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-home-phone" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="50"
+title="{{extension-apply-changes-source-home-phone}}" value="{{extension-apply-changes-source-home-phone}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-home-phone" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-home-phone" title="{{extension-apply-changes-trisys-home-phone}}">
+{{extension-apply-changes-trisys-home-phone}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-location-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="gi gi-google_maps"></i> &nbsp; Location
+<i class="gi gi-search" style="padding-left: 112px;" onclick="TriSysExtension.LookupLocation()" title="Lookup a location"></i>
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-location" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="500"
+title="{{extension-apply-changes-source-location}}" value="{{extension-apply-changes-source-location}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-location" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-location" title="{{extension-apply-changes-trisys-location}}">
+{{extension-apply-changes-trisys-location}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-website-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="gi gi-globe_af"></i> &nbsp; Website
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-website" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="150"
+title="{{extension-apply-changes-source-website}}" value="{{extension-apply-changes-source-website}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-website" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-location" title="{{extension-apply-changes-trisys-website}}">
+{{extension-apply-changes-trisys-website}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-twitter-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="si si-twitter"></i> &nbsp; Twitter
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-twitter" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100"
+title="{{extension-apply-changes-source-twitter}}" value="{{extension-apply-changes-source-twitter}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-twitter" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-twitter" title="{{extension-apply-changes-trisys-twitter}}">
+{{extension-apply-changes-trisys-twitter}}
+</div>
+</div>
+</div>
+<div class="row apply-changes-row" id="extension-apply-changes-skype-row">
+<div class="col-12 apply-changes-row-field-label">
+<i class="si si-skype"></i> &nbsp; Skype
+</div>
+<div class="col-5">
+<input id="extension-apply-changes-source-skype" type="text" class="k-textbox apply-changes-row-field-edit-text" maxlength="100"
+title="{{extension-apply-changes-source-skype}}" value="{{extension-apply-changes-source-skype}}" />
+</div>
+<div class="col-2 apply-changes-row-field-switch">
+<label class="switch switch-primary">
+<input type="checkbox" id="extension-apply-changes-copy-skype" value="0" unchecked>
+<span></span>
+</label>
+</div>
+<div class="col-5">
+<div class="apply-changes-row-field-value" id="extension-apply-changes-trisys-skype" title="{{extension-apply-changes-trisys-skype}}">
+{{extension-apply-changes-trisys-skype}}
+</div>
+</div>
+</div>
+</div>
+</script>
+</body>
+</html>

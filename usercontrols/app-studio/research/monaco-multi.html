@@ -1,1 +1,53 @@
-<!DOCTYPE html> <html> <head> <title>Monaco Multi-Language Editor</title> <style> .editor { height: 300px; border: 1px solid #ccc; margin: 10px 0; } .controls { margin-bottom: 10px; } </style> </head> <body> <div class="controls"> <button onclick="setLanguage('javascript')">JavaScript</button> <button onclick="setLanguage('json')">JSON</button> <button onclick="setLanguage('html')">HTML</button> <button onclick="setLanguage('css')">CSS</button> </div> <div id="editor" class="editor"></div> <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <script> let editor; const sampleContent = { javascript: '// JavaScript code\nconst hello="world";\nconsole.log(hello);', json: '{\n  "name": "John",\n  "age": 30\n}', html: '<!DOCTYPE html>\n<html>\n  <head>\n <title>Hello</title>\n  </head>\n  <body>\n <h1>Hello World</h1>\n  </body>\n</html>', css: 'body {\n  background-color: #f0f0f0;\n  font-family: Arial, sans-serif;\n}' }; $(document).ready(function() { require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' }}); require(['vs/editor/editor.main'], function() { editor = monaco.editor.create(document.getElementById('editor'), { value: sampleContent.javascript, language: 'javascript', theme: 'vs-dark', automaticLayout: true, minimap: { enabled: true }, fontSize: 14 }); }); }); function setLanguage(language) { monaco.editor.setModelLanguage(editor.getModel(), language); editor.setValue(sampleContent[language]); } </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script> </body> </html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Monaco Multi-Language Editor</title>
+<style>
+.editor {
+height: 300px;
+border: 1px solid #ccc;
+margin: 10px 0;
+}
+.controls {
+margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<div class="controls">
+<button onclick="setLanguage('javascript')">JavaScript</button>
+<button onclick="setLanguage('json')">JSON</button>
+<button onclick="setLanguage('html')">HTML</button>
+<button onclick="setLanguage('css')">CSS</button>
+</div>
+<div id="editor" class="editor"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+let editor;
+const sampleContent = {
+javascript: '// JavaScript code\nconst hello="world";\nconsole.log(hello);',
+json: '{\n  "name": "John",\n  "age": 30\n}',
+html: '<!DOCTYPE html>\n<html>\n  <head>\n <title>Hello</title>\n  </head>\n  <body>\n <h1>Hello World</h1>\n  </body>\n</html>',
+css: 'body {\n  background-color: #f0f0f0;\n  font-family: Arial, sans-serif;\n}'
+};
+$(document).ready(function() {
+require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' }});
+require(['vs/editor/editor.main'], function() {
+editor = monaco.editor.create(document.getElementById('editor'), {
+value: sampleContent.javascript,
+language: 'javascript',
+theme: 'vs-dark',
+automaticLayout: true,
+minimap: { enabled: true },
+fontSize: 14
+});
+});
+});
+function setLanguage(language) {
+monaco.editor.setModelLanguage(editor.getModel(), language);
+editor.setValue(sampleContent[language]);
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</body>
+</html>

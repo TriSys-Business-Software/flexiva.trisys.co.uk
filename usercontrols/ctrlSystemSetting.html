@@ -1,1 +1,42 @@
-<style scoped> .td-label { width: 150px; } </style> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label"><strong>Setting</strong></td> <td> <input type="text" class="k-textbox" id="system-setting-name" required="required" style="width:100%" /> </td> </tr> <tr> <td class="td-label"><strong>Value</strong></td> <td> <table style="width: 100%;" cellpadding="0" cellspacing="0"> <tr> <td> <input type="text" class="k-textbox" id="system-setting-value" required="required" style="width:100%" /> </td> <td style="width: 40px; padding-left: 5px;"> <button type="submit" class="btn btn-sm btn-default" onclick="ctrlSystemSetting.BigEditValue()" title="Edit Value" style="right:0px;"> <i class="gi gi-pen"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td class="td-label"><strong>Description</strong></td> <td> <textarea class="k-textbox" id="system-setting-description" rows="5" style="width:100%; resize: none"></textarea> </td> </tr> </tbody> </table> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/ctrlSystemSetting.js"></script>
+<style scoped>
+.td-label {
+width: 150px;
+}
+</style>
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label"><strong>Setting</strong></td>
+<td>
+<input type="text" class="k-textbox" id="system-setting-name" required="required" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Value</strong></td>
+<td>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<input type="text" class="k-textbox" id="system-setting-value" required="required" style="width:100%" />
+</td>
+<td style="width: 40px; padding-left: 5px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="ctrlSystemSetting.BigEditValue()" title="Edit Value" style="right:0px;">
+<i class="gi gi-pen"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label"><strong>Description</strong></td>
+<td>
+<textarea class="k-textbox" id="system-setting-description" rows="5" style="width:100%; resize: none"></textarea>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlSystemSetting.js"></script>

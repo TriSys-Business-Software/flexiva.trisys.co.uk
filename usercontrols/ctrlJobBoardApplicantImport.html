@@ -1,1 +1,439 @@
-<style scoped> .td-label-job-board-applicants { width: 120px; } </style> <div class="row"> <div class="col-md-12 col-lg-12"> <div class="block"> <div class="row"> <div class="col-md-4 col-lg-4"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-job-board-applicants"> <strong>Requirement</strong> </td> <td> <span id="ctrlJobBoardApplicantImport-Requirement" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-job-board-applicants"> <strong>Job Title</strong> </td> <td> <span id="ctrlJobBoardApplicantImport-JobTitle" style="width:100%"></span> </td> </tr> </tbody> </table> </div> <div class="col-md-4 col-lg-4"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-job-board-applicants"> <strong>Job Broadcaster</strong> </td> <td> <span id="ctrlJobBoardApplicantImport-JobBroadcaster" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-job-board-applicants"> <strong>Applicant</strong> </td> <td> <span id="ctrlJobBoardApplicantImport-Applicant" style="width:100%"></span> </td> </tr> </tbody> </table> </div> <div class="col-md-4 col-lg-4"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-job-board-applicants"> <strong>Channel</strong> </td> <td> <span id="ctrlJobBoardApplicantImport-Channel" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-job-board-applicants"> <strong>Rank</strong> </td> <td> <span id="ctrlJobBoardApplicantImport-Rank" style="width:100%"></span> </td> </tr> </tbody> </table> </div> </div> </div> <div class="block full"  id="ctrlJobBoardApplicantImport-DuplicateBlock" style="padding-bottom: 0px;"> <div class="block-title"> <h2>Potential Duplicate Candidates</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.OpenSelectedDuplicateCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open CV of selected candidate"> <i class="fa fa-folder-open-o"></i> &nbsp; Open CV &nbsp; </a> &nbsp; <a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.SelectNone()" class="btn btn-sm btn-default enable-tooltip" title="De-select all candidates"> <i class="fa fa-minus"></i> &nbsp; Select None &nbsp; </a> </div> </div> <div id="ctrlJobBoardApplicantImport-DataGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div> <div class="row"> <div class="col-md-4 col-lg-4" id="ctrlJobBoardApplicantImport-CVBlock"> <div class="block" style="padding-bottom: 0px;" id="ctrlJobBoardApplicantImport-cv-viewer-block"> <div class="block-title"> <h2 id="ctrlJobBoardApplicantImport-FileName">CV Viewer</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.Data.OpenApplicantCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open Applicant CV" id="ctrlJobBoardApplicantImport-open-applicant-cv"> <i class="gi gi-folder_open"></i> &nbsp; Open Applicant CV &nbsp; </a> </div> </div> <!-- Sized to match the height of the data entry fields to the right of the CV viewer  --> <div id="ctrlJobBoardApplicantImport-document-viewer-converted-contents" class="block" style="overflow-y: scroll; height: 822px; display: none;"> </div> <!-- PDF Viewer: data="https://bitcoin.org/bitcoin.pdf" --> <object id="ctrlJobBoardApplicantImport-document-viewer-pdf-viewer" type="application/pdf" style="height: 822px; display: none;"></object> <div id="ctrlJobBoardApplicantImport-document-viewer-zoom" style="height: 50px; width: 100%; display: none;"> <input id="ctrlJobBoardApplicantImport-form-slider" value="100" style="width: 800px;" /> </div> <div id="ctrlJobBoardApplicantImport-document-viewer-waiting" class="block" style="overflow-y: scroll; height: 600px; display: none;"> <h1 style="text-align: center; padding-top: 55px;"> <i class="fa fa-sun-o fa-spin fa-3x" style="float: none;" id="ctrlJobBoardApplicantImport-viewer-waiting-spinner-image"></i> &nbsp; </h1> <h5 style="text-align: center; padding-top: 25px;">Loading CV</h5> </div> </div> </div> <div class="col-md-4 col-lg-4" id="ctrlJobBoardApplicantImport-ApplicantBlock"> <div class="block" style="padding-bottom: 0px;"> <div class="block-title"> <h2>Applicant</h2> <div class="block-options pull-right" id="ctrlJobBoardApplicantImport-ApplicantBlock-Buttons"> <a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.SaveApplicantAsCandidateRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Save Applicant as a Candidate"> <i class="gi gi-floppy_saved"></i> &nbsp; Create New Candidate &nbsp; </a> </div> </div> <div id="ctrlJobBoardApplicantImport-form-no-vertical-scrollbar-deliberately-applicant"> <table class="table table-borderless table-striped" style="padding-right: 10px;"> <tbody> <tr> <td style="width:120px;"> <strong>Title/Gender</strong> </td> <td> <table style="width: 100%"> <tr> <td style="width: 40%;"> <input type="text" id="ctrlJobBoardApplicantImport-form-applicant-Title" style="width:100%" /> </td> <td style="width: 20%;">&nbsp;</td> <td style="width: 40%;"> <input type="text" id="ctrlJobBoardApplicantImport-form-applicant-Gender" style="width:100%" /> </td> </tr> </table> </td> </tr> <tr> <td> <strong>Forename(s)</strong> </td> <td> <input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-Forenames" required="required" style="width:100%" /> </td> </tr> <tr> <td><strong>Surname</strong></td> <td> <input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-Surname" style="width:100%" /> </td> </tr> <tr> <td> <strong>Job Title</strong> </td> <td> <input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-JobTitle" style="width:100%" /> </td> </tr> <tr> <td><strong>Photo</strong></td> <td> <table class="table table-borderless" style="text-align: center"> <tbody> <tr> <td> <img id="ctrlJobBoardApplicantImport-form-applicant-ContactPhoto" src="https://apex.trisys.co.uk/images/profile-grey.png" ondrop="ctrlJobBoardApplicantImport.DropPhoto(event, 'ctrlJobBoardApplicantImport-form-applicant-ContactPhoto')" ondragover="ctrlJobBoardApplicantImport.AllowDropPhoto(event)" style="height: 72px; width: 72px; border-radius: 10px;" /> </td> </tr> </tbody> </table> </td> </tr> <tr> <td><strong>Street</strong></td> <td> <textarea class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-Street" rows="3" style="width:100%; resize: none"></textarea> </td> </tr> <tr> <td><strong>City/Town</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-City" style="width:100%" /> </td> </tr> <tr> <td><strong>County</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-County" style="width:100%" /> </td> </tr> <tr> <td><strong>Post Code</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-PostCode" style="width:100px; text-transform: uppercase;" /> </td> </tr> <tr> <td><strong>Country</strong></td> <td> <input type="text" id="ctrlJobBoardApplicantImport-form-applicant-Country" style="width:100%" /> </td> </tr> <tr> <td><strong>Home Tel.</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-HomeTelNo" style="width:100%" /> </td> </tr> <tr> <td><strong>Work Tel.</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-WorkTelNo" style="width:100%" /> </td> </tr> <tr> <td><strong>Mobile Tel.</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-MobileTelNo" style="width:100%" /> </td> </tr> <tr> <td><strong>Private E-Mail</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-PersonalEMail" style="width:100%" /> </td> </tr> <tr> <td><strong>Work E-Mail</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-WorkEMail" style="width:100%" /> </td> </tr> <tr> <td><strong>Date of Birth</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-DateOfBirth" style="width:140px;" /> </td> </tr> <tr> <td><strong>Source</strong></td> <td> <input id="ctrlJobBoardApplicantImport-form-applicant-ContactSource" style="width:100%;" /> </td> </tr> <tr> <td> <strong>Type of Work</strong> </td> <td> <input type="text" id="ctrlJobBoardApplicantImport-form-applicant-TypeOfWorkRequired" style="width:100%" /> </td> </tr> </tbody> </table> <div style="height: 10px"></div> </div> </div> </div> <div class="col-md-4 col-lg-4" id="ctrlJobBoardApplicantImport-SelectedDuplicateBlock"> <div class="block" style="padding-bottom: 0px;"> <div class="block-title"> <h2>Existing Candidate</h2> <div class="block-options pull-right"  id="ctrlJobBoardApplicantImport-SelectedDuplicateBlock-Buttons"> <a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.OpenSelectedDuplicateCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open existing candidate CV" id="ctrlJobBoardApplicantImport-open-duplicate-cv"> <i class="gi gi-folder_open"></i> &nbsp; Open Existing CV &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.UpdateExistingCandidateRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Update existing candidate"> <i class="gi gi-floppy_saved"></i> &nbsp; Save Existing &nbsp; </a> </div> </div> <div id="ctrlJobBoardApplicantImport-form-no-vertical-scrollbar-deliberately-duplicate"> <table class="table table-borderless table-striped" style="padding-right: 10px;"> <tbody> <tr> <td style="width:120px;"> <strong>Title/Gender</strong> </td> <td> <table style="width: 100%"> <tr> <td style="width: 40%;"> <input type="text" id="ctrlJobBoardApplicantImport-form-duplicate-Title" style="width:100%" /> </td> <td style="width: 20%;">&nbsp;</td> <td style="width: 40%;"> <input type="text" id="ctrlJobBoardApplicantImport-form-duplicate-Gender" style="width:100%" /> </td> </tr> </table> </td> </tr> <tr> <td> <strong>Forename(s)</strong> </td> <td> <input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-Forenames" required="required" style="width:100%" /> </td> </tr> <tr> <td><strong>Surname</strong></td> <td> <input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-Surname" style="width:100%" /> </td> </tr> <tr> <td> <strong>Job Title</strong> </td> <td> <input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-JobTitle" style="width:100%" /> </td> </tr> <tr> <td><strong>Photo</strong></td> <td> <table class="table table-borderless" style="text-align: center"> <tbody> <tr> <td> <img id="ctrlJobBoardApplicantImport-form-duplicate-ContactPhoto" src="https://apex.trisys.co.uk/images/profile-grey.png" ondrop="ctrlJobBoardApplicantImport.DropPhoto(event, 'ctrlJobBoardApplicantImport-form-duplicate-ContactPhoto')" ondragover="ctrlJobBoardApplicantImport.AllowDropPhoto(event)" style="height: 72px; width: 72px; border-radius: 10px;" /> </td> </tr> </tbody> </table> </td> </tr> <tr> <td><strong>Street</strong></td> <td> <textarea class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-Street" rows="3" style="width:100%; resize: none"></textarea> </td> </tr> <tr> <td><strong>City/Town</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-City" style="width:100%" /> </td> </tr> <tr> <td><strong>County</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-County" style="width:100%" /> </td> </tr> <tr> <td><strong>Post Code</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-PostCode" style="width:100px; text-transform: uppercase;" /> </td> </tr> <tr> <td><strong>Country</strong></td> <td> <input type="text" id="ctrlJobBoardApplicantImport-form-duplicate-Country" style="width:100%" /> </td> </tr> <tr> <td><strong>Home Tel.</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-HomeTelNo" style="width:100%" /> </td> </tr> <tr> <td><strong>Work Tel.</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-WorkTelNo" style="width:100%" /> </td> </tr> <tr> <td><strong>Mobile Tel.</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-MobileTelNo" style="width:100%" /> </td> </tr> <tr> <td><strong>Private E-Mail</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-PersonalEMail" style="width:100%" /> </td> </tr> <tr> <td><strong>Work E-Mail</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-WorkEMail" style="width:100%" /> </td> </tr> <tr> <td><strong>Date of Birth</strong></td> <td> <input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-DateOfBirth" style="width:140px;" /> </td> </tr> <tr> <td><strong>Source</strong></td> <td> <input id="ctrlJobBoardApplicantImport-form-duplicate-ContactSource" style="width:100%;" /> </td> </tr> <tr> <td> <strong>Type of Work</strong> </td> <td> <input type="text" id="ctrlJobBoardApplicantImport-form-duplicate-TypeOfWorkRequired" style="width:100%" /> </td> </tr> </tbody> </table> <div style="height: 10px"></div> </div> </div> </div> </div>
+<style scoped>
+.td-label-job-board-applicants {
+width: 120px;
+}
+</style>
+<div class="row">
+<div class="col-md-12 col-lg-12">
+<div class="block">
+<div class="row">
+<div class="col-md-4 col-lg-4">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Requirement</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicantImport-Requirement" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Job Title</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicantImport-JobTitle" style="width:100%"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-4 col-lg-4">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Job Broadcaster</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicantImport-JobBroadcaster" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Applicant</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicantImport-Applicant" style="width:100%"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-4 col-lg-4">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Channel</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicantImport-Channel" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Rank</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicantImport-Rank" style="width:100%"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="block full"  id="ctrlJobBoardApplicantImport-DuplicateBlock" style="padding-bottom: 0px;">
+<div class="block-title">
+<h2>Potential Duplicate Candidates</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.OpenSelectedDuplicateCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open CV of selected candidate">
+<i class="fa fa-folder-open-o"></i> &nbsp; Open CV &nbsp;
+</a>
+&nbsp;
+<a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.SelectNone()" class="btn btn-sm btn-default enable-tooltip" title="De-select all candidates">
+<i class="fa fa-minus"></i> &nbsp; Select None &nbsp;
+</a>
+</div>
+</div>
+<div id="ctrlJobBoardApplicantImport-DataGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4 col-lg-4" id="ctrlJobBoardApplicantImport-CVBlock">
+<div class="block" style="padding-bottom: 0px;" id="ctrlJobBoardApplicantImport-cv-viewer-block">
+<div class="block-title">
+<h2 id="ctrlJobBoardApplicantImport-FileName">CV Viewer</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.Data.OpenApplicantCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open Applicant CV" id="ctrlJobBoardApplicantImport-open-applicant-cv">
+<i class="gi gi-folder_open"></i> &nbsp; Open Applicant CV &nbsp;
+</a>
+</div>
+</div>
+<!-- Sized to match the height of the data entry fields to the right of the CV viewer  -->
+<div id="ctrlJobBoardApplicantImport-document-viewer-converted-contents" class="block" style="overflow-y: scroll; height: 822px; display: none;">
+</div>
+<!-- PDF Viewer: data="https://bitcoin.org/bitcoin.pdf" -->
+<object id="ctrlJobBoardApplicantImport-document-viewer-pdf-viewer" type="application/pdf" style="height: 822px; display: none;"></object>
+<div id="ctrlJobBoardApplicantImport-document-viewer-zoom" style="height: 50px; width: 100%; display: none;">
+<input id="ctrlJobBoardApplicantImport-form-slider" value="100" style="width: 800px;" />
+</div>
+<div id="ctrlJobBoardApplicantImport-document-viewer-waiting" class="block" style="overflow-y: scroll; height: 600px; display: none;">
+<h1 style="text-align: center; padding-top: 55px;">
+<i class="fa fa-sun-o fa-spin fa-3x" style="float: none;" id="ctrlJobBoardApplicantImport-viewer-waiting-spinner-image"></i> &nbsp;
+</h1>
+<h5 style="text-align: center; padding-top: 25px;">Loading CV</h5>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-lg-4" id="ctrlJobBoardApplicantImport-ApplicantBlock">
+<div class="block" style="padding-bottom: 0px;">
+<div class="block-title">
+<h2>Applicant</h2>
+<div class="block-options pull-right" id="ctrlJobBoardApplicantImport-ApplicantBlock-Buttons">
+<a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.SaveApplicantAsCandidateRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Save Applicant as a Candidate">
+<i class="gi gi-floppy_saved"></i> &nbsp; Create New Candidate &nbsp;
+</a>
+</div>
+</div>
+<div id="ctrlJobBoardApplicantImport-form-no-vertical-scrollbar-deliberately-applicant">
+<table class="table table-borderless table-striped" style="padding-right: 10px;">
+<tbody>
+<tr>
+<td style="width:120px;">
+<strong>Title/Gender</strong>
+</td>
+<td>
+<table style="width: 100%">
+<tr>
+<td style="width: 40%;">
+<input type="text" id="ctrlJobBoardApplicantImport-form-applicant-Title" style="width:100%" />
+</td>
+<td style="width: 20%;">&nbsp;</td>
+<td style="width: 40%;">
+<input type="text" id="ctrlJobBoardApplicantImport-form-applicant-Gender" style="width:100%" />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Forename(s)</strong>
+</td>
+<td>
+<input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-Forenames" required="required" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Surname</strong></td>
+<td>
+<input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-Surname" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td>
+<strong>Job Title</strong>
+</td>
+<td>
+<input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-JobTitle" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Photo</strong></td>
+<td>
+<table class="table table-borderless" style="text-align: center">
+<tbody>
+<tr>
+<td>
+<img id="ctrlJobBoardApplicantImport-form-applicant-ContactPhoto" src="https://apex.trisys.co.uk/images/profile-grey.png"
+ondrop="ctrlJobBoardApplicantImport.DropPhoto(event, 'ctrlJobBoardApplicantImport-form-applicant-ContactPhoto')" ondragover="ctrlJobBoardApplicantImport.AllowDropPhoto(event)"
+style="height: 72px; width: 72px; border-radius: 10px;" />
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td><strong>Street</strong></td>
+<td>
+<textarea class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-Street" rows="3" style="width:100%; resize: none"></textarea>
+</td>
+</tr>
+<tr>
+<td><strong>City/Town</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-City" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>County</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-County" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Post Code</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-PostCode"
+style="width:100px; text-transform: uppercase;" />
+</td>
+</tr>
+<tr>
+<td><strong>Country</strong></td>
+<td>
+<input type="text" id="ctrlJobBoardApplicantImport-form-applicant-Country" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Home Tel.</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-HomeTelNo" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Work Tel.</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-WorkTelNo" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Mobile Tel.</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-MobileTelNo" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Private E-Mail</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-PersonalEMail" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Work E-Mail</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-WorkEMail" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Date of Birth</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-applicant-DateOfBirth" style="width:140px;" />
+</td>
+</tr>
+<tr>
+<td><strong>Source</strong></td>
+<td>
+<input id="ctrlJobBoardApplicantImport-form-applicant-ContactSource" style="width:100%;" />
+</td>
+</tr>
+<tr>
+<td>
+<strong>Type of Work</strong>
+</td>
+<td>
+<input type="text" id="ctrlJobBoardApplicantImport-form-applicant-TypeOfWorkRequired" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+<div style="height: 10px"></div>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-lg-4" id="ctrlJobBoardApplicantImport-SelectedDuplicateBlock">
+<div class="block" style="padding-bottom: 0px;">
+<div class="block-title">
+<h2>Existing Candidate</h2>
+<div class="block-options pull-right"  id="ctrlJobBoardApplicantImport-SelectedDuplicateBlock-Buttons">
+<a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.OpenSelectedDuplicateCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open existing candidate CV" id="ctrlJobBoardApplicantImport-open-duplicate-cv">
+<i class="gi gi-folder_open"></i> &nbsp; Open Existing CV &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ctrlJobBoardApplicantImport.UpdateExistingCandidateRecord()" class=" btn btn-sm btn-default enable-tooltip" title="Update existing candidate">
+<i class="gi gi-floppy_saved"></i> &nbsp; Save Existing &nbsp;
+</a>
+</div>
+</div>
+<div id="ctrlJobBoardApplicantImport-form-no-vertical-scrollbar-deliberately-duplicate">
+<table class="table table-borderless table-striped" style="padding-right: 10px;">
+<tbody>
+<tr>
+<td style="width:120px;">
+<strong>Title/Gender</strong>
+</td>
+<td>
+<table style="width: 100%">
+<tr>
+<td style="width: 40%;">
+<input type="text" id="ctrlJobBoardApplicantImport-form-duplicate-Title" style="width:100%" />
+</td>
+<td style="width: 20%;">&nbsp;</td>
+<td style="width: 40%;">
+<input type="text" id="ctrlJobBoardApplicantImport-form-duplicate-Gender" style="width:100%" />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Forename(s)</strong>
+</td>
+<td>
+<input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-Forenames" required="required" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Surname</strong></td>
+<td>
+<input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-Surname" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td>
+<strong>Job Title</strong>
+</td>
+<td>
+<input type="text" class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-JobTitle" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Photo</strong></td>
+<td>
+<table class="table table-borderless" style="text-align: center">
+<tbody>
+<tr>
+<td>
+<img id="ctrlJobBoardApplicantImport-form-duplicate-ContactPhoto" src="https://apex.trisys.co.uk/images/profile-grey.png"
+ondrop="ctrlJobBoardApplicantImport.DropPhoto(event, 'ctrlJobBoardApplicantImport-form-duplicate-ContactPhoto')" ondragover="ctrlJobBoardApplicantImport.AllowDropPhoto(event)"
+style="height: 72px; width: 72px; border-radius: 10px;" />
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td><strong>Street</strong></td>
+<td>
+<textarea class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-Street" rows="3" style="width:100%; resize: none"></textarea>
+</td>
+</tr>
+<tr>
+<td><strong>City/Town</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-City" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>County</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-County" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Post Code</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-PostCode"
+style="width:100px; text-transform: uppercase;" />
+</td>
+</tr>
+<tr>
+<td><strong>Country</strong></td>
+<td>
+<input type="text" id="ctrlJobBoardApplicantImport-form-duplicate-Country" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Home Tel.</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-HomeTelNo" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Work Tel.</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-WorkTelNo" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Mobile Tel.</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-MobileTelNo" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Private E-Mail</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-PersonalEMail" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Work E-Mail</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-WorkEMail" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Date of Birth</strong></td>
+<td>
+<input class="k-textbox" id="ctrlJobBoardApplicantImport-form-duplicate-DateOfBirth" style="width:140px;" />
+</td>
+</tr>
+<tr>
+<td><strong>Source</strong></td>
+<td>
+<input id="ctrlJobBoardApplicantImport-form-duplicate-ContactSource" style="width:100%;" />
+</td>
+</tr>
+<tr>
+<td>
+<strong>Type of Work</strong>
+</td>
+<td>
+<input type="text" id="ctrlJobBoardApplicantImport-form-duplicate-TypeOfWorkRequired" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+<div style="height: 10px"></div>
+</div>
+</div>
+</div>
+</div>

@@ -1,1 +1,115 @@
-<style scoped> .td-label-SendJobSpecification { width: 140px; } </style> <div class="row"> <div class="col-md-6 col-lg-6"> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-SendJobSpecification"> <strong>Client</strong> </td> <td> <span id="ctrlSendJobSpecification-Client" style="width:100%"></span> </td> </tr> <tr id="ctrlSendJobSpecification-Requirement-tr"> <td class="td-label-SendJobSpecification"> <strong>Requirement</strong> </td> <td> <span id="ctrlSendJobSpecification-Requirement" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-SendJobSpecification"> <strong>Candidate(s)</strong> </td> <td> <span id="ctrlSendJobSpecification-Candidate" style="width:100%"></span> </td> </tr> <tr id="ctrlSendJobSpecification-Salary-tr"> <td class="td-label-SendJobSpecification"> <strong>Job Description</strong> </td> <td> <div id="ctrlSendJobSpecification-JobDescription" style="width:100%"></div> </td> </tr> <tr> <td class="td-label-SendJobSpecification"> <strong>Attachment(s)</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input type="text" id="ctrlSendJobSpecification-Attachments" style="width:100%" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="ctrlSendJobSpecification-ManageAttachmentLibrary"> <i class="gi gi-paperclip"></i> </a> </td> </tr> </table> </td> </tr> </tbody> </table> </div> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-SendJobSpecification"> <strong>Candidate Template</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="ctrlSendJobSpecification-CandidateTemplate" style="width:100%;" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlSendJobSpecification-EditCandidateTemplate"> <i class="gi gi-edit"></i> </a> </td> </tr> </table> </td> </tr> <tr> <td class="td-label-SendJobSpecification"> <strong>Delivery</strong> </td> <td> <input id="ctrlSendJobSpecification-Delivery" style="width:100%;" /> </td> </tr> <tr> <td class="td-label-SendJobSpecification"> <strong>Candidate Subject</strong> </td> <td> <input type="text" class="k-textbox" id="ctrlSendJobSpecification-CandidateSubject" style="width:100%" /> </td> </tr> </tbody> </table> </div> </div> <div class="col-md-6 col-lg-6"> <div id="ctrlSendJobSpecification-NoteHistory"> </div> <div id="ctrlSendJobSpecification-FollowUp"> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="usercontrols/actions/ctrlSendJobSpecification.js"></script>
+<style scoped>
+.td-label-SendJobSpecification {
+width: 140px;
+}
+</style>
+<div class="row">
+<div class="col-md-6 col-lg-6">
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-SendJobSpecification">
+<strong>Client</strong>
+</td>
+<td>
+<span id="ctrlSendJobSpecification-Client" style="width:100%"></span>
+</td>
+</tr>
+<tr id="ctrlSendJobSpecification-Requirement-tr">
+<td class="td-label-SendJobSpecification">
+<strong>Requirement</strong>
+</td>
+<td>
+<span id="ctrlSendJobSpecification-Requirement" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-SendJobSpecification">
+<strong>Candidate(s)</strong>
+</td>
+<td>
+<span id="ctrlSendJobSpecification-Candidate" style="width:100%"></span>
+</td>
+</tr>
+<tr id="ctrlSendJobSpecification-Salary-tr">
+<td class="td-label-SendJobSpecification">
+<strong>Job Description</strong>
+</td>
+<td>
+<div id="ctrlSendJobSpecification-JobDescription" style="width:100%"></div>
+</td>
+</tr>
+<tr>
+<td class="td-label-SendJobSpecification">
+<strong>Attachment(s)</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input type="text" id="ctrlSendJobSpecification-Attachments" style="width:100%" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="ctrlSendJobSpecification-ManageAttachmentLibrary">
+<i class="gi gi-paperclip"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-SendJobSpecification">
+<strong>Candidate Template</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="ctrlSendJobSpecification-CandidateTemplate" style="width:100%;" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlSendJobSpecification-EditCandidateTemplate">
+<i class="gi gi-edit"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label-SendJobSpecification">
+<strong>Delivery</strong>
+</td>
+<td>
+<input id="ctrlSendJobSpecification-Delivery" style="width:100%;" />
+</td>
+</tr>
+<tr>
+<td class="td-label-SendJobSpecification">
+<strong>Candidate Subject</strong>
+</td>
+<td>
+<input type="text" class="k-textbox" id="ctrlSendJobSpecification-CandidateSubject" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="col-md-6 col-lg-6">
+<div id="ctrlSendJobSpecification-NoteHistory">
+</div>
+<div id="ctrlSendJobSpecification-FollowUp">
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlSendJobSpecification.js"></script>

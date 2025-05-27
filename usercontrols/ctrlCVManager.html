@@ -1,1 +1,72 @@
-<div style="width: 100%; height: 24px"> <style scoped> .k-link { padding-top: 0.35em; } .k-button { height: 28px; } .k-image { margin-left: -10px; } #ContactConfigFields_CVFileRef-CVManager_CopyCV li { width: 100%; height: 100%; } </style> <div style="float: right; width:80px;"> <ul id="CVManager_Menu" style="height: 28px"> <li style="height: 100%; border: 0; padding-top: 0px; width:100%;"> Open <ul style="margin-left: -150px; width:360px"> <li> <div style="padding: 5px; height: 150px"> <div id="CVManager_Title" style="height: 28px"></div> <input id="CVManager_FilePath" class="k-textbox" style="width:350px;" readonly="readonly" /> <br /> <div style="height: 10px; display:block"></div> <div style="float: left; width:50%"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Find a CV document on your device." id="CVManager_FindCVButton" style="width: 100px;"> <i class="fa fa-search"></i> &nbsp; Find CV &nbsp; </a> </div> <div style="float: right; width:50%; text-align: right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open the current CV document." id="CVManager_OpenCVButton" style="width: 100px;"> <i class="fa fa-folder-open"></i> &nbsp; Open CV &nbsp; </a> </div> <div style="height: 40px; display:block"></div> <div style="float: left; width:50%"> <div class="btn-group btn-group-sm show-on-hover" id="CVManager_CopyCVMenu"> <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Copy the current CV document." id="CVManager_CopyCV" style="width: 100px;"> <i class="fa fa-copy"></i> &nbsp; Copy CV &nbsp;<span class="caret"></span> </a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li> <a href="javascript:void(0)" id="CVManager_CopyCV_ToFormatted1"><i class="fa fa-files-o pull-right"></i><span id="CVManager1Label">Client CV #1</span></a> <a href="javascript:void(0)" id="CVManager_CopyCV_ToFormatted2"><i class="fa fa-files-o pull-right"></i><span id="CVManager2Label">Client CV #2</span></a> <a href="javascript:void(0)" id="CVManager_CopyCV_ToFormatted3"><i class="fa fa-files-o pull-right"></i><span id="CVManager3Label">Client CV #3</span></a> <a href="javascript:void(0)" id="CVManager_CopyCV_ToFormatted4"><i class="fa fa-files-o pull-right"></i><span id="CVManager4Label">Client CV #4</span></a> </li> </ul> </div> </div> <div style="float: right; width:50%; text-align: right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the current CV document." id="CVManager_DeleteCVButton" style="width: 100px;"> <i class="fa fa-remove"></i> &nbsp; Delete CV &nbsp; </a> </div> </div> </li> </ul> </li> </ul> </div> <div style="margin-right:84px;"> <input id="CVManager_FileName" readonly="readonly" class="k-textbox" style="width:100%" /> </div> </div>
+<div style="width: 100%; height: 24px">
+<style scoped>
+.k-link {
+padding-top: 0.35em;
+}
+.k-button {
+height: 28px;
+}
+.k-image {
+margin-left: -10px;
+}
+#ContactConfigFields_CVFileRef-CVManager_CopyCV li {
+width: 100%;
+height: 100%;
+}
+</style>
+<div style="float: right; width:80px;">
+<ul id="CVManager_Menu" style="height: 28px">
+<li style="height: 100%; border: 0; padding-top: 0px; width:100%;">
+Open
+<ul style="margin-left: -150px; width:360px">
+<li>
+<div style="padding: 5px; height: 150px">
+<div id="CVManager_Title" style="height: 28px"></div>
+<input id="CVManager_FilePath" class="k-textbox" style="width:350px;" readonly="readonly" />
+<br />
+<div style="height: 10px; display:block"></div>
+<div style="float: left; width:50%">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Find a CV document on your device."
+id="CVManager_FindCVButton" style="width: 100px;">
+<i class="fa fa-search"></i> &nbsp; Find CV &nbsp;
+</a>
+</div>
+<div style="float: right; width:50%; text-align: right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Open the current CV document."
+id="CVManager_OpenCVButton" style="width: 100px;">
+<i class="fa fa-folder-open"></i> &nbsp; Open CV &nbsp;
+</a>
+</div>
+<div style="height: 40px; display:block"></div>
+<div style="float: left; width:50%">
+<div class="btn-group btn-group-sm show-on-hover" id="CVManager_CopyCVMenu">
+<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Copy the current CV document."
+id="CVManager_CopyCV" style="width: 100px;">
+<i class="fa fa-copy"></i> &nbsp; Copy CV &nbsp;<span class="caret"></span>
+</a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li>
+<a href="javascript:void(0)" id="CVManager_CopyCV_ToFormatted1"><i class="fa fa-files-o pull-right"></i><span id="CVManager1Label">Client CV #1</span></a>
+<a href="javascript:void(0)" id="CVManager_CopyCV_ToFormatted2"><i class="fa fa-files-o pull-right"></i><span id="CVManager2Label">Client CV #2</span></a>
+<a href="javascript:void(0)" id="CVManager_CopyCV_ToFormatted3"><i class="fa fa-files-o pull-right"></i><span id="CVManager3Label">Client CV #3</span></a>
+<a href="javascript:void(0)" id="CVManager_CopyCV_ToFormatted4"><i class="fa fa-files-o pull-right"></i><span id="CVManager4Label">Client CV #4</span></a>
+</li>
+</ul>
+</div>
+</div>
+<div style="float: right; width:50%; text-align: right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the current CV document."
+id="CVManager_DeleteCVButton" style="width: 100px;">
+<i class="fa fa-remove"></i> &nbsp; Delete CV &nbsp;
+</a>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="margin-right:84px;">
+<input id="CVManager_FileName" readonly="readonly" class="k-textbox" style="width:100%" />
+</div>
+</div>

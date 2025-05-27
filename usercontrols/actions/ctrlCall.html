@@ -1,1 +1,124 @@
-<style scoped> .td-label-call { width: 120px; } .dropdown-menu.dropdown-custom > li { padding: 2px; } </style> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-call"> <strong>Contact</strong> </td> <td> <span id="ctrlCall-Contact" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-call"> <strong>Phone Number</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="ctrlCall-PhoneNumber" style="width:100%;" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Call the selected phone number" id="ctrlCall-Dial"> <i class="gi gi-phone_alt"></i> </a> <div id="ctrlCall-Skype" style="display: none;"> </div> <a href="tel:+441223772280" id="ctrlCall-DialHyperlink"></a> </td> </tr> </table> </td> </tr> <tr> <td class="td-label-call"> <strong>Call Outcome</strong> </td> <td> <input id="ctrlCall-Outcome" style="width:100%" /> </td> </tr> <tr> <td class="td-label-call"> <strong>Task Type &nbsp; </strong> <img id="ctrlCall-Selected-TaskType-Image" style="width: 24px; height: 24px; border: 0" /> </td> <td> <input id="ctrlCall-TaskType" style="width:100%" /> </td> </tr> <tr> <td class="td-label-call"> <strong>Attributes</strong> </td> <td> <input type="text" id="ctrlCall-Attributes" style="width:100%" /> </td> </tr> <tr id="Call-NoteHistory-Duration-Row"> <td class="td-label-call"> <strong>Duration</strong> </td> <td> <div id="ctrlCall-Duration" style="width:300px;"></div> </td> </tr> <tr id="ctrlCall-Requirement-Row" style="display: none;"> <td class="td-label-call"> <strong>Requirement</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="ctrlCall-Requirement" class="k-textbox" style="width:100%;" readonly="readonly" /> </td> <td style="width: 90px; text-align: right;" id="ctrlCall-LinkRequirement-TableColumn"> <div class="btn-group btn-group-sm show-on-hover"> <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Requirement Link"> <i class="gi gi-link"></i> &nbsp; Link &nbsp;<span class="caret"></span> </a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li> <a href="javascript:void(0)" onclick="ctrlCall.RequirementLink('Related')"> <i class="gi gi-user_add pull-left"></i>  &nbsp; View only requirements to which contact is related  &nbsp; </a> </li> <li> <a href="javascript:void(0)" onclick="ctrlCall.RequirementLink('Search')"> <i class="gi gi-search pull-left"></i>  &nbsp; Search for any requirement  &nbsp; </a> </li> </ul> </div> </td> </tr> </table> </td> </tr> <tr> <td class="td-label-call"> <strong>Notes</strong> </td> <td> <textarea class="k-textbox" id="ctrlCall-Notes" rows="5" style="width:100%; resize: vertical;"></textarea> </td> </tr> </tbody> </table> </div> <div id="ctrlCall-FollowUp"> </div> <!-- Load and execute javascript code used only in this page --> <script src="usercontrols/actions/ctrlCall.js"></script> <!-- https://msdn.microsoft.com/en-us/library/office/dn745883.aspx --> <script type="text/javascript" src="javascript/skype-uri.js"></script>
+<style scoped>
+.td-label-call {
+width: 120px;
+}
+.dropdown-menu.dropdown-custom > li {
+padding: 2px;
+}
+</style>
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-call">
+<strong>Contact</strong>
+</td>
+<td>
+<span id="ctrlCall-Contact" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-call">
+<strong>Phone Number</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="ctrlCall-PhoneNumber" style="width:100%;" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Call the selected phone number" id="ctrlCall-Dial">
+<i class="gi gi-phone_alt"></i>
+</a>
+<div id="ctrlCall-Skype" style="display: none;">
+</div>
+<a href="tel:+441223772280" id="ctrlCall-DialHyperlink"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label-call">
+<strong>Call Outcome</strong>
+</td>
+<td>
+<input id="ctrlCall-Outcome" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label-call">
+<strong>Task Type &nbsp; </strong>
+<img id="ctrlCall-Selected-TaskType-Image" style="width: 24px; height: 24px; border: 0" />
+</td>
+<td>
+<input id="ctrlCall-TaskType" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label-call">
+<strong>Attributes</strong>
+</td>
+<td>
+<input type="text" id="ctrlCall-Attributes" style="width:100%" />
+</td>
+</tr>
+<tr id="Call-NoteHistory-Duration-Row">
+<td class="td-label-call">
+<strong>Duration</strong>
+</td>
+<td>
+<div id="ctrlCall-Duration" style="width:300px;"></div>
+</td>
+</tr>
+<tr id="ctrlCall-Requirement-Row" style="display: none;">
+<td class="td-label-call">
+<strong>Requirement</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="ctrlCall-Requirement" class="k-textbox" style="width:100%;" readonly="readonly" />
+</td>
+<td style="width: 90px; text-align: right;" id="ctrlCall-LinkRequirement-TableColumn">
+<div class="btn-group btn-group-sm show-on-hover">
+<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Requirement Link">
+<i class="gi gi-link"></i> &nbsp; Link &nbsp;<span class="caret"></span>
+</a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li>
+<a href="javascript:void(0)" onclick="ctrlCall.RequirementLink('Related')">
+<i class="gi gi-user_add pull-left"></i>  &nbsp; View only requirements to which contact is related  &nbsp;
+</a>
+</li>
+<li>
+<a href="javascript:void(0)" onclick="ctrlCall.RequirementLink('Search')">
+<i class="gi gi-search pull-left"></i>  &nbsp; Search for any requirement  &nbsp;
+</a>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label-call">
+<strong>Notes</strong>
+</td>
+<td>
+<textarea class="k-textbox" id="ctrlCall-Notes" rows="5" style="width:100%; resize: vertical;"></textarea>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="ctrlCall-FollowUp">
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlCall.js"></script>
+<!-- https://msdn.microsoft.com/en-us/library/office/dn745883.aspx -->
+<script type="text/javascript" src="javascript/skype-uri.js"></script>

@@ -1,1 +1,48 @@
-<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <title>iOS Test</title> <script src="../kendoui/js/jquery.min.js"></script> <script src="../javascript/TriSysApex.js"></script> <script src="../javascript/TriSysAPI.js"></script> <script src="../javascript/TriSysSDK.js"></script> </head> <body> <h4>TriSys Apex iOS Testing #5</h4> <p>Run this in Safari on iOS and it will work perfectly. However in a PhoneGap/Cordova WebView control, it hangs and the red SUCCESS message below is not displayed.</p> <p style="color: red;" id="webServiceCallResults">Calling https://api.trisys.co.uk...</p> <script> var iOS = { Load: function () { // test random cookie TriSysAPI.Session.Memory.Set("iOS-Test", "random value", 1); $('#webServiceCallResults').html("Did  TriSysAPI.Session.Memory.Set"); TriSysAPI.Cookies.setCookie('iOS-Test', "random value", 1); $('#webServiceCallResults').html("Did setCookie"); var sSiteKey = TriSysApex.Constants.DeveloperSiteKey; TriSysAPI.Session.SetDeveloperSiteKey(sSiteKey); // Get our external IP address var sIPAddress = TriSysAPI.Data.IPAddress(); var sMessage="IP Address: " + sIPAddress; // We know this fails on iOS var bInDev = TriSysApex.Pages.Controller.IsClientADeveloperIPAddress(); sMessage +="<br /> SUCCESS: IsClientADeveloperIPAddress() returned " + bInDev; $('#webServiceCallResults').html(sMessage); setTimeout(iOS.Redirect, 500); }, Redirect: function() { window.location="../index.html"; } }; // Now display the document $(document).ready(function () { setTimeout(iOS.Load, 500); }); </script> </body> </html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>iOS Test</title>
+<script src="../kendoui/js/jquery.min.js"></script>
+<script src="../javascript/TriSysApex.js"></script>
+<script src="../javascript/TriSysAPI.js"></script>
+<script src="../javascript/TriSysSDK.js"></script>
+</head>
+<body>
+<h4>TriSys Apex iOS Testing #5</h4>
+<p>Run this in Safari on iOS and it will work perfectly.
+However in a PhoneGap/Cordova WebView control, it hangs and the red SUCCESS message below is not displayed.</p>
+<p style="color: red;" id="webServiceCallResults">Calling https://api.trisys.co.uk...</p>
+<script>
+var iOS =
+{
+Load: function ()
+{
+// test random cookie
+TriSysAPI.Session.Memory.Set("iOS-Test", "random value", 1);
+$('#webServiceCallResults').html("Did  TriSysAPI.Session.Memory.Set");
+TriSysAPI.Cookies.setCookie('iOS-Test', "random value", 1);
+$('#webServiceCallResults').html("Did setCookie");
+var sSiteKey = TriSysApex.Constants.DeveloperSiteKey;
+TriSysAPI.Session.SetDeveloperSiteKey(sSiteKey);
+// Get our external IP address
+var sIPAddress = TriSysAPI.Data.IPAddress();
+var sMessage="IP Address: " + sIPAddress;
+// We know this fails on iOS
+var bInDev = TriSysApex.Pages.Controller.IsClientADeveloperIPAddress();
+sMessage +="<br /> SUCCESS: IsClientADeveloperIPAddress() returned " + bInDev;
+$('#webServiceCallResults').html(sMessage);
+setTimeout(iOS.Redirect, 500);
+},
+Redirect: function()
+{
+window.location="../index.html";
+}
+};
+// Now display the document
+$(document).ready(function ()
+{
+setTimeout(iOS.Load, 500);
+});
+</script>
+</body>
+</html>

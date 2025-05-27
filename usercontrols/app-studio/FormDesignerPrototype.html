@@ -1,1 +1,249 @@
-<!-- Ensure that form title inherits standard form styles --> <style scoped> .drop-zone { border: 1px solid #ccc; min-height: 200px; padding: 10px; } </style> <div class="block full" style="padding-bottom: 0px;"> <div class="block-title" style="margin-bottom: 10px;"> <h2>Form Designer Prototype</h2> <div class="block-options pull-right"> <a style="cursor: pointer;" onclick="FormDesignerPrototype.ModalLayoutEditor()" class="btn btn-sm btn-default enable-tooltip" title="Clone the selected item"> <i class="gi gi-adjust_alt"></i>&nbsp; Configure Layout &nbsp; </a> <span>&nbsp;</span> <div class="btn-group btn-group-sm show-on-hover"> <a style="cursor: pointer;" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Add a new data source, folder or request"> <i class="gi gi-circle_plus"></i><span id="ctrlDataSources-Add-Button"> &nbsp; Configure </span> &nbsp; <span class="caret"></span> </a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li> <a style="cursor: pointer;" onclick="FormDesignerPrototype.UpdateLayout()"> <i class="fa fa-database pull-left"></i>  &nbsp; Update Layout </a> </li> <li> <a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Folder')"> <i class="fa fa-folder pull-left"></i>  &nbsp; Folder </a> </li> <li> <a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Request')"> <i class="gi gi-globe_af pull-left"></i>  &nbsp; Request </a> </li> </ul> </div> <span>&nbsp;</span> <a style="cursor: pointer;" onclick="AppStudioDataSources.Copy()" class="btn btn-sm btn-default enable-tooltip" title="Clone the selected item"> <i class="fa fa-copy"></i><span id="ctrlDataSources-Clone-Button"> &nbsp; Clone &nbsp;</span> </a> <span>&nbsp;</span> <a style="cursor: pointer;" onclick="AppStudioDataSources.Import()" class="btn btn-sm btn-default enable-tooltip" title="Import a data source"> <i class="gi gi-file_import"></i><span id="ctrlDataSources-Import-Button"> &nbsp; Import &nbsp;</span> </a> </div> </div> <!--<div class="row"> <div class="col-md-12" style="padding-bottom: 10px;"> <div class="block"> <div id="formDesignerPrototype-tileLayout"></div> </div> </div> </div>--> <div class="row"> <div class="col-md-12" style="padding-bottom: 10px;"> <div class="block"> <div id="formDesignerSplitter" style="height: 800px;"> <!-- Row 1 with 3 columns --> <div id="row1-splitter"> <div id="row1-col1"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> <tr> <td><strong>Skill Combo</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-field-skillcombo" type="skillcombo" category="Status" value="On Contract"></trisys-field> </td> </tr> <tr> <td><strong>User</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-user" type="usercombo"></trisys-field> </td> </tr> <tr> <td><strong>Single Select Combo</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-field-arraycombo" type="singleselectcombo"></trisys-field> </td> </tr> <tr> <td><strong>MultiSelect List</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-field-list" type="list" value="Frodo, Gollum"></trisys-field> </td> </tr> <tr> <td><strong>Job Title</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-field-jobtitle" type="jobtitle" value="Developer"></trisys-field> </td> </tr> <tr> <td><strong>File Reference</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-field-file" type="file" hidedeletebutton="false" hidefindbutton="false" hideopenbutton="false"></trisys-field> </td> </tr> <tr> <td><strong>Currency Amount</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-field-currencyamount" type="currencyamount" minimum="0" increment="1" value="$12,345"></trisys-field> </td> </tr> <tr> <td><strong>Currency Amount Period</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-field-currencyamountperiod" type="currencyamountperiod" minimum="0" increment="1" value="&pound;124,456 per Annum"></trisys-field> </td> </tr> <tr> <td><strong>Yes/No</strong></td> <td> <trisys-field id="Game_Set_and_Match-form-field-yesno" type="yesno" value="true" title="Optional label"></trisys-field> </td> </tr> </tbody> </table> </div> <div id="row1-col2"> <div class="block"> <div class="block-title"> <div class="block-options pull-right"> <a style="cursor: pointer;" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-times"></i></a> <div class="btn-group btn-group-sm open"> <a style="cursor: pointer;" class="btn btn-alt btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" data-original-title="Options" aria-expanded="true"><span class="caret"></span></a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li> <a style="cursor: pointer;" onclick="FormDesignerPrototype.addColumnToRight(this)"> <i class="gi gi-cloud pull-right"></i>Add a Column </a> <a style="cursor: pointer;" onclick="FormDesignerPrototype.addNewRowBeneathCurrentRow(this, 4)"> <i class="gi gi-plus pull-right"></i>Add a Row </a> <a style="cursor: pointer;"><i class="gi gi-airplane pull-right"></i>Another Action</a> </li> <li class="divider"></li> <li> <a style="cursor: pointer;" onclick="FormDesignerPrototype.deleteCurrentColumn(this)"> <i class="fa fa-times fa-fw pull-right"></i>Delete Column </a> </li> <li> <a style="cursor: pointer;" onclick="FormDesignerPrototype.deleteCurrentRow(this)"> <i class="fa fa-times fa-fw pull-right"></i>Delete Row </a> </li> </ul> </div> </div> <h2><strong>Example</strong> Title</h2> </div> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> </div> </div> <!-- Row 2 with 2 columns --> <div id="row2-splitter"> <div id="row2-col1"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> <div id="row2-col2"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> </div> <!-- Row 3 with 4 columns --> <div id="row3-splitter"> <div id="row3-col1"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> <div id="row3-col2"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> <div id="row3-col3"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> <div id="row3-col4"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> </div> </div> </div> </div> </div> <!--<div class="row"> <div class="col-md-12" style="padding-bottom: 10px;"> <div class="block"> <div id="company-form-customfields" class="row"> <div class="col-md-4" style="padding-left: 0px"> <div class="form-group"> <div class="col-md-12">--> <!-- Your trisys-field elements go here --> <!--</div> </div> </div> <div class="col-md-4"> <div class="form-group"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> </div> <div class="col-md-4"> <div class="form-group"> <table class="table table-borderless table-striped"> <tbody class="drop-zone"> </tbody> </table> </div> </div> </div> </div> </div> </div>--> </div> <!-- Load and execute javascript code used only in this page --> <script src="usercontrols/app-studio/FormDesignerPrototype.js?ts=202410141056"></script>
+<!-- Ensure that form title inherits standard form styles -->
+<style scoped>
+.drop-zone {
+border: 1px solid #ccc;
+min-height: 200px;
+padding: 10px;
+}
+</style>
+<div class="block full" style="padding-bottom: 0px;">
+<div class="block-title" style="margin-bottom: 10px;">
+<h2>Form Designer Prototype</h2>
+<div class="block-options pull-right">
+<a style="cursor: pointer;" onclick="FormDesignerPrototype.ModalLayoutEditor()"
+class="btn btn-sm btn-default enable-tooltip" title="Clone the selected item">
+<i class="gi gi-adjust_alt"></i>&nbsp; Configure Layout &nbsp;
+</a>
+<span>&nbsp;</span>
+<div class="btn-group btn-group-sm show-on-hover">
+<a style="cursor: pointer;" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Add a new data source, folder or request">
+<i class="gi gi-circle_plus"></i><span id="ctrlDataSources-Add-Button"> &nbsp; Configure </span> &nbsp; <span class="caret"></span>
+</a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li>
+<a style="cursor: pointer;" onclick="FormDesignerPrototype.UpdateLayout()">
+<i class="fa fa-database pull-left"></i>  &nbsp; Update Layout
+</a>
+</li>
+<li>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Folder')">
+<i class="fa fa-folder pull-left"></i>  &nbsp; Folder
+</a>
+</li>
+<li>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Request')">
+<i class="gi gi-globe_af pull-left"></i>  &nbsp; Request
+</a>
+</li>
+</ul>
+</div>
+<span>&nbsp;</span>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Copy()"
+class="btn btn-sm btn-default enable-tooltip" title="Clone the selected item">
+<i class="fa fa-copy"></i><span id="ctrlDataSources-Clone-Button"> &nbsp; Clone &nbsp;</span>
+</a>
+<span>&nbsp;</span>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Import()"
+class="btn btn-sm btn-default enable-tooltip" title="Import a data source">
+<i class="gi gi-file_import"></i><span id="ctrlDataSources-Import-Button"> &nbsp; Import &nbsp;</span>
+</a>
+</div>
+</div>
+<!--<div class="row">
+<div class="col-md-12" style="padding-bottom: 10px;">
+<div class="block">
+<div id="formDesignerPrototype-tileLayout"></div>
+</div>
+</div>
+</div>-->
+<div class="row">
+<div class="col-md-12" style="padding-bottom: 10px;">
+<div class="block">
+<div id="formDesignerSplitter" style="height: 800px;">
+<!-- Row 1 with 3 columns -->
+<div id="row1-splitter">
+<div id="row1-col1">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+<tr>
+<td><strong>Skill Combo</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-field-skillcombo" type="skillcombo" category="Status" value="On Contract"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>User</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-user" type="usercombo"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Single Select Combo</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-field-arraycombo" type="singleselectcombo"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>MultiSelect List</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-field-list" type="list"
+value="Frodo, Gollum"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Job Title</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-field-jobtitle" type="jobtitle" value="Developer"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>File Reference</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-field-file" type="file"
+hidedeletebutton="false" hidefindbutton="false" hideopenbutton="false"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Currency Amount</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-field-currencyamount" type="currencyamount"
+minimum="0" increment="1" value="$12,345"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Currency Amount Period</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-field-currencyamountperiod" type="currencyamountperiod"
+minimum="0" increment="1" value="&pound;124,456 per Annum"></trisys-field>
+</td>
+</tr>
+<tr>
+<td><strong>Yes/No</strong></td>
+<td>
+<trisys-field id="Game_Set_and_Match-form-field-yesno" type="yesno" value="true"
+title="Optional label"></trisys-field>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="row1-col2">
+<div class="block">
+<div class="block-title">
+<div class="block-options pull-right">
+<a style="cursor: pointer;" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+<div class="btn-group btn-group-sm open">
+<a style="cursor: pointer;" class="btn btn-alt btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" data-original-title="Options" aria-expanded="true"><span class="caret"></span></a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li>
+<a style="cursor: pointer;" onclick="FormDesignerPrototype.addColumnToRight(this)">
+<i class="gi gi-cloud pull-right"></i>Add a Column
+</a>
+<a style="cursor: pointer;" onclick="FormDesignerPrototype.addNewRowBeneathCurrentRow(this, 4)">
+<i class="gi gi-plus pull-right"></i>Add a Row
+</a>
+<a style="cursor: pointer;"><i class="gi gi-airplane pull-right"></i>Another Action</a>
+</li>
+<li class="divider"></li>
+<li>
+<a style="cursor: pointer;" onclick="FormDesignerPrototype.deleteCurrentColumn(this)">
+<i class="fa fa-times fa-fw pull-right"></i>Delete Column
+</a>
+</li>
+<li>
+<a style="cursor: pointer;" onclick="FormDesignerPrototype.deleteCurrentRow(this)">
+<i class="fa fa-times fa-fw pull-right"></i>Delete Row
+</a>
+</li>
+</ul>
+</div>
+</div>
+<h2><strong>Example</strong> Title</h2>
+</div>
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Row 2 with 2 columns -->
+<div id="row2-splitter">
+<div id="row2-col1">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+<div id="row2-col2">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+</div>
+<!-- Row 3 with 4 columns -->
+<div id="row3-splitter">
+<div id="row3-col1">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+<div id="row3-col2">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+<div id="row3-col3">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+<div id="row3-col4">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--<div class="row">
+<div class="col-md-12" style="padding-bottom: 10px;">
+<div class="block">
+<div id="company-form-customfields" class="row">
+<div class="col-md-4" style="padding-left: 0px">
+<div class="form-group">
+<div class="col-md-12">-->
+<!-- Your trisys-field elements go here -->
+<!--</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<table class="table table-borderless table-striped">
+<tbody class="drop-zone">
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>-->
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/app-studio/FormDesignerPrototype.js?ts=202410141056"></script>

@@ -1,1 +1,273 @@
-<style scoped> .RatesNumberColumn { text-align: right; width: 130px; } .form-bordered .form-group { padding: 0px; } </style> <div class="content-header"> <div class="header-section"> <h1> <i class="gi gi-stopwatch"></i>Edit Selected Timesheets <br> <small> The timesheets you selected are all displayed below and can be edited &/or authorised. Process each timesheet in turn until all are completed. </small> </h1> </div> </div> <div id="lstClientTimesheets"> </div> <div id="clientTimesheetTemplate" style="display: none;"> <div class="block full"> <div class="block-title"> <h2> #{{SelectedTimesheetIndex}} of {{NumberOfSelectedTimesheets}} : <span id="timesheet-candidate-{{TimesheetId}}"></span>, <span id="timesheet-period-{{TimesheetId}}"></span> </h2> <div class="block-options pull-right" id="timesheet-form-grid-buttons"> <a href="javascript:void(0)" onclick="ClientEditTimesheets.Save('{{TimesheetId}}')" class=" btn btn-sm btn-default enable-tooltip" title="Save timesheet" id="ClientEditTimesheets-Menu-Save-{{TimesheetId}}" style="display: none;"> <i class="gi gi-floppy_save"></i> &nbsp; <span id="ClientEditTimesheets_Menu-SaveButtonText-{{TimesheetId}}">Save</span> &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="ClientEditTimesheets.Authorise('{{TimesheetId}}')" class=" btn btn-sm btn-default enable-tooltip" title="Authorise timesheet" id="ClientEditTimesheets-Menu-Authorise-{{TimesheetId}}"> <i class="fa fa-check-square-o"></i> &nbsp; Authorise &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" id="hide-timesheet-block-{{TimesheetId}}" data-toggle="tooltip" title="Minimize Timesheet"> <i class="fa fa-angle-up"></i> </a> </div> </div> <div class="form-horizontal form-bordered" id="timesheet-details-{{TimesheetId}}"> <div class="form-group"> <div class="col-md-6"> <div class="block" style="margin-top: 10px;"> <div class="block-title"> <h2>Timesheet</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label">ID</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-id-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Period</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-period-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Input Date</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-inputdate-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Status</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-status-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Line Manager</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-linemanager-{{TimesheetId}}"></p> </div> </div> <div class="form-group" id="trisys-timesheet-authorised-form-group-{{TimesheetId}}" style="display: none;"> <label class="col-md-3 control-label">Authorised</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-authorised-{{TimesheetId}}"></p> </div> </div> <div class="form-group" id="trisys-timesheet-authorisedby-form-group-{{TimesheetId}}" style="display: none;"> <label class="col-md-3 control-label">Authorised By</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-authorisedby-{{TimesheetId}}"></p> </div> </div> <div class="form-group" id="trisys-timesheet-paid-form-group-{{TimesheetId}}" style="display: none;"> <label class="col-md-3 control-label">Paid</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-paid-{{TimesheetId}}"></p> </div> </div> </div> </div> </div> <div class="col-md-6"> <div class="block" style="margin-top: 10px;"> <div class="block-title"> <h2>Placement</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label">Reference</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-reference-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Candidate</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-candidate-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Type</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-type-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Job Title</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-jobtitle-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Company</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-company-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Location</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-location-{{TimesheetId}}"></p> </div> </div> <div class="form-group"> <label class="col-md-3 control-label">Start Date</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-startdate-{{TimesheetId}}"></p> </div> </div> <div class="form-group" id="trisys-timesheet-enddate-formgroup-{{TimesheetId}}"> <label class="col-md-3 control-label">End Date</label> <div class="col-md-9"> <p class="form-control-static" id="trisys-timesheet-enddate-{{TimesheetId}}"></p> </div> </div> </div> </div> </div> </div> <div class="form-group"> <div class="col-md-12"> <div class="block full"> <div class="block-title"> <h2>Working Hours</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-xs-12"> <div id="trisys-timesheet-hours-grid-{{TimesheetId}}" style="border-width: 1px;  width: 100%; margin-top: 10px; margin-bottom: 10px;"> </div> </div> </div> <div class="form-group" id="trisys-timesheet-hours-grid-beneath-{{TimesheetId}}" style="display: none;"> <div class="col-xs-12"> <p style="padding-top: 20px;"> <b> Please check and authorise the Working Hours. For cost and charges, please see your agreed schedule. </b> </p> </div> </div> </div> </div> </div> </div> <div class="form-group" id="trisys-timesheet-hours-rates-amounts-summary-group-{{TimesheetId}}"> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2 id="trisys-timesheet-hours-rates-amounts-{{TimesheetId}}">Hours, Rates &amp; Amounts</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-xs-12"> <table class="table table-bordered table-striped" id="amountsTable-{{TimesheetId}}" style="width: 100%; margin-top: 10px;"> <tbody id="tbodyAmounts-{{TimesheetId}}"> <tr> <th></th> <td style="text-align:right; width: 110px;"><b>Total Hours</b></td> <td class="RatesNumberColumn"><b>Pay Rate</b></td> <td class="RatesNumberColumn"><b>Charge Rate</b></td> <td class="RatesNumberColumn"><b>Pay Amount</b></td> <td class="RatesNumberColumn"><b>Charge Amount</b></td> </tr> </tbody> </table> </div> </div> </div> </div> </div> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2>Timesheet Summary</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-xs-12"> <table class="table table-bordered table-striped" id="summaryTable-{{TimesheetId}}" style="width: 100%; margin-top: 10px;"> <tbody> <tr> <th></th> <td class="RatesNumberColumn"><b>Pay</b></td> <td class="RatesNumberColumn"><b>Charge</b></td> </tr> <tr> <th class="text-nowrap">Currency</th> <td class="RatesNumberColumn"><div id="summaryPayCurrency-{{TimesheetId}}"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeCurrency-{{TimesheetId}}"></div></td> </tr> <tr> <th class="text-nowrap">Total Net Amount</th> <td class="RatesNumberColumn"><div id="summaryTotalNetPay-{{TimesheetId}}"></div></td> <td class="RatesNumberColumn"><div id="summaryTotalNetCharge-{{TimesheetId}}"></div></td> </tr> <tr> <th class="text-nowrap">VAT % Rate</th> <td class="RatesNumberColumn"><div id="summaryPayVATPercentage-{{TimesheetId}}"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeVATPercentage-{{TimesheetId}}"></div></td> </tr> <tr> <th class="text-nowrap">Total VAT Amount</th> <td class="RatesNumberColumn"><div id="summaryPayVATAmount-{{TimesheetId}}"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeVATAmount-{{TimesheetId}}"></div></td> </tr> <tr> <th class="text-nowrap">Grand Total</th> <td class="RatesNumberColumn"><div id="summaryPayGrandTotal-{{TimesheetId}}"></div></td> <td class="RatesNumberColumn"><div id="summaryChargeGrandTotal-{{TimesheetId}}"></div></td> </tr> </tbody> </table> </div> </div> </div> </div> </div> </div> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/ClientEditTimesheets.js"></script>
+<style scoped>
+.RatesNumberColumn
+{
+text-align: right;
+width: 130px;
+}
+.form-bordered .form-group
+{
+padding: 0px;
+}
+</style>
+<div class="content-header">
+<div class="header-section">
+<h1>
+<i class="gi gi-stopwatch"></i>Edit Selected Timesheets
+<br>
+<small>
+The timesheets you selected are all displayed below and can be edited &/or authorised.
+Process each timesheet in turn until all are completed.
+</small>
+</h1>
+</div>
+</div>
+<div id="lstClientTimesheets">
+</div>
+<div id="clientTimesheetTemplate" style="display: none;">
+<div class="block full">
+<div class="block-title">
+<h2>
+#{{SelectedTimesheetIndex}} of {{NumberOfSelectedTimesheets}}
+:
+<span id="timesheet-candidate-{{TimesheetId}}"></span>,
+<span id="timesheet-period-{{TimesheetId}}"></span>
+</h2>
+<div class="block-options pull-right" id="timesheet-form-grid-buttons">
+<a href="javascript:void(0)" onclick="ClientEditTimesheets.Save('{{TimesheetId}}')" class=" btn btn-sm btn-default enable-tooltip" title="Save timesheet"
+id="ClientEditTimesheets-Menu-Save-{{TimesheetId}}" style="display: none;">
+<i class="gi gi-floppy_save"></i> &nbsp; <span id="ClientEditTimesheets_Menu-SaveButtonText-{{TimesheetId}}">Save</span> &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="ClientEditTimesheets.Authorise('{{TimesheetId}}')" class=" btn btn-sm btn-default enable-tooltip" title="Authorise timesheet"
+id="ClientEditTimesheets-Menu-Authorise-{{TimesheetId}}">
+<i class="fa fa-check-square-o"></i> &nbsp; Authorise &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" id="hide-timesheet-block-{{TimesheetId}}" data-toggle="tooltip" title="Minimize Timesheet">
+<i class="fa fa-angle-up"></i>
+</a>
+</div>
+</div>
+<div class="form-horizontal form-bordered" id="timesheet-details-{{TimesheetId}}">
+<div class="form-group">
+<div class="col-md-6">
+<div class="block" style="margin-top: 10px;">
+<div class="block-title">
+<h2>Timesheet</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label">ID</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-id-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Period</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-period-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Input Date</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-inputdate-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Status</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-status-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Line Manager</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-linemanager-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-authorised-form-group-{{TimesheetId}}" style="display: none;">
+<label class="col-md-3 control-label">Authorised</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-authorised-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-authorisedby-form-group-{{TimesheetId}}" style="display: none;">
+<label class="col-md-3 control-label">Authorised By</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-authorisedby-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-paid-form-group-{{TimesheetId}}" style="display: none;">
+<label class="col-md-3 control-label">Paid</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-paid-{{TimesheetId}}"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="block" style="margin-top: 10px;">
+<div class="block-title">
+<h2>Placement</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label">Reference</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-reference-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Candidate</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-candidate-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Type</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-type-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Job Title</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-jobtitle-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Company</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-company-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Location</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-location-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">Start Date</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-startdate-{{TimesheetId}}"></p>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-enddate-formgroup-{{TimesheetId}}">
+<label class="col-md-3 control-label">End Date</label>
+<div class="col-md-9">
+<p class="form-control-static" id="trisys-timesheet-enddate-{{TimesheetId}}"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="form-group">
+<div class="col-md-12">
+<div class="block full">
+<div class="block-title">
+<h2>Working Hours</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-xs-12">
+<div id="trisys-timesheet-hours-grid-{{TimesheetId}}" style="border-width: 1px;  width: 100%; margin-top: 10px; margin-bottom: 10px;">
+</div>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-hours-grid-beneath-{{TimesheetId}}" style="display: none;">
+<div class="col-xs-12">
+<p style="padding-top: 20px;">
+<b>
+Please check and authorise the Working Hours.
+For cost and charges, please see your agreed schedule.
+</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="form-group" id="trisys-timesheet-hours-rates-amounts-summary-group-{{TimesheetId}}">
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2 id="trisys-timesheet-hours-rates-amounts-{{TimesheetId}}">Hours, Rates &amp; Amounts</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-xs-12">
+<table class="table table-bordered table-striped" id="amountsTable-{{TimesheetId}}" style="width: 100%; margin-top: 10px;">
+<tbody id="tbodyAmounts-{{TimesheetId}}">
+<tr>
+<th></th>
+<td style="text-align:right; width: 110px;"><b>Total Hours</b></td>
+<td class="RatesNumberColumn"><b>Pay Rate</b></td>
+<td class="RatesNumberColumn"><b>Charge Rate</b></td>
+<td class="RatesNumberColumn"><b>Pay Amount</b></td>
+<td class="RatesNumberColumn"><b>Charge Amount</b></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2>Timesheet Summary</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-xs-12">
+<table class="table table-bordered table-striped" id="summaryTable-{{TimesheetId}}" style="width: 100%; margin-top: 10px;">
+<tbody>
+<tr>
+<th></th>
+<td class="RatesNumberColumn"><b>Pay</b></td>
+<td class="RatesNumberColumn"><b>Charge</b></td>
+</tr>
+<tr>
+<th class="text-nowrap">Currency</th>
+<td class="RatesNumberColumn"><div id="summaryPayCurrency-{{TimesheetId}}"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeCurrency-{{TimesheetId}}"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Total Net Amount</th>
+<td class="RatesNumberColumn"><div id="summaryTotalNetPay-{{TimesheetId}}"></div></td>
+<td class="RatesNumberColumn"><div id="summaryTotalNetCharge-{{TimesheetId}}"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">VAT % Rate</th>
+<td class="RatesNumberColumn"><div id="summaryPayVATPercentage-{{TimesheetId}}"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeVATPercentage-{{TimesheetId}}"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Total VAT Amount</th>
+<td class="RatesNumberColumn"><div id="summaryPayVATAmount-{{TimesheetId}}"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeVATAmount-{{TimesheetId}}"></div></td>
+</tr>
+<tr>
+<th class="text-nowrap">Grand Total</th>
+<td class="RatesNumberColumn"><div id="summaryPayGrandTotal-{{TimesheetId}}"></div></td>
+<td class="RatesNumberColumn"><div id="summaryChargeGrandTotal-{{TimesheetId}}"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ClientEditTimesheets.js"></script>

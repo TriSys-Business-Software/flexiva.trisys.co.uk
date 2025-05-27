@@ -1,1 +1,404 @@
-<style scoped> .block-title > i { padding-top: 10px; padding-left: 15px; } </style> <div class="content-header" style="display: none;"> <div class="header-section"> <h1> <i class="gi gi-pen"></i><span id="registration-title-old">Sign-Up Now</span> <br> <small id="registration-description"> Please provide your contact details to commission your <span id="registration-plan">monthly/quarterly/half-yearly/annual</span> subscription to <a href="https://www.trisys.co.uk/pricing" target="_blank" title="TriSys Apex CRM Recruitment Software">TriSys Apex</a>, the cross-platform recruitment agency CRM for desktop, web and mobile. <br /> <span style="color: red;"> Note that this is an automated sign-up and provisioning system operating 24x7, so your service will be available to you in minutes following registration and payment. </span> </small> </h1> </div> </div> <div class="block full" id="trisys-registration-form-data-entry-block"> <div class="block-title"> <i class="gi gi-pen fa-2x pull-left themed-color"></i> <h2 id="registration-title">Sign-Up Now</h2> <div class="block-options pull-right" id="trisys-registration-form-prices-button-block"> <a href="javascript:void(0)"  class="btn btn-sm btn-default enable-tooltip" title="View our pricing page" onclick="Registration.ShowPrices();"> <i class="fa fa-credit-card"></i> &nbsp; Prices </a> </div> </div> <div class="row" id="trisys-registration-form-social-row" style="display: none;"> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2><strong>Social Network</strong> Login</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <div class="col-md-12" id="Registration-SocialNetworkButtons"> </div> </div> </div> </div> </div> <div class="col-md-6"> <div class="block" id="trisys-registration-form-social-details"> <div class="block-title"> <h2><strong>Social Network</strong> Details</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default" id="trisys-social-network-social-button" style="display: none;"> <i id="trisys-social-network-logo"></i> </a> </div> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <table style="width: 100%; padding-left: 10px;"> <tr> <td style="width: 115px; vertical-align: top; padding-left: 15px;"> <img id="trisys-social-network-photo" width="80" style="border-radius: 10px;"> </td> <td style="vertical-align: top;"> <span id="trisys-social-network-instructions">You may login with any social network to show your details here.</span> <b><span id="trisys-social-network-name"></span></b> <br /> <span id="trisys-social-network-fullname"></span> <br /> <span id="trisys-social-network-profile"></span> </td> </tr> </table> </div> </div> </div> </div> </div> <div class="row"> <div class="col-md-6"> <div class="block" id="registration-login-credentials-block"> <div class="block-title"> <h2><strong>Your E-Mail &amp; Password</strong></h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationEMail">E-Mail</label> <div class="col-md-9"> <input type="email" id="txtRegistrationEMail" name="txtRegistrationEMail" class="form-control" placeholder="Enter E-Mail.." maxlength="100"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationPassword">Password</label> <div class="col-md-9"> <input type="password" id="txtRegistrationPassword" name="txtRegistrationPassword" class="form-control" placeholder="Enter Password.." maxlength="128"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationPasswordConfirmation">Confirm Password</label> <div class="col-md-9"> <input type="password" id="txtRegistrationPasswordConfirmation" name="txtRegistrationPasswordConfirmation" class="form-control" placeholder="Enter Password Confirmation.." maxlength="128"> </div> </div> </div> </div> <div class="block" id="registration-contact-details-block"> <div class="block-title"> <h2><strong>Your User Account Information</strong></h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationTitle">Title</label> <div class="col-md-9"> <input id="txtRegistrationTitle" style="width:100%" /> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationForenames">Forename(s)</label> <div class="col-md-9"> <input type="text" id="txtRegistrationForenames" name="txtRegistrationForenames" class="form-control" maxlength="30"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationSurname">Surname(s)</label> <div class="col-md-9"> <input type="text" id="txtRegistrationSurname" name="txtRegistrationSurname" class="form-control" maxlength="30"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationJobTitle">Job Title</label> <div class="col-md-9"> <input type="text" id="txtRegistrationJobTitle" name="txtRegistrationJobTitle" class="form-control" maxlength="50"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationWorkTelNo">Phone</label> <div class="col-md-9"> <input type="text" id="txtRegistrationWorkTelNo" name="txtRegistrationWorkTelNo" class="form-control" maxlength="30"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationMobileTelNo">Mobile</label> <div class="col-md-9"> <input type="text" id="txtRegistrationMobileTelNo" name="txtRegistrationMobileTelNo" class="form-control" maxlength="30"> </div> </div> </div> </div> </div> <div class="col-md-6"> <div class="block" id="registration-company-block"> <!-- Horizontal Form Title --> <div class="block-title"> <h2><strong><span id="registration-company-block-title">Your Company Information</span></strong></h2> </div> <!-- END Horizontal Form Title --> <!-- Horizontal Form Content --> <div class="form-horizontal form-bordered"> <div class="form-group" id="registration-company-block-company-name"> <label class="col-md-3 control-label" for="txtRegistrationCompany" id="lblCompanyName">Company Name</label> <div class="col-md-9"> <input type="text" id="txtRegistrationCompany" name="txtRegistrationCompany" class="form-control" maxlength="50"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationStreet">Street</label> <div class="col-md-9"> <textarea class="form-control" name="txtRegistrationStreet" id="txtRegistrationStreet" rows="3" maxlength="256" style="resize: none"></textarea> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationCity">Town/City</label> <div class="col-md-9"> <input type="text" id="txtRegistrationCity" name="txtRegistrationCity" class="form-control" maxlength="50"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationCounty">County/State</label> <div class="col-md-9"> <input type="text" id="txtRegistrationCounty" name="txtRegistrationCounty" class="form-control" maxlength="50"> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationPostCode">Post Code / ZIP</label> <div class="col-md-9"> <div class="input-group" style="width: 200px;"> <input type="text" class="form-control" name="txtRegistrationPostCode" id="txtRegistrationPostCode" maxlength="10" style="width: 120px; text-transform: uppercase"> <span class="input-group-btn"> <button class="btn btn-sm btn-default" type="button" id="btnRegistrationPostCodeLookup" onclick="Registration.PostCodelookup()"> Lookup </button> </span> </div> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationCountry">Country</label> <div class="col-md-9"> <input id="txtRegistrationCountry" style="width:100%" /> </div> </div> <div class="form-group" id="registration-company-block-switchboard-telno"> <label class="col-md-3 control-label" for="txtRegistrationCompanyTelNo">Switchboard Tel.</label> <div class="col-md-9"> <input type="text" id="txtRegistrationCompanyTelNo" name="txtRegistrationCompanyTelNo" class="form-control" maxlength="50"> </div> </div> </div> </div> <div class="block" id="registration-legal-block"> <div class="block-title"> <h2><strong>Our Terms &amp; Conditions</strong> and <strong>Privacy Policy</strong></h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group" id="registration-terms-group"> <label class="col-md-3 control-label">&nbsp;</label> <div class="col-md-9"> <label class="switch switch-primary"> <input type="checkbox" id="chkSignUp_Agree" name="chkSignUp_Agree" value="0" unchecked> <span></span> </label> &nbsp; Agree to <a href="javascript:void(0)" class="register-terms" onclick="Registration.ShowTermsAndConditions();">Terms &amp; Conditions</a> </div> </div> <div class="form-group" id="registration-privacy-group"> <label class="col-md-3 control-label">&nbsp;</label> <div class="col-md-9"> <label class="switch switch-primary"> <input type="checkbox" id="chkSignUp_AgreeToPrivacyPolicy" name="chkSignUp_AgreeToPrivacyPolicy" value="0" unchecked> <span></span> </label> &nbsp; Agree to <a href="javascript:void(0)" class="register-terms" onclick="Registration.ShowPrivacyPolicy();">Privacy Policy</a> </div> </div> </div> </div> </div> </div> <div class="row"> <div class="col-md-12"> <div class="block"> <div class="form-horizontal form-bordered"> <div class="form-group form-actions"> <div class="col-md-10 col-md-offset-6"> <button type="submit" class="btn btn-sm btn-primary" onclick="Registration.SubmitButtonClick()" id="btn-register-free-trial"> Create Account Now </button> </div> </div> </div> </div> </div> </div> </div> <div class="block full" id="trisys-registration-form-existing-customer-data-entry-block" style="display: none;"> <div class="row"> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2><strong>E-Mail Address</strong> Form</h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label" for="txtRegistrationExistingEMail">E-Mail</label> <div class="col-md-9"> <input type="email" id="txtRegistrationExistingEMail" name="txtRegistrationExistingEMail" class="form-control" placeholder="Enter E-Mail.." maxlength="100"> </div> </div> </div> </div> </div> <div class="col-md-6"> <div class="block"> <div class="block-title"> <h2><strong>Terms &amp; Conditions</strong> and <strong>Privacy Policy</strong></h2> </div> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label"> <a href="javascript:void(0)" class="register-terms" onclick="Registration.ShowTermsAndConditions();">Agree to Terms</a> </label> <div class="col-md-9"> <label class="switch switch-primary" data-toggle="tooltip" title="Agree to our terms and conditions"> <input type="checkbox" id="chkExisting_Agree" name="chkExisting_Agree"> <span></span> </label> </div> </div> <div class="form-group"> <label class="col-md-3 control-label"> <a href="https://www.trisys.co.uk/privacy-policy" target="_blank" class="register-terms">Agree to Privacy Policy</a> </label> <div class="col-md-9"> <label class="switch switch-primary" data-toggle="tooltip" title="Agree to our privacy policy"> <input type="checkbox" id="chkExisting_AgreeToPrivacyPolicy" name="chkExisting_AgreePrivacyPolicy"> <span></span> </label> </div> </div> </div> </div> </div> </div> <div class="row"> <div class="col-md-12"> <div class="block"> <div class="form-horizontal form-bordered"> <div class="form-group form-actions"> <div class="col-md-6 col-md-offset-6"> <button type="submit" class="btn btn-sm btn-primary" onclick="Registration.ExistingSubmitButtonClick()"><i class="gi gi-pen"></i> Register</button> </div> </div> </div> </div> </div> </div> </div> <div class="block full" id="trisys-registration-form-post-signup-block" style="display: none;"> <div class="row"> <div class="col-md-12"> <div class="block"> <div class="block-title"> <h2><strong>Thank You for Registering!</strong> </h2> </div> <table style="width: 100%"> <tr style="vertical-align: top;"> <td style="width: 80px;"> <h1 style="margin-top: 0px;"><i class="hi hi-ok"></i></h1> </td> <td> <p id="trisys-registration-form-post-signup-block-p1"> Please check your e-mail (including your spam folder) as we've sent you a confirmation e-mail. </p> <p id="trisys-registration-form-post-signup-block-p2"> Your database will be provisioned as soon as your payment is received using our secure payment service (you may use Credit/Debit card or PayPal). </p> <p id="trisys-registration-form-post-signup-block-p3"> <img src="https://apex.trisys.co.uk/images/apex-registration-email.png?ts=202004031255" width="523" height="842" /> </p> <p id="trisys-registration-form-post-signup-block-p4" style="display: none;"> We are pleased to confirm your registration. <br /><br /> Please now confirm the activation of your account in the popup window. <br /><br /> Your account will be provisioned in minutes after confirming your activation. </p> <p> Should you have any questions <a href="mailto:sales@trisys.co.uk">please e-mail </a> our sales team or call us on 01223 77 22 80. <br /> You may also contact us by submitting a contact request on our <a href="https://www.trisys.co.uk/contact" target="_blank">web site</a>. </p> </td> </tr> </table> </div> </div> </div> </div> <div class="block full" id="trisys-registration-form-post-resourcer-signup-block" style="display: none;"> <div class="row"> <div class="col-md-12"> <div class="block"> <div class="block-title"> <h2><strong>Thank You for Registering!</strong> </h2> </div> <table style="width: 100%"> <tr style="vertical-align: top;"> <td style="width: 80px;"> <h1 style="margin-top: 0px;"><i class="hi hi-ok text-danger"></i></h1> </td> <td> <h4 class="text-danger"><b>Action Required:</b></h4> <p> Please check your e-mail (including your spam folder) as we have sent you a confirmation e-mail. <br/> Your service will be provisioned as soon as you click the "Confirm Subscription" button in this e-mail: </p> <p> <img src="https://resourcer.trisys.co.uk/images/resourcer-registration-email.png" width="350" /> </p> <p> Should you have any questions, <a href="mailto:sales@trisys.co.uk">please e-mail </a> our sales team or call us on 01223 77 22 80. <br /> You may also contact us by submitting a contact request on our <a href="https://www.trisys.co.uk/contact" target="_blank">web site</a>. </p> </td> </tr> </table> </div> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/Registration.js"></script>
+<style scoped>
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+</style>
+<div class="content-header" style="display: none;">
+<div class="header-section">
+<h1>
+<i class="gi gi-pen"></i><span id="registration-title-old">Sign-Up Now</span>
+<br>
+<small id="registration-description">
+Please provide your contact details to commission your
+<span id="registration-plan">monthly/quarterly/half-yearly/annual</span> subscription to
+<a href="https://www.trisys.co.uk/pricing" target="_blank" title="TriSys Apex CRM Recruitment Software">TriSys Apex</a>,
+the cross-platform recruitment agency CRM for desktop, web and mobile.
+<br />
+<span style="color: red;">
+Note that this is an automated sign-up and provisioning system operating 24x7,
+so your service will be available to you in minutes following registration and payment.
+</span>
+</small>
+</h1>
+</div>
+</div>
+<div class="block full" id="trisys-registration-form-data-entry-block">
+<div class="block-title">
+<i class="gi gi-pen fa-2x pull-left themed-color"></i>
+<h2 id="registration-title">Sign-Up Now</h2>
+<div class="block-options pull-right" id="trisys-registration-form-prices-button-block">
+<a href="javascript:void(0)"  class="btn btn-sm btn-default enable-tooltip" title="View our pricing page" onclick="Registration.ShowPrices();">
+<i class="fa fa-credit-card"></i> &nbsp; Prices
+</a>
+</div>
+</div>
+<div class="row" id="trisys-registration-form-social-row" style="display: none;">
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2><strong>Social Network</strong> Login</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<div class="col-md-12" id="Registration-SocialNetworkButtons">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="block" id="trisys-registration-form-social-details">
+<div class="block-title">
+<h2><strong>Social Network</strong> Details</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default" id="trisys-social-network-social-button" style="display: none;">
+<i id="trisys-social-network-logo"></i>
+</a>
+</div>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<table style="width: 100%; padding-left: 10px;">
+<tr>
+<td style="width: 115px; vertical-align: top; padding-left: 15px;">
+<img id="trisys-social-network-photo" width="80" style="border-radius: 10px;">
+</td>
+<td style="vertical-align: top;">
+<span id="trisys-social-network-instructions">You may login with any social network to show your details here.</span>
+<b><span id="trisys-social-network-name"></span></b>
+<br />
+<span id="trisys-social-network-fullname"></span>
+<br />
+<span id="trisys-social-network-profile"></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="block" id="registration-login-credentials-block">
+<div class="block-title">
+<h2><strong>Your E-Mail &amp; Password</strong></h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationEMail">E-Mail</label>
+<div class="col-md-9">
+<input type="email" id="txtRegistrationEMail" name="txtRegistrationEMail" class="form-control" placeholder="Enter E-Mail.." maxlength="100">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationPassword">Password</label>
+<div class="col-md-9">
+<input type="password" id="txtRegistrationPassword" name="txtRegistrationPassword" class="form-control" placeholder="Enter Password.." maxlength="128">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationPasswordConfirmation">Confirm Password</label>
+<div class="col-md-9">
+<input type="password" id="txtRegistrationPasswordConfirmation" name="txtRegistrationPasswordConfirmation" class="form-control" placeholder="Enter Password Confirmation.." maxlength="128">
+</div>
+</div>
+</div>
+</div>
+<div class="block" id="registration-contact-details-block">
+<div class="block-title">
+<h2><strong>Your User Account Information</strong></h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationTitle">Title</label>
+<div class="col-md-9">
+<input id="txtRegistrationTitle" style="width:100%" />
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationForenames">Forename(s)</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationForenames" name="txtRegistrationForenames" class="form-control" maxlength="30">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationSurname">Surname(s)</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationSurname" name="txtRegistrationSurname" class="form-control" maxlength="30">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationJobTitle">Job Title</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationJobTitle" name="txtRegistrationJobTitle" class="form-control" maxlength="50">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationWorkTelNo">Phone</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationWorkTelNo" name="txtRegistrationWorkTelNo" class="form-control" maxlength="30">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationMobileTelNo">Mobile</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationMobileTelNo" name="txtRegistrationMobileTelNo" class="form-control" maxlength="30">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="block" id="registration-company-block">
+<!-- Horizontal Form Title -->
+<div class="block-title">
+<h2><strong><span id="registration-company-block-title">Your Company Information</span></strong></h2>
+</div>
+<!-- END Horizontal Form Title -->
+<!-- Horizontal Form Content -->
+<div class="form-horizontal form-bordered">
+<div class="form-group" id="registration-company-block-company-name">
+<label class="col-md-3 control-label" for="txtRegistrationCompany" id="lblCompanyName">Company Name</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationCompany" name="txtRegistrationCompany" class="form-control" maxlength="50">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationStreet">Street</label>
+<div class="col-md-9">
+<textarea class="form-control" name="txtRegistrationStreet" id="txtRegistrationStreet" rows="3" maxlength="256" style="resize: none"></textarea>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationCity">Town/City</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationCity" name="txtRegistrationCity" class="form-control" maxlength="50">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationCounty">County/State</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationCounty" name="txtRegistrationCounty" class="form-control" maxlength="50">
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationPostCode">Post Code / ZIP</label>
+<div class="col-md-9">
+<div class="input-group" style="width: 200px;">
+<input type="text" class="form-control" name="txtRegistrationPostCode" id="txtRegistrationPostCode" maxlength="10" style="width: 120px; text-transform: uppercase">
+<span class="input-group-btn">
+<button class="btn btn-sm btn-default" type="button" id="btnRegistrationPostCodeLookup" onclick="Registration.PostCodelookup()">
+Lookup
+</button>
+</span>
+</div>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationCountry">Country</label>
+<div class="col-md-9">
+<input id="txtRegistrationCountry" style="width:100%" />
+</div>
+</div>
+<div class="form-group" id="registration-company-block-switchboard-telno">
+<label class="col-md-3 control-label" for="txtRegistrationCompanyTelNo">Switchboard Tel.</label>
+<div class="col-md-9">
+<input type="text" id="txtRegistrationCompanyTelNo" name="txtRegistrationCompanyTelNo" class="form-control" maxlength="50">
+</div>
+</div>
+</div>
+</div>
+<div class="block" id="registration-legal-block">
+<div class="block-title">
+<h2><strong>Our Terms &amp; Conditions</strong> and <strong>Privacy Policy</strong></h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group" id="registration-terms-group">
+<label class="col-md-3 control-label">&nbsp;</label>
+<div class="col-md-9">
+<label class="switch switch-primary">
+<input type="checkbox" id="chkSignUp_Agree" name="chkSignUp_Agree" value="0" unchecked>
+<span></span>
+</label>
+&nbsp; Agree to <a href="javascript:void(0)" class="register-terms" onclick="Registration.ShowTermsAndConditions();">Terms &amp; Conditions</a>
+</div>
+</div>
+<div class="form-group" id="registration-privacy-group">
+<label class="col-md-3 control-label">&nbsp;</label>
+<div class="col-md-9">
+<label class="switch switch-primary">
+<input type="checkbox" id="chkSignUp_AgreeToPrivacyPolicy" name="chkSignUp_AgreeToPrivacyPolicy" value="0" unchecked>
+<span></span>
+</label>
+&nbsp; Agree to <a href="javascript:void(0)" class="register-terms" onclick="Registration.ShowPrivacyPolicy();">Privacy Policy</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="block">
+<div class="form-horizontal form-bordered">
+<div class="form-group form-actions">
+<div class="col-md-10 col-md-offset-6">
+<button type="submit" class="btn btn-sm btn-primary" onclick="Registration.SubmitButtonClick()"
+id="btn-register-free-trial">
+Create Account Now
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="block full" id="trisys-registration-form-existing-customer-data-entry-block" style="display: none;">
+<div class="row">
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2><strong>E-Mail Address</strong> Form</h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtRegistrationExistingEMail">E-Mail</label>
+<div class="col-md-9">
+<input type="email" id="txtRegistrationExistingEMail" name="txtRegistrationExistingEMail" class="form-control" placeholder="Enter E-Mail.." maxlength="100">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="block">
+<div class="block-title">
+<h2><strong>Terms &amp; Conditions</strong> and <strong>Privacy Policy</strong></h2>
+</div>
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label">
+<a href="javascript:void(0)" class="register-terms" onclick="Registration.ShowTermsAndConditions();">Agree to Terms</a>
+</label>
+<div class="col-md-9">
+<label class="switch switch-primary" data-toggle="tooltip" title="Agree to our terms and conditions">
+<input type="checkbox" id="chkExisting_Agree" name="chkExisting_Agree">
+<span></span>
+</label>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label">
+<a href="https://www.trisys.co.uk/privacy-policy" target="_blank" class="register-terms">Agree to Privacy Policy</a>
+</label>
+<div class="col-md-9">
+<label class="switch switch-primary" data-toggle="tooltip" title="Agree to our privacy policy">
+<input type="checkbox" id="chkExisting_AgreeToPrivacyPolicy" name="chkExisting_AgreePrivacyPolicy">
+<span></span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="block">
+<div class="form-horizontal form-bordered">
+<div class="form-group form-actions">
+<div class="col-md-6 col-md-offset-6">
+<button type="submit" class="btn btn-sm btn-primary" onclick="Registration.ExistingSubmitButtonClick()"><i class="gi gi-pen"></i> Register</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="block full" id="trisys-registration-form-post-signup-block" style="display: none;">
+<div class="row">
+<div class="col-md-12">
+<div class="block">
+<div class="block-title">
+<h2><strong>Thank You for Registering!</strong> </h2>
+</div>
+<table style="width: 100%">
+<tr style="vertical-align: top;">
+<td style="width: 80px;">
+<h1 style="margin-top: 0px;"><i class="hi hi-ok"></i></h1>
+</td>
+<td>
+<p id="trisys-registration-form-post-signup-block-p1">
+Please check your e-mail (including your spam folder) as we've sent you a confirmation e-mail.
+</p>
+<p id="trisys-registration-form-post-signup-block-p2">
+Your database will be provisioned as soon as your payment is received using our secure payment service (you may use Credit/Debit card or PayPal).
+</p>
+<p id="trisys-registration-form-post-signup-block-p3">
+<img src="https://apex.trisys.co.uk/images/apex-registration-email.png?ts=202004031255" width="523" height="842" />
+</p>
+<p id="trisys-registration-form-post-signup-block-p4" style="display: none;">
+We are pleased to confirm your registration.
+<br /><br />
+Please now confirm the activation of your account in the popup window.
+<br /><br />
+Your account will be provisioned in minutes after confirming your activation.
+</p>
+<p>
+Should you have any questions
+<a href="mailto:sales@trisys.co.uk">please e-mail </a> our sales team
+or call us on 01223 77 22 80.
+<br />
+You may also contact us by submitting a contact request on our
+<a href="https://www.trisys.co.uk/contact" target="_blank">web site</a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="block full" id="trisys-registration-form-post-resourcer-signup-block" style="display: none;">
+<div class="row">
+<div class="col-md-12">
+<div class="block">
+<div class="block-title">
+<h2><strong>Thank You for Registering!</strong> </h2>
+</div>
+<table style="width: 100%">
+<tr style="vertical-align: top;">
+<td style="width: 80px;">
+<h1 style="margin-top: 0px;"><i class="hi hi-ok text-danger"></i></h1>
+</td>
+<td>
+<h4 class="text-danger"><b>Action Required:</b></h4>
+<p>
+Please check your e-mail (including your spam folder) as we have sent you a confirmation e-mail.
+<br/>
+Your service will be provisioned as soon as you click the "Confirm Subscription" button in this e-mail:
+</p>
+<p>
+<img src="https://resourcer.trisys.co.uk/images/resourcer-registration-email.png" width="350" />
+</p>
+<p>
+Should you have any questions,
+<a href="mailto:sales@trisys.co.uk">please e-mail </a> our sales team
+or call us on 01223 77 22 80.
+<br />
+You may also contact us by submitting a contact request on our
+<a href="https://www.trisys.co.uk/contact" target="_blank">web site</a>.
+</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/Registration.js"></script>

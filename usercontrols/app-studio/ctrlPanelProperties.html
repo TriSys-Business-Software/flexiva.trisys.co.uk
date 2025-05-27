@@ -1,1 +1,180 @@
-<!-- 30 Oct 2024 --> <!-- Used by ctrlFormDesigner2024.js --> <!-- Configure the properties of the row column / block / panel --> <style scoped> #ctrlPanelProperties-Root { margin-bottom: 0px; } #ctrlPanelProperties-Root > div > div { margin-top: 0px; margin-left: 10px; padding-top: 10px; } #ctrlPanelProperties-Root > div > div > dl > dt { text-align: left; width: 26px; } #ctrlPanelProperties-Root > div > div > dl > dd { margin-left: 35px; line-height: 1.9; padding-right: 10px; margin-bottom: -10px; } #ctrlPanelProperties-Commentary-tr, #ctrlPanelProperties-ID-tr, #ctrlPanelProperties-TitleIcon-tr, #ctrlPanelProperties-TitleText-tr, #ctrlPanelProperties-TitleBackgroundColour-tr, ctrlPanelProperties-TitleForegroundColour-tr { display: none; } .ctrlPanelProperties-Table { margin-bottom: 0px; } /* Keep only this more specific selector */ .ctrlPanelProperties-Table > tbody > tr > td:first-child { width: 130px; } #ctrlPanelProperties-TitleColours-td { border-radius: 6px; } </style> <div class="block" id="ctrlPanelProperties-Root"> <div class="block-title"> <div> <dl class="dl-horizontal"> <dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt> <dd> The panel is also known as a block or indeed a column within a row. <br /> The panel can be configured to utilise a number of different layouts, including a series of rows with labels and input fields, or a block containing one or more stacked components. <br /> Use the Apply button to update the underlying panel and use the Preview button in the form designer to see how it looks and feels. </dd> </dl> </div> </div> <div class="row"> <div class="col-md-12"> <table class="table table-borderless table-striped ctrlPanelProperties-Table"> <tbody> <tr id="ctrlPanelProperties-Commentary-tr"> <td> <strong>Panel</strong> </td> <td> <span id="ctrlPanelProperties-Commentary"></span> </td> </tr> <tr id="ctrlPanelProperties-ID-tr"> <td> <strong>ID</strong> </td> <td> <span id="ctrlPanelProperties-ID">ID of the column div</span> </td> </tr> <tr> <td> <strong>Show Title</strong> </td> <td> <trisys-field id="ctrlPanelProperties-ShowTitle" type="yesno"></trisys-field> </td> </tr> <tr id="ctrlPanelProperties-TitleIcon-tr"> <td> <strong>Title Icon</strong> </td> <td> <trisys-field id="ctrlPanelProperties-TitleIcon" type="icon"></trisys-field> </td> </tr> <tr id="ctrlPanelProperties-TitleText-tr"> <td> <strong>Title Text</strong> </td> <td> <trisys-field id="ctrlPanelProperties-TitleText" type="textbox"></trisys-field> </td> </tr> <tr id="ctrlPanelProperties-TitleColours-tr"> <td id="ctrlPanelProperties-TitleColours-td"> <strong>Title Colours</strong> </td> <td> Background: &nbsp; <trisys-field id="ctrlPanelProperties-TitleBackgroundColour" type="colour" onchange="ctrlFormDesigner2024.Panel.ChangeColour"> </trisys-field> <span class="pull-right"> Foreground: &nbsp; <trisys-field id="ctrlPanelProperties-TitleForegroundColour" type="colour" onchange="ctrlFormDesigner2024.Panel.ChangeColour"> </trisys-field> </span> </td> </tr> <tr> <td> <strong>Border</strong> </td> <td> <trisys-field id="ctrlPanelProperties-Border" type="yesno"></trisys-field> </td> </tr> <tr> <td> <strong>Type</strong> </td> <td> <trisys-field id="ctrlPanelProperties-Type" type="singleselectcombo" datafunction="TriSysFlexiva.Settings.PanelTypeList" onchange="ctrlFormDesigner2024.Panel.SelectedType"> </trisys-field> </td> </tr> <tr> <td> <strong>Striped Rows</strong> </td> <td> <trisys-field id="ctrlPanelProperties-StripedRows" type="yesno"></trisys-field> </td> </tr> <tr> <td> <strong>Column Count</strong> </td> <td> <trisys-field id="ctrlPanelProperties-ColumnCount" type="singleselectcombo" datafunction="ctrlFormDesigner2024.Panel.ColumnList"> </trisys-field> </td> </tr> <tr> <td> <strong>Rows per Column</strong> </td> <td> <trisys-field id="ctrlPanelProperties-RowsPerColumn" type="numeric" minimum="1" maximum="16" increment="1" integer="true" value="1" style="height: 28px;"> </trisys-field> </td> </tr> <tr> <td> <strong>Label Width</strong> </td> <td> <trisys-field id="ctrlPanelProperties-LabelWidth" type="numeric" minimum="0" maximum="1024" increment="1" integer="true" value="130" style="height: 28px;"> </trisys-field> </td> </tr> </tbody> </table> </div> </div> </div>
+<!-- 30 Oct 2024 -->
+<!-- Used by ctrlFormDesigner2024.js -->
+<!-- Configure the properties of the row column / block / panel -->
+<style scoped>
+#ctrlPanelProperties-Root {
+margin-bottom: 0px;
+}
+#ctrlPanelProperties-Root > div > div {
+margin-top: 0px;
+margin-left: 10px;
+padding-top: 10px;
+}
+#ctrlPanelProperties-Root > div > div > dl > dt {
+text-align: left;
+width: 26px;
+}
+#ctrlPanelProperties-Root > div > div > dl > dd {
+margin-left: 35px;
+line-height: 1.9;
+padding-right: 10px;
+margin-bottom: -10px;
+}
+#ctrlPanelProperties-Commentary-tr, #ctrlPanelProperties-ID-tr,
+#ctrlPanelProperties-TitleIcon-tr, #ctrlPanelProperties-TitleText-tr,
+#ctrlPanelProperties-TitleBackgroundColour-tr, ctrlPanelProperties-TitleForegroundColour-tr {
+display: none;
+}
+.ctrlPanelProperties-Table {
+margin-bottom: 0px;
+}
+/* Keep only this more specific selector */
+.ctrlPanelProperties-Table > tbody > tr > td:first-child {
+width: 130px;
+}
+#ctrlPanelProperties-TitleColours-td {
+border-radius: 6px;
+}
+</style>
+<div class="block" id="ctrlPanelProperties-Root">
+<div class="block-title">
+<div>
+<dl class="dl-horizontal">
+<dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+<dd>
+The panel is also known as a block or indeed a column within a row.
+<br />
+The panel can be configured to utilise a number of different layouts, including a series of rows with
+labels and input fields, or a block containing one or more stacked components.
+<br />
+Use the Apply button to update the underlying panel and use the Preview button in the form
+designer to see how it looks and feels.
+</dd>
+</dl>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<table class="table table-borderless table-striped ctrlPanelProperties-Table">
+<tbody>
+<tr id="ctrlPanelProperties-Commentary-tr">
+<td>
+<strong>Panel</strong>
+</td>
+<td>
+<span id="ctrlPanelProperties-Commentary"></span>
+</td>
+</tr>
+<tr id="ctrlPanelProperties-ID-tr">
+<td>
+<strong>ID</strong>
+</td>
+<td>
+<span id="ctrlPanelProperties-ID">ID of the column div</span>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Show Title</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-ShowTitle" type="yesno"></trisys-field>
+</td>
+</tr>
+<tr id="ctrlPanelProperties-TitleIcon-tr">
+<td>
+<strong>Title Icon</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-TitleIcon" type="icon"></trisys-field>
+</td>
+</tr>
+<tr id="ctrlPanelProperties-TitleText-tr">
+<td>
+<strong>Title Text</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-TitleText" type="textbox"></trisys-field>
+</td>
+</tr>
+<tr id="ctrlPanelProperties-TitleColours-tr">
+<td id="ctrlPanelProperties-TitleColours-td">
+<strong>Title Colours</strong>
+</td>
+<td>
+Background: &nbsp;
+<trisys-field id="ctrlPanelProperties-TitleBackgroundColour" type="colour"
+onchange="ctrlFormDesigner2024.Panel.ChangeColour">
+</trisys-field>
+<span class="pull-right">
+Foreground: &nbsp;
+<trisys-field id="ctrlPanelProperties-TitleForegroundColour" type="colour"
+onchange="ctrlFormDesigner2024.Panel.ChangeColour">
+</trisys-field>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Border</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-Border" type="yesno"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Type</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-Type" type="singleselectcombo"
+datafunction="TriSysFlexiva.Settings.PanelTypeList"
+onchange="ctrlFormDesigner2024.Panel.SelectedType">
+</trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Striped Rows</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-StripedRows" type="yesno"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Column Count</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-ColumnCount" type="singleselectcombo"
+datafunction="ctrlFormDesigner2024.Panel.ColumnList">
+</trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Rows per Column</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-RowsPerColumn" type="numeric"
+minimum="1" maximum="16" increment="1"
+integer="true" value="1" style="height: 28px;">
+</trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Label Width</strong>
+</td>
+<td>
+<trisys-field id="ctrlPanelProperties-LabelWidth" type="numeric"
+minimum="0" maximum="1024" increment="1"
+integer="true" value="130" style="height: 28px;">
+</trisys-field>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

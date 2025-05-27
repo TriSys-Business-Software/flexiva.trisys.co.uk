@@ -1,1 +1,60 @@
-<style scoped> .block-title > i { padding-top: 10px; padding-left: 15px; } </style> <div class="block"> <div class="block-title"> <i class="gi gi-magic fa-2x pull-left themed-color"></i> <h2>App Studio</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="AppStudio.DesignMode(false); TriSysApex.FormsManager.CloseCurrentForm()" class="btn btn-sm btn-default enable-tooltip" title="Close form" id="AppStudio-close-button"> <i class="fa fa-close"></i> &nbsp; Close </a> </div> </div> <div class="row"> <div class="col-md-12" id="AppStudio-MainRow"> <div class="block full" style="padding-bottom: 15px; padding-top: 20px;" id="AppStudio-EditorBlock"> <div class="block-title" style="margin-bottom: 0px;"> <div id="AppStudio-file-panel-instructions" style="margin-top: 0px; margin-left: 10px; padding-top: 10px;"> <dl class="dl-horizontal"> <dt style="text-align: left; width: 26px;"><i class="fa fa-info-circle fa-2x themed-color"></i></dt> <dd style="margin-left: 35px; line-height: 1.9; padding-right: 10px;"> You are logged in as developer/designer. <br /> App Studio is where you can configure this application using point &amp; click and drag &amp; drop, otherwise known as <i>no-code</i>. <br /> Here is a high-level summary of the app studio develop/design process: <br /><br /> <img src="https://apex.trisys.co.uk/images/apex-app-designer-cogs.png" width="400" height="257"> <br /> <br /> a. &nbsp; Turn the app studio designer on <br /> b. &nbsp; Click on the appropriate 'cog' of the component (app, navigation bar, activity metrics, toolbar or form) you wish to design <br /> c. &nbsp; Configure the properties <br /> d. &nbsp; Apply your changes <br /> e. &nbsp; Your application will display your changes </dd> <dd style="margin-left: 35px; margin-top: 20px;"> Click this button to turn the app studio designer on or off: <br /><br /> <button type="button" class="btn-primary btn" id="AppStudio-Mode-On" onclick="AppStudio.DesignMode(true)">Turn Design Mode On</button> <button type="button" class="btn-danger btn" id="AppStudio-Mode-Off" onclick="AppStudio.DesignMode(false)" style="display: none;">Turn Design Mode Off</button> </dd> </dl> </div> </div> </div> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/AppStudio.js?ts=202409061143"></script>
+<style scoped>
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+</style>
+<div class="block">
+<div class="block-title">
+<i class="gi gi-magic fa-2x pull-left themed-color"></i>
+<h2>App Studio</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)"
+onclick="AppStudio.DesignMode(false); TriSysApex.FormsManager.CloseCurrentForm()" class="btn btn-sm btn-default enable-tooltip"
+title="Close form" id="AppStudio-close-button">
+<i class="fa fa-close"></i> &nbsp; Close
+</a>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="AppStudio-MainRow">
+<div class="block full" style="padding-bottom: 15px; padding-top: 20px;" id="AppStudio-EditorBlock">
+<div class="block-title" style="margin-bottom: 0px;">
+<div id="AppStudio-file-panel-instructions" style="margin-top: 0px; margin-left: 10px; padding-top: 10px;">
+<dl class="dl-horizontal">
+<dt style="text-align: left; width: 26px;"><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+<dd style="margin-left: 35px; line-height: 1.9; padding-right: 10px;">
+You are logged in as developer/designer.
+<br />
+App Studio is where you can configure this application using point &amp; click and drag &amp; drop, otherwise known as <i>no-code</i>.
+<br />
+Here is a high-level summary of the app studio develop/design process:
+<br /><br />
+<img src="https://apex.trisys.co.uk/images/apex-app-designer-cogs.png" width="400" height="257">
+<br />
+<br />
+a. &nbsp; Turn the app studio designer on
+<br />
+b. &nbsp; Click on the appropriate 'cog' of the component (app, navigation bar, activity metrics, toolbar or form) you wish to design
+<br />
+c. &nbsp; Configure the properties
+<br />
+d. &nbsp; Apply your changes
+<br />
+e. &nbsp; Your application will display your changes
+</dd>
+<dd style="margin-left: 35px; margin-top: 20px;">
+Click this button to turn the app studio designer on or off:
+<br /><br />
+<button type="button" class="btn-primary btn" id="AppStudio-Mode-On" onclick="AppStudio.DesignMode(true)">Turn Design Mode On</button>
+<button type="button" class="btn-danger btn" id="AppStudio-Mode-Off" onclick="AppStudio.DesignMode(false)" style="display: none;">Turn Design Mode Off</button>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/AppStudio.js?ts=202409061143"></script>

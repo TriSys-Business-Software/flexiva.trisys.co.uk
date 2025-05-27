@@ -1,1 +1,97 @@
-<style scoped> #ctrlCustomVariables-Instructions { margin-top: 0px; margin-left: 10px; padding-top: 10px; } #ctrlCustomVariables-Instructions > dl > dt { text-align: left; width: 26px; } #ctrlCustomVariables-Instructions > dl > dd { margin-left: 35px; line-height: 1.9; padding-right: 10px; margin-bottom: -10px; } .block-options { position: relative; /* Ensure relative positioning for the dropdown */ } .dropdown-menu { position: absolute; /* Absolute positioning for dropdown */ z-index: 1050; /* Dropdown should appear above other elements */ top: 100%; /* Place dropdown below the button */ left: 0; visibility: visible; /* Ensure visibility */ } .block-title { overflow: visible; /* Ensure the title does not clip the dropdown */ } /* The combo vertical positioning */ #ctrlCustomVariables-Type + .k-picker.k-dropdownlist, [aria-controls="ctrlCustomVariables-Type_listbox"] { /*margin-top: -10px !important;*/ position: relative; top: -3px !important; left: 6px; } #ctrlCustomVariables-GridContainerBlock { overflow-y: auto; margin-left: 0px; margin-right: 0px; margin-bottom: 0px; } /*#ctrlCustomVariables-Grid { padding-left: 20px; padding-right: 20px; }*/ </style> <div class="block" id="ctrlCustomVariables-MainBlock"> <div class="block-title"> <div id="ctrlCustomVariables-Instructions"> <dl class="dl-horizontal"> <dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt> <dd> All your custom variables are listed here. Custom Variables are typically used to configure the application for example for sending authentication, lookup and form data to third party ReST API's which you consume in this application via data entry forms. There are two types of custom variables: Client and Server. Client variables will be used in the end-user application and are used to assign forms data to variables which are used in data source requests to ReST API's. These can be considered 'public'. Server variables can be maintained by administrators using App Studio, however these are never remoted to the end-user application as they are typically server-side private variables for ReST API security. Use the drop down Type combo to choose which type of variables to administer. Use the Add button to add a new variable, or the row Edit button to edit the value of a variable, or use the delete button to delete the selected variable. </dd> </dl> </div> </div> <div class="row"> <div class="col-md-12"> <div class="block" id="ctrlCustomVariables-GridBlock"> <div class="block-title"> <trisys-field id="ctrlCustomVariables-Type" type="singleselectcombo" datafunction="ctrlCustomVariables.TypeList" onchange="ctrlCustomVariables.SelectedType" style="width: 120px;"> </trisys-field> <h2>Variables</h2> <div class="block-options pull-right" id="ctrlCustomVariables-Buttons"> <a style="cursor: pointer;" onclick="ctrlCustomVariables.Add()" class="btn btn-sm btn-default enable-tooltip" title="Add a new variable"> <i class="gi gi-circle_plus"></i><span id="ctrlCustomVariables-Add-Button"> &nbsp; Add &nbsp;</span> </a> <span>&nbsp;</span> <a style="cursor: pointer;" onclick="ctrlCustomVariables.Delete()" class="btn btn-sm btn-default enable-tooltip" title="Delete the selected variable"> <i class="gi gi-remove_2"></i><span id="ctrlCustomVariables-Delete-Button"> &nbsp; Delete &nbsp;</span> </a> </div> </div> <div class="row" id="ctrlCustomVariables-GridContainerBlock"> <div id="ctrlCustomVariables-Grid"></div> </div> </div> </div> </div> </div>
+<style scoped>
+#ctrlCustomVariables-Instructions {
+margin-top: 0px;
+margin-left: 10px;
+padding-top: 10px;
+}
+#ctrlCustomVariables-Instructions > dl > dt {
+text-align: left;
+width: 26px;
+}
+#ctrlCustomVariables-Instructions > dl > dd {
+margin-left: 35px;
+line-height: 1.9;
+padding-right: 10px;
+margin-bottom: -10px;
+}
+.block-options {
+position: relative; /* Ensure relative positioning for the dropdown */
+}
+.dropdown-menu {
+position: absolute; /* Absolute positioning for dropdown */
+z-index: 1050; /* Dropdown should appear above other elements */
+top: 100%; /* Place dropdown below the button */
+left: 0;
+visibility: visible; /* Ensure visibility */
+}
+.block-title {
+overflow: visible; /* Ensure the title does not clip the dropdown */
+}
+/* The combo vertical positioning */
+#ctrlCustomVariables-Type + .k-picker.k-dropdownlist,
+[aria-controls="ctrlCustomVariables-Type_listbox"] {
+/*margin-top: -10px !important;*/
+position: relative;
+top: -3px !important;
+left: 6px;
+}
+#ctrlCustomVariables-GridContainerBlock {
+overflow-y: auto;
+margin-left: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+}
+/*#ctrlCustomVariables-Grid {
+padding-left: 20px;
+padding-right: 20px;
+}*/
+</style>
+<div class="block" id="ctrlCustomVariables-MainBlock">
+<div class="block-title">
+<div id="ctrlCustomVariables-Instructions">
+<dl class="dl-horizontal">
+<dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+<dd>
+All your custom variables are listed here. Custom Variables are typically used to configure the application
+for example for sending authentication, lookup and form data to third party ReST API's which you consume
+in this application via data entry forms.
+There are two types of custom variables: Client and Server.
+Client variables will be used in the end-user application and are used to assign forms data to variables which
+are used in data source requests to ReST API's. These can be considered 'public'.
+Server variables can be maintained by administrators using App Studio, however these are never remoted to the
+end-user application as they are typically server-side private variables for ReST API security.
+Use the drop down Type combo to choose which type of variables to administer.
+Use the Add button to add a new variable, or the row Edit button to edit the value of a variable,
+or use the delete button to delete the selected variable.
+</dd>
+</dl>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="block" id="ctrlCustomVariables-GridBlock">
+<div class="block-title">
+<trisys-field id="ctrlCustomVariables-Type" type="singleselectcombo"
+datafunction="ctrlCustomVariables.TypeList"
+onchange="ctrlCustomVariables.SelectedType" style="width: 120px;">
+</trisys-field>
+<h2>Variables</h2>
+<div class="block-options pull-right" id="ctrlCustomVariables-Buttons">
+<a style="cursor: pointer;" onclick="ctrlCustomVariables.Add()"
+class="btn btn-sm btn-default enable-tooltip" title="Add a new variable">
+<i class="gi gi-circle_plus"></i><span id="ctrlCustomVariables-Add-Button"> &nbsp; Add &nbsp;</span>
+</a>
+<span>&nbsp;</span>
+<a style="cursor: pointer;" onclick="ctrlCustomVariables.Delete()"
+class="btn btn-sm btn-default enable-tooltip" title="Delete the selected variable">
+<i class="gi gi-remove_2"></i><span id="ctrlCustomVariables-Delete-Button"> &nbsp; Delete &nbsp;</span>
+</a>
+</div>
+</div>
+<div class="row" id="ctrlCustomVariables-GridContainerBlock">
+<div id="ctrlCustomVariables-Grid"></div>
+</div>
+</div>
+</div>
+</div>
+</div>

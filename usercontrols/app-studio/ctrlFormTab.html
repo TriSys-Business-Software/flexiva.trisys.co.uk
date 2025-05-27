@@ -1,1 +1,107 @@
-<!-- 06 Nov 2024 --> <!-- Used by ctrlFormTab.js --> <!-- Edit the selected tab in the form designer, or add a new tab --> <style scoped> #ctrlFormTab-Root { margin-bottom: 0px; } #ctrlFormTab-Instructions { margin-top: 0px; margin-left: 10px; padding-top: 10px; } #ctrlFormTab-Instructions > dl > dt { text-align: left; width: 26px; } #ctrlFormTab-Instructions > dl > dd { margin-left: 35px; line-height: 1.9; padding-right: 10px; margin-bottom: -10px; } /* Target the first <td> in each row and set its width to 150px */ .ctrlFormTab-Table > tbody > tr > td:first-child { width: 120px; } </style> <div class="block" id="ctrlFormTab-Root"> <div class="block-title" style="margin-bottom: 10px;"> <div id="ctrlFormTab-Instructions"> <dl class="dl-horizontal"> <dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt> <dd> Add or edit one of your form tabs using this dialogue. <br /> Forms typically have multiple tabs arranged for master/detail viewing and editing. You can change form tab captions, descriptions and icons here. </dd> </dl> </div> </div> <div class="row"> <div class="col-md-12"> <table class="table table-borderless table-striped ctrlFormTab-Table"> <tbody> <tr> <td> <strong>ID</strong> </td> <td> <span id="ctrlFormTab-ID">ID of the form tab</span> </td> </tr> <tr> <td> <strong>Caption</strong> </td> <td> <trisys-field id="ctrlFormTab-Caption" type="textbox"></trisys-field> </td> </tr> <tr> <td> <strong>Description</strong> </td> <td> <trisys-field id="ctrlFormTab-Description" type="textboxmultiline" rows="2"></trisys-field> </td> </tr> <tr id="ctrlFormTab-Icon-tr"> <td> <strong>Icon</strong> </td> <td> <trisys-field id="ctrlFormTab-Icon" type="icon"></trisys-field> </td> </tr> <tr> <td> <strong>Selected</strong> </td> <td> <trisys-field id="ctrlFormTab-Selected" type="yesno"></trisys-field> </td> </tr> <tr> <td> <strong>Visible</strong> </td> <td> <trisys-field id="ctrlFormTab-Visible" type="yesno"></trisys-field> </td> </tr> <tr> <td> <strong>Enabled</strong> </td> <td> <trisys-field id="ctrlFormTab-Enabled" type="yesno"></trisys-field> </td> </tr> </tbody> </table> </div> </div> </div>
+<!-- 06 Nov 2024 -->
+<!-- Used by ctrlFormTab.js -->
+<!-- Edit the selected tab in the form designer, or add a new tab -->
+<style scoped>
+#ctrlFormTab-Root {
+margin-bottom: 0px;
+}
+#ctrlFormTab-Instructions {
+margin-top: 0px;
+margin-left: 10px;
+padding-top: 10px;
+}
+#ctrlFormTab-Instructions > dl > dt {
+text-align: left;
+width: 26px;
+}
+#ctrlFormTab-Instructions > dl > dd {
+margin-left: 35px;
+line-height: 1.9;
+padding-right: 10px;
+margin-bottom: -10px;
+}
+/* Target the first <td> in each row and set its width to 150px */
+.ctrlFormTab-Table > tbody > tr > td:first-child {
+width: 120px;
+}
+</style>
+<div class="block" id="ctrlFormTab-Root">
+<div class="block-title" style="margin-bottom: 10px;">
+<div id="ctrlFormTab-Instructions">
+<dl class="dl-horizontal">
+<dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+<dd>
+Add or edit one of your form tabs using this dialogue.
+<br />
+Forms typically have multiple tabs arranged for master/detail viewing and editing.
+You can change form tab captions, descriptions and icons here.
+</dd>
+</dl>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<table class="table table-borderless table-striped ctrlFormTab-Table">
+<tbody>
+<tr>
+<td>
+<strong>ID</strong>
+</td>
+<td>
+<span id="ctrlFormTab-ID">ID of the form tab</span>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Caption</strong>
+</td>
+<td>
+<trisys-field id="ctrlFormTab-Caption" type="textbox"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Description</strong>
+</td>
+<td>
+<trisys-field id="ctrlFormTab-Description"
+type="textboxmultiline" rows="2"></trisys-field>
+</td>
+</tr>
+<tr id="ctrlFormTab-Icon-tr">
+<td>
+<strong>Icon</strong>
+</td>
+<td>
+<trisys-field id="ctrlFormTab-Icon" type="icon"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Selected</strong>
+</td>
+<td>
+<trisys-field id="ctrlFormTab-Selected" type="yesno"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Visible</strong>
+</td>
+<td>
+<trisys-field id="ctrlFormTab-Visible" type="yesno"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Enabled</strong>
+</td>
+<td>
+<trisys-field id="ctrlFormTab-Enabled" type="yesno"></trisys-field>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

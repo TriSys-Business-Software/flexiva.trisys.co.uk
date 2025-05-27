@@ -1,1 +1,55 @@
-<div class="btn-group btn-group-sm" id="ctrlDatePeriodDropDown-Root"> <a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Grid"> <i class="gi gi-calendar"></i> &nbsp; <span id="ctrlDatePeriodDropDown-MenuCaption"></span> &nbsp; <span class="caret"></span> </a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li style="max-height: 390px;"> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Today"> Today </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Yesterday"> Yesterday </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-ThisWeek"> This Week </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-LastWeek"> Last Week </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-ThisMonth"> This Month </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-LastMonth"> Last Month </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-ThisQuarter"> This Quarter </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-LastQuarter"> Last Quarter </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Last6Months"> Last 6 Months </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Last12Months">  Last 12 Months </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-ThisYear"> This Year </a> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-LastYear"> Last Year </a> </li> <li class="divider"></li> <li style="display: none;"> <!-- Cannot get this to work because of the Bootstrap / KendoUI event bubbling. Not enough information in the public domain on how to fix this. --> <div class="block"> <div class="row"> <div class="col-xs-12"> Start </div> </div> <div class="row"> <div class="col-xs-12"> <input id="ctrlDatePeriodDropDown-StartDate" style="width:100%;" /> </div> </div> <div class="row"> <div class="col-xs-12"> End </div> </div> <div class="row" style="margin-bottom: 10px;"> <div class="col-xs-12"> <input id="ctrlDatePeriodDropDown-EndDate" style="width:100%;" /> </div> </div> </div> </li> <li> <a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Custom"><i class="gi gi-calendar pull-right"></i>Custom</a> </li> </ul> <!-- control specific settings --> <span id="ctrlDatePeriodDropDown-CustomStartDate" style="display: none;"></span> <span id="ctrlDatePeriodDropDown-CustomEndDate" style="display: none;"></span> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/ctrlDatePeriodDropDown.js"></script>
+<div class="btn-group btn-group-sm" id="ctrlDatePeriodDropDown-Root">
+<a href="javascript:void(0)" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Grid">
+<i class="gi gi-calendar"></i> &nbsp; <span id="ctrlDatePeriodDropDown-MenuCaption"></span> &nbsp; <span class="caret"></span>
+</a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li style="max-height: 390px;">
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Today"> Today </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Yesterday"> Yesterday </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-ThisWeek"> This Week </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-LastWeek"> Last Week </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-ThisMonth"> This Month </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-LastMonth"> Last Month </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-ThisQuarter"> This Quarter </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-LastQuarter"> Last Quarter </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Last6Months"> Last 6 Months </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Last12Months">  Last 12 Months </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-ThisYear"> This Year </a>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-LastYear"> Last Year </a>
+</li>
+<li class="divider"></li>
+<li style="display: none;">
+<!-- Cannot get this to work because of the Bootstrap / KendoUI event bubbling. Not enough information in the public domain on how to fix this. -->
+<div class="block">
+<div class="row">
+<div class="col-xs-12">
+Start
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<input id="ctrlDatePeriodDropDown-StartDate" style="width:100%;" />
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+End
+</div>
+</div>
+<div class="row" style="margin-bottom: 10px;">
+<div class="col-xs-12">
+<input id="ctrlDatePeriodDropDown-EndDate" style="width:100%;" />
+</div>
+</div>
+</div>
+</li>
+<li>
+<a href="javascript:void(0)" id="ctrlDatePeriodDropDown-Custom"><i class="gi gi-calendar pull-right"></i>Custom</a>
+</li>
+</ul>
+<!-- control specific settings -->
+<span id="ctrlDatePeriodDropDown-CustomStartDate" style="display: none;"></span>
+<span id="ctrlDatePeriodDropDown-CustomEndDate" style="display: none;"></span>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlDatePeriodDropDown.js"></script>

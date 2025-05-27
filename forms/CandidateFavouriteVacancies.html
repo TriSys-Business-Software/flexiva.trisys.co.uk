@@ -1,1 +1,67 @@
-<div class="content-header"> <div class="header-section"> <h1> <i class="gi gi-thumbs_up"></i>Favourite Vacancies <br> <small> The grid below shows all of your favourite vacancies - or your 'job cart'. If you are logged in or registered, your favourite vacancies will be preserved against your login so that you can access these at any time and apply for multiple jobs at the same time. If you are not logged in, these favourite are only stored with this machine browser, so you will find that they will not be available on other devices. </small> </h1> </div> </div> <div class="block full"> <div class="block-title"> <div class="block-options pull-right" > <a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.Apply()" class=" btn btn-sm btn-default enable-tooltip" title="Apply to selected vacancy" id="CandidateFavouriteVacancies-Menu-Apply"> <i class="gi gi-ok_2"></i> &nbsp; Apply &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.RemoveFromFavourites()" class=" btn btn-sm btn-default enable-tooltip" title="Remove from favourites" id="CandidateFavouriteVacancies-Menu-RemoveFromFavourites"> <i class="gi gi-minus"></i> &nbsp; Remove from Favourites &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.SendToFriend()" class=" btn btn-sm btn-default enable-tooltip" title="Send to a friend" id="CandidateFavouriteVacancies-Menu-SendToFriend"> <i class="gi gi-envelope"></i> &nbsp; Send to Friend &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.ShowOnMap()" class=" btn btn-sm btn-default enable-tooltip" title="Show favourite vacancies on a map" id="CandidateFavouriteVacancies-Menu-ShowOnMap"> <i class="gi gi-google_maps"></i> &nbsp; Show on Map &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.ShowInGrid()" class=" btn btn-sm btn-default enable-tooltip" title="Show favourite vacancies in a grid" style="display: none;" id="CandidateFavouriteVacancies-Menu-ShowInGrid"> <i class="gi gi-table"></i> &nbsp; Show in Grid &nbsp; </a> <span>&nbsp;</span> <div id="CandidateFavouriteVacancies-Menu-Grid"> </div> </div> <h2><strong>Favourite</strong> Vacancies</h2> <span id="CandidateFavouriteVacancies-MapKey" style="display: none;"> &nbsp; &nbsp; &nbsp; <img src="/images/trisys/maps/key.png" style="height: 20px;"> </span> </div> <!--TRISYS VACANCIES START--> <div class="row"> <div class="col-md-12"> <!-- The grid populated by JS --> <div id="divCandidateFavouriteVacanciesGrid" style="border-width: 1px; width: 100%; "> </div> <!-- The google map populated by JS --> <div id="divCandidateFavouriteVacanciesMap" style="border-width: 1px; width: 100%; height:600px; display:none "> </div> <div style="height: 10px"></div> </div> </div> <!--TRISYS VACANCIES END--> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/CandidateFavouriteVacancies.js"></script>
+<div class="content-header">
+<div class="header-section">
+<h1>
+<i class="gi gi-thumbs_up"></i>Favourite Vacancies
+<br>
+<small>
+The grid below shows all of your favourite vacancies - or your 'job cart'.
+If you are logged in or registered, your favourite vacancies will be preserved against your login so that you can access
+these at any time and apply for multiple jobs at the same time.
+If you are not logged in, these favourite are only stored with this machine browser, so you will find that they will not be available on other devices.
+</small>
+</h1>
+</div>
+</div>
+<div class="block full">
+<div class="block-title">
+<div class="block-options pull-right" >
+<a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.Apply()" class=" btn btn-sm btn-default enable-tooltip" title="Apply to selected vacancy"
+id="CandidateFavouriteVacancies-Menu-Apply">
+<i class="gi gi-ok_2"></i> &nbsp; Apply &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.RemoveFromFavourites()" class=" btn btn-sm btn-default enable-tooltip" title="Remove from favourites"
+id="CandidateFavouriteVacancies-Menu-RemoveFromFavourites">
+<i class="gi gi-minus"></i> &nbsp; Remove from Favourites &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.SendToFriend()" class=" btn btn-sm btn-default enable-tooltip" title="Send to a friend"
+id="CandidateFavouriteVacancies-Menu-SendToFriend">
+<i class="gi gi-envelope"></i> &nbsp; Send to Friend &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.ShowOnMap()" class=" btn btn-sm btn-default enable-tooltip" title="Show favourite vacancies on a map"
+id="CandidateFavouriteVacancies-Menu-ShowOnMap">
+<i class="gi gi-google_maps"></i> &nbsp; Show on Map &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="CandidateFavouriteVacancies.ShowInGrid()" class=" btn btn-sm btn-default enable-tooltip" title="Show favourite vacancies in a grid"
+style="display: none;" id="CandidateFavouriteVacancies-Menu-ShowInGrid">
+<i class="gi gi-table"></i> &nbsp; Show in Grid &nbsp;
+</a>
+<span>&nbsp;</span>
+<div id="CandidateFavouriteVacancies-Menu-Grid">
+</div>
+</div>
+<h2><strong>Favourite</strong> Vacancies</h2>
+<span id="CandidateFavouriteVacancies-MapKey" style="display: none;">
+&nbsp; &nbsp; &nbsp;
+<img src="/images/trisys/maps/key.png" style="height: 20px;">
+</span>
+</div>
+<!--TRISYS VACANCIES START-->
+<div class="row">
+<div class="col-md-12">
+<!-- The grid populated by JS -->
+<div id="divCandidateFavouriteVacanciesGrid" style="border-width: 1px; width: 100%; ">
+</div>
+<!-- The google map populated by JS -->
+<div id="divCandidateFavouriteVacanciesMap" style="border-width: 1px; width: 100%; height:600px; display:none ">
+</div>
+<div style="height: 10px"></div>
+</div>
+</div>
+<!--TRISYS VACANCIES END-->
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/CandidateFavouriteVacancies.js"></script>

@@ -1,1 +1,1011 @@
-<!-- App Studio Data Sources Control --> <!-- Created 08 Oct 2024 --> <style scoped> #ctrlDataSources-Instructions { margin-top: 0px; margin-left: 10px; padding-top: 10px; } #ctrlDataSources-Instructions > dl > dt { text-align: left; width: 26px; } #ctrlDataSources-Instructions > dl > dd { margin-left: 35px; line-height: 1.9; padding-right: 10px; margin-bottom: -10px; } .block-options { position: relative; /* Ensure relative positioning for the dropdown */ } .dropdown-menu { position: absolute; /* Absolute positioning for dropdown */ z-index: 1050; /* Dropdown should appear above other elements */ top: 100%; /* Place dropdown below the button */ left: 0; visibility: visible; /* Ensure visibility */ } .block-title { overflow: visible; /* Ensure the title does not clip the dropdown */ } /* Hide the default Kendo image */ .k-treeview .k-image { display: none; } .tree-icon { width: 30px; /* Adjust the size of the image */ height: 30px; margin-right: 5px; /* Space between image and text */ vertical-align: middle; border-radius: 6px; } /* Add padding after the text in the TreeView node */ .k-treeview .k-in::after { content: ""; display: inline-block; width: 5px; /* This creates 5px of space after the text */ } .dropdown-menu.dropdown-custom > li { padding: 2px; } /* Target the first <td> in each row and set its width to 150px */ td:first-child { width: 120px; } /* Editable grid column headers */ .k-column-title { font-weight: bold; font-size: 12px !important; } /* JSON results formatter */ .json-key { color: brown; /* Properties (keys) */ } .json-value { color: green; /* Values (strings) */ } .json-number { color: blue; /* Numbers */ } .json-boolean { color: purple; /* Booleans (true/false) */ } .json-null { color: red; /* null values */ } /* Pre, Code */ pre { background: #fcfafb; white-space: pre-wrap; /* This preserves whitespace and allows wrapping */ word-wrap: break-word; /* This ensures long words are broken and wrapped */ overflow: auto; /* Adds scrollbars if necessary */ } #ctrlDataSources-Properties { overflow-y: scroll; overflow-x: hidden; } /* Monaco code editor */ #ctrlDataSources-properties-request-panel-body-json .monaco-editor { border-radius: 8px !important; border: 1px solid var(--trisys-code-editor-outline); } #ctrlDataSources-properties-request-panel-body-json .overflow-guard { border-radius: 8px !important; border-right: 1px solid var(--trisys-code-editor-outline); border-bottom: 1px solid var(--trisys-code-editor-outline); } #ctrlDataSources-Request { margin-bottom: 0px; } .todo { color: red; } #ctrlDataSources-properties-request-panel-results-fields, #ctrlDataSources-properties-request-panel-results-table { margin-top: -15px; } #ctrlDataSources-properties-request-panel-fields { margin-left: -10px; } #ctrlDataSources-properties-request-panel-fields-list { margin-top: -8px; margin-left: -5px; margin-bottom: 10px; } ctrlDataSources-properties-request-panel-fields-table > tbody > tr > td:first-child { width: 100px; } #ctrlDataSources-properties-request-panel-fields-FieldSampleValues { display: inline-block; white-space: normal; overflow-wrap: break-word; max-width: 300px; /* Adjust this value to control the maximum width */ } </style> <div class="block"> <div class="block-title" style="margin-bottom: 10px;"> <div id="ctrlDataSources-Instructions"> <dl class="dl-horizontal"> <dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt> <dd> All your data sources are listed here. Data sources are typically third party ReST API's which you consume in this application via data entry forms. <br /> Selecting a data source, folder or request will display the properties in the properties panel to the right where they can be edited or deleted. Requests can also be tested to pull/push data from/to the source. <br /> Use the Add button menu to add a new data source, folder or request. Choose import to choose a popular data source, and use the delete button to delete the selected data source, folder or request. </dd> </dl> </div> </div> <div class="row"> <div class="col-md-4" style="padding-bottom: 10px;"> <div class="block"> <div class="block-title"> <h2>Data Sources</h2> <div class="block-options pull-right" id="ctrlDataSources-LeftButtons"> <div class="btn-group btn-group-sm show-on-hover"> <a style="cursor: pointer;" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Add a new data source, folder or request"> <i class="gi gi-circle_plus"></i><span id="ctrlDataSources-Add-Button"> &nbsp; Add </span> &nbsp; <span class="caret"></span> </a> <ul class="dropdown-menu dropdown-custom dropdown-menu-right"> <li> <a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Data Source')"> <i class="fa fa-database pull-left"></i>  &nbsp; Data Source </a> </li> <li> <a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Folder')"> <i class="fa fa-folder pull-left"></i>  &nbsp; Folder </a> </li> <li> <a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Request')"> <i class="gi gi-globe_af pull-left"></i>  &nbsp; Request </a> </li> </ul> </div> <span>&nbsp;</span> <a style="cursor: pointer;" onclick="AppStudioDataSources.Copy()" class="btn btn-sm btn-default enable-tooltip" title="Clone the selected item"> <i class="fa fa-copy"></i><span id="ctrlDataSources-Clone-Button"> &nbsp; Clone &nbsp;</span> </a> <span>&nbsp;</span> <a style="cursor: pointer;" onclick="AppStudioDataSources.Import()" class="btn btn-sm btn-default enable-tooltip" title="Import a data source"> <i class="gi gi-file_import"></i><span id="ctrlDataSources-Import-Button"> &nbsp; Import &nbsp;</span> </a> </div> </div> <div id="ctrlDataSources-TreeView" style="overflow-y: scroll;"></div> </div> </div> <div class="col-md-8" style="padding-left: 0px"> <div class="block"> <div class="block-title" id="ctrlDataSources-Properties-Title" style="display:none;"> <h2><span id="ctrlDataSources-Properties-Type"></span> Properties: <span id="ctrlDataSources-Properties-Name"></span></h2> <div class="block-options pull-right" id="ctrlDataSources-RightButtons"> <a style="cursor: pointer;" onclick="AppStudioDataSources.Variables.Insert($(this))" class="btn btn-sm btn-default enable-tooltip" title="Insert a custom variable into the request at the insertion point in the field"> <i class="gi gi-link"></i><span id="ctrlDataSources-Insert-Button"> &nbsp; Insert Variable </span> </a> &nbsp; <a style="cursor: pointer;" onclick="AppStudioDataSources.Delete()" class="btn btn-sm btn-default enable-tooltip" title="Delete data source"> <i class="gi gi-circle_remove"></i> &nbsp; Delete &nbsp; </a> </div> </div> <div class="row" id="ctrlDataSources-Properties"> <div class="col-md-12" style="padding-left: 0px"> <div class="form-group" style="margin-right: -10px;"> <div class="col-md-12" style="padding-right: 0px;"> <table class="table table-borderless" id="ctrlDataSources-DataSource" style="display: none;"> <tbody> <tr> <td colspan="2" style="padding-top: 0px;"> <!-- Tabs --> <ul class="nav nav-tabs" data-toggle="tabs" id="ctrlDataSources-DataSource-tab-nav-horizontal"> <li id="ctrlDataSources-properties-dataSource-tab-details"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-dataSource-panel-details');"> <i class="gi gi-globe_af"></i>&nbsp; Details </a> </li> <li id="ctrlDataSources-properties-dataSource-tab-authorisations"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-dataSource-panel-authorisation');"> <i class="gi gi-lock"></i>&nbsp; Authorisation </a> </li> <li id="ctrlDataSources-properties-dataSource-tab-scripts"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-dataSource-panel-scripts');"> <i class="gi gi-settings"></i>&nbsp; Scripts </a> </li> </ul> <!--</div>--> <div class="tab-content"> <div class="tab-pane" id="ctrlDataSources-properties-dataSource-panel-details"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <strong>ID</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-ID" type="textbox" readonly="true"> </trisys-field> </td> </tr> <tr> <td> <strong>Name</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Name" type="textbox"></trisys-field> </td> </tr> <tr> <td> <strong>Description</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Description" type="textboxmultiline" rows="5"></trisys-field> </td> </tr> <tr> <td> <strong>Created</strong> </td> <td> <span id="ctrlDataSources-DataSource-Created"></span> </td> </tr> <tr> <td> <strong>User</strong> </td> <td> <span id="ctrlDataSources-DataSource-UserDetails"></span> &nbsp; <img id="ctrlDataSources-DataSource-UserPhoto" style="width: 64px; height:64px;" /> </td> </tr> </tbody> </table> </div> <div class="tab-pane" id="ctrlDataSources-properties-dataSource-panel-authorisation"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <strong>Authorisation</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Authorisation" type="singleselectcombo" datafunction="AppStudioDataSources.AuthorisationList" onchange="AppStudioDataSources.SelectedDataSourceAuthorisation"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-DataSource-Authorisation-Username-tr" style="display: none;"> <td> <strong>Username</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Authorisation-Username" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-DataSource-Authorisation-Password-tr" style="display: none;"> <td> <strong>Password</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Authorisation-Password" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-DataSource-Authorisation-Token-tr" style="display: none;"> <td> <strong>Token</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Authorisation-Token" type="textbox"> </trisys-field> </td> </tr> <!--<tr id="ctrlDataSources-DataSource-Authorisation-Key-tr" style="display: none;"> <td> <strong>Key</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Authorisation-Key" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-DataSource-Authorisation-Value-tr" style="display: none;"> <td> <strong>Value</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Authorisation-Value" type="textbox"> </trisys-field> </td> </tr>--> <tr id="ctrlDataSources-DataSource-Authorisation-AddTo-tr" style="display: none;"> <td> <strong>Add To</strong> </td> <td> <trisys-field id="ctrlDataSources-DataSource-Authorisation-AddTo" type="singleselectcombo" datafunction="AppStudioDataSources.AuthorisationKeyAddToList"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-DataSource-Authorisation-KeyValuePairs-tr" style="display: none;"> <td colspan="2"> <div id="ctrlDataSources-DataSource-Authorisation-KeyValuePairs-Grid"></div> </td> </tr> </tbody> </table> </div> <div class="tab-pane" id="ctrlDataSources-properties-dataSource-panel-scripts"> data source scripts... </div> </div> <!--</div>--> <!-- END Tabs --> </td> <!-- colspan="2" --> </tr> </tbody> </table> <table class="table table-borderless" id="ctrlDataSources-Folder" style="display: none;"> <tbody> <tr> <td colspan="2" style="padding-top: 0px;"> <!-- Tabs --> <ul class="nav nav-tabs" data-toggle="tabs" id="ctrlDataSources-Folder-tab-nav-horizontal"> <li id="ctrlDataSources-properties-folder-tab-details"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-folder-panel-details');"> <i class="gi gi-globe_af"></i>&nbsp; Details </a> </li> <li id="ctrlDataSources-properties-folder-tab-authorisations"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-folder-panel-authorisation');"> <i class="gi gi-lock"></i>&nbsp; Authorisation </a> </li> <li id="ctrlDataSources-properties-folder-tab-scripts"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-folder-panel-scripts');"> <i class="gi gi-settings"></i>&nbsp; Scripts </a> </li> </ul> <!--</div>--> <div class="tab-content"> <div class="tab-pane" id="ctrlDataSources-properties-folder-panel-details"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <strong>Name</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Name" type="textbox"></trisys-field> </td> </tr> <tr> <td> <strong>Description</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Description" type="textboxmultiline" rows="3"> </trisys-field> </td> </tr> </tbody> </table> </div> <div class="tab-pane" id="ctrlDataSources-properties-folder-panel-authorisation"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <strong>Authorisation</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Authorisation" type="singleselectcombo" datafunction="AppStudioDataSources.AuthorisationListForRequest" onchange="AppStudioDataSources.SelectedFolderAuthorisation"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Folder-Authorisation-Username-tr" style="display: none;"> <td> <strong>Username</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Authorisation-Username" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Folder-Authorisation-Password-tr" style="display: none;"> <td> <strong>Password</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Authorisation-Password" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Folder-Authorisation-Token-tr" style="display: none;"> <td> <strong>Token</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Authorisation-Token" type="textbox"> </trisys-field> </td> </tr> <!--<tr id="ctrlDataSources-Folder-Authorisation-Key-tr" style="display: none;"> <td> <strong>Key</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Authorisation-Key" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Folder-Authorisation-Value-tr" style="display: none;"> <td> <strong>Value</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Authorisation-Value" type="textbox"> </trisys-field> </td> </tr>--> <tr id="ctrlDataSources-Folder-Authorisation-AddTo-tr" style="display: none;"> <td> <strong>Add To</strong> </td> <td> <trisys-field id="ctrlDataSources-Folder-Authorisation-AddTo" type="singleselectcombo" datafunction="AppStudioDataSources.AuthorisationKeyAddToList"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Folder-Authorisation-KeyValuePairs-tr" style="display: none;"> <td colspan="2"> <div id="ctrlDataSources-Folder-Authorisation-KeyValuePairs-Grid"></div> </td> </tr> </tbody> </table> </div> <div class="tab-pane" id="ctrlDataSources-properties-folder-panel-scripts"> folder scripts... </div> </div> <!--</div>--> <!-- END Tabs --> </td> <!-- colspan="2" --> </tr> </tbody> </table> <table class="table table-borderless table-striped" id="ctrlDataSources-Request" style="display: none;"> <tbody> <tr> <td style="width: 90px;"> <strong>URL</strong> &nbsp; &nbsp; <img id="ctrlDataSources-Request-Verb-Image1" style="border-radius: 6px;" /> </td> <td> <table style="width: 100%;"> <tr> <td style="width: 100%;"> <trisys-field id="ctrlDataSources-Request-URL" type="textboxmultiline" rows="2"></trisys-field> </td> <td style="min-width: 90px; padding-left: 10px; text-align: right;"> <a style="cursor: pointer;" onclick="AppStudioDataSources.SendRequest()" id="ctrlDataSources-Request-Test-Button" class=" btn btn-sm btn-primary enable-tooltip" title="Send the request to the ReST API server"> <i class="gi gi-play"></i> &nbsp; Send Request &nbsp; </a> <div style="display: flex; justify-content: center; align-items: center; height: 100%;"> <i class="fa fa-spinner fa-3x fa-spin themed-color" style="display: none;" id="ctrlDataSources-Request-Spinner"></i> </div> </td> </tr> </table> </td> </tr> <tr> <td colspan="2"> <!-- Tabs --> <!--<div class="block full" id="ctrlDataSources-tab-buttons"> <div class="block-title">--> <ul class="nav nav-tabs" data-toggle="tabs" id="ctrlDataSources-tab-nav-horizontal"> <li id="ctrlDataSources-properties-request-tab-details"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-request-panel-details');"> <i class="gi gi-globe_af"></i>&nbsp; Details </a> </li> <li id="ctrlDataSources-properties-request-tab-authorisations"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-request-panel-authorisation');"> <i class="gi gi-lock"></i>&nbsp; Authorisation </a> </li> <li id="ctrlDataSources-properties-request-tab-parameters"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-request-panel-parameters');"> <i class="fa fa-check-square-o"></i>&nbsp; Parameters </a> </li> <li id="ctrlDataSources-properties-request-tab-headers"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-request-panel-headers');"> <i class="fa fa-plug"></i>&nbsp; Headers </a> </li> <li id="ctrlDataSources-properties-request-tab-body"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-request-panel-body', AppStudioDataSources.TabButtonCallback)"> <i class="fa fa-file-code-o"></i>&nbsp; Body </a> </li> <li id="ctrlDataSources-properties-request-tab-scripts"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-request-panel-scripts');"> <i class="gi gi-settings"></i>&nbsp; Scripts </a> </li> <li id="ctrlDataSources-properties-request-tab-results"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-request-panel-results');"> <i class="gi gi-table"></i>&nbsp; Results </a> </li> <li id="ctrlDataSources-properties-request-tab-fields"> <a style="cursor: pointer;" onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this), 'ctrlDataSources-properties-request-panel-fields');"> <i class="gi gi-database_plus"></i>&nbsp; Fields </a> </li> </ul> <!--</div>--> <div class="tab-content"> <div class="tab-pane" id="ctrlDataSources-properties-request-panel-details"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <strong>ID</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-ID" type="textbox" readonly="true"></trisys-field> </td> </tr> <tr> <td> <strong>Name</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Name" type="textbox"></trisys-field> </td> </tr> <tr> <td> <strong>Description</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Description" type="textboxmultiline" rows="2"></trisys-field> </td> </tr> <tr> <td> <strong>HTTP Verb</strong> </td> <td> <table style="width: 100%;"> <tr> <td style="width: 100%;"> <trisys-field id="ctrlDataSources-Request-Verb" type="singleselectcombo" datafunction="AppStudioDataSources.VerbList" onchange="AppStudioDataSources.SelectedVerb"></trisys-field> </td> <td style="width: 60px; padding-left: 10px; text-align: right;"> <img id="ctrlDataSources-Request-Verb-Image2" style="border-radius: 6px;" /> </td> </tr> </table> </td> </tr> </tbody> </table> </div> <div class="tab-pane" id="ctrlDataSources-properties-request-panel-authorisation"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <strong>Authorisation</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Authorisation" type="singleselectcombo" datafunction="AppStudioDataSources.AuthorisationListForRequest" onchange="AppStudioDataSources.SelectedRequestAuthorisation"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Request-Authorisation-Username-tr" style="display: none;"> <td> <strong>Username</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Authorisation-Username" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Request-Authorisation-Password-tr" style="display: none;"> <td> <strong>Password</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Authorisation-Password" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Request-Authorisation-Token-tr" style="display: none;"> <td> <strong>Token</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Authorisation-Token" type="textbox"> </trisys-field> </td> </tr> <!--<tr id="ctrlDataSources-Request-Authorisation-Key-tr" style="display: none;"> <td> <strong>Key</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Authorisation-Key" type="textbox"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Request-Authorisation-Value-tr" style="display: none;"> <td> <strong>Value</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Authorisation-Value" type="textbox"> </trisys-field> </td> </tr>--> <tr id="ctrlDataSources-Request-Authorisation-AddTo-tr" style="display: none;"> <td> <strong>Add To</strong> </td> <td> <trisys-field id="ctrlDataSources-Request-Authorisation-AddTo" type="singleselectcombo" datafunction="AppStudioDataSources.AuthorisationKeyAddToList"> </trisys-field> </td> </tr> <tr id="ctrlDataSources-Request-Authorisation-KeyValuePairs-tr" style="display: none;"> <td colspan="2"> <div id="ctrlDataSources-Request-Authorisation-KeyValuePairs-Grid"></div> </td> </tr> </tbody> </table> </div> <div class="tab-pane" id="ctrlDataSources-properties-request-panel-parameters"> <div class="row"> <div class="col-md-12"> <div class="form-group"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <strong>Format</strong> </td> <td style="min-width: 375px;"> <trisys-field id="ctrlDataSources-Request-Parameters-Format" type="singleselectcombo" datafunction="AppStudioDataSources.ParametersFormatListForRequest"> </trisys-field> </td> <td> The format chosen here will append these parameters to the URL when sending the request. </td> </tr> </tbody> </table> </div> </div> </div> <div id="ctrlDataSources-properties-request-panel-parameters-grid"></div> </div> <div class="tab-pane" id="ctrlDataSources-properties-request-panel-headers"> <div id="ctrlDataSources-properties-request-panel-headers-grid"></div> </div> <div class="tab-pane" id="ctrlDataSources-properties-request-panel-body"> <table class="table table-borderless table-striped"> <tbody> <tr> <td> <strong>Body Format</strong> </td> <td style="min-width: 375px;"> <trisys-field id="ctrlDataSources-Request-Body-Format" type="singleselectcombo" datafunction="AppStudioDataSources.BodyFormatListForRequest" onchange="AppStudioDataSources.SelectedRequestBodyFormat"> </trisys-field> </td> <td> The format chosen here will also be used to assign fields to ReST data when designing CRUD forms. </td> </tr> </tbody> </table> <div class="row"> <div class="col-md-12"> <div class="form-group"> <div id="ctrlDataSources-properties-request-panel-body-json"></div> <div id="ctrlDataSources-properties-request-panel-body-tree" style="display: none;"> <h1 class="todo">TODO</h1> </div> <div id="ctrlDataSources-properties-request-panel-body-grid" style="display: none;"></div> </div> </div> </div> </div> <div class="tab-pane" id="ctrlDataSources-properties-request-panel-scripts"> request scripts... </div> <div class="tab-pane" id="ctrlDataSources-properties-request-panel-results" style="max-width: 100%;"> <div id="ctrlDataSources-properties-request-panel-results-tabstrip-left"> <ul> <li class="k-active"> JSON </li> <li> Columns </li> <li> Fields </li> <li> Table </li> <li> Grid </li> <li> Form </li> <li> Debug </li> </ul> <div> <!-- JSON --> <span id="ctrlDataSources-properties-request-panel-results-span"></span> </div> <div> <!-- Columns --> <div class="table-responsive"> <table id="ctrlDataSources-properties-request-panel-results-columns" class="table table-striped table-vcenter"> <thead> <!-- Dynamic headers will be generated here --> </thead> <tbody> <!-- Dynamic rows will be generated here --> </tbody> </table> </div> </div> <div> <!-- Fields --> <div class="table-responsive"> <table id="ctrlDataSources-properties-request-panel-results-fields" class="table table-striped table-vcenter"> <thead> <!-- Dynamic headers will be generated here --> </thead> <tbody> <!-- Dynamic rows will be generated here --> </tbody> </table> </div> </div> <div style="max-width: 700px;" id="ctrlDataSources-properties-request-panel-results-table-div"> <!-- TODO: VARIABLE --> <div class="table-responsive"> <table id="ctrlDataSources-properties-request-panel-results-table" class="table table-striped table-vcenter"> <thead> <!-- Dynamic headers will be generated here --> </thead> <tbody> <!-- Dynamic rows will be generated here --> </tbody> </table> </div> </div> <div> <div id="ctrlDataSources-properties-request-panel-results-grid"></div> </div> <div> <p>ToDo: form</p> <p>When form designer is active.</p> </div> <div> <div id="ctrlDataSources-properties-request-panel-results-debug"></div> </div> </div> <!--<div id="ctrlDataSources-properties-request-panel-results-div"></div>--> </div> <div class="tab-pane" id="ctrlDataSources-properties-request-panel-fields"> <div class="row"> <div class="col-md-5"> <div class="block"> <div class="block-title"> <div class="block-options pull-right"> <a style="cursor: pointer;" onclick="AppStudioDataSources.Fields.Refresh()" id="ctrlDataSources-properties-request-panel-fields-refreshButton" class="btn btn-sm btn-default enable-tooltip" title="Refresh the list of fields from the request results"> <i class="fa fa-refresh"></i> &nbsp; Refresh </a> </div> <h5>Available Fields</h5> </div> <div id="ctrlDataSources-properties-request-panel-fields-list"></div> </div> </div> <div class="col-md-7"> <div class="block"> <div class="block-title"> <h5>Field Properties</h5> </div> <table class="table table-borderless table-striped" id="ctrlDataSources-properties-request-panel-fields-table"> <tbody> <tr> <td> <strong>Name</strong> </td> <td> <trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldName" type="textbox" readonly="true"> </trisys-field> </td> </tr> <tr> <td> <strong>Key</strong> </td> <td> <trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldKey" type="yesno"> </trisys-field> </td> </tr> <!--<tr> 14 Apr 2025: Deprecated <td> <strong>Key Variable</strong> </td> <td> <trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldKeyVariable" type="textbox"> </trisys-field> </td> </tr>--> <tr> <td> <strong>Type</strong> </td> <td> <trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldType" type="singleselectcombo" datafunction="TriSysFlexiva.Settings.FieldTypeList" Xonchange="AppStudioDataSources.Fields.SelectedType"> </trisys-field> </td> </tr> <tr> <td> <strong>Caption</strong> </td> <td> <trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldCaption" type="textbox"> </trisys-field> </td> </tr> <tr> <td> <strong>Visible</strong> </td> <td> <trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldVisible" type="yesno"> </trisys-field> </td> </tr> <tr> <td> <strong>Sample Values</strong> </td> <td> <span id="ctrlDataSources-properties-request-panel-fields-FieldSampleValues"> </span> </td> </tr> </tbody> </table> </div> </div> </div> </div> </div> <!--</div>--> <!-- END Tabs --> </td> <!-- colspan="2" --> </tr> </tbody> </table> </div> </div> </div> </div> </div> </div> </div> </div>
+<!-- App Studio Data Sources Control -->
+<!-- Created 08 Oct 2024 -->
+<style scoped>
+#ctrlDataSources-Instructions {
+margin-top: 0px;
+margin-left: 10px;
+padding-top: 10px;
+}
+#ctrlDataSources-Instructions > dl > dt {
+text-align: left;
+width: 26px;
+}
+#ctrlDataSources-Instructions > dl > dd {
+margin-left: 35px;
+line-height: 1.9;
+padding-right: 10px;
+margin-bottom: -10px;
+}
+.block-options {
+position: relative; /* Ensure relative positioning for the dropdown */
+}
+.dropdown-menu {
+position: absolute; /* Absolute positioning for dropdown */
+z-index: 1050; /* Dropdown should appear above other elements */
+top: 100%; /* Place dropdown below the button */
+left: 0;
+visibility: visible; /* Ensure visibility */
+}
+.block-title {
+overflow: visible; /* Ensure the title does not clip the dropdown */
+}
+/* Hide the default Kendo image */
+.k-treeview .k-image {
+display: none;
+}
+.tree-icon {
+width: 30px; /* Adjust the size of the image */
+height: 30px;
+margin-right: 5px; /* Space between image and text */
+vertical-align: middle;
+border-radius: 6px;
+}
+/* Add padding after the text in the TreeView node */
+.k-treeview .k-in::after {
+content: "";
+display: inline-block;
+width: 5px; /* This creates 5px of space after the text */
+}
+.dropdown-menu.dropdown-custom > li {
+padding: 2px;
+}
+/* Target the first <td> in each row and set its width to 150px */
+td:first-child {
+width: 120px;
+}
+/* Editable grid column headers */
+.k-column-title {
+font-weight: bold;
+font-size: 12px !important;
+}
+/* JSON results formatter */
+.json-key {
+color: brown; /* Properties (keys) */
+}
+.json-value {
+color: green; /* Values (strings) */
+}
+.json-number {
+color: blue; /* Numbers */
+}
+.json-boolean {
+color: purple; /* Booleans (true/false) */
+}
+.json-null {
+color: red; /* null values */
+}
+/* Pre, Code */
+pre {
+background: #fcfafb;
+white-space: pre-wrap; /* This preserves whitespace and allows wrapping */
+word-wrap: break-word; /* This ensures long words are broken and wrapped */
+overflow: auto; /* Adds scrollbars if necessary */
+}
+#ctrlDataSources-Properties {
+overflow-y: scroll;
+overflow-x: hidden;
+}
+/* Monaco code editor */
+#ctrlDataSources-properties-request-panel-body-json .monaco-editor {
+border-radius: 8px !important;
+border: 1px solid var(--trisys-code-editor-outline);
+}
+#ctrlDataSources-properties-request-panel-body-json .overflow-guard {
+border-radius: 8px !important;
+border-right: 1px solid var(--trisys-code-editor-outline);
+border-bottom: 1px solid var(--trisys-code-editor-outline);
+}
+#ctrlDataSources-Request {
+margin-bottom: 0px;
+}
+.todo {
+color: red;
+}
+#ctrlDataSources-properties-request-panel-results-fields, #ctrlDataSources-properties-request-panel-results-table {
+margin-top: -15px;
+}
+#ctrlDataSources-properties-request-panel-fields {
+margin-left: -10px;
+}
+#ctrlDataSources-properties-request-panel-fields-list {
+margin-top: -8px;
+margin-left: -5px;
+margin-bottom: 10px;
+}
+ctrlDataSources-properties-request-panel-fields-table > tbody > tr > td:first-child {
+width: 100px;
+}
+#ctrlDataSources-properties-request-panel-fields-FieldSampleValues {
+display: inline-block;
+white-space: normal;
+overflow-wrap: break-word;
+max-width: 300px; /* Adjust this value to control the maximum width */
+}
+</style>
+<div class="block">
+<div class="block-title" style="margin-bottom: 10px;">
+<div id="ctrlDataSources-Instructions">
+<dl class="dl-horizontal">
+<dt><i class="fa fa-info-circle fa-2x themed-color"></i></dt>
+<dd>
+All your data sources are listed here. Data sources are typically third party ReST API's which you consume
+in this application via data entry forms.
+<br />
+Selecting a data source, folder or request will display the properties in the properties panel
+to the right where they can be edited or deleted. Requests can also be tested to pull/push data from/to the source.
+<br />
+Use the Add button menu to add a new data source, folder or request. Choose import to choose a popular data source,
+and use the delete button to delete the selected data source, folder or request.
+</dd>
+</dl>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4" style="padding-bottom: 10px;">
+<div class="block">
+<div class="block-title">
+<h2>Data Sources</h2>
+<div class="block-options pull-right" id="ctrlDataSources-LeftButtons">
+<div class="btn-group btn-group-sm show-on-hover">
+<a style="cursor: pointer;" class="btn btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Add a new data source, folder or request">
+<i class="gi gi-circle_plus"></i><span id="ctrlDataSources-Add-Button"> &nbsp; Add </span> &nbsp; <span class="caret"></span>
+</a>
+<ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+<li>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Data Source')">
+<i class="fa fa-database pull-left"></i>  &nbsp; Data Source
+</a>
+</li>
+<li>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Folder')">
+<i class="fa fa-folder pull-left"></i>  &nbsp; Folder
+</a>
+</li>
+<li>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Add('Request')">
+<i class="gi gi-globe_af pull-left"></i>  &nbsp; Request
+</a>
+</li>
+</ul>
+</div>
+<span>&nbsp;</span>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Copy()"
+class="btn btn-sm btn-default enable-tooltip" title="Clone the selected item">
+<i class="fa fa-copy"></i><span id="ctrlDataSources-Clone-Button"> &nbsp; Clone &nbsp;</span>
+</a>
+<span>&nbsp;</span>
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Import()"
+class="btn btn-sm btn-default enable-tooltip" title="Import a data source">
+<i class="gi gi-file_import"></i><span id="ctrlDataSources-Import-Button"> &nbsp; Import &nbsp;</span>
+</a>
+</div>
+</div>
+<div id="ctrlDataSources-TreeView" style="overflow-y: scroll;"></div>
+</div>
+</div>
+<div class="col-md-8" style="padding-left: 0px">
+<div class="block">
+<div class="block-title" id="ctrlDataSources-Properties-Title" style="display:none;">
+<h2><span id="ctrlDataSources-Properties-Type"></span> Properties: <span id="ctrlDataSources-Properties-Name"></span></h2>
+<div class="block-options pull-right" id="ctrlDataSources-RightButtons">
+<a style="cursor: pointer;"
+onclick="AppStudioDataSources.Variables.Insert($(this))"
+class="btn btn-sm btn-default enable-tooltip"
+title="Insert a custom variable into the request at the insertion point in the field">
+<i class="gi gi-link"></i><span id="ctrlDataSources-Insert-Button"> &nbsp; Insert Variable </span>
+</a>
+&nbsp;
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Delete()" class="btn btn-sm btn-default enable-tooltip"
+title="Delete data source">
+<i class="gi gi-circle_remove"></i> &nbsp; Delete &nbsp;
+</a>
+</div>
+</div>
+<div class="row" id="ctrlDataSources-Properties">
+<div class="col-md-12" style="padding-left: 0px">
+<div class="form-group" style="margin-right: -10px;">
+<div class="col-md-12" style="padding-right: 0px;">
+<table class="table table-borderless" id="ctrlDataSources-DataSource" style="display: none;">
+<tbody>
+<tr>
+<td colspan="2" style="padding-top: 0px;">
+<!-- Tabs -->
+<ul class="nav nav-tabs" data-toggle="tabs" id="ctrlDataSources-DataSource-tab-nav-horizontal">
+<li id="ctrlDataSources-properties-dataSource-tab-details">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-dataSource-panel-details');">
+<i class="gi gi-globe_af"></i>&nbsp; Details
+</a>
+</li>
+<li id="ctrlDataSources-properties-dataSource-tab-authorisations">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-dataSource-panel-authorisation');">
+<i class="gi gi-lock"></i>&nbsp; Authorisation
+</a>
+</li>
+<li id="ctrlDataSources-properties-dataSource-tab-scripts">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-dataSource-panel-scripts');">
+<i class="gi gi-settings"></i>&nbsp; Scripts
+</a>
+</li>
+</ul>
+<!--</div>-->
+<div class="tab-content">
+<div class="tab-pane" id="ctrlDataSources-properties-dataSource-panel-details">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<strong>ID</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-ID" type="textbox" readonly="true">
+</trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Name</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Name" type="textbox"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Description</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Description"
+type="textboxmultiline" rows="5"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Created</strong>
+</td>
+<td>
+<span id="ctrlDataSources-DataSource-Created"></span>
+</td>
+</tr>
+<tr>
+<td>
+<strong>User</strong>
+</td>
+<td>
+<span id="ctrlDataSources-DataSource-UserDetails"></span>
+&nbsp;
+<img id="ctrlDataSources-DataSource-UserPhoto" style="width: 64px; height:64px;" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-dataSource-panel-authorisation">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<strong>Authorisation</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Authorisation" type="singleselectcombo"
+datafunction="AppStudioDataSources.AuthorisationList"
+onchange="AppStudioDataSources.SelectedDataSourceAuthorisation">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-DataSource-Authorisation-Username-tr" style="display: none;">
+<td>
+<strong>Username</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Authorisation-Username" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-DataSource-Authorisation-Password-tr" style="display: none;">
+<td>
+<strong>Password</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Authorisation-Password" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-DataSource-Authorisation-Token-tr" style="display: none;">
+<td>
+<strong>Token</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Authorisation-Token" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<!--<tr id="ctrlDataSources-DataSource-Authorisation-Key-tr" style="display: none;">
+<td>
+<strong>Key</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Authorisation-Key" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-DataSource-Authorisation-Value-tr" style="display: none;">
+<td>
+<strong>Value</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Authorisation-Value" type="textbox">
+</trisys-field>
+</td>
+</tr>-->
+<tr id="ctrlDataSources-DataSource-Authorisation-AddTo-tr" style="display: none;">
+<td>
+<strong>Add To</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-DataSource-Authorisation-AddTo" type="singleselectcombo"
+datafunction="AppStudioDataSources.AuthorisationKeyAddToList">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-DataSource-Authorisation-KeyValuePairs-tr" style="display: none;">
+<td colspan="2">
+<div id="ctrlDataSources-DataSource-Authorisation-KeyValuePairs-Grid"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-dataSource-panel-scripts">
+data source scripts...
+</div>
+</div>
+<!--</div>-->
+<!-- END Tabs -->
+</td> <!-- colspan="2" -->
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless" id="ctrlDataSources-Folder" style="display: none;">
+<tbody>
+<tr>
+<td colspan="2" style="padding-top: 0px;">
+<!-- Tabs -->
+<ul class="nav nav-tabs" data-toggle="tabs" id="ctrlDataSources-Folder-tab-nav-horizontal">
+<li id="ctrlDataSources-properties-folder-tab-details">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-folder-panel-details');">
+<i class="gi gi-globe_af"></i>&nbsp; Details
+</a>
+</li>
+<li id="ctrlDataSources-properties-folder-tab-authorisations">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-folder-panel-authorisation');">
+<i class="gi gi-lock"></i>&nbsp; Authorisation
+</a>
+</li>
+<li id="ctrlDataSources-properties-folder-tab-scripts">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-folder-panel-scripts');">
+<i class="gi gi-settings"></i>&nbsp; Scripts
+</a>
+</li>
+</ul>
+<!--</div>-->
+<div class="tab-content">
+<div class="tab-pane" id="ctrlDataSources-properties-folder-panel-details">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<strong>Name</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Name" type="textbox"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Description</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Description" type="textboxmultiline" rows="3">
+</trisys-field>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-folder-panel-authorisation">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<strong>Authorisation</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Authorisation" type="singleselectcombo"
+datafunction="AppStudioDataSources.AuthorisationListForRequest"
+onchange="AppStudioDataSources.SelectedFolderAuthorisation">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Folder-Authorisation-Username-tr" style="display: none;">
+<td>
+<strong>Username</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Authorisation-Username" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Folder-Authorisation-Password-tr" style="display: none;">
+<td>
+<strong>Password</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Authorisation-Password" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Folder-Authorisation-Token-tr" style="display: none;">
+<td>
+<strong>Token</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Authorisation-Token" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<!--<tr id="ctrlDataSources-Folder-Authorisation-Key-tr" style="display: none;">
+<td>
+<strong>Key</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Authorisation-Key" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Folder-Authorisation-Value-tr" style="display: none;">
+<td>
+<strong>Value</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Authorisation-Value" type="textbox">
+</trisys-field>
+</td>
+</tr>-->
+<tr id="ctrlDataSources-Folder-Authorisation-AddTo-tr" style="display: none;">
+<td>
+<strong>Add To</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Folder-Authorisation-AddTo"
+type="singleselectcombo"
+datafunction="AppStudioDataSources.AuthorisationKeyAddToList">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Folder-Authorisation-KeyValuePairs-tr" style="display: none;">
+<td colspan="2">
+<div id="ctrlDataSources-Folder-Authorisation-KeyValuePairs-Grid"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-folder-panel-scripts">
+folder scripts...
+</div>
+</div>
+<!--</div>-->
+<!-- END Tabs -->
+</td> <!-- colspan="2" -->
+</tr>
+</tbody>
+</table>
+<table class="table table-borderless table-striped" id="ctrlDataSources-Request" style="display: none;">
+<tbody>
+<tr>
+<td style="width: 90px;">
+<strong>URL</strong>
+&nbsp; &nbsp;
+<img id="ctrlDataSources-Request-Verb-Image1" style="border-radius: 6px;" />
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td style="width: 100%;">
+<trisys-field id="ctrlDataSources-Request-URL" type="textboxmultiline" rows="2"></trisys-field>
+</td>
+<td style="min-width: 90px; padding-left: 10px; text-align: right;">
+<a style="cursor: pointer;" onclick="AppStudioDataSources.SendRequest()"
+id="ctrlDataSources-Request-Test-Button"
+class=" btn btn-sm btn-primary enable-tooltip" title="Send the request to the ReST API server">
+<i class="gi gi-play"></i> &nbsp; Send Request &nbsp;
+</a>
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+<i class="fa fa-spinner fa-3x fa-spin themed-color"
+style="display: none;"
+id="ctrlDataSources-Request-Spinner"></i>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<!-- Tabs -->
+<!--<div class="block full" id="ctrlDataSources-tab-buttons">
+<div class="block-title">-->
+<ul class="nav nav-tabs" data-toggle="tabs" id="ctrlDataSources-tab-nav-horizontal">
+<li id="ctrlDataSources-properties-request-tab-details">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-request-panel-details');">
+<i class="gi gi-globe_af"></i>&nbsp; Details
+</a>
+</li>
+<li id="ctrlDataSources-properties-request-tab-authorisations">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-request-panel-authorisation');">
+<i class="gi gi-lock"></i>&nbsp; Authorisation
+</a>
+</li>
+<li id="ctrlDataSources-properties-request-tab-parameters">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-request-panel-parameters');">
+<i class="fa fa-check-square-o"></i>&nbsp; Parameters
+</a>
+</li>
+<li id="ctrlDataSources-properties-request-tab-headers">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-request-panel-headers');">
+<i class="fa fa-plug"></i>&nbsp; Headers
+</a>
+</li>
+<li id="ctrlDataSources-properties-request-tab-body">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-request-panel-body',
+AppStudioDataSources.TabButtonCallback)">
+<i class="fa fa-file-code-o"></i>&nbsp; Body
+</a>
+</li>
+<li id="ctrlDataSources-properties-request-tab-scripts">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-request-panel-scripts');">
+<i class="gi gi-settings"></i>&nbsp; Scripts
+</a>
+</li>
+<li id="ctrlDataSources-properties-request-tab-results">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-request-panel-results');">
+<i class="gi gi-table"></i>&nbsp; Results
+</a>
+</li>
+<li id="ctrlDataSources-properties-request-tab-fields">
+<a style="cursor: pointer;"
+onclick="TriSysSDK.EntityFormTabs.TabContainerClickEvent($(this),
+'ctrlDataSources-properties-request-panel-fields');">
+<i class="gi gi-database_plus"></i>&nbsp; Fields
+</a>
+</li>
+</ul>
+<!--</div>-->
+<div class="tab-content">
+<div class="tab-pane" id="ctrlDataSources-properties-request-panel-details">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<strong>ID</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-ID" type="textbox"
+readonly="true"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Name</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Name" type="textbox"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Description</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Description"
+type="textboxmultiline" rows="2"></trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>HTTP Verb</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td style="width: 100%;">
+<trisys-field id="ctrlDataSources-Request-Verb" type="singleselectcombo"
+datafunction="AppStudioDataSources.VerbList"
+onchange="AppStudioDataSources.SelectedVerb"></trisys-field>
+</td>
+<td style="width: 60px; padding-left: 10px; text-align: right;">
+<img id="ctrlDataSources-Request-Verb-Image2" style="border-radius: 6px;" />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-request-panel-authorisation">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<strong>Authorisation</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Authorisation" type="singleselectcombo"
+datafunction="AppStudioDataSources.AuthorisationListForRequest"
+onchange="AppStudioDataSources.SelectedRequestAuthorisation">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Request-Authorisation-Username-tr" style="display: none;">
+<td>
+<strong>Username</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Authorisation-Username" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Request-Authorisation-Password-tr" style="display: none;">
+<td>
+<strong>Password</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Authorisation-Password" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Request-Authorisation-Token-tr" style="display: none;">
+<td>
+<strong>Token</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Authorisation-Token" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<!--<tr id="ctrlDataSources-Request-Authorisation-Key-tr" style="display: none;">
+<td>
+<strong>Key</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Authorisation-Key" type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Request-Authorisation-Value-tr" style="display: none;">
+<td>
+<strong>Value</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Authorisation-Value" type="textbox">
+</trisys-field>
+</td>
+</tr>-->
+<tr id="ctrlDataSources-Request-Authorisation-AddTo-tr" style="display: none;">
+<td>
+<strong>Add To</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-Request-Authorisation-AddTo"
+type="singleselectcombo"
+datafunction="AppStudioDataSources.AuthorisationKeyAddToList">
+</trisys-field>
+</td>
+</tr>
+<tr id="ctrlDataSources-Request-Authorisation-KeyValuePairs-tr" style="display: none;">
+<td colspan="2">
+<div id="ctrlDataSources-Request-Authorisation-KeyValuePairs-Grid"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-request-panel-parameters">
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<strong>Format</strong>
+</td>
+<td style="min-width: 375px;">
+<trisys-field id="ctrlDataSources-Request-Parameters-Format"
+type="singleselectcombo"
+datafunction="AppStudioDataSources.ParametersFormatListForRequest">
+</trisys-field>
+</td>
+<td>
+The format chosen here will append these parameters to
+the URL when sending the request.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="ctrlDataSources-properties-request-panel-parameters-grid"></div>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-request-panel-headers">
+<div id="ctrlDataSources-properties-request-panel-headers-grid"></div>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-request-panel-body">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr>
+<td>
+<strong>Body Format</strong>
+</td>
+<td style="min-width: 375px;">
+<trisys-field id="ctrlDataSources-Request-Body-Format" type="singleselectcombo"
+datafunction="AppStudioDataSources.BodyFormatListForRequest"
+onchange="AppStudioDataSources.SelectedRequestBodyFormat">
+</trisys-field>
+</td>
+<td>
+The format chosen here will also be used to assign fields to ReST data when
+designing CRUD forms.
+</td>
+</tr>
+</tbody>
+</table>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div id="ctrlDataSources-properties-request-panel-body-json"></div>
+<div id="ctrlDataSources-properties-request-panel-body-tree" style="display: none;">
+<h1 class="todo">TODO</h1>
+</div>
+<div id="ctrlDataSources-properties-request-panel-body-grid" style="display: none;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-request-panel-scripts">
+request scripts...
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-request-panel-results"
+style="max-width: 100%;">
+<div id="ctrlDataSources-properties-request-panel-results-tabstrip-left">
+<ul>
+<li class="k-active">
+JSON
+</li>
+<li>
+Columns
+</li>
+<li>
+Fields
+</li>
+<li>
+Table
+</li>
+<li>
+Grid
+</li>
+<li>
+Form
+</li>
+<li>
+Debug
+</li>
+</ul>
+<div>
+<!-- JSON -->
+<span id="ctrlDataSources-properties-request-panel-results-span"></span>
+</div>
+<div>
+<!-- Columns -->
+<div class="table-responsive">
+<table id="ctrlDataSources-properties-request-panel-results-columns"
+class="table table-striped table-vcenter">
+<thead>
+<!-- Dynamic headers will be generated here -->
+</thead>
+<tbody>
+<!-- Dynamic rows will be generated here -->
+</tbody>
+</table>
+</div>
+</div>
+<div> <!-- Fields -->
+<div class="table-responsive">
+<table id="ctrlDataSources-properties-request-panel-results-fields"
+class="table table-striped table-vcenter">
+<thead>
+<!-- Dynamic headers will be generated here -->
+</thead>
+<tbody>
+<!-- Dynamic rows will be generated here -->
+</tbody>
+</table>
+</div>
+</div>
+<div style="max-width: 700px;"
+id="ctrlDataSources-properties-request-panel-results-table-div">
+<!-- TODO: VARIABLE -->
+<div class="table-responsive">
+<table id="ctrlDataSources-properties-request-panel-results-table"
+class="table table-striped table-vcenter">
+<thead>
+<!-- Dynamic headers will be generated here -->
+</thead>
+<tbody>
+<!-- Dynamic rows will be generated here -->
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<div id="ctrlDataSources-properties-request-panel-results-grid"></div>
+</div>
+<div>
+<p>ToDo: form</p>
+<p>When form designer is active.</p>
+</div>
+<div>
+<div id="ctrlDataSources-properties-request-panel-results-debug"></div>
+</div>
+</div>
+<!--<div id="ctrlDataSources-properties-request-panel-results-div"></div>-->
+</div>
+<div class="tab-pane" id="ctrlDataSources-properties-request-panel-fields">
+<div class="row">
+<div class="col-md-5">
+<div class="block">
+<div class="block-title">
+<div class="block-options pull-right">
+<a style="cursor: pointer;" onclick="AppStudioDataSources.Fields.Refresh()"
+id="ctrlDataSources-properties-request-panel-fields-refreshButton"
+class="btn btn-sm btn-default enable-tooltip"
+title="Refresh the list of fields from the request results">
+<i class="fa fa-refresh"></i> &nbsp; Refresh
+</a>
+</div>
+<h5>Available Fields</h5>
+</div>
+<div id="ctrlDataSources-properties-request-panel-fields-list"></div>
+</div>
+</div>
+<div class="col-md-7">
+<div class="block">
+<div class="block-title">
+<h5>Field Properties</h5>
+</div>
+<table class="table table-borderless table-striped"
+id="ctrlDataSources-properties-request-panel-fields-table">
+<tbody>
+<tr>
+<td>
+<strong>Name</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldName"
+type="textbox"
+readonly="true">
+</trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Key</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldKey"
+type="yesno">
+</trisys-field>
+</td>
+</tr>
+<!--<tr> 14 Apr 2025: Deprecated
+<td>
+<strong>Key Variable</strong>
+</td>
+<td>
+<trisys-field
+id="ctrlDataSources-properties-request-panel-fields-FieldKeyVariable"
+type="textbox">
+</trisys-field>
+</td>
+</tr>-->
+<tr>
+<td>
+<strong>Type</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldType"
+type="singleselectcombo"
+datafunction="TriSysFlexiva.Settings.FieldTypeList"
+Xonchange="AppStudioDataSources.Fields.SelectedType">
+</trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Caption</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldCaption"
+type="textbox">
+</trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Visible</strong>
+</td>
+<td>
+<trisys-field id="ctrlDataSources-properties-request-panel-fields-FieldVisible"
+type="yesno">
+</trisys-field>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Sample Values</strong>
+</td>
+<td>
+<span id="ctrlDataSources-properties-request-panel-fields-FieldSampleValues">
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--</div>-->
+<!-- END Tabs -->
+</td> <!-- colspan="2" -->
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

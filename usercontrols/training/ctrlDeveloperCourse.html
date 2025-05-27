@@ -1,1 +1,61 @@
-<style scoped> ol li { display: block; } /* hide original list counter */ ol > li:first-child { counter-reset: item; } /* reset counter */ ol > li { counter-increment: item; position: relative; margin-top: 10px; } /* increment counter */ ol > li:before { content: counters(item, ".") ". "; position: absolute; margin-right: 100%; right: 10px; } /* print counter */ </style> <div class="block full"> <div id="" style="overflow-y: scroll; height:400px;"> <p> This training course is designed specifically for software developers. </p> <p> In order to gain the most from the course, you should have some knowledge of web programming technologies, specifically HTML, CSS, Javascript, JQuery. It will also be very useful to understand the system administration aspects of TriSys. </p> <p> It is recommended that you watch the videos in order during the course, however you will be able to revisit this course at any time and watch any video as desired. It is also recommended that you have a computer with a fast internet connection and sound enabled so that you can enjoy high quality video broadcasting accompanied by the presenters voice. </p> <p> The course programme is as follows: </p> <ol> <li> Introduction <ol> <li> <strong>Overview of Developer Studio</strong> <br /> Summary of the capabilities of developer studio to build custom forms, code and data. </li> <li> <strong>Overview of Web API</strong> <br /> Summary of the Web Application Programming Interface and how this can be used to build compelling line of business, data-drive, cloud and mobile applications. </li> </ol> </li> </ol> </div> </div>
+<style scoped>
+ol li {
+display: block;
+}
+/* hide original list counter */
+ol > li:first-child {
+counter-reset: item;
+}
+/* reset counter */
+ol > li {
+counter-increment: item;
+position: relative;
+margin-top: 10px;
+}
+/* increment counter */
+ol > li:before {
+content: counters(item, ".") ". ";
+position: absolute;
+margin-right: 100%;
+right: 10px;
+}
+/* print counter */
+</style>
+<div class="block full">
+<div id="" style="overflow-y: scroll; height:400px;">
+<p>
+This training course is designed specifically for software developers.
+</p>
+<p>
+In order to gain the most from the course, you should have some knowledge of web programming technologies,
+specifically HTML, CSS, Javascript, JQuery. It will also be very useful to understand the system administration
+aspects of TriSys.
+</p>
+<p>
+It is recommended that you watch the videos in order during the course, however you will be able to revisit this course at any
+time and watch any video as desired. It is also recommended that you have a computer with a fast internet connection and
+sound enabled so that you can enjoy high quality video broadcasting accompanied by the presenters voice.
+</p>
+<p>
+The course programme is as follows:
+</p>
+<ol>
+<li>
+Introduction
+<ol>
+<li>
+<strong>Overview of Developer Studio</strong>
+<br />
+Summary of the capabilities of developer studio to build custom forms, code and data.
+</li>
+<li>
+<strong>Overview of Web API</strong>
+<br />
+Summary of the Web Application Programming Interface and how this can be used to build
+compelling line of business, data-drive, cloud and mobile applications.
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>

@@ -1,1 +1,154 @@
-<div class="content-header" style="display: none;"> <div class="header-section"> <h1> <i class="gi gi-folder_open"></i>File Manager<br><small>This is the web interface to your G:\ drive</small> </h1> </div> </div> <style scoped> .block-title > i { padding-top: 10px; padding-left: 15px; } #fileManager-Splitter-vertical { /*height: 600px;*/ margin: 0 auto; } .pane-content { padding: 0; } /* Folder icons */ #fileManager-Folders .k-sprite { background-image: url("images/trisys/file-manager/treeview-sprite.png"); } .rootfolder { background-position: 0 0; } .folder { background-position: 0 -16px; } /* show lines in tree we preferred no lines! */ /* .k-treeview .k-top, .k-treeview .k-mid, .k-treeview .k-bot { background-image: url('https://apex.trisys.co.uk/images/trisys/file-manager/treeview-nodes.png?ts=123'); background-repeat: no-repeat; margin-left: -16px; padding-left: 16px; } .k-treeview .k-item { background-image: url('https://apex.trisys.co.uk/images/trisys/file-manager/treeview-line.png?ts=123'); } .k-treeview .k-last { background-image: none; } .k-treeview .k-top { background-position: -91px 0; } .k-treeview .k-bot { background-position: -69px -22px; } .k-treeview .k-mid { background-position: -47px -44px; } .k-treeview .k-last .k-top { background-position: -25px -66px; } .k-treeview .k-group .k-last .k-bot { background-position: -69px -22px; } .k-treeview .k-item { background-repeat: no-repeat; } .k-treeview .k-first { background-repeat: no-repeat; background-position: 0 16px; } */ </style> <div class="block full" style="padding-bottom: 0px;"> <div class="block-title"> <i class="gi gi-folder_open fa-2x pull-left themed-color"></i> <h2><span id="fileManager-Root">File Manager: Reading folders...</span><span id="fileManager-Path"></span></h2> </div> <div id="fileManager-Splitter" style="padding-bottom: 20px;"> <div id="fileManager-Splitter-vertical"> <div id="top-pane"> <div id="fileManager-Splitter-horizontal" style="height: 100%; width: 100%;"> <div id="folder-pane"> <div class="pane-content"> <div class="block"> <div class="block-title"> <h2>Folders</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="FileManager.RefreshCurrentFolder()" class=" btn btn-sm btn-default enable-tooltip" title="Refresh folder"> <i class="gi gi-refresh"></i> </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="FileManager.AddFolder()" class=" btn btn-sm btn-default enable-tooltip" title="Add folder"> <i class="gi gi-plus"></i> </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="FileManager.RenameFolder()" class=" btn btn-sm btn-default enable-tooltip" title="Rename folder"> <i class="gi gi-font"></i> </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="FileManager.DeleteFolder()" class="btn btn-sm btn-default enable-tooltip" title="Delete folder"> <i class="gi gi-remove"></i> </a> </div> </div> <div id="fileManager-Folders-Container" style="overflow-y: scroll; height:510px;"> <div id="fileManager-Folders" ></div> </div> </div> </div> </div> <div id="file-pane"> <div class="pane-content"> <div class="block"> <div class="block-title"> <h2>Files</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="FileManager.RefreshFiles()" class=" btn btn-sm btn-default enable-tooltip" title="Refresh List of files"> <i class="gi gi-refresh"></i> &nbsp; Refresh &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="FileManager.EditFile()" class=" btn btn-sm btn-default enable-tooltip" title="Edit file"> <i class="gi gi-edit"></i> &nbsp; Edit &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="FileManager.AddFile()" class=" btn btn-sm btn-default enable-tooltip" title="Add file"> <i class="gi gi-plus"></i> &nbsp; Add &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="FileManager.CopyFile()" class=" btn btn-sm btn-default enable-tooltip" title="Copy selected file"> <i class="fa fa-files-o"></i> &nbsp; Copy &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="FileManager.RenameFile()" class=" btn btn-sm btn-default enable-tooltip" title="Rename selected file"> <i class="gi gi-font"></i> &nbsp; Rename &nbsp; </a> <span>&nbsp;</span> <a href="javascript:void(0)" onclick="FileManager.DeleteFile()" class="btn btn-sm btn-default enable-tooltip" title="Delete selected file"> <i class="gi gi-remove"></i> &nbsp; Delete &nbsp; </a> <span>&nbsp;</span> <div id="FileManagerGridMenu"> </div> </div> </div> <div id="fileManager-Files"></div> </div> </div> </div> </div> </div> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/FileManager.js"></script>
+<div class="content-header" style="display: none;">
+<div class="header-section">
+<h1>
+<i class="gi gi-folder_open"></i>File Manager<br><small>This is the web interface to your G:\ drive</small>
+</h1>
+</div>
+</div>
+<style scoped>
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+#fileManager-Splitter-vertical {
+/*height: 600px;*/
+margin: 0 auto;
+}
+.pane-content {
+padding: 0;
+}
+/* Folder icons */
+#fileManager-Folders .k-sprite {
+background-image: url("images/trisys/file-manager/treeview-sprite.png");
+}
+.rootfolder {
+background-position: 0 0;
+}
+.folder {
+background-position: 0 -16px;
+}
+/* show lines in tree
+we preferred no lines!
+*/
+/*
+.k-treeview .k-top,
+.k-treeview .k-mid,
+.k-treeview .k-bot {
+background-image: url('https://apex.trisys.co.uk/images/trisys/file-manager/treeview-nodes.png?ts=123');
+background-repeat: no-repeat;
+margin-left: -16px;
+padding-left: 16px;
+}
+.k-treeview .k-item {
+background-image: url('https://apex.trisys.co.uk/images/trisys/file-manager/treeview-line.png?ts=123');
+}
+.k-treeview .k-last {
+background-image: none;
+}
+.k-treeview .k-top {
+background-position: -91px 0;
+}
+.k-treeview .k-bot {
+background-position: -69px -22px;
+}
+.k-treeview .k-mid {
+background-position: -47px -44px;
+}
+.k-treeview .k-last .k-top {
+background-position: -25px -66px;
+}
+.k-treeview .k-group .k-last .k-bot {
+background-position: -69px -22px;
+}
+.k-treeview .k-item {
+background-repeat: no-repeat;
+}
+.k-treeview .k-first {
+background-repeat: no-repeat;
+background-position: 0 16px;
+}
+*/
+</style>
+<div class="block full" style="padding-bottom: 0px;">
+<div class="block-title">
+<i class="gi gi-folder_open fa-2x pull-left themed-color"></i>
+<h2><span id="fileManager-Root">File Manager: Reading folders...</span><span id="fileManager-Path"></span></h2>
+</div>
+<div id="fileManager-Splitter" style="padding-bottom: 20px;">
+<div id="fileManager-Splitter-vertical">
+<div id="top-pane">
+<div id="fileManager-Splitter-horizontal" style="height: 100%; width: 100%;">
+<div id="folder-pane">
+<div class="pane-content">
+<div class="block">
+<div class="block-title">
+<h2>Folders</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="FileManager.RefreshCurrentFolder()" class=" btn btn-sm btn-default enable-tooltip" title="Refresh folder">
+<i class="gi gi-refresh"></i>
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="FileManager.AddFolder()" class=" btn btn-sm btn-default enable-tooltip" title="Add folder">
+<i class="gi gi-plus"></i>
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="FileManager.RenameFolder()" class=" btn btn-sm btn-default enable-tooltip" title="Rename folder">
+<i class="gi gi-font"></i>
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="FileManager.DeleteFolder()" class="btn btn-sm btn-default enable-tooltip" title="Delete folder">
+<i class="gi gi-remove"></i>
+</a>
+</div>
+</div>
+<div id="fileManager-Folders-Container" style="overflow-y: scroll; height:510px;">
+<div id="fileManager-Folders" ></div>
+</div>
+</div>
+</div>
+</div>
+<div id="file-pane">
+<div class="pane-content">
+<div class="block">
+<div class="block-title">
+<h2>Files</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="FileManager.RefreshFiles()" class=" btn btn-sm btn-default enable-tooltip" title="Refresh List of files">
+<i class="gi gi-refresh"></i> &nbsp; Refresh &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="FileManager.EditFile()" class=" btn btn-sm btn-default enable-tooltip" title="Edit file">
+<i class="gi gi-edit"></i> &nbsp; Edit &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="FileManager.AddFile()" class=" btn btn-sm btn-default enable-tooltip" title="Add file">
+<i class="gi gi-plus"></i> &nbsp; Add &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="FileManager.CopyFile()" class=" btn btn-sm btn-default enable-tooltip" title="Copy selected file">
+<i class="fa fa-files-o"></i> &nbsp; Copy &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="FileManager.RenameFile()" class=" btn btn-sm btn-default enable-tooltip" title="Rename selected file">
+<i class="gi gi-font"></i> &nbsp; Rename &nbsp;
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" onclick="FileManager.DeleteFile()" class="btn btn-sm btn-default enable-tooltip" title="Delete selected file">
+<i class="gi gi-remove"></i> &nbsp; Delete &nbsp;
+</a>
+<span>&nbsp;</span>
+<div id="FileManagerGridMenu">
+</div>
+</div>
+</div>
+<div id="fileManager-Files"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/FileManager.js"></script>

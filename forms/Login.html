@@ -1,1 +1,93 @@
-<div class="content-header" id="login-form-top-block"> <div class="header-section"> <h1> <i class="gi gi-lock"></i><span id="login-form-caption">Login</span> <br><small> <span id="login-form-instructions"> Please either enter your e-mail address and password, or login using your favourite social network. </span> </small> </h1> </div> </div> <div class="block full"> <div class="row"> <div class="col-md-2"> </div> <div class="col-md-8"> <!-- Horizontal Form Block --> <div class="block"> <!-- Horizontal Form Title --> <div class="block-title"> <h2 id="login-form-title"><strong>Login</strong> Form</h2> </div> <!-- END Horizontal Form Title --> <!-- Horizontal Form Content --> <div class="form-horizontal form-bordered"> <div class="form-group"> <label class="col-md-3 control-label" for="txtLoginEMail">E-Mail</label> <div class="col-md-9"> <input type="email" id="txtLoginEMail" name="txtLoginEMail" class="form-control" placeholder="Enter E-Mail.." maxlength="100"> <span class="help-block">Please enter your email address</span> </div> </div> <div class="form-group"> <label class="col-md-3 control-label" for="txtLoginPassword">Password</label> <div class="col-md-9"> <input type="password" id="txtLoginPassword" name="txtLoginPassword" class="form-control" placeholder="Enter Password.." maxlength="128"> <span class="help-block">Please enter your password</span> </div> </div> <div class="form-group" id="login-form-remember-me-block"> <label class="col-md-3 control-label" for="login-remember-me">Remember Me</label> <div class="col-md-9"> <label class="switch switch-primary"> <input type="checkbox" id="login-remember-me" value="1" checked> <span></span> </label> <span class="help-block">Check to remember your credentials for next visit</span> </div> </div> <div class="form-group form-actions"> <div class="col-md-9 col-md-offset-3"> <button type="submit" class="btn btn-sm btn-primary" onclick="loginPage.LoginButtonClick()" id="btn-login" style="margin-right: 5px;"><i class="fa fa-user"></i> Login</button> <button type="reset" class="btn btn-sm btn-danger" onclick="loginPage.ForgottenPassword()" id="btn-forgotten-password" style="margin-right: 5px;"><i class="fa fa-question-circle"></i> Forgot Password</button> <button type="reset" class="btn btn-sm btn-warning" onclick="loginPage.Register()" id="btn-register" style="margin-right: 5px;"><i class="gi gi-pen"></i> Sign-Up</button> </div> </div> <div class="form-group form-actions" id="social-login-buttons" style="margin-top: -20px;"> <label class="col-md-3 control-label">Social Logins</label> <div class="col-md-9 col-md-offset-3" style="margin-top: -20px;" id="loginPage-SocialNetworkButtons"> </div> </div> </div> <!-- END Horizontal Form Content --> </div> <!-- END Horizontal Form Block --> <div class="block"> <!-- Horizontal Form Title --> <div class="block-title"> <h2>Legal Notices</h2> </div> <!-- END Horizontal Form Title --> <!-- Horizontal Form Content --> <div class="form-horizontal form-bordered"> <div class="form-group" style="margin-top: -20px;"> <label class="col-md-3 control-label">&nbsp;</label> <div class="col-md-9 col-md-offset-3" style="margin-top: -20px;"> <a href="https://www.trisys.co.uk/privacy-policy" target="_blank"><i class="gi gi-lock"></i> &nbsp; Privacy Policy</a> <br /><br /> <a href="https://www.trisys.co.uk/gdpr" target="_blank"><i class="gi gi-database_lock"></i> &nbsp; GDPR Statement</a> </div> </div> </div> <!-- END Horizontal Form Content --> </div> </div> <div class="col-md-2"> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/login.js?ts=202412021843"></script>
+<div class="content-header" id="login-form-top-block">
+<div class="header-section">
+<h1>
+<i class="gi gi-lock"></i><span id="login-form-caption">Login</span>
+<br><small>
+<span id="login-form-instructions">
+Please either enter your e-mail address and password, or
+login using your favourite social network.
+</span>
+</small>
+</h1>
+</div>
+</div>
+<div class="block full">
+<div class="row">
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
+<!-- Horizontal Form Block -->
+<div class="block">
+<!-- Horizontal Form Title -->
+<div class="block-title">
+<h2 id="login-form-title"><strong>Login</strong> Form</h2>
+</div>
+<!-- END Horizontal Form Title -->
+<!-- Horizontal Form Content -->
+<div class="form-horizontal form-bordered">
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtLoginEMail">E-Mail</label>
+<div class="col-md-9">
+<input type="email" id="txtLoginEMail" name="txtLoginEMail" class="form-control" placeholder="Enter E-Mail.." maxlength="100">
+<span class="help-block">Please enter your email address</span>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="txtLoginPassword">Password</label>
+<div class="col-md-9">
+<input type="password" id="txtLoginPassword" name="txtLoginPassword" class="form-control" placeholder="Enter Password.." maxlength="128">
+<span class="help-block">Please enter your password</span>
+</div>
+</div>
+<div class="form-group" id="login-form-remember-me-block">
+<label class="col-md-3 control-label" for="login-remember-me">Remember Me</label>
+<div class="col-md-9">
+<label class="switch switch-primary">
+<input type="checkbox" id="login-remember-me" value="1" checked>
+<span></span>
+</label>
+<span class="help-block">Check to remember your credentials for next visit</span>
+</div>
+</div>
+<div class="form-group form-actions">
+<div class="col-md-9 col-md-offset-3">
+<button type="submit" class="btn btn-sm btn-primary" onclick="loginPage.LoginButtonClick()" id="btn-login" style="margin-right: 5px;"><i class="fa fa-user"></i> Login</button>
+<button type="reset" class="btn btn-sm btn-danger" onclick="loginPage.ForgottenPassword()" id="btn-forgotten-password" style="margin-right: 5px;"><i class="fa fa-question-circle"></i> Forgot Password</button>
+<button type="reset" class="btn btn-sm btn-warning" onclick="loginPage.Register()" id="btn-register" style="margin-right: 5px;"><i class="gi gi-pen"></i> Sign-Up</button>
+</div>
+</div>
+<div class="form-group form-actions" id="social-login-buttons" style="margin-top: -20px;">
+<label class="col-md-3 control-label">Social Logins</label>
+<div class="col-md-9 col-md-offset-3" style="margin-top: -20px;" id="loginPage-SocialNetworkButtons">
+</div>
+</div>
+</div>
+<!-- END Horizontal Form Content -->
+</div>
+<!-- END Horizontal Form Block -->
+<div class="block">
+<!-- Horizontal Form Title -->
+<div class="block-title">
+<h2>Legal Notices</h2>
+</div>
+<!-- END Horizontal Form Title -->
+<!-- Horizontal Form Content -->
+<div class="form-horizontal form-bordered">
+<div class="form-group" style="margin-top: -20px;">
+<label class="col-md-3 control-label">&nbsp;</label>
+<div class="col-md-9 col-md-offset-3" style="margin-top: -20px;">
+<a href="https://www.trisys.co.uk/privacy-policy" target="_blank"><i class="gi gi-lock"></i> &nbsp; Privacy Policy</a>
+<br /><br />
+<a href="https://www.trisys.co.uk/gdpr" target="_blank"><i class="gi gi-database_lock"></i> &nbsp; GDPR Statement</a>
+</div>
+</div>
+</div>
+<!-- END Horizontal Form Content -->
+</div>
+</div>
+<div class="col-md-2">
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/login.js?ts=202412021843"></script>

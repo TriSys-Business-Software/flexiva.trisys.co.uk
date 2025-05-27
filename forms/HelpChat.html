@@ -1,1 +1,141 @@
-<style scoped> .chat-talk-messages .chat-talk-msg { background: rgba(228, 220, 220, 0.4); /*width: 90%;*/ } .chat-form { /*background: rgba(228, 220, 220, 0.4);*/ color: black; } .trisys-chat-date { text-align: left; padding-left: 0px; /*font-weight: bold; */ border-top: 1px solid rgba(228, 220, 220, 0.4); border-bottom: 1px solid rgba(228, 220, 220, 0.4); margin-top: 10px !important; /*width: 90%;*/ } .block-title > i { padding-top: 10px; padding-left: 15px; } .nav-horizontal i { display: block; height: 32px; margin-right: 0; margin-bottom: 10px; font-size: 20px; padding: 2px; } .nav-horizontal a { text-align: center; min-width: 110px; padding: 4px 4px; } </style> <div class="block full" style="padding-bottom: 0px;"> <div class="block-title"> <i class="gi gi-chat fa-2x pull-left themed-color"></i> <h2>Chat<span id="chat-user-name"></span> </h2> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Remove all of your messages from this list" id="help-chat-remove-history"> <i class="gi gi-remove"></i> </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Add a user to the list" id="help-chat-add-user"> <i class="gi gi-user_add"></i> </a> <span>&nbsp;</span> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Remove this user from the list" id="help-chat-remove-user"> <i class="gi gi-user_remove"></i> </a> </div> </div> <div class="block full"> <div class="content-header" id="help-chat-tab-panel-buttons"> <ul class="nav-horizontal" id="help-chat-tab-nav-horizontal"> <!-- See HelpChat.AddUsers() --> </ul> </div> <div class="block" style="margin-top: -20px; border-left: 0; border-right: 0; border-width: 0px;" id="help-chat-instructions"> <div class="row"> <dl class="dl-horizontal"> <dt style="width: 50px; text-align: left; margin-top: 15px;"> <i class="fa fa-question-circle fa-3x"></i> </dt> <dd style="margin-left: 50px;"> <h3> Chat Application </h3> <p> This form alows you to conduct real-time recorded chat conversations with your consultant colleagues by embedding rich content such as images, files, formatted text, and most importantly, links to database records i.e. contacts, companies, requirements and placements. Updates to your messages are immediately updated on the recipients computer. If the recipient is not available, or not logged in, your messages are queued so that they can be read at any time. </p> <p> Please scroll and select your colleague from the list above. Only those consultants who have their photo assigned to their user contact record will be visible in this list. You are able to add and remove your favourite consultants to/from this list using the toolbar. </p> <p> The chat history will be displayed below the selected consultant. </p> <p> You can type a message and use the text formatting hover toolbar to set colour, font, size, bold, italic, underline and strikethrough. </p> <p> You can use the paperclip icon to attach files. </p> <p> Press the Send button to send the message to your colleague. </p> <p> You can edit or delete your messages using the cogwheel button, and remove your messages from the toolbar. </p> </dd> </dl> </div> </div> <div id="trisys-chat-talk" class="chat-talk" style="overflow-y:scroll; display: none;"> <ul class="chat-talk-messages" style="background-color: transparent;"></ul> <div id="trisys-chat-talk-waiting" class="block block-alt-noborder"> <h1 style="text-align: center; padding-top: 55px;"> <i class="fa fa-sun-o fa-spin fa-3x" style="float: none;" id="trisys-chat-talk-waiting-spinner-image"></i> &nbsp; </h1> <h5 style="text-align: center; padding-top: 25px; margin-left: -15px;" id="trisys-chat-talk-waiting-spinner-message">Loading Messages</h5> </div> </div> <hr /> <div id="user-chat-form" class="chat-form" style="display: none;"> <table style="width: 100%;"> <tr> <td style="vertical-align: middle;"> <div id="kendoTextEditor" style="border-radius: 8px; min-height: 30px;"> </div> </td> <td style="vertical-align: middle; text-align: right; width: 100px;"> <a href="javascript:void(0)" class="btn enable-tooltip" title="Link to any database record" id="HelpChat-LinkToRecord"> <i class="gi gi-link"></i> </a> <a href="javascript:void(0)" class="btn enable-tooltip" title="Emoji" id="HelpChat-Smiley" style="display: none;"> <i class="fa fa-smile-o"></i> </a> <a href="javascript:void(0)" class="btn enable-tooltip" title="Attachment" id="HelpChat-Attachment"> <i class="gi gi-paperclip"></i> </a> </td> <td style="vertical-align: middle; text-align: right; width: 100px;"> <a href="javascript:void(0)" class="btn btn-primary enable-tooltip" title="Send the message" id="HelpChat-Send"> <i class="gi gi-send"></i> &nbsp; Send </a> </td> </tr> </table> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/HelpChat.js"></script>
+<style scoped>
+.chat-talk-messages .chat-talk-msg {
+background: rgba(228, 220, 220, 0.4);
+/*width: 90%;*/
+}
+.chat-form {
+/*background: rgba(228, 220, 220, 0.4);*/
+color: black;
+}
+.trisys-chat-date
+{
+text-align: left;
+padding-left: 0px;
+/*font-weight: bold; */
+border-top: 1px solid rgba(228, 220, 220, 0.4);
+border-bottom: 1px solid rgba(228, 220, 220, 0.4);
+margin-top: 10px !important;
+/*width: 90%;*/
+}
+.block-title > i {
+padding-top: 10px;
+padding-left: 15px;
+}
+.nav-horizontal i {
+display: block;
+height: 32px;
+margin-right: 0;
+margin-bottom: 10px;
+font-size: 20px;
+padding: 2px;
+}
+.nav-horizontal a {
+text-align: center;
+min-width: 110px;
+padding: 4px 4px;
+}
+</style>
+<div class="block full" style="padding-bottom: 0px;">
+<div class="block-title">
+<i class="gi gi-chat fa-2x pull-left themed-color"></i>
+<h2>Chat<span id="chat-user-name"></span> </h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Remove all of your messages from this list" id="help-chat-remove-history">
+<i class="gi gi-remove"></i>
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Add a user to the list" id="help-chat-add-user">
+<i class="gi gi-user_add"></i>
+</a>
+<span>&nbsp;</span>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Remove this user from the list" id="help-chat-remove-user">
+<i class="gi gi-user_remove"></i>
+</a>
+</div>
+</div>
+<div class="block full">
+<div class="content-header" id="help-chat-tab-panel-buttons">
+<ul class="nav-horizontal" id="help-chat-tab-nav-horizontal">
+<!-- See HelpChat.AddUsers() -->
+</ul>
+</div>
+<div class="block" style="margin-top: -20px; border-left: 0; border-right: 0; border-width: 0px;" id="help-chat-instructions">
+<div class="row">
+<dl class="dl-horizontal">
+<dt style="width: 50px; text-align: left; margin-top: 15px;">
+<i class="fa fa-question-circle fa-3x"></i>
+</dt>
+<dd style="margin-left: 50px;">
+<h3>
+Chat Application
+</h3>
+<p>
+This form alows you to conduct real-time recorded chat conversations with your consultant colleagues by embedding rich content such as images, files,
+formatted text, and most importantly, links to database records i.e. contacts, companies, requirements and placements.
+Updates to your messages are immediately updated on the recipients computer.
+If the recipient is not available, or not logged in, your messages are queued so that they can be read at any time.
+</p>
+<p>
+Please scroll and select your colleague from the list above.
+Only those consultants who have their photo assigned to their user contact record will be visible in this list.
+You are able to add and remove your favourite consultants to/from this list using the toolbar.
+</p>
+<p>
+The chat history will be displayed below the selected consultant.
+</p>
+<p>
+You can type a message and use the text formatting hover toolbar to set colour, font, size, bold, italic, underline and strikethrough.
+</p>
+<p>
+You can use the paperclip icon to attach files.
+</p>
+<p>
+Press the Send button to send the message to your colleague.
+</p>
+<p>
+You can edit or delete your messages using the cogwheel button, and remove your messages from the toolbar.
+</p>
+</dd>
+</dl>
+</div>
+</div>
+<div id="trisys-chat-talk" class="chat-talk" style="overflow-y:scroll; display: none;">
+<ul class="chat-talk-messages" style="background-color: transparent;"></ul>
+<div id="trisys-chat-talk-waiting" class="block block-alt-noborder">
+<h1 style="text-align: center; padding-top: 55px;">
+<i class="fa fa-sun-o fa-spin fa-3x" style="float: none;" id="trisys-chat-talk-waiting-spinner-image"></i> &nbsp;
+</h1>
+<h5 style="text-align: center; padding-top: 25px; margin-left: -15px;" id="trisys-chat-talk-waiting-spinner-message">Loading Messages</h5>
+</div>
+</div>
+<hr />
+<div id="user-chat-form" class="chat-form" style="display: none;">
+<table style="width: 100%;">
+<tr>
+<td style="vertical-align: middle;">
+<div id="kendoTextEditor" style="border-radius: 8px; min-height: 30px;">
+</div>
+</td>
+<td style="vertical-align: middle; text-align: right; width: 100px;">
+<a href="javascript:void(0)" class="btn enable-tooltip" title="Link to any database record" id="HelpChat-LinkToRecord">
+<i class="gi gi-link"></i>
+</a>
+<a href="javascript:void(0)" class="btn enable-tooltip" title="Emoji" id="HelpChat-Smiley" style="display: none;">
+<i class="fa fa-smile-o"></i>
+</a>
+<a href="javascript:void(0)" class="btn enable-tooltip" title="Attachment" id="HelpChat-Attachment">
+<i class="gi gi-paperclip"></i>
+</a>
+</td>
+<td style="vertical-align: middle; text-align: right; width: 100px;">
+<a href="javascript:void(0)" class="btn btn-primary enable-tooltip" title="Send the message" id="HelpChat-Send">
+<i class="gi gi-send"></i> &nbsp; Send
+</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/HelpChat.js"></script>

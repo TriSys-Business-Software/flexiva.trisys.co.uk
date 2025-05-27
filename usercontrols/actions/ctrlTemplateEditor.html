@@ -1,1 +1,142 @@
-<!-- Allow the administrator to manage the list of available mail merge action templates. --> <style scoped> .td-label { width: 100px; } .nav-stacked > li > a { margin-right: 10px; } #template-editor-tree-images .k-image { height: 64px; } .gray-theme.fr-toolbar { border-top-width: 1px; /* Ignored! - Edit X:\inetpub\apex.trisys.co.uk\javascript\froala\css\themes\gray.css line 1095 */ } .k-treeview li li > div { margin-left: -14px } .field-icon { color: orange; } </style> <div class="row"> <div class="col-md-3 col-lg-3"> <div class="block"> <div class="block-title" style="overflow: auto;"> <h2>Templates</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Create a new template" id="template-editor-new"> <i class="fa fa-plus-square-o"></i> <span id="template-editor-button-new-template">&nbsp; New &nbsp;</span> </a> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Copy a template" id="template-editor-copy"> <i class="gi gi-more_items"></i> <span id="template-editor-button-copy-template">&nbsp; Copy &nbsp;</span> </a> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the current template" id="template-editor-delete"> <i class="gi gi-remove_2"></i> <span id="template-editor-button-delete-template">&nbsp; Delete &nbsp;</span> </a> </div> </div> <ul class="nav nav-pills nav-stacked nav-icons" id="template-editor-list" style="overflow-y: scroll; height:300px; margin-left:-15px; margin-right: -20px; margin-top: -20px; margin-bottom: -2px;"> <li id="template-editor-list-item-template" style="display:none;"> <a href="javascript:void(0)" onclick="##template-click-event##"> <strong>##template-caption##</strong> </a> </li> </ul> </div> <div class="block"> <div class="block-title" style="overflow: auto;"> <h2>Image Library</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Add a new image" id="template-editor-image-add"> <i class="fa fa-plus-square"></i> <span id="template-editor-button-add-image">&nbsp; Add &nbsp;</span> </a> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the selected image" id="template-editor-image-delete"> <i class="gi gi-remove_2"></i> <span id="template-editor-button-delete-image">&nbsp; Delete &nbsp;</span> </a> </div> </div> <div id="template-editor-tree-images" style="overflow-y: scroll; height:345px; margin-left:-25px; margin-right: -20px; margin-top: -20px; margin-bottom: -2px;"> </div> </div> </div> <div class="col-md-2 col-lg-2" id="template-editor-merge-fields-block"> <div class="block"> <div class="block-title"> <h4> Merge Fields </h4> </div> <div id="template-editor-tree-fields" style="overflow-y: scroll; height:705px; margin-left:-19px; margin-right: -20px; margin-top: -20px;"> </div> </div> </div> <div class="col-md-7 col-lg-7" id="template-editor-block" style="overflow-y: scroll;"> <!-- Document Editor/Viewer Block --> <div class="block" id="template-editor-viewer-block" style="padding-bottom: 10px;"> <div class="block-title"> <h2> Document <span id="template-editor-document-edit-caption">Editor</span> </h2> <div class="block-options pull-right"> <table> <tr> <td> <label class="switch switch-primary" style="padding-top: 5px;"> <input type="checkbox" id="template-editor-preview-checkbox" value="0" unchecked> <span></span> </label> </td> <td style="width: 50px; text-align: right; vertical-align: top; padding-top: 1px;"> Preview </td> </tr> </table> </div> <div class="block-options pull-right"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Save this template" id="template-editor-save"> <i class="fa fa-save"></i> &nbsp; Save &nbsp; </a> &nbsp; &nbsp; </div> </div> <!-- Sized to match the height of the merge fields to the left of the document editor  --> <div id="template-editor-container"> <!-- KendoUI Editor removed 08 April 2018 --> <!--<textarea id="template-editor" rows="10" cols="30" style="width:100%; height:675px;"></textarea>--> <!-- Froala Editor added 08 April 2018--> <div id="template-editor" style="margin-top: -20px; margin-left: -20px; margin-right: -20px; margin-bottom: -10px;"> </div> </div> <iframe id="template-editor-merged-document" name="template-editor-merged-document" allowfullscreen="false" style="width: 100%; display: none;" scrolling="no" frameborder="0" allowtransparency="false"></iframe> </div> <!-- END Document Editor/Viewer Block --> </div> </div> <!-- 19 Jan 2022: Field Tree View Template --> <script id="template-editor-fields-template" type="text/kendo-ui-template"> # if (item.isField) { # <!-- <div><i class="k-icon k-i-link-horizontal" style="color: lightgray;"></i> #: item.text #</div> --> <div><span class="trisys-field-link" style="color: lightgray;"></span> #: item.text #</div> # } else { # <div style="font-weight: bold;">#: item.text #</div> # } # </script> <!-- https://www.telerik.com/forums/how-to-change-draggable-content-at-runtime NO WORKIE! <script id="treeview-custom-template" type="text/kendo-ui-template"> #: item.text # </script> <script> kendo.ui.TreeView.fn._hintText = function(node) { var template = kendo.template($("#treeview-custom-template").html()); var result = template({ item: this.dataItem(node) }); return result; }; </script> --> <!-- Load and execute javascript code used only in this page --> <script src="usercontrols/actions/ctrlTemplateEditor.js"></script>
+<!-- Allow the administrator to manage the list of available mail merge action templates.
+-->
+<style scoped>
+.td-label {
+width: 100px;
+}
+.nav-stacked > li > a {
+margin-right: 10px;
+}
+#template-editor-tree-images .k-image {
+height: 64px;
+}
+.gray-theme.fr-toolbar {
+border-top-width: 1px; /* Ignored! - Edit X:\inetpub\apex.trisys.co.uk\javascript\froala\css\themes\gray.css line 1095 */
+}
+.k-treeview li li > div {
+margin-left: -14px
+}
+.field-icon {
+color: orange;
+}
+</style>
+<div class="row">
+<div class="col-md-3 col-lg-3">
+<div class="block">
+<div class="block-title" style="overflow: auto;">
+<h2>Templates</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Create a new template" id="template-editor-new">
+<i class="fa fa-plus-square-o"></i> <span id="template-editor-button-new-template">&nbsp; New &nbsp;</span>
+</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Copy a template" id="template-editor-copy">
+<i class="gi gi-more_items"></i> <span id="template-editor-button-copy-template">&nbsp; Copy &nbsp;</span>
+</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the current template" id="template-editor-delete">
+<i class="gi gi-remove_2"></i> <span id="template-editor-button-delete-template">&nbsp; Delete &nbsp;</span>
+</a>
+</div>
+</div>
+<ul class="nav nav-pills nav-stacked nav-icons" id="template-editor-list" style="overflow-y: scroll; height:300px; margin-left:-15px; margin-right: -20px; margin-top: -20px; margin-bottom: -2px;">
+<li id="template-editor-list-item-template" style="display:none;">
+<a href="javascript:void(0)" onclick="##template-click-event##">
+<strong>##template-caption##</strong>
+</a>
+</li>
+</ul>
+</div>
+<div class="block">
+<div class="block-title" style="overflow: auto;">
+<h2>Image Library</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Add a new image" id="template-editor-image-add">
+<i class="fa fa-plus-square"></i> <span id="template-editor-button-add-image">&nbsp; Add &nbsp;</span>
+</a>
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Delete the selected image" id="template-editor-image-delete">
+<i class="gi gi-remove_2"></i> <span id="template-editor-button-delete-image">&nbsp; Delete &nbsp;</span>
+</a>
+</div>
+</div>
+<div id="template-editor-tree-images" style="overflow-y: scroll; height:345px; margin-left:-25px; margin-right: -20px; margin-top: -20px; margin-bottom: -2px;">
+</div>
+</div>
+</div>
+<div class="col-md-2 col-lg-2" id="template-editor-merge-fields-block">
+<div class="block">
+<div class="block-title">
+<h4>
+Merge Fields
+</h4>
+</div>
+<div id="template-editor-tree-fields" style="overflow-y: scroll; height:705px; margin-left:-19px; margin-right: -20px; margin-top: -20px;">
+</div>
+</div>
+</div>
+<div class="col-md-7 col-lg-7" id="template-editor-block" style="overflow-y: scroll;">
+<!-- Document Editor/Viewer Block -->
+<div class="block" id="template-editor-viewer-block" style="padding-bottom: 10px;">
+<div class="block-title">
+<h2>
+Document <span id="template-editor-document-edit-caption">Editor</span>
+</h2>
+<div class="block-options pull-right">
+<table>
+<tr>
+<td>
+<label class="switch switch-primary" style="padding-top: 5px;">
+<input type="checkbox" id="template-editor-preview-checkbox" value="0" unchecked>
+<span></span>
+</label>
+</td>
+<td style="width: 50px; text-align: right; vertical-align: top; padding-top: 1px;">
+Preview
+</td>
+</tr>
+</table>
+</div>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Save this template" id="template-editor-save">
+<i class="fa fa-save"></i> &nbsp; Save &nbsp;
+</a>
+&nbsp; &nbsp;
+</div>
+</div>
+<!-- Sized to match the height of the merge fields to the left of the document editor  -->
+<div id="template-editor-container">
+<!-- KendoUI Editor removed 08 April 2018 -->
+<!--<textarea id="template-editor" rows="10" cols="30" style="width:100%; height:675px;"></textarea>-->
+<!-- Froala Editor added 08 April 2018-->
+<div id="template-editor" style="margin-top: -20px; margin-left: -20px; margin-right: -20px; margin-bottom: -10px;">
+</div>
+</div>
+<iframe id="template-editor-merged-document" name="template-editor-merged-document" allowfullscreen="false" style="width: 100%; display: none;" scrolling="no" frameborder="0" allowtransparency="false"></iframe>
+</div>
+<!-- END Document Editor/Viewer Block -->
+</div>
+</div>
+<!-- 19 Jan 2022: Field Tree View Template -->
+<script id="template-editor-fields-template" type="text/kendo-ui-template">
+# if (item.isField) { #
+<!-- <div><i class="k-icon k-i-link-horizontal" style="color: lightgray;"></i> #: item.text #</div> -->
+<div><span class="trisys-field-link" style="color: lightgray;"></span> #: item.text #</div>
+# }
+else { #
+<div style="font-weight: bold;">#: item.text #</div>
+# } #
+</script>
+<!-- https://www.telerik.com/forums/how-to-change-draggable-content-at-runtime NO WORKIE!
+<script id="treeview-custom-template" type="text/kendo-ui-template">
+#: item.text #
+</script>
+<script>
+kendo.ui.TreeView.fn._hintText = function(node) {
+var template = kendo.template($("#treeview-custom-template").html());
+var result = template({
+item: this.dataItem(node)
+});
+return result;
+};
+</script>
+-->
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlTemplateEditor.js"></script>

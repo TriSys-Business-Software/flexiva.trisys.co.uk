@@ -1,1 +1,189 @@
-<style scoped> .td-label-cvsend { width: 120px; } </style> <div class="row"> <div class="col-md-6 col-lg-6"> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-cvsend"> <strong>Client(s)</strong> </td> <td> <span id="ctrlCVSend-Client" style="width:100%"></span> </td> </tr> <tr id="ctrlCVSend-Requirement-tr"> <td class="td-label-cvsend"> <strong>Requirement</strong> </td> <td> <span id="ctrlCVSend-Requirement" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-cvsend"> <strong>Candidate(s)</strong> </td> <td> <span id="ctrlCVSend-Candidate" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-cvsend"> <strong>CV Field</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="ctrlCVSend-CVField" style="width:100%" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the formatted CV" id="ctrlCVSend-EditFormattedCV"> <i class="gi gi-edit"></i> </a> </td> </tr> </table> </td> </tr> <tr> <td class="td-label-cvsend"> <strong>CV Naming</strong> </td> <td> <input id="ctrlCVSend-CVNaming" style="width:100%" /> </td> </tr> </tbody> </table> </div> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-cvsend"> &nbsp; </td> <td> <label class="switch switch-primary"> <input type="checkbox" id="ctrlCVSend-InsertHeaderAndFooter" value="1" checked> <span></span> </label> &nbsp; Insert Header and Footer </td> </tr> <tr> <td class="td-label-cvsend"> <strong>CV Coversheet</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="ctrlCVSend-CVCoversheet" style="width:100%;" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the cv coversheet template" id="ctrlCVSend-EditCVCoversheet"> <i class="gi gi-edit"></i> </a> </td> </tr> </table> </td> </tr> <tr> <td class="td-label-cvsend"> &nbsp; </td> <td> <label class="switch switch-primary"> <input type="checkbox" id="ctrlCVSend-MergeToPDF" value="1" checked> <span></span> </label> &nbsp; Merge CV to PDF </td> </tr> <tr> <td class="td-label-cvsend"> <strong>E-Mail Template</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input id="ctrlCVSend-Template" style="width:100%;" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlCVSend-EditTemplate"> <i class="gi gi-edit"></i> </a> </td> </tr> </table> </td> </tr> <tr> <td class="td-label-cvsend"> <strong>Delivery</strong> </td> <td> <input id="ctrlCVSend-Delivery" style="width:100%;" /> </td> </tr> <tr> <td class="td-label-cvsend"> <strong>Subject</strong> </td> <td> <input type="text" class="k-textbox" id="ctrlCVSend-Subject" style="width:100%" /> </td> </tr> <tr> <td class="td-label-cvsend"> &nbsp; </td> <td> <label class="switch switch-primary"> <input type="checkbox" id="ctrlCVSend-AttachCV" value="1" checked> <span></span> </label> &nbsp; Attach CV to E-Mail </td> </tr> <tr> <td class="td-label-mailmerge"> <strong>Attachment(s)</strong> </td> <td> <table style="width: 100%;"> <tr> <td> <input type="text" id="ctrlCVSend-Attachments" style="width:100%" /> </td> <td style="width: 40px; text-align: right;"> <a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="ctrlCVSend-ManageAttachmentLibrary"> <i class="gi gi-paperclip"></i> </a> </td> </tr> </table> </td> </tr> </tbody> </table> </div> </div> <div class="col-md-6 col-lg-6"> <div id="ctrlCVSend-NoteHistory"> </div> <div id="ctrlCVSend-FollowUp"> </div> </div> </div> <!-- Load and execute javascript code used only in this page --> <script src="usercontrols/actions/ctrlCVSend.js"></script>
+<style scoped>
+.td-label-cvsend {
+width: 120px;
+}
+</style>
+<div class="row">
+<div class="col-md-6 col-lg-6">
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-cvsend">
+<strong>Client(s)</strong>
+</td>
+<td>
+<span id="ctrlCVSend-Client" style="width:100%"></span>
+</td>
+</tr>
+<tr id="ctrlCVSend-Requirement-tr">
+<td class="td-label-cvsend">
+<strong>Requirement</strong>
+</td>
+<td>
+<span id="ctrlCVSend-Requirement" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+<strong>Candidate(s)</strong>
+</td>
+<td>
+<span id="ctrlCVSend-Candidate" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+<strong>CV Field</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="ctrlCVSend-CVField" style="width:100%" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the formatted CV" id="ctrlCVSend-EditFormattedCV">
+<i class="gi gi-edit"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+<strong>CV Naming</strong>
+</td>
+<td>
+<input id="ctrlCVSend-CVNaming" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-cvsend">
+&nbsp;
+</td>
+<td>
+<label class="switch switch-primary">
+<input type="checkbox" id="ctrlCVSend-InsertHeaderAndFooter" value="1" checked>
+<span></span>
+</label>
+&nbsp; Insert Header and Footer
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+<strong>CV Coversheet</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="ctrlCVSend-CVCoversheet" style="width:100%;" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the cv coversheet template" id="ctrlCVSend-EditCVCoversheet">
+<i class="gi gi-edit"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+&nbsp;
+</td>
+<td>
+<label class="switch switch-primary">
+<input type="checkbox" id="ctrlCVSend-MergeToPDF" value="1" checked>
+<span></span>
+</label>
+&nbsp; Merge CV to PDF
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+<strong>E-Mail Template</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input id="ctrlCVSend-Template" style="width:100%;" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Edit the mail-merge template" id="ctrlCVSend-EditTemplate">
+<i class="gi gi-edit"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+<strong>Delivery</strong>
+</td>
+<td>
+<input id="ctrlCVSend-Delivery" style="width:100%;" />
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+<strong>Subject</strong>
+</td>
+<td>
+<input type="text" class="k-textbox" id="ctrlCVSend-Subject" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td class="td-label-cvsend">
+&nbsp;
+</td>
+<td>
+<label class="switch switch-primary">
+<input type="checkbox" id="ctrlCVSend-AttachCV" value="1" checked>
+<span></span>
+</label>
+&nbsp; Attach CV to E-Mail
+</td>
+</tr>
+<tr>
+<td class="td-label-mailmerge">
+<strong>Attachment(s)</strong>
+</td>
+<td>
+<table style="width: 100%;">
+<tr>
+<td>
+<input type="text" id="ctrlCVSend-Attachments" style="width:100%" />
+</td>
+<td style="width: 40px; text-align: right;">
+<a href="javascript:void(0)" class="btn btn-sm btn-default enable-tooltip" title="Manage attachment library" id="ctrlCVSend-ManageAttachmentLibrary">
+<i class="gi gi-paperclip"></i>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="col-md-6 col-lg-6">
+<div id="ctrlCVSend-NoteHistory">
+</div>
+<div id="ctrlCVSend-FollowUp">
+</div>
+</div>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="usercontrols/actions/ctrlCVSend.js"></script>

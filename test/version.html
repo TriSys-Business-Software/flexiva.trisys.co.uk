@@ -1,1 +1,127 @@
-<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <title>Web API Version</title> <script src="/kendoui/js/jquery.min.js"></script> <!-- 29 Jan 2021 Commented this out and added new JQuery --> <script type="text/javascript" src="/javascript/trisysapi.js"></script> <script type="text/javascript" src="/javascript/trisyssdk.js"></script> </head> <body> <h4>https://api.trisys.co.uk/start/version</h4> <p> This page uses the TriSys Web API to prove, or otherwise, that CORS is working correctly. <br /><br /> </p> <p> Raw JSON Results: <br /> <hr /> </p> <div id="trisys-api-results"></div> <hr /> <script type="text/javascript"> function Lookup(index) { debugger; // Fix this in Nov 2020 var sURL = window.location.href; //TriSysAPI.Constants.... // Display waiting message $('#trInProgress').show(); $('#Waiting_lblProgress').text("Connecting to web service..."); $('#trResults').hide(); var payloadObject = {}; payloadObject.URL = $('#Page_APIFunction' + index).html(); var sKey = TriSysAPI.Session.DeveloperSiteKey(); if (index == 1) { if (!sKey) { // Pretend key for testing only sKey='Dummy API Key'; TriSysAPI.Session.SetDeveloperSiteKey(sKey); } } else if( index == 2) { payloadObject.OutboundDataPacket = { API_Key: sKey }; } payloadObject.InboundDataFunction = function (data) { var sDisplay = data; // Inform user $('#trResults').show(); $('#txtResults').val(sDisplay); $('#trInProgress').hide(); return true; }; payloadObject.ErrorHandlerFunction = function (request, status, error) { alert('Version.html: Lookup' + index + ' : ' + status + ": " + error + ". responseText: " + request.responseText); }; TriSysAPI.Data.PostToWebAPI(payloadObject); } function SetAPIKey() { var sKey = $('#txtAPIKey').val(); TriSysAPI.Session.SetDeveloperSiteKey(sKey); alert('API Key set to: ' + sKey); } </script> <table class="DataEntry_table"> <tr class="APIFunction_tr"> <td class="DataEntry_td"> Version HTTP Headers: </td> <td class="APIFunction_td"> <div id="Page_APIFunction1">Start/Version</div> </td> </tr> <tr> <td class="DataEntry_td"></td> <td> <input type="button" id="btnLookup1" value="Lookup #1" onclick="javascript:Lookup(1);" style="width:200px" /> </td> </tr> <tr> <td colspan="2"> &nbsp; </td> </tr> <tr> <td colspan="2"> <hr /> </td> </tr> <tr id="trInProgress" style="display:none"> <td class="DataEntry_td"></td> <td> <trisys:waiting ID="waitingStatus" runat="server" /> </td> </tr> <tr id="trResults" style="display:none"> <td class="DataEntry_td"> Raw JSON Results: </td> <td> <textarea id="txtResults" rows="20" cols="80" class="DataEntry_multiLineTextBox_200"> </textarea> </td> </tr> <tr> <td colspan="2"> &nbsp; </td> </tr> <tr class="APIFunction_tr"> <td class="DataEntry_td"> Set API Key Cookie: </td> <td class="APIFunction_td"> <input id="txtAPIKey" type="text" maxlength="36" style="width:300px" /> </td> </tr> <tr> <td class="DataEntry_td"></td> <td> <input type="button" id="btnSetAPIKey" value="Set API Key" onclick="javascript:SetAPIKey();" style="width:200px" /> </td> </tr> </table> </body> </html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Web API Version</title>
+<script src="/kendoui/js/jquery.min.js"></script> <!-- 29 Jan 2021 Commented this out and added new JQuery -->
+<script type="text/javascript" src="/javascript/trisysapi.js"></script>
+<script type="text/javascript" src="/javascript/trisyssdk.js"></script>
+</head>
+<body>
+<h4>https://api.trisys.co.uk/start/version</h4>
+<p>
+This page uses the TriSys Web API to prove, or otherwise, that CORS is working correctly.
+<br /><br />
+</p>
+<p>
+Raw JSON Results:
+<br />
+<hr />
+</p>
+<div id="trisys-api-results"></div>
+<hr />
+<script type="text/javascript">
+function Lookup(index)
+{
+debugger;
+// Fix this in Nov 2020
+var sURL = window.location.href;
+//TriSysAPI.Constants....
+// Display waiting message
+$('#trInProgress').show();
+$('#Waiting_lblProgress').text("Connecting to web service...");
+$('#trResults').hide();
+var payloadObject = {};
+payloadObject.URL = $('#Page_APIFunction' + index).html();
+var sKey = TriSysAPI.Session.DeveloperSiteKey();
+if (index == 1) {
+if (!sKey) {
+// Pretend key for testing only
+sKey='Dummy API Key';
+TriSysAPI.Session.SetDeveloperSiteKey(sKey);
+}
+}
+else if( index == 2) {
+payloadObject.OutboundDataPacket = { API_Key: sKey };
+}
+payloadObject.InboundDataFunction = function (data) {
+var sDisplay = data;
+// Inform user
+$('#trResults').show();
+$('#txtResults').val(sDisplay);
+$('#trInProgress').hide();
+return true;
+};
+payloadObject.ErrorHandlerFunction = function (request, status, error) {
+alert('Version.html: Lookup' + index + ' : ' + status + ": " + error + ". responseText: " + request.responseText);
+};
+TriSysAPI.Data.PostToWebAPI(payloadObject);
+}
+function SetAPIKey()
+{
+var sKey = $('#txtAPIKey').val();
+TriSysAPI.Session.SetDeveloperSiteKey(sKey);
+alert('API Key set to: ' + sKey);
+}
+</script>
+<table class="DataEntry_table">
+<tr class="APIFunction_tr">
+<td class="DataEntry_td">
+Version HTTP Headers:
+</td>
+<td class="APIFunction_td">
+<div id="Page_APIFunction1">Start/Version</div>
+</td>
+</tr>
+<tr>
+<td class="DataEntry_td"></td>
+<td>
+<input type="button" id="btnLookup1" value="Lookup #1" onclick="javascript:Lookup(1);" style="width:200px" />
+</td>
+</tr>
+<tr>
+<td colspan="2">
+&nbsp;
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<hr />
+</td>
+</tr>
+<tr id="trInProgress" style="display:none">
+<td class="DataEntry_td"></td>
+<td>
+<trisys:waiting ID="waitingStatus" runat="server" />
+</td>
+</tr>
+<tr id="trResults" style="display:none">
+<td class="DataEntry_td">
+Raw JSON Results:
+</td>
+<td>
+<textarea id="txtResults" rows="20" cols="80" class="DataEntry_multiLineTextBox_200">
+</textarea>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+&nbsp;
+</td>
+</tr>
+<tr class="APIFunction_tr">
+<td class="DataEntry_td">
+Set API Key Cookie:
+</td>
+<td class="APIFunction_td">
+<input id="txtAPIKey" type="text" maxlength="36" style="width:300px" />
+</td>
+</tr>
+<tr>
+<td class="DataEntry_td"></td>
+<td>
+<input type="button" id="btnSetAPIKey" value="Set API Key" onclick="javascript:SetAPIKey();" style="width:200px" />
+</td>
+</tr>
+</table>
+</body>
+</html>

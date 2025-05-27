@@ -1,1 +1,85 @@
-<div class="block" style="border: 0;"> <table class="table table-borderless table-striped"> <tbody> <tr id="newCompanyOrAddress-CompanyName-tr"> <td style="width: 120px;"><strong>Company Name</strong></td> <td> <input type="text" class="k-textbox" id="newCompanyOrAddress-CompanyName" style="width:100%" readonly /> </td> </tr> <tr id="newCompanyOrAddress-AddressType-tr"> <td style="width: 120px;"><strong>Address Type</strong></td> <td> <input type="text" id="newCompanyOrAddress-AddressType" style="width:100%" /> </td> </tr> <tr> <td style="width: 120px;"><strong>Street</strong></td> <td> <textarea class="k-textbox" name="Street" id="newCompanyOrAddress-Street" rows="3" style="width:100%; resize: none"></textarea> </td> </tr> <tr> <td><strong>City/Town</strong></td> <td> <input type="text" class="k-textbox" name="City" id="newCompanyOrAddress-City" required="required" style="width:100%" /> </td> </tr> <tr> <td><strong>County</strong></td> <td> <input type="text" class="k-textbox" name="County" id="newCompanyOrAddress-County" style="width:100%" /> </td> </tr> <tr> <td><strong>Post Code</strong></td> <td> <table style="width: 150px;"> <tr> <td> <input class="k-textbox" id="newCompanyOrAddress-PostCode" style="width:100%; text-transform: uppercase;" /> </td> <td style="width: 4px;"></td> <td style="width: 28px;"> <button type="submit" class="btn btn-sm btn-default" onclick="ctrlNewCompanyOrAddress.PostCodeLookup()" title="Lookup Post Code"> <i class="gi gi-search"></i> </button> </td> </tr> </table> </td> </tr> <tr> <td><strong>Country</strong></td> <td> <input type="text" id="newCompanyOrAddress-Country" style="width:100%" /> </td> </tr> <tr> <td><strong>Tel No.</strong></td> <td> <input type="text" class="k-textbox" id="newCompanyOrAddress-TelNo" style="width:100%" /> </td> </tr> </tbody> </table> </div> <div class="block" style="padding-top:2px; display: none;" id="newCompanyOrAddress-EditCompanyOnSavePanel"> <table class="table table-borderless" style="margin-bottom: 1px;"> <tbody> <tr> <td style="width: 120px;"> <label class="switch switch-primary"> <input type="checkbox" id="newCompanyOrAddress-edit-company-after-save" value="1" checked> <span></span> </label> </td> <td style="vertical-align: middle"> <strong>Edit New Company on Save</strong> </td> </tr> </tbody> </table> </div> <!-- Load and execute javascript code used only in this page --> <script src="js/pages/ctrlNewCompanyOrAddress.js"></script>
+<div class="block" style="border: 0;">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr id="newCompanyOrAddress-CompanyName-tr">
+<td style="width: 120px;"><strong>Company Name</strong></td>
+<td>
+<input type="text" class="k-textbox" id="newCompanyOrAddress-CompanyName" style="width:100%" readonly />
+</td>
+</tr>
+<tr id="newCompanyOrAddress-AddressType-tr">
+<td style="width: 120px;"><strong>Address Type</strong></td>
+<td>
+<input type="text" id="newCompanyOrAddress-AddressType" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td style="width: 120px;"><strong>Street</strong></td>
+<td>
+<textarea class="k-textbox" name="Street" id="newCompanyOrAddress-Street" rows="3" style="width:100%; resize: none"></textarea>
+</td>
+</tr>
+<tr>
+<td><strong>City/Town</strong></td>
+<td>
+<input type="text" class="k-textbox" name="City" id="newCompanyOrAddress-City" required="required" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>County</strong></td>
+<td>
+<input type="text" class="k-textbox" name="County" id="newCompanyOrAddress-County" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Post Code</strong></td>
+<td>
+<table style="width: 150px;">
+<tr>
+<td>
+<input class="k-textbox" id="newCompanyOrAddress-PostCode" style="width:100%; text-transform: uppercase;" />
+</td>
+<td style="width: 4px;"></td>
+<td style="width: 28px;">
+<button type="submit" class="btn btn-sm btn-default" onclick="ctrlNewCompanyOrAddress.PostCodeLookup()" title="Lookup Post Code">
+<i class="gi gi-search"></i>
+</button>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><strong>Country</strong></td>
+<td>
+<input type="text" id="newCompanyOrAddress-Country" style="width:100%" />
+</td>
+</tr>
+<tr>
+<td><strong>Tel No.</strong></td>
+<td>
+<input type="text" class="k-textbox" id="newCompanyOrAddress-TelNo" style="width:100%" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="block" style="padding-top:2px; display: none;" id="newCompanyOrAddress-EditCompanyOnSavePanel">
+<table class="table table-borderless" style="margin-bottom: 1px;">
+<tbody>
+<tr>
+<td style="width: 120px;">
+<label class="switch switch-primary">
+<input type="checkbox" id="newCompanyOrAddress-edit-company-after-save" value="1" checked>
+<span></span>
+</label>
+</td>
+<td style="vertical-align: middle">
+<strong>Edit New Company on Save</strong>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Load and execute javascript code used only in this page -->
+<script src="js/pages/ctrlNewCompanyOrAddress.js"></script>

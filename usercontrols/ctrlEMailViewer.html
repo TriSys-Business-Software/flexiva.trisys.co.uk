@@ -1,1 +1,104 @@
-<style scoped> .list-group-item { padding: 4px 4px; } </style> <div class="block full" style="padding-bottom: 0px;" id="ctrlEMailView-EMail-Header-Block"> <div class="block-title"> <h2 id="ctrlEMailView-HeaderText" class="themed-color-dark"></h2> <div class="block-options pull-right"> <strong><span id="ctrlEMailView-HeaderText-FarRight" class="themed-color"></span></strong> &nbsp; <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" id="ctrlEMailView-Header" data-toggle="tooltip" title="Minimize E-Mail Header"> <i class="fa fa-angle-up"></i> </a> </div> </div> <div class="row" style="padding-bottom: 10px; margin-top: -14px;" id="ctrlEMailView-EMail-Header"> <div class="col-md-6" style="padding-left: 0px; border-top-left-radius: 8px;"> <div class="form-group"> <div class="col-md-12"> <table class="table table-borderless table-striped"> <tbody> <tr style="height: 30px; display: none;"> <td style="width: 90px;"><strong>Date</strong></td> <td> <span id="ctrlEMailViewer-Date" style="width:100%"></span> </td> </tr> <tr style="height: 30px; display: none;"> <td style="width: 90px;"><strong>Subject</strong></td> <td> <span id="ctrlEMailViewer-Subject" style="width:100%"></span> </td> </tr> <tr style="height: 30px;"> <td style="width: 90px;"><strong>From</strong></td> <td> <span id="ctrlEMailViewer-From" style="width:100%"></span> </td> </tr> <tr style="height: 30px;"> <td style="width: 90px;"><strong>To</strong></td> <td> <span id="ctrlEMailViewer-To" style="width:100%"></span> </td> </tr> </tbody> </table> </div> </div> </div> <div class="col-md-6" style="padding-left: 0px; border-top-right-radius: 8px;"> <div class="form-group"> <div class="col-md-12"> <table class="table table-borderless table-striped"> <tbody> <tr style="height: 30px;"> <td style="width: 90px;"><strong>Cc</strong></td> <td> <span id="ctrlEMailViewer-Cc" style="width:100%"></span> </td> </tr> <tr style="height: 30px;"> <td style="width: 90px;"><strong>Bcc</strong></td> <td> <span id="ctrlEMailViewer-Bcc" style="width:100%"></span> </td> </tr> </tbody> </table> </div> </div> </div> <div class="col-md-12" style="padding-left: 0px; border-bottom-left-radius: 8px;  border-bottom-right-radius: 8px;" id="ctrlEMailViewer-Attachments-tr"> <div class="form-group" style="margin-top: -15px;"> <div class="col-md-12"> <table class="table table-borderless" style="margin-bottom: -18px;"> <tbody> <tr> <td style="width: 90px;"><strong>Attachments</strong></td> <td> <!--class="list-group"--> <div style="width: 100%; display: flex; flex-wrap: wrap;" id="ctrlEMailViewer-Attachments"> </div> </td> </tr> </tbody> </table> </div> </div> </div> </div> </div> <div class="block full" style="padding-bottom: 0px;"> <div class="row" style="padding-bottom: 10px;"> <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;"> <div class="form-group"> <div class="col-md-12" style="padding: 0px;"> <iframe id="ctrlEMailViewer-iFrame" name="ctrlEMailViewer-iFrame" allowfullscreen="false" style="width: 100%; margin-top: -20px; margin-bottom: -14px; padding-right: 0px;" frameborder="0" allowtransparency="false"></iframe> </div> </div> </div> </div> </div>
+<style scoped>
+.list-group-item {
+padding: 4px 4px;
+}
+</style>
+<div class="block full" style="padding-bottom: 0px;" id="ctrlEMailView-EMail-Header-Block">
+<div class="block-title">
+<h2 id="ctrlEMailView-HeaderText" class="themed-color-dark"></h2>
+<div class="block-options pull-right">
+<strong><span id="ctrlEMailView-HeaderText-FarRight" class="themed-color"></span></strong> &nbsp;
+<a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" id="ctrlEMailView-Header" data-toggle="tooltip" title="Minimize E-Mail Header">
+<i class="fa fa-angle-up"></i>
+</a>
+</div>
+</div>
+<div class="row" style="padding-bottom: 10px; margin-top: -14px;" id="ctrlEMailView-EMail-Header">
+<div class="col-md-6" style="padding-left: 0px; border-top-left-radius: 8px;">
+<div class="form-group">
+<div class="col-md-12">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr style="height: 30px; display: none;">
+<td style="width: 90px;"><strong>Date</strong></td>
+<td>
+<span id="ctrlEMailViewer-Date" style="width:100%"></span>
+</td>
+</tr>
+<tr style="height: 30px; display: none;">
+<td style="width: 90px;"><strong>Subject</strong></td>
+<td>
+<span id="ctrlEMailViewer-Subject" style="width:100%"></span>
+</td>
+</tr>
+<tr style="height: 30px;">
+<td style="width: 90px;"><strong>From</strong></td>
+<td>
+<span id="ctrlEMailViewer-From" style="width:100%"></span>
+</td>
+</tr>
+<tr style="height: 30px;">
+<td style="width: 90px;"><strong>To</strong></td>
+<td>
+<span id="ctrlEMailViewer-To" style="width:100%"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-md-6" style="padding-left: 0px; border-top-right-radius: 8px;">
+<div class="form-group">
+<div class="col-md-12">
+<table class="table table-borderless table-striped">
+<tbody>
+<tr style="height: 30px;">
+<td style="width: 90px;"><strong>Cc</strong></td>
+<td>
+<span id="ctrlEMailViewer-Cc" style="width:100%"></span>
+</td>
+</tr>
+<tr style="height: 30px;">
+<td style="width: 90px;"><strong>Bcc</strong></td>
+<td>
+<span id="ctrlEMailViewer-Bcc" style="width:100%"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-md-12" style="padding-left: 0px; border-bottom-left-radius: 8px;  border-bottom-right-radius: 8px;" id="ctrlEMailViewer-Attachments-tr">
+<div class="form-group" style="margin-top: -15px;">
+<div class="col-md-12">
+<table class="table table-borderless" style="margin-bottom: -18px;">
+<tbody>
+<tr>
+<td style="width: 90px;"><strong>Attachments</strong></td>
+<td>
+<!--class="list-group"-->
+<div style="width: 100%; display: flex; flex-wrap: wrap;" id="ctrlEMailViewer-Attachments">
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="block full" style="padding-bottom: 0px;">
+<div class="row" style="padding-bottom: 10px;">
+<div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+<div class="form-group">
+<div class="col-md-12" style="padding: 0px;">
+<iframe id="ctrlEMailViewer-iFrame" name="ctrlEMailViewer-iFrame" allowfullscreen="false"
+style="width: 100%; margin-top: -20px; margin-bottom: -14px; padding-right: 0px;" frameborder="0" allowtransparency="false"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,1 +1,58 @@
-<style scoped> .td-label-job-board-applicants { width: 120px; } </style> <div class="row"> <div class="col-md-12 col-lg-12"> <div class="block"> <table class="table table-borderless"> <tbody> <tr> <td class="td-label-job-board-applicants"> <strong>Requirement</strong> </td> <td> <span id="ctrlJobBoardApplicants-Requirement" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-job-board-applicants"> <strong>Job Title</strong> </td> <td> <span id="ctrlJobBoardApplicants-JobTitle" style="width:100%"></span> </td> </tr> <tr> <td class="td-label-job-board-applicants"> <strong>Job Broadcaster</strong> </td> <td> <span id="ctrlJobBoardApplicants-JobBroadcaster" style="width:100%"></span> </td> </tr> </tbody> </table> </div> <div class="block full" style="padding-bottom: 0px; overflow-y: scroll; height:500px;" id="ctrlJobBoardApplicants-GridScroller"> <div class="block-title"> <h2>Applicants</h2> <div class="block-options pull-right"> <a href="javascript:void(0)" onclick="ctrlJobBoardApplicants.OpenCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open CV"> <i class="fa fa-folder-open-o"></i> &nbsp; Open CV &nbsp; </a> &nbsp; <a href="javascript:void(0)" onclick="ctrlJobBoardApplicants.AddToShortlist()" class="btn btn-sm btn-default enable-tooltip" title="Add to Shortlist" > <i class="fa fa-plus"></i> &nbsp; Add to Shortlist &nbsp; </a> &nbsp; <div id="ctrlJobBoardApplicants-GridMenu"> </div> </div> </div> <div id="ctrlJobBoardApplicants-DataGrid" style="border-width: 1px; width: 100%; "> </div> </div> </div> </div>
+<style scoped>
+.td-label-job-board-applicants {
+width: 120px;
+}
+</style>
+<div class="row">
+<div class="col-md-12 col-lg-12">
+<div class="block">
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Requirement</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicants-Requirement" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Job Title</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicants-JobTitle" style="width:100%"></span>
+</td>
+</tr>
+<tr>
+<td class="td-label-job-board-applicants">
+<strong>Job Broadcaster</strong>
+</td>
+<td>
+<span id="ctrlJobBoardApplicants-JobBroadcaster" style="width:100%"></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="block full" style="padding-bottom: 0px; overflow-y: scroll; height:500px;" id="ctrlJobBoardApplicants-GridScroller">
+<div class="block-title">
+<h2>Applicants</h2>
+<div class="block-options pull-right">
+<a href="javascript:void(0)" onclick="ctrlJobBoardApplicants.OpenCV()" class=" btn btn-sm btn-default enable-tooltip" title="Open CV">
+<i class="fa fa-folder-open-o"></i> &nbsp; Open CV &nbsp;
+</a>
+&nbsp;
+<a href="javascript:void(0)" onclick="ctrlJobBoardApplicants.AddToShortlist()" class="btn btn-sm btn-default enable-tooltip" title="Add to Shortlist" >
+<i class="fa fa-plus"></i> &nbsp; Add to Shortlist &nbsp;
+</a>
+&nbsp;
+<div id="ctrlJobBoardApplicants-GridMenu">
+</div>
+</div>
+</div>
+<div id="ctrlJobBoardApplicants-DataGrid" style="border-width: 1px; width: 100%; ">
+</div>
+</div>
+</div>
+</div>
