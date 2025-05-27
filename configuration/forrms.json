@@ -1,0 +1,114 @@
+﻿[
+	{
+		"FormName": "About",
+		"EntityName": null,
+		"ImagePath": "gi gi-circle_info",
+		"Caption": "About",
+		"ViewName": null,
+		"Function": "TriSysApex.Forms.AboutTriSys",
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Locked": true
+	},
+	{
+		"FormName": "UserGuide",
+		"EntityName": null,
+		"ImagePath": "fa fa-book",
+		"Caption": "User Guide",
+		"ViewName": "UserGuide.html",
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Phone": false,
+		"Locked": true
+	},
+	{
+		"FormName": "TermsAndConditions",
+		"EntityName": null,
+		"ImagePath": "gi gi-more_items",
+		"Caption": "Terms &amp; Conditions",
+		"ViewName": null,
+		"Function": "TriSysApex.ModalDialogue.TermsAndConditions.Show",
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Locked": true
+	},
+	{
+		"FormName": "Login",
+		"EntityName": null,
+		"ImagePath": "gi gi-log_in",
+		"Caption": "Login",
+		"ViewName": "Login.html",
+		"ShowWhenLoggedIn": false,
+		"LoadRecord": "TriSysApex.Forms.Login.Parameter",
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Locked": true
+},
+	{
+		"FormName": "Logoff",
+		"EntityName": null,
+		"ImagePath": "gi gi-exit",
+		"Caption": "Logoff",
+		"ViewName": "Logoff.html",
+		"Function": "TriSysApex.LoginCredentials.LogoffWithPrompt",
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": false,
+		"Locked": true
+	},
+	{
+		"FormName": "ForgottenPassword",
+		"EntityName": null,
+		"ImagePath": "gi gi-unlock",
+		"Caption": "Forgotten Password",
+		"ViewName": "ForgottenPassword.html",
+		"ShowWhenLoggedIn": false,
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Locked": true
+	},
+	{
+		"FormName": "Registration",
+		"EntityName": null,
+		"ImagePath": "gi gi-pen",
+		"Caption": "Sign Up",
+		"ViewName": "Registration.html",
+		"ShowWhenLoggedIn": false,
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Locked": true
+	},
+	{
+		"FormName": "ContactUs",
+		"EntityName": null,
+		"ImagePath": "fa fa-pencil-square-o",
+		"Caption": "Contact Us",
+		"ViewName": "ContactUs.html",
+		"ShowWhenLoggedIn": true,
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Locked": true
+	},
+	{
+		"FormName": "SupportPortal",
+		"EntityName": null,
+		"ImagePath": "fa fa-support",
+		"Caption": "Support Portal",
+		"ShowWhenLoggedIn": true,
+		"Function": "TriSysApex.Forms.SupportPortal",
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Locked": true
+	},
+	{
+		"FormName": "NotFound",
+		"EntityName": null,
+		"ImagePath": "fa fa-support",
+		"Caption": "Test Only",
+		"ShowWhenLoggedIn": false,
+		"Function": "TriSysApex.Forms.SupportPortal",
+		"ParentNavBarMenuID": "navBar-Help",
+		"Visible": true,
+		"Locked": true
+	}
+]
+
