@@ -183,7 +183,6 @@
     <Content Include="build.js" />
     <Content Include="config.xml" />
     <Content Include="configuration\custom\custom.js" />
-    <Content Include="configuration\custom\flexiva.trisys.co.uk\custom.js" />
     <Content Include="configuration\custom\ReadMe.txt" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\company-organigram.css" />
@@ -696,6 +695,7 @@
     <Content Include="js\pages\contactpreviewmode.js" />
     <Content Include="js\pages\ctrlKeyValuePairsTable.js" />
     <Content Include="js\pages\ctrlNewWithMultipleFields.js" />
+    <Content Include="OAuth\auth0.js" />
     <Content Include="OAuth\authenticate-2025.html" />
     <Content Include="OAuth\authenticate-2025.js" />
     <Content Include="RestDB.io\Nationality.html" />

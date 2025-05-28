@@ -51,14 +51,23 @@ login using your favourite social network.
 </div>
 <div class="form-group form-actions">
 <div class="col-md-9 col-md-offset-3">
-<button type="submit" class="btn btn-sm btn-primary" onclick="loginPage.LoginButtonClick()" id="btn-login" style="margin-right: 5px;"><i class="fa fa-user"></i> Login</button>
-<button type="reset" class="btn btn-sm btn-danger" onclick="loginPage.ForgottenPassword()" id="btn-forgotten-password" style="margin-right: 5px;"><i class="fa fa-question-circle"></i> Forgot Password</button>
-<button type="reset" class="btn btn-sm btn-warning" onclick="loginPage.Register()" id="btn-register" style="margin-right: 5px;"><i class="gi gi-pen"></i> Sign-Up</button>
+<button type="submit" class="btn btn-sm btn-primary" onclick="loginPage.LoginButtonClick()" id="btn-login" style="margin-right: 5px; width: 90px;"><i class="fa fa-user"></i> &nbsp; Login</button>
+<button type="reset" class="btn btn-sm btn-danger" onclick="loginPage.ForgottenPassword()" id="btn-forgotten-password" style="margin-right: 5px;"><i class="fa fa-question-circle"></i> &nbsp; Forgot Password</button>
+<button type="reset" class="btn btn-sm btn-warning" onclick="loginPage.Register()" id="btn-register" style="margin-right: 5px;"><i class="gi gi-pen"></i> &nbsp; Sign-Up</button>
 </div>
 </div>
 <div class="form-group form-actions" id="social-login-buttons" style="margin-top: -20px;">
-<label class="col-md-3 control-label">Social Logins</label>
+<label class="col-md-3 control-label">Social Login</label>
 <div class="col-md-9 col-md-offset-3" style="margin-top: -20px;" id="loginPage-SocialNetworkButtons">
+<button type="submit" class="btn btn-sm btn-success" style="width: 90px;"
+onclick="loginPage.Social.LoginViaSocialNetwork()"
+title="Google, Microsoft, Apple, GitHub, LinkedIn">
+<i class="fa fa-google"></i>
+<i class="fa fa-windows"></i>
+<i class="fa fa-apple"></i>
+<i class="fa fa-github"></i>
+<i class="fa fa-linkedin"></i>
+</button>
 </div>
 </div>
 </div>
@@ -90,4 +99,4 @@ login using your favourite social network.
 </div>
 </div>
 <!-- Load and execute javascript code used only in this page -->
-<script src="js/pages/login.js?ts=202412021843"></script>
+<script src="js/pages/login.js?ts=202412021846"></script>
